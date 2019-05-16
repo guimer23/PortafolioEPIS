@@ -1,4 +1,5 @@
-﻿<div class="row">
+﻿@model List<PortafolioEPIS.Models.Tbl_Seccion>
+<div class="row">
     <div class="col-sm-4 col-3">
         <h4 class="page-title">Sección</h4>
     </div>
@@ -19,48 +20,35 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>A</td>
-                        <td><span class="custom-badge status-green">Activo</span></td>
-                        <td class="text-right">
-                            <div class="dropdown dropdown-action">
-                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="~/Seccion/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_appointment"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                    @{ int conteo = 0;}
+                    @foreach (var s in Model)
+                    {
+                        conteo = conteo + 1;
+                        <tr>
+                            <td>@conteo</td>
+                            <td>@(s.Nombre_Seccion)</td>
+                            @if (s.Estado_Seccion == true)
+                            {
+                                <td><span class="custom-badge status-green">Activo</span></td>
+                            }
+                            else
+                            {
+                                <td><span class="custom-badge status-red">Inactivo</span></td>
+                            }
+
+                            <td class="text-right">
+                                <div class="dropdown dropdown-action">
+                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="~/Seccion/Editar/@s.Codigo_Seccion"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                        
+                                        <a class="dropdown-item" href="~/Seccion/Eliminar/@s.Codigo_Seccion" onclick="return confirm('¿Esta Seguro de Eliminar.........?');" ><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>B</td>
-                        <td><span class="custom-badge status-green">Activo</span></td>
-                        <td class="text-right">
-                            <div class="dropdown dropdown-action">
-                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="~/Seccion/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_appointment"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>C</td>
-                        <td><span class="custom-badge status-red">Inactivo</span></td>
-                        <td class="text-right">
-                            <div class="dropdown dropdown-action">
-                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="~/Seccion/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_appointment"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
+
+                    }
                 </tbody>
             </table>
         </div>

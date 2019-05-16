@@ -1,7 +1,7 @@
 ﻿@model PortafolioEPIS.Models.Tbl_Seccion
 <div class="row">
     <div class="col-sm-12">
-        <h4 class="page-title">Agregar Sección</h4>
+        <h4 class="page-title">Editar Sección</h4>
     </div>
 </div>
 
@@ -25,11 +25,11 @@
                 <div class="row clearfix">
                     <div class="col-md-12">
                         @Html.Label("Estado")
-                        <br />
-
+                        <br />                   
+                        
 
                         @Html.RadioButtonFor(x => x.Estado_Seccion, true) Activo  <label>&nbsp &nbsp</label>
-                        @Html.RadioButtonFor(x => x.Estado_Seccion, false, new { @checked = true }) Inactivo
+                        @Html.RadioButtonFor(x => x.Estado_Seccion, false) Inactivo
 
 
                         <br />
