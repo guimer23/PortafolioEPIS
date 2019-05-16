@@ -1,0 +1,67 @@
+﻿@model PortafolioEPIS.Models.Tbl_Semestre
+@{
+    ViewBag.Title = "Editar";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h4 class="page-title">Editar Semestre</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card-box">
+            <h4 class="card-title">Información Semestre</h4>
+            @using (Html.BeginForm("Guardar", "Semestre", FormMethod.Post, new { id = "frm-semestre" }))
+            {
+                <div class="row clearfix">
+                    <div class="col-md-6">
+                        @Html.Label("Nombre")
+                        <label>Nombre <span class="text-danger">*</span></label>
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.Nombre_Semestre, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Nombre_Semestre, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        @Html.Label("Año")
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.Anio_Semestre, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Anio_Semestre, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-md-12">
+                        @Html.Label("Estado")
+                        <div class="form-group">
+                            Activo
+                            @Html.RadioButtonFor(x => x.Estado_Semestre, "True")
+                            Inactivo
+                            @Html.RadioButtonFor(x => x.Estado_Semestre, "False")
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="form-group row">
+                                <div class="col-sm-8 col-9 text-left">
+                                    <div class="form-check form-check-inline">
+                                        <a href="~/Semestre/Index" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'> Cancelar</a>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="submit" value="Guardar" class="btn btn btn-primary btn-rounded" style='width:100px; height:35px' />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+</div>

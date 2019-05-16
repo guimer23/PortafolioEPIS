@@ -26,26 +26,24 @@ namespace PortafolioEPIS.Controllers.Mantenimiento
         }
 
         // Accion Agregar
-        public ActionResult Agregar(int id = 0)
+        public ActionResult Agregar()
         {
-            return View(id == 0 ? new Tbl_Semestre() //agrega un nuevo objeto
-                           : objSemestre.Obtener(id)
-               );
+            return View(); //agrega un nuevo objeto
         }
-
+        public ActionResult Editar(int id = 0)
+        {
+            return View(id == 0 ? new Tbl_Semestre()//Agregar un nuevo objeto
+                : objSemestre.Obtener(id));
+        }
 
         //Action Guardar
         public ActionResult Guardar(Tbl_Semestre objSemestre)
         {
-            if (ModelState.IsValid)
-            {
+
                 objSemestre.Guardar();
                 return Redirect("~/Semestre");
-            }
-            else
-            {
-                return View("~/Views/Semestre/Agregar");
-            }
+            
+
         }
 
         //Action Eliminar
