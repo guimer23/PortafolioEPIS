@@ -88,11 +88,91 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\dataTables.bootstrap4.min.css" />
+    <Content Include="assets\css\font-awesome.min.css" />
+    <Content Include="assets\css\fullcalendar.min.css" />
+    <Content Include="assets\css\select2.min.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\tagsinput.css" />
+    <Content Include="assets\fonts\fontawesome-webfont3e6e.html" />
+    <Content Include="assets\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="assets\img\attachment.png" />
+    <Content Include="assets\img\blog\blog-01.jpg" />
+    <Content Include="assets\img\blog\blog-02.jpg" />
+    <Content Include="assets\img\blog\blog-03.jpg" />
+    <Content Include="assets\img\blog\blog-04.jpg" />
+    <Content Include="assets\img\blog\blog-thumb-01.jpg" />
+    <Content Include="assets\img\blog\blog-thumb-02.jpg" />
+    <Content Include="assets\img\blog\blog-thumb-03.jpg" />
+    <Content Include="assets\img\blog\blog-thumb-04.jpg" />
+    <Content Include="assets\img\calander.png" />
+    <Content Include="assets\img\clock.png" />
+    <Content Include="assets\img\doctor-03.jpg" />
+    <Content Include="assets\img\doctor-thumb-01.jpg" />
+    <Content Include="assets\img\doctor-thumb-02.jpg" />
+    <Content Include="assets\img\doctor-thumb-03.jpg" />
+    <Content Include="assets\img\doctor-thumb-04.jpg" />
+    <Content Include="assets\img\doctor-thumb-05.jpg" />
+    <Content Include="assets\img\doctor-thumb-06.jpg" />
+    <Content Include="assets\img\doctor-thumb-07.jpg" />
+    <Content Include="assets\img\doctor-thumb-08.jpg" />
+    <Content Include="assets\img\doctor-thumb-09.jpg" />
+    <Content Include="assets\img\doctor-thumb-10.jpg" />
+    <Content Include="assets\img\doctor-thumb-11.jpg" />
+    <Content Include="assets\img\doctor-thumb-12.jpg" />
+    <Content Include="assets\img\favicon.ico" />
+    <Content Include="assets\img\logo-dark.png" />
+    <Content Include="assets\img\logo.png" />
+    <Content Include="assets\img\patient-thumb-01.jpg" />
+    <Content Include="assets\img\patient-thumb-02.jpg" />
+    <Content Include="assets\img\placeholder-thumb.jpg" />
+    <Content Include="assets\img\placeholder.jpg" />
+    <Content Include="assets\img\sent.png" />
+    <Content Include="assets\img\user-02.jpg" />
+    <Content Include="assets\img\user-03.jpg" />
+    <Content Include="assets\img\user-04.jpg" />
+    <Content Include="assets\img\user-05.jpg" />
+    <Content Include="assets\img\user-06.jpg" />
+    <Content Include="assets\img\user.jpg" />
+    <Content Include="assets\img\video-call.jpg" />
+    <Content Include="assets\js\app.js" />
+    <Content Include="assets\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\Chart.bundle.js" />
+    <Content Include="assets\js\chart.js" />
+    <Content Include="assets\js\dataTables.bootstrap4.min.js" />
+    <Content Include="assets\js\fullcalendar.min.js" />
+    <Content Include="assets\js\jquery-3.2.1.min.js" />
+    <Content Include="assets\js\jquery-ui.min.html" />
+    <Content Include="assets\js\jquery.dataTables.min.js" />
+    <Content Include="assets\js\jquery.fullcalendar.js" />
+    <Content Include="assets\js\jquery.slimscroll.js" />
+    <Content Include="assets\js\moment.min.js" />
+    <Content Include="assets\js\popper.min.js" />
+    <Content Include="assets\js\select2.min.js" />
+    <Content Include="assets\js\tagsinput.js" />
+    <Content Include="assets\plugins\light-gallery\css\lightgallery.min.css" />
+    <Content Include="assets\plugins\light-gallery\fonts\lgd641.svg" />
+    <Content Include="assets\plugins\light-gallery\img\loading.gif" />
+    <Content Include="assets\plugins\light-gallery\img\video-play.png" />
+    <Content Include="assets\plugins\light-gallery\img\vimeo-play.png" />
+    <Content Include="assets\plugins\light-gallery\img\youtube-play.png" />
+    <Content Include="assets\plugins\light-gallery\js\lightgallery-all.min.js" />
+    <Content Include="assets\plugins\summernote\dist\summernote-bs4.css" />
+    <Content Include="assets\plugins\summernote\dist\summernote-bs4.min.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DocenteController.cs" />
+    <Compile Include="Controllers\InicioController.cs" />
+    <Compile Include="Controllers\Mantenimiento\CargoController.cs" />
+    <Compile Include="Controllers\Mantenimiento\ProfesionController.cs" />
+    <Compile Include="Controllers\Mantenimiento\SeccionController.cs" />
+    <Compile Include="Controllers\Mantenimiento\SemestreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -100,7 +180,32 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <Content Include="assets\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="assets\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="assets\plugins\light-gallery\fonts\lgd41d.eot" />
+    <Content Include="assets\plugins\light-gallery\fonts\lgd641.eot" />
+    <Content Include="assets\plugins\light-gallery\fonts\lgd641.ttf" />
+    <Content Include="assets\plugins\light-gallery\fonts\lgd641.woff" />
+    <Content Include="assets\plugins\summernote\dist\font\summernote4c4d.eot" />
+    <Content Include="assets\plugins\summernote\dist\font\summernote4c4d.ttf" />
+    <Content Include="assets\plugins\summernote\dist\font\summernote4c4d.woff" />
+    <Content Include="assets\plugins\summernote\dist\font\summernoted41d.eot" />
     <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Inicio\Index.cshtml" />
+    <Content Include="Views\Semestre\Index.cshtml" />
+    <Content Include="Views\Seccion\Index.cshtml" />
+    <Content Include="Views\Cargo\Index.cshtml" />
+    <Content Include="Views\Profesion\Index.cshtml" />
+    <Content Include="Views\Semestre\Agregar.cshtml" />
+    <Content Include="Views\Seccion\Agregar.cshtml" />
+    <Content Include="Views\Cargo\Agregar.cshtml" />
+    <Content Include="Views\Profesion\Agregar.cshtml" />
+    <Content Include="Views\Docente\Index.cshtml" />
+    <Content Include="Views\Docente\Agregar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -110,7 +215,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
