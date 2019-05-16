@@ -13,6 +13,7 @@ namespace PortafolioEPIS.Controllers.Mantenimiento
         //instanciar la clase
         private Tbl_Profesion objTbl_Profesion = new Tbl_Profesion();
         // GET: Tbl_Profesion
+
         public ActionResult Index()
         {
 
@@ -33,7 +34,6 @@ namespace PortafolioEPIS.Controllers.Mantenimiento
             return View(
                 id == 0 ? new Tbl_Profesion() // Agregar un nuevo objeto
                 : objTbl_Profesion.Obtener(id)
-
                 );
         }
 
@@ -45,6 +45,7 @@ namespace PortafolioEPIS.Controllers.Mantenimiento
                 objTbl_Profesion.Guardar();
                 return Redirect("~/Profesion");
             }
+
             else
             {
                 return View("~/Views/Profesion/Agregar.cshtml");
