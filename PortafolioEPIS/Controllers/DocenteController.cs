@@ -13,8 +13,18 @@ namespace PortafolioEPIS.Controllers
         {
             return View();
         }
+        // Accion Listar Mosaico
+        public ActionResult Index2()
+        {
+            return View();
+        }
         // Accion Agregar
         public ActionResult Agregar()
+        {
+            return View();
+        }
+        // Accion Ver
+        public ActionResult Ver()
         {
             return View();
         }
