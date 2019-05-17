@@ -24,11 +24,11 @@ namespace PortafolioEPIS.Controllers
         }
 
         // Accion Agregar
-        //public ActionResult Agregar(string id)
-        //{
-        //    return View(id == 0 ? new Tbl_Docente()//Agregar un nuevo objeto
-        //       : objDocente.Obtener(id));
-        //}
+        public ActionResult Agregar(string id)
+        {
+            return View(id == 0 ? new Tbl_Docente()//Agregar un nuevo objeto
+               : objDocente.Obtener(id));
+        }
 
         // Accion Ver 
         public ActionResult Ver()

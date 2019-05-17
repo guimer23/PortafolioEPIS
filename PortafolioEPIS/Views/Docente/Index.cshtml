@@ -1,5 +1,5 @@
 ﻿@model List<PortafolioEPIS.Models.Tbl_Docente>
-
+@using PortafolioEPIS.Models
 @{
     ViewBag.Title = "Index";
 }
@@ -62,7 +62,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @{ int conteo = 0;}
+                    @{ int conteo = 1;}
                     @foreach (var s in Model)
                     {
                         <tr>
@@ -71,7 +71,25 @@
                             <td>
                                 <a class="avatar" href="~/Docente/Ver"><img alt="" src="~/assets/img/doctor-thumb-04.jpg"></a>
 
-                                <h2><a href="~/Docente/Ver">@(s.Nombres_Docente) @(s.Apellidos_Docente) <span>@(s.Codigo_CargoDocente)</span></a></h2>
+                                <h2 class="doctor-name text-ellipsis"><a href="~/Docente/Ver"> @(s.Nombres_Docente + " " + s.Apellidos_Docente)</a></h2>
+                                @{
+                                    var objTbl_Profesion = new Tbl_Profesion();
+                                    try
+                                    {
+                                        using (var db = new Modelo_Portafolio())
+                                        {
+                                            objTbl_Profesion = db.Tbl_Profesion
+                                                .Where(x => x.Codigo_Profesion == s.Codigo_Profesion)
+                                                .SingleOrDefault();
+                                            <div class="doc-prof"><center>@(objTbl_Profesion.Nombre_Profesion)</center></div>
+                                        }
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        throw;
+                                    }
+
+                                }
                             </td>
                             <td>@(s.FechaNac_Docente)</td>
                             <td>@(s.Correo_Docente)</td>
