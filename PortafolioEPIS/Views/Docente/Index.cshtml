@@ -62,50 +62,42 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>234062</td>
-                        <td>
-                            <a class="avatar" href="~/Docente/Ver"><img alt="" src="~/assets/img/doctor-thumb-04.jpg"></a>
+                    @{ int conteo = 0;}
+                    @foreach (var s in Model)
+                    {
+                        <tr>
+                            <td>@conteo</td>
+                            <td>@(s.Codigo_Docente)</td>
+                            <td>
+                                <a class="avatar" href="~/Docente/Ver"><img alt="" src="~/assets/img/doctor-thumb-04.jpg"></a>
 
-                            <h2><a href="~/Docente/Ver">Enrique Lanchipa Valencia <span>Ingeniero de Sistemas</span></a></h2>
-                        </td>
-                        <td>26/02/1968</td>
-                        <td>elanchipa@upt.pe</td>
-                        <td>96568686</td>
-                        <td><span class="custom-badge status-red">Inactivo</span></td>
-                        <td class="text-right">
-                            <div class="dropdown dropdown-action">
-                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="~/Docente/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                    <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>234000</td>
-                        <td>
-                            <a class="avatar" href="~/Docente/Ver"><img alt="" src="~/assets/img/doctor-thumb-03.jpg"></a>
+                                <h2><a href="~/Docente/Ver">@(s.Nombres_Docente) @(s.Apellidos_Docente) <span>@(s.Codigo_CargoDocente)</span></a></h2>
+                            </td>
+                            <td>@(s.FechaNac_Docente)</td>
+                            <td>@(s.Correo_Docente)</td>
+                            <td>@(s.TelefonoCelular_Docente)</td>
 
-                            <h2><a href="~/Docente/Ver">Liliana Vega Bernal <span>Ingeniero de Sistemas</span></a></h2>
-                        </td>
-                        <td>11/02/1968</td>
-                        <td>elanchipa@upt.pe</td>
-                        <td>96560006</td>
-                        <td><span class="custom-badge status-green">Activo</span></td>
-                        <td class="text-right">
-                            <div class="dropdown dropdown-action">
-                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="~/Docente/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                    <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                            @if (s.Estado_Docente == true)
+                            {
+                                <td><span class="custom-badge status-green">Activo</span></td>
+                            }
+                            else
+                            {
+                                <td><span class="custom-badge status-red">Inactivo</span></td>
+                            }
+                            <td class="text-right">
+                                <div class="dropdown dropdown-action">
+                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="~/Docente/Agregar/@s.Codigo_Docente"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                        <a class="dropdown-item" href="~/Docente/Eliminar/@s.Codigo_Docente" onclick="return confirm('¿Esta seguro que desea de Eliminar?');"><i class="fa fa-trash-o m-r-5"></i>  Eliminar</a>
+
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
+
+                    }
                 </tbody>
             </table>
         </div>
