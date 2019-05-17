@@ -8,7 +8,16 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="~/assets/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="~/assets/css/style.css">    
+    <link rel="stylesheet" type="text/css" href="~/assets/css/style.css">
+
+
+    @* Estilo de Tabla *@
+    <link rel="stylesheet" type="text/css" href="~/assets/css/dataTables.bootstrap4.min.css">
+
+    @* Estilos de combobox y campo de fecha nacimiento *@
+    <link rel="stylesheet" type="text/css" href="~/assets/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap-datetimepicker.min.css">
+
 </head>
 <body>
     <div class="main-wrapper">
@@ -20,7 +29,7 @@
             </div>
             <a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
             <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
-            <ul class="nav user-menu float-right">                
+            <ul class="nav user-menu float-right">
                 <li class="nav-item dropdown has-arrow">
                     <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
                         <span class="user-img">
@@ -62,7 +71,7 @@
                             <a href="#"><i class="fa fa-cube"></i> <span>Carga Académica</span> <span class="badge badge-pill bg-primary float-right">8</span></a>
                         </li>
                         <li>
-                            <a href="~/Docente/Index"><i class="fa fa-user"></i> <span>Docentes</span> <span class="badge badge-pill bg-primary float-right">28</span></a>
+                            <a href="~/Docente/Index2"><i class="fa fa-user"></i> <span>Docentes</span> <span class="badge badge-pill bg-primary float-right">28</span></a>
                         </li>
                         <li class="submenu">
                             <a href="#"><i class="fa fa-cog"></i> <span> Mantenimiento </span> <span class="menu-arrow"></span></a>
@@ -75,7 +84,7 @@
                             </ul>
                         </li>
                         <li class="menu-title">Informes</li>
-                       
+
                     </ul>
                 </div>
             </div>
@@ -83,7 +92,7 @@
         <div class="page-wrapper">
             <div class="content">
                 @RenderBody()
-            </div>  
+            </div>
         </div>
     </div>
     <div class="sidebar-overlay" data-reff=""></div>
@@ -94,5 +103,22 @@
     <script src="~/assets/js/Chart.bundle.js"></script>
     <script src="~/assets/js/chart.js"></script>
     <script src="~/assets/js/app.js"></script>
+
+    @* JS para Tabla *@
+    <script src="~/assets/js/jquery.dataTables.min.js"></script>
+    <script src="~/assets/js/dataTables.bootstrap4.min.js"></script>
+
+
+
+
+
+    @* JS para combobox y campo de fecha nacimiento *@
+    <script src="~/assets/js/select2.min.js"></script>
+    <script src="~/assets/js/moment.min.js"></script>
+    <script src="~/assets/js/bootstrap-datetimepicker.min.js"></script>
+
+
+
+
 </body>
 </html>

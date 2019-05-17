@@ -3,55 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using PortafolioEPIS.Models;
+
 namespace PortafolioEPIS.Controllers
 {
     public class DocenteController : Controller
     {
-        //Instanciar la clase Semestre
-        private Tbl_Docente objDocente = new Tbl_Docente();
-
-        // Acction Listar
+        // Accion Listar
         public ActionResult Index()
         {
-            return View(objDocente.Listar());
+            return View();
         }
-
-        //Acction Visualizar
-        public ActionResult Visualizar(int id)
+        // Accion Listar Mosaico
+        public ActionResult Index2()
         {
-            return View(objDocente.Obtener(id));
+            return View();
         }
-
         // Accion Agregar
-        public ActionResult Agregar(int id = 0)
+        public ActionResult Agregar()
         {
-            return View(id == 0 ? new Tbl_Docente() //Agregar un nuevo objeto
-               : objDocente.Obtener(id));
+            return View();
         }
-
-        //Action Guardar
-        public ActionResult Guardar(Tbl_Docente objDocente)
+        // Accion Ver
+        public ActionResult Ver()
         {
-            if (ModelState.IsValid)
-            {
-                objDocente.Guardar();
-                return Redirect("~/Docente");
-            }
-            else
-            {
-                return View("~/Views/Docente/Agregar");
-            }
-
-        }
-
-        //Action Eliminar
-
-        public ActionResult Eliminar(int id)
-        {
-            objDocente.Codigo_Docente = id;
-            objDocente.Eliminar();
-            return Redirect("~/Docente");
+            return View();
         }
     }
 }
