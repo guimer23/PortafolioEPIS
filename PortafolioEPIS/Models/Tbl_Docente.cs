@@ -5,6 +5,8 @@ namespace PortafolioEPIS.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Linq;
+    using System.Data.Entity;
 
     public partial class Tbl_Docente
     {
@@ -15,7 +17,7 @@ namespace PortafolioEPIS.Models
         }
 
         [Key]
-        public int Codigo_Docente { get; set; }
+        public String Codigo_Docente { get; set; }
 
         public int Codigo_CargoDocente { get; set; }
 
@@ -76,5 +78,23 @@ namespace PortafolioEPIS.Models
         public virtual ICollection<Tbl_DetalleCargaAcademica> Tbl_DetalleCargaAcademica { get; set; }
 
         public virtual Tbl_Profesion Tbl_Profesion { get; set; }
+
+        public List<Tbl_Docente> Listar2()//retorna una coleccion
+        {
+            var objDocente = new List<Tbl_Docente>();
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    objDocente = db.Tbl_Docente.ToList();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objDocente;
+        }
     }
 }

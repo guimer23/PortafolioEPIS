@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+
+}
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -71,7 +74,8 @@
                             <a href="#"><i class="fa fa-cube"></i> <span>Carga Académica</span> <span class="badge badge-pill bg-primary float-right">8</span></a>
                         </li>
                         <li>
-                            <a href="~/Docente/Index2"><i class="fa fa-user"></i> <span>Docentes</span> <span class="badge badge-pill bg-primary float-right">28</span></a>
+                            @{ int a = 0;}
+                            <a href="~/Docente/Index2"><i class="fa fa-user"></i> <span>Docentes</span> <span class="badge badge-pill bg-primary float-right">@a</span></a>
                         </li>
                         <li class="submenu">
                             <a href="#"><i class="fa fa-cog"></i> <span> Mantenimiento </span> <span class="menu-arrow"></span></a>
