@@ -1,4 +1,6 @@
 ﻿@model PortafolioEPIS.Models.Tbl_Docente
+@using PortafolioEPIS.Models
+@using System.Linq
 <div class="row">
     <div class="col-sm-12">
         <h4 class="page-title">Agregar Docente</h4>
@@ -16,8 +18,8 @@
                     <div class="col-md-6">
                         @Html.Label("Código")
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.Codigo_Docente,new { @class = "form-control", @placeholder="Ingrese codigo" })
-                           
+                            @Html.TextBoxFor(x => x.Codigo_Docente, new { @class = "form-control", @placeholder = "Ingrese codigo" })
+
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -44,16 +46,10 @@
                 <div class="row clearfix">
                     <div class="col-md-4">
                         @Html.Label("Sexo")
-                        <div class="form-group">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="status" id="patient_active" value="option1" checked>
-                                <label class="form-check-label" for="patient_active">Masculino</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="status" id="patient_inactive" value="option2">
-                                <label class="form-check-label" for="patient_inactive">Femenino</label>
-                            </div>
-                        </div>
+                        <br />
+                        
+                        @Html.RadioButtonFor(x => x.Sexo_Docente, true) Masculino  <label>&nbsp &nbsp</label>
+                        @Html.RadioButtonFor(x => x.Sexo_Docente, false, new { @checked = true }) Femenino
                     </div>
                     <div class="col-md-4">
                         @Html.Label("Estado Civil")
@@ -70,20 +66,47 @@
                         @Html.Label("Fecha de Nacimiento")
                         <div class="form-group">
                             <div class="cal-icon">
-                                <input type="text" class="form-control datetimepicker">
+                                @Html.TextBoxFor(x => x.Apellidos_Docente, new { @class = "form-control datetimepicker", @placeholder = "Ingrese Fecha" })
+
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row clearfix">
                     <div class="col-md-6">
-                        @Html.Label("Profesión")
+                        @Html.Label("Profesion")
                         <div class="form-group">
-                            <select class="form-control">
-                                <option>-Seleccionar-</option>
-                                <option>Ingeniero de Sistemas</option>
-                                <option>Licenciado en Literatura y Comunicación</option>
-                                <option>Magister en Derecho Penal</option>
+                    
+                            <select name="estado" class="form-control">
+
+
+                                @{
+                                    var objTbl_Profesion = new Tbl_Profesion();
+                                    try
+                                    {
+                                        using (var db = new Modelo_Portafolio())
+                                        {
+                                            //objTbl_Profesion = db.Tbl_Profesion
+                                            //.Where(x => x.Estado_Profesion == true).Single();
+                                            for (int i = 1; i <= db.Tbl_Profesion.Count(); i++)
+                                            {
+                                                <option>@{db.Tbl_Profesion.Where(x => x.Estado_Profesion == true).ToList();}</option>
+                                                      
+                                                <option>s @{db.Tbl_Profesion.Where(x => x.Estado_Profesion == true);}</option>
+                                            }
+
+
+                                        }
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        throw;
+                                    }
+
+                                }
+
+
+
                             </select>
                         </div>
                     </div>

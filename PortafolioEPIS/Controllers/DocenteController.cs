@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PortafolioEPIS.Models;
+using System.Linq;
+using System.Data.Entity;
 
 namespace PortafolioEPIS.Controllers
 {
@@ -26,8 +28,12 @@ namespace PortafolioEPIS.Controllers
 
 
         //Accion Agregar
+        Tbl_Profesion db = new Tbl_Profesion();
+        [HttpGet]
         public ActionResult Agregar(string id)
         {
+            ViewBag.Lista = db.Estado_Profesion.ToString();
+
             return View();
         }
 
