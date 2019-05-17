@@ -225,6 +225,8 @@
     <Content Include="Views\Docente\Index.cshtml" />
     <Content Include="Views\Docente\Agregar.cshtml" />
     <Content Include="Views\Seccion\Editar.cshtml" />
+    <None Include="Properties\PublishProfiles\portafolioepis - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\portafolioepis - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
