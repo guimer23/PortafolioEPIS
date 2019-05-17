@@ -17,7 +17,9 @@ namespace PortafolioEPIS.Models
         }
 
         [Key]
-        public int Codigo_Docente { get; set; }
+        public int id { get; set; }
+
+        public string Codigo_Docente { get; set; }
 
         public int Codigo_CargoDocente { get; set; }
 
@@ -106,7 +108,7 @@ namespace PortafolioEPIS.Models
                 using (var db = new Modelo_Portafolio())
                 {
                     objDocente = db.Tbl_Docente
-                                    .Where(x => x.Codigo_Docente == id)
+                                    .Where(x => x.id == id)
                                     .SingleOrDefault();
                 }
             }
@@ -125,7 +127,7 @@ namespace PortafolioEPIS.Models
             {
                 using (var db = new Modelo_Portafolio())
                 {
-                    if (this.Codigo_Docente > 0)//sis existe un valor mayor a cero es porque existe registro
+                    if (this.id> 0)//sis existe un valor mayor a cero es porque existe registro
                     {
                         db.Entry(this).State = System.Data.Entity.EntityState.Modified;
                     }
@@ -143,6 +145,33 @@ namespace PortafolioEPIS.Models
             }
         }
 
+        //Metodo Buscar
+        public List<Tbl_Docente> Buscar(string estado) //retornar un collection
+        {
+            var usuarios = new List<Tbl_Docente>();
+
+            string Estado_Docente = "";
+            if (estado.Equals("Activo")) Estado_Docente = "A";
+            if (estado == "Inactivo") Estado_Docente = "I";
+
+            try
+            {
+                //conexion con la fuente de datos
+                using (var db = new Modelo_Portafolio())
+                {
+                    usuarios = db.Tbl_Docente
+                               .Where(x => x.Codigo_Docente.Contains(estado) ||
+                                           x.Nombres_Docente.Contains(estado) ||
+                                           x.Estado_Docente)
+                               .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return usuarios;
+        }
         //Metodo Eliminar 
         public void Eliminar()
         {
