@@ -28,8 +28,7 @@ namespace PortafolioEPIS.Controllers
         //Accion Agregar
         public ActionResult Agregar(string id)
         {
-            return View(id == "" ? new Tbl_Docente()//Agregar un nuevo objeto
-               : objDocente.Obtener(id));
+            return View();
         }
 
         // Accion Ver 

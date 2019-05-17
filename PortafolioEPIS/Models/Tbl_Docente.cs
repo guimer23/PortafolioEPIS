@@ -35,9 +35,8 @@ namespace PortafolioEPIS.Models
         [StringLength(100)]
         public string Apellidos_Docente { get; set; }
 
-        [Required]
-        [StringLength(1)]
-        public string Sexo_Docente { get; set; }
+        
+        public bool Sexo_Docente { get; set; }
 
         [Required]
         [StringLength(30)]
