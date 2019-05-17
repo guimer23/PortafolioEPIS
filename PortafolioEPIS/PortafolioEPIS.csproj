@@ -133,6 +133,7 @@
     <Content Include="assets\img\favicon.ico" />
     <Content Include="assets\img\logo-dark.png" />
     <Content Include="assets\img\logo.png" />
+    <Content Include="assets\img\logo_portafolioEPIS.png" />
     <Content Include="assets\img\patient-thumb-01.jpg" />
     <Content Include="assets\img\patient-thumb-02.jpg" />
     <Content Include="assets\img\placeholder-thumb.jpg" />
