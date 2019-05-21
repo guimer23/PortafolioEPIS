@@ -1,11 +1,18 @@
-﻿<div class="row">
+@model PortafolioEPIS.Models.Tbl_Docente
+@{
+    ViewBag.Title = "Ver";
+}
+
+<div class="row">
     <div class="col-sm-7 col-6">
         <h4 class="page-title">Perfil Docente</h4>
     </div>
     <div class="col-sm-5 col-6 text-right m-b-30">
         <a href="~/Docente/Agregar" class="btn btn-primary btn-rounded"><i class="fa fa-edit"></i> Editar Perfil</a>
     </div>
+
 </div>
+
 <div class="card-box profile-header">
     <div class="row">
         <div class="col-md-12">
@@ -19,13 +26,13 @@
                     <div class="row">
                         <div class="col-md-5">
                             <div class="profile-info-left">
-                                <h3 class="user-name m-t-0 mb-0">Liliana Vega Bernal</h3>
-                                <small class="text-muted">Ingeniero de Sistemas - (Cargo)</small>
-                                <div class="staff-id">Código : 234000</div>
-                                <div class="staff-id">DNI : 77207211</div>
-                                <div class="staff-id">Correo : <a href="#">livegab@upt.pe</a></div>
-                                <div class="staff-id">Celular : <a href="#">952686967</a></div>
-                                <div class="staff-id">Tel. Fijo : <a href="#">052-626262</a></div>
+                                <h3 class="user-name m-t-0 mb-0">@Model.Nombres_Docente @Model.Apellidos_Docente</h3>
+                                <small class="text-muted">@Model.Tbl_Profesion.Nombre_Profesion
+                                </small>
+                                <div class="staff-id">@Model.DNI_Docente</div>
+                                <div class="staff-id">Correo : <a href="#">@Model.Correo_Docente</a></div>
+                                <div class="staff-id">Celular : <a href="#">@Model.TelefonoCelular_Docente</a></div>
+                                <div class="staff-id">Tel. Fijo : <a href="#">@Model.TelefonoFijo_Docente</a></div>
                                 <div class="staff-msg"><a href="#" class="btn btn-primary">Escribir Mensaje</a></div>
                             </div>
                         </div>
@@ -33,27 +40,42 @@
                             <ul class="personal-info">
                                 <li>
                                     <span class="title">Sexo:</span>
-                                    <span class="text">Femenino</span>
+                                    @if (Model.Estado_Docente == true)
+                                    {
+                                        <span class="text">Masculino</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text">Femenino</span>
+                                    }
+                                    
                                 </li>
                                 <li>
                                     <span class="title">Estado Civil:</span>
-                                    <span class="text">Casada</span>
+                                    <span class="text">@Model.EstadoCivil_Docente</span>
                                 </li>
                                 <li>
                                     <span class="title">Fecha Nacimiento:</span>
-                                    <span class="text">26/02/1968</span>
+                                    <span class="text">@Model.FechaNac_Docente</span>
                                 </li>
                                 <li>
                                     <span class="title">Dirección Actual:</span>
-                                    <span class="text">Av. Basadre Forero Tacna Nº 1022</span>
+                                    <span class="text">@Model.DireccionActual_Docente</span>
                                 </li>
                                 <li>
                                     <span class="title">Dirección Ref.:</span>
-                                    <span class="text">Urba Tacna - Pocollay</span>
+                                    <span class="text">@Model.DireccionReferencia_Docente</span>
                                 </li>
                                 <li>
                                     <span class="title">Estado:</span>
-                                    <span class="text">Activo</span>
+                                    @if (Model.Estado_Docente == true)
+                                    {
+                                        <span class="text">Activo</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text">Inactivo</span>
+                                    }
                                 </li>
 
                             </ul>
@@ -140,4 +162,5 @@
         </div>
     </div>
 </div>
+
 
