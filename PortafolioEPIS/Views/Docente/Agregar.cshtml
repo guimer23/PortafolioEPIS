@@ -17,7 +17,7 @@
     <div class="col-md-12">
         <div class="card-box">
             <h4 class="card-title">Información Docente</h4>
-            @using (Html.BeginForm("Guardar", "Docente", FormMethod.Post))
+            @using (Html.BeginForm("Guardar", "Docente", FormMethod.Post, new { id = "frm-docente", enctype = "multipart/form-data" }))
             {
                 
                 <div class="row clearfix">
@@ -143,23 +143,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="row clearfix">
-                    <div class="col-md-12">
-                        @Html.Label("Foto")
-                        <div class="form-group">
-                            <div class="profile-upload">
-                                <div class="upload-img">
-                                    <img alt="" src="~/assets/img/user.jpg">
-                                </div>
-                                <div class="upload-input">
-                                    @Html.TextBoxFor(x => x.Foto_Docente, new { @class = "form-control", @type = "file", @placeholder = "Ingrese teléfono celular" })
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                <div class="form-group">
+                    @Html.Label("Foto")
+                    @Html.TextBoxFor(x => x.Foto_Docente, new { @class = "form-control", type = "file", required = true })
                 </div>
-
 
                 <div class="row clearfix">
                     <div class="col-md-12">

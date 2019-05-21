@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using PortafolioEPIS.Models;
 using System.Data.Entity;
+using System.IO;
 
 namespace PortafolioEPIS.Controllers
 {
@@ -44,11 +45,30 @@ namespace PortafolioEPIS.Controllers
             return View(objDocente.Obtener(id));
         }
 
-       // Action Guardar
-        public ActionResult Guardar(Tbl_Docente objDocente)
+        // Action Guardar
+        [HttpPost]
+        public ActionResult Guardar(Tbl_Docente objDocente, HttpPostedFileBase foto)
         {
-            
-                objDocente.Guardar();
+
+            if (foto != null)
+            {
+                //string archivo = (foto.FileName).ToLower();
+
+                //foto.SaveAs(Server.MapPath("~/Imagen/" + foto.FileName));
+
+                //objDocente.Foto_Docente = foto.FileName;
+                string fileName = Path.GetFileName(foto.FileName);
+
+                byte[] bytes = new byte[foto.ContentLength];
+                foto.InputStream.Read(bytes, 0, bytes.Length);
+                string fileLocationString = "~/Imagen";
+                string fileLocation = Path.Combine(Server.MapPath(fileLocationString), fileName);
+                if (!Directory.Exists(Server.MapPath(fileLocationString))) Directory.CreateDirectory(Server.MapPath(fileLocationString));
+                foto.SaveAs(fileLocation);
+                objDocente.Foto_Docente = fileName;
+            }
+
+            objDocente.Guardar();
                 return Redirect("~/Docente");
             
            
