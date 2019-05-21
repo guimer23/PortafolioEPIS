@@ -37,11 +37,11 @@ namespace PortafolioEPIS.Controllers
             return View(id == "" ? new Tbl_Docente() // Agregar un nuevo objeto
                 : objDocente.Obtener(id));
         }
-
-        // Accion Ver 
-        public ActionResult Ver()
+        
+        // Action Ver
+        public ActionResult Ver(string id ="")
         {
-            return View();
+            return View(objDocente.Obtener(id));
         }
 
        // Action Guardar
