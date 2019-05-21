@@ -79,10 +79,7 @@ namespace PortafolioEPIS.Models
                 .Property(e => e.Apellidos_Docente)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Tbl_Docente>()
-                .Property(e => e.Sexo_Docente)
-                .IsFixedLength()
-                .IsUnicode(false);
+           
 
             modelBuilder.Entity<Tbl_Docente>()
                 .Property(e => e.EstadoCivil_Docente)
