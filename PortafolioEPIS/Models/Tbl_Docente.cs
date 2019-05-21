@@ -14,6 +14,7 @@ namespace PortafolioEPIS.Models
         public Tbl_Docente()
         {
             Tbl_DetalleCargaAcademica = new HashSet<Tbl_DetalleCargaAcademica>();
+            
         }
 
         [Key]
@@ -55,6 +56,7 @@ namespace PortafolioEPIS.Models
 
         [Required]
         [StringLength(100)]
+        
         public string Correo_Docente { get; set; }
 
         [Required]
@@ -85,7 +87,7 @@ namespace PortafolioEPIS.Models
             {
                 using (var db = new Modelo_Portafolio())
                 {
-                    objDocente = db.Tbl_Docente.ToList();
+                    objDocente = db.Tbl_Docente.Include("Tbl_Profesion").ToList();
 
                 }
             }
@@ -104,7 +106,7 @@ namespace PortafolioEPIS.Models
             {
                 using (var db = new Modelo_Portafolio())
                 {
-                    objDocente = db.Tbl_Docente.ToList();
+                    objDocente = db.Tbl_Docente.Include("Tbl_Profesion").ToList();
                 }
             }
             catch (Exception ex)
@@ -122,7 +124,7 @@ namespace PortafolioEPIS.Models
             {
                 using (var db = new Modelo_Portafolio())
                 {
-                    objDocente = db.Tbl_Docente
+                    objDocente = db.Tbl_Docente.Include("Tbl_Profesion")
                                     .Where(x => x.Codigo_Docente == id)
                                     .SingleOrDefault();
                 }
@@ -136,29 +138,24 @@ namespace PortafolioEPIS.Models
 
         //Metodo Guardar
 
-        //public void Guardar()
-        //{
-        //    try
-        //    {
-        //        using (var db = new Modelo_Portafolio())
-        //        {
-        //            if (this.Codigo_Docente > 0)//sis existe un valor mayor a cero es porque existe registro
-        //            {
-        //                db.Entry(this).State = System.Data.Entity.EntityState.Modified;
-        //            }
-        //            else
-        //            {
-        //                //SINO EXISTE EL REGISTRO LO GRABA(nuevo)
-        //                db.Entry(this).State = System.Data.Entity.EntityState.Added;
-        //            }
-        //            db.SaveChanges();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw;
-        //    }
-        //}
+        public void Guardar()
+        {
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                  
+                        //SINO EXISTE EL REGISTRO LO GRABA(nuevo)
+                    db.Entry(this).State = System.Data.Entity.EntityState.Added;
+                   
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
 
         //metodo Eliminar 
         public void Eliminar()

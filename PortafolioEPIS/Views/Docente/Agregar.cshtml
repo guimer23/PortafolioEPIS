@@ -1,6 +1,12 @@
 ﻿@model PortafolioEPIS.Models.Tbl_Docente
-@using PortafolioEPIS.Models
-@using System.Linq
+
+
+@{
+    List<PortafolioEPIS.Models.Tbl_CargoDocente> cargodocente = ViewBag.Tbl_CargoDocente;
+    List<PortafolioEPIS.Models.Tbl_Profesion> profesion = ViewBag.Tbl_Profesion;
+
+
+}
 <div class="row">
     <div class="col-sm-12">
         <h4 class="page-title">Agregar Docente</h4>
@@ -11,9 +17,9 @@
     <div class="col-md-12">
         <div class="card-box">
             <h4 class="card-title">Información Docente</h4>
-            @using (Html.BeginForm("Index", "Docente", FormMethod.Post))
+            @using (Html.BeginForm("Guardar", "Docente", FormMethod.Post))
             {
-                @Html.HiddenFor(x => x.Codigo_Docente)
+                
                 <div class="row clearfix">
                     <div class="col-md-6">
                         @Html.Label("Código")
@@ -47,18 +53,18 @@
                     <div class="col-md-4">
                         @Html.Label("Sexo")
                         <br />
-                        
-                        @Html.RadioButtonFor(x => x.Sexo_Docente, true) Masculino  <label>&nbsp &nbsp</label>
-                        @Html.RadioButtonFor(x => x.Sexo_Docente, false, new { @checked = true }) Femenino
+
+                        @Html.RadioButtonFor(x => x.Sexo_Docente, true, new { @checked = true }) Masculino  <label>&nbsp &nbsp</label>
+                        @Html.RadioButtonFor(x => x.Sexo_Docente, false) Femenino
                     </div>
                     <div class="col-md-4">
                         @Html.Label("Estado Civil")
                         <div class="form-group">
-                            <select class="form-control">
-                                <option>-Seleccionar-</option>
-                                <option>Soltero</option>
-                                <option>Casado</option>
-                                <option>Divorciado</option>
+                            <select  name="EstadoCivil_Docente" class="form-control">
+                                <option @(Model.EstadoCivil_Docente==""?"Selected":"") value="">-Seleccionar-</option>
+                                <option @(Model.EstadoCivil_Docente=="Soltero"?"Selected":"") value="Soltero">Soltero</option>
+                                <option @(Model.EstadoCivil_Docente=="Casado"?"Selected":"") value="Casado">Casado</option>
+                                <option @(Model.EstadoCivil_Docente=="Divorciado"?"Selected":"") value="Divorciado">Divorciado</option>
                             </select>
                         </div>
                     </div>
@@ -75,65 +81,44 @@
                 <div class="row clearfix">
                     <div class="col-md-6">
                         @Html.Label("Profesion")
-                        <div class="form-group">
+                       
+                        <select name="Codigo_Profesion" class="form-control">
+                            <option value=""> -- Seleccione --</option>
+                            @foreach (var d in profesion)
+                            {
+                                <option @(Model.Codigo_Profesion.Equals(d.Codigo_Profesion)) value="@d.Codigo_Profesion">@d.Nombre_Profesion</option>
+                            }
+                        </select>
+                    </div>
                     
-                            <select name="estado" class="form-control">
-
-
-                                @{
-                                    var objTbl_Profesion = new Tbl_Profesion();
-                                    try
-                                    {
-                                        using (var db = new Modelo_Portafolio())
-                                        {
-                                            //objTbl_Profesion = db.Tbl_Profesion
-                                            //.Where(x => x.Estado_Profesion == true).Single();
-                                            for (int i = 1; i <= db.Tbl_Profesion.Count(); i++)
-                                            {
-                                                <option>@{db.Tbl_Profesion.Where(x => x.Estado_Profesion == true).ToList();}</option>
-                                                      
-                                                <option>s @{db.Tbl_Profesion.Where(x => x.Estado_Profesion == true);}</option>
-                                            }
-
-
-                                        }
-                                    }
-                                    catch (Exception ex)
-                                    {
-                                        throw;
-                                    }
-
-                                }
-
-
-
-                            </select>
-                        </div>
-                    </div>
                     <div class="col-md-6">
-                        @Html.Label("Cargo")
+                       
                         <div class="form-group">
-                            <select class="form-control">
-                                <option>-Seleccionar-</option>
-                                <option>Director de Escuela</option>
-                                <option>Secretario Académico</option>
-                                <option>Tutoria</option>
+                            @Html.Label("Cargo")
+
+
+                            <select name="Codigo_CargoDocente" class="form-control">
+                                <option value=""> -- Seleccione --</option>
+                                @foreach (var e in cargodocente)
+                                {
+                                    <option @(Model.Codigo_CargoDocente.Equals(e.Codigo_CargoDocente)) value="@e.Codigo_CargoDocente">@e.Nombre_CargoDocente</option>
+                                }
                             </select>
                         </div>
                     </div>
-                </div>
+               </div>
                 <div class="row clearfix">
                     <div class="col-md-6">
                         @Html.Label("Dirección Actual")
                         <div class="form-group">
-                            @*@Html.TextBoxFor(x => x.Nombre_Semestre, new { @class = "form-control", @placeholder="Ingrese Nombre" })*@
-                            <input type="text" class="form-control">
+                            @Html.TextBoxFor(x => x.DireccionActual_Docente, new { @class = "form-control", @placeholder = "Ingrese Direccion" })
+                            
                         </div>
                     </div>
                     <div class="col-md-6">
                         @Html.Label("Dirección de Referencia")
                         <div class="form-group">
-                            <input type="text" class="form-control">
+                            @Html.TextBoxFor(x => x.DireccionReferencia_Docente, new { @class = "form-control", @placeholder = "Ingrese de referencia" })
                         </div>
                     </div>
                 </div>
@@ -141,19 +126,20 @@
                     <div class="col-md-4">
                         @Html.Label("Correo")
                         <div class="form-group">
-                            <input type="text" class="form-control">
+                            @Html.TextBoxFor(x => x.Correo_Docente, new { @class = "form-control", @placeholder = "Ingrese correo" })
                         </div>
                     </div>
                     <div class="col-md-4">
                         @Html.Label("Teléfono Fijo")
                         <div class="form-group">
-                            <input type="text" class="form-control">
+                            @Html.TextBoxFor(x => x.TelefonoFijo_Docente, new { @class = "form-control", @placeholder = "Ingrese teléfono fijo" })
                         </div>
                     </div>
                     <div class="col-md-4">
                         @Html.Label("Teléfono Celular")
                         <div class="form-group">
-                            <input type="text" class="form-control">
+                            @Html.TextBoxFor(x => x.TelefonoCelular_Docente, new { @class = "form-control", @placeholder = "Ingrese teléfono celular" })
+
                         </div>
                     </div>
                 </div>
@@ -166,7 +152,7 @@
                                     <img alt="" src="~/assets/img/user.jpg">
                                 </div>
                                 <div class="upload-input">
-                                    <input type="file" class="form-control">
+                                    @Html.TextBoxFor(x => x.Foto_Docente, new { @class = "form-control", @type = "file", @placeholder = "Ingrese teléfono celular" })
                                 </div>
                             </div>
                         </div>
@@ -179,14 +165,8 @@
                     <div class="col-md-12">
                         @Html.Label("Estado")
                         <div class="form-group">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="status1" id="patient_active" value="option1" checked>
-                                <label class="form-check-label" for="patient_active">Activo</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="status1" id="patient_inactive" value="option2">
-                                <label class="form-check-label" for="patient_inactive">Inactivo</label>
-                            </div>
+                            @Html.RadioButtonFor(x => x.Estado_Docente, true, new { @checked = true }) Activo  <label>&nbsp &nbsp</label>
+                            @Html.RadioButtonFor(x => x.Estado_Docente, false) Inactivo
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PortafolioEPIS.Models;
-using System.Linq;
 using System.Data.Entity;
 
 namespace PortafolioEPIS.Controllers
@@ -13,6 +12,8 @@ namespace PortafolioEPIS.Controllers
     {
         //Instanciar la clase 
         private Tbl_Docente objDocente = new Tbl_Docente();
+        private Tbl_Profesion objProfesion = new Tbl_Profesion();
+        private Tbl_CargoDocente objCargoDocente = new Tbl_CargoDocente();
 
         // Accion Listar
         public ActionResult Index()
@@ -28,13 +29,13 @@ namespace PortafolioEPIS.Controllers
 
 
         //Accion Agregar
-        Tbl_Profesion db = new Tbl_Profesion();
-        [HttpGet]
-        public ActionResult Agregar(string id)
+        
+        public ActionResult Agregar(string id="")
         {
-            ViewBag.Lista = db.Estado_Profesion.ToString();
-
-            return View();
+            ViewBag.Tbl_Profesion = objProfesion.Listar();
+            ViewBag.Tbl_CargoDocente = objCargoDocente.Listar();
+            return View(id == "" ? new Tbl_Docente() // Agregar un nuevo objeto
+                : objDocente.Obtener(id));
         }
 
         // Accion Ver 
@@ -43,20 +44,16 @@ namespace PortafolioEPIS.Controllers
             return View();
         }
 
-        //Action Guardar
-        //public ActionResult Guardar(Tbl_Docente objDocente)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        objDocente.Guardar();
-        //        return Redirect("~/Docente");
-        //    }
-        //    else
-        //    {
-        //        return View("~/Views/Docente/Agregar");
-        //    }
+       // Action Guardar
+        public ActionResult Guardar(Tbl_Docente objDocente)
+        {
+            
+                objDocente.Guardar();
+                return Redirect("~/Docente");
+            
+           
 
-        //}
+        }
 
         ////Acction Buscar
         //public ActionResult Buscar(string criterio)
@@ -74,7 +71,7 @@ namespace PortafolioEPIS.Controllers
         {
             objDocente.Codigo_Docente= id;
             objDocente.Eliminar();
-            return Redirect("~/Semestre");
+            return Redirect("~/Docente");
         }
     }
 }
