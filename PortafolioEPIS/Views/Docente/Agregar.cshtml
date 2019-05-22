@@ -7,187 +7,207 @@
 
 
 }
-<div class="row">
-    <div class="col-sm-12">
-        <h4 class="page-title">Agregar Docente</h4>
+@{
+    ViewBag.Title = "Agregar";
+}
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 class="page-title">Agregar Docente</h4>
+        </div>
     </div>
-</div>
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="card-box">
-            <h4 class="card-title">Información Docente</h4>
-            @using (Html.BeginForm("Guardar", "Docente", FormMethod.Post))
-            {
-                
-                <div class="row clearfix">
-                    <div class="col-md-6">
-                        @Html.Label("Código")
-                        <div class="form-group">
-                            @Html.TextBoxFor(x => x.Codigo_Docente, new { @class = "form-control", @placeholder = "Ingrese codigo" })
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-box">
+                <h4 class="card-title">Información Docente</h4>
+                @using (Html.BeginForm("Guardar", "Docente", FormMethod.Post, new { id = "frm-docente", enctype = "multipart/form-data" }))
+                {
 
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        @Html.Label("DNI")
-                        <div class="form-group">
-                            @Html.TextBoxFor(x => x.DNI_Docente, new { @class = "form-control", @placeholder = "Ingrese DNI" })
-                        </div>
-                    </div>
-                </div>
-                <div class="row clearfix">
-                    <div class="col-md-6">
-                        @Html.Label("Nombres")
-                        <div class="form-group">
-                            @Html.TextBoxFor(x => x.Nombres_Docente, new { @class = "form-control", @placeholder = "Ingrese nombres" })
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        @Html.Label("Apellidos")
-                        <div class="form-group">
-                            @Html.TextBoxFor(x => x.Apellidos_Docente, new { @class = "form-control", @placeholder = "Ingrese apellidos" })
-                        </div>
-                    </div>
-                </div>
-                <div class="row clearfix">
-                    <div class="col-md-4">
-                        @Html.Label("Sexo")
-                        <br />
+                    <div class="row clearfix">
+                        <div class="col-md-6">
+                            @Html.Label("Código")
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.Codigo_Docente, new { @class = "form-control", @placeholder = "Ingrese codigo" })
 
-                        @Html.RadioButtonFor(x => x.Sexo_Docente, true, new { @checked = true }) Masculino  <label>&nbsp &nbsp</label>
-                        @Html.RadioButtonFor(x => x.Sexo_Docente, false) Femenino
-                    </div>
-                    <div class="col-md-4">
-                        @Html.Label("Estado Civil")
-                        <div class="form-group">
-                            <select  name="EstadoCivil_Docente" class="form-control">
-                                <option @(Model.EstadoCivil_Docente==""?"Selected":"") value="">-Seleccionar-</option>
-                                <option @(Model.EstadoCivil_Docente=="Soltero"?"Selected":"") value="Soltero">Soltero</option>
-                                <option @(Model.EstadoCivil_Docente=="Casado"?"Selected":"") value="Casado">Casado</option>
-                                <option @(Model.EstadoCivil_Docente=="Divorciado"?"Selected":"") value="Divorciado">Divorciado</option>
-                            </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        @Html.Label("Fecha de Nacimiento")
-                        <div class="form-group">
-                            <div class="cal-icon">
-                                @Html.TextBoxFor(x => x.FechaNac_Docente, new { @class = "form-control datetimepicker", @placeholder = "Ingrese Fecha" })
-                                
+                        <div class="col-md-6">
+                            @Html.Label("DNI")
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.DNI_Docente, new { @class = "form-control", @placeholder = "Ingrese DNI" })
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row clearfix">
-                    <div class="col-md-6">
-                        @Html.Label("Profesion")
-                       
-                        <select name="Codigo_Profesion" class="form-control">
-                            <option value=""> -- Seleccione --</option>
-                            @foreach (var d in profesion)
-                            {
-                                <option @(Model.Codigo_Profesion.Equals(d.Codigo_Profesion)) value="@d.Codigo_Profesion">@d.Nombre_Profesion</option>
-                            }
-                        </select>
+                    <div class="row clearfix">
+                        <div class="col-md-6">
+                            @Html.Label("Nombres")
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.Nombres_Docente, new { @class = "form-control", @placeholder = "Ingrese nombres" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.Label("Apellidos")
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.Apellidos_Docente, new { @class = "form-control", @placeholder = "Ingrese apellidos" })
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="col-md-6">
-                       
-                        <div class="form-group">
-                            @Html.Label("Cargo")
+                    <div class="row clearfix">
+                        <div class="col-md-4">
+                            @Html.Label("Sexo")
+                            <br />
 
+                            @Html.RadioButtonFor(x => x.Sexo_Docente, true, new { @checked = true }) Masculino  <label>&nbsp &nbsp</label>
+                            @Html.RadioButtonFor(x => x.Sexo_Docente, false) Femenino
+                        </div>
+                        <div class="col-md-4">
+                            @Html.Label("Estado Civil")
+                            <div class="form-group">
+                                <select name="EstadoCivil_Docente" class="form-control">
+                                    <option @(Model.EstadoCivil_Docente == "" ? "Selected" : "") value="">-Seleccionar-</option>
+                                    <option @(Model.EstadoCivil_Docente == "Soltero" ? "Selected" : "") value="Soltero">Soltero</option>
+                                    <option @(Model.EstadoCivil_Docente == "Casado" ? "Selected" : "") value="Casado">Casado</option>
+                                    <option @(Model.EstadoCivil_Docente == "Divorciado" ? "Selected" : "") value="Divorciado">Divorciado</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.Label("Fecha de Nacimiento")
+                            <div class="form-group">
+                                <div class="cal-icon">
+                                    @Html.TextBoxFor(x => x.FechaNac_Docente, new { @class = "form-control datetimepicker", @placeholder = "Ingrese Fecha" })
 
-                            <select name="Codigo_CargoDocente" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-md-6">
+                            @Html.Label("Profesion")
+
+                            <select name="Codigo_Profesion" class="form-control">
                                 <option value=""> -- Seleccione --</option>
-                                @foreach (var e in cargodocente)
+                                @foreach (var d in profesion)
                                 {
-                                    <option @(Model.Codigo_CargoDocente.Equals(e.Codigo_CargoDocente)) value="@e.Codigo_CargoDocente">@e.Nombre_CargoDocente</option>
+                                    <option @(Model.Codigo_Profesion.Equals(d.Codigo_Profesion)) value="@d.Codigo_Profesion">@d.Nombre_Profesion</option>
                                 }
                             </select>
                         </div>
-                    </div>
-               </div>
-                <div class="row clearfix">
-                    <div class="col-md-6">
-                        @Html.Label("Dirección Actual")
-                        <div class="form-group">
-                            @Html.TextBoxFor(x => x.DireccionActual_Docente, new { @class = "form-control", @placeholder = "Ingrese Direccion" })
-                            
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        @Html.Label("Dirección de Referencia")
-                        <div class="form-group">
-                            @Html.TextBoxFor(x => x.DireccionReferencia_Docente, new { @class = "form-control", @placeholder = "Ingrese de referencia" })
-                        </div>
-                    </div>
-                </div>
-                <div class="row clearfix">
-                    <div class="col-md-4">
-                        @Html.Label("Correo")
-                        <div class="form-group">
-                            @Html.TextBoxFor(x => x.Correo_Docente, new { @class = "form-control", @placeholder = "Ingrese correo" })
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        @Html.Label("Teléfono Fijo")
-                        <div class="form-group">
-                            @Html.TextBoxFor(x => x.TelefonoFijo_Docente, new { @class = "form-control", @placeholder = "Ingrese teléfono fijo" })
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        @Html.Label("Teléfono Celular")
-                        <div class="form-group">
-                            @Html.TextBoxFor(x => x.TelefonoCelular_Docente, new { @class = "form-control", @placeholder = "Ingrese teléfono celular" })
 
-                        </div>
-                    </div>
-                </div>
-                <div class="row clearfix">
-                    <div class="col-md-12">
-                        @Html.Label("Foto")
-                        <div class="form-group">
-                            <div class="profile-upload">
-                                <div class="upload-img">
-                                    <img alt="" src="~/assets/img/user.jpg">
-                                </div>
-                                <div class="upload-input">
-                                    @Html.TextBoxFor(x => x.Foto_Docente, new { @class = "form-control", @type = "file", @placeholder = "Ingrese teléfono celular" })
-                                </div>
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                @Html.Label("Cargo")
+
+
+                                <select name="Codigo_CargoDocente" class="form-control">
+                                    <option value=""> -- Seleccione --</option>
+                                    @foreach (var e in cargodocente)
+                                    {
+                                        <option @(Model.Codigo_CargoDocente.Equals(e.Codigo_CargoDocente)) value="@e.Codigo_CargoDocente">@e.Nombre_CargoDocente</option>
+                                    }
+                                </select>
                             </div>
                         </div>
                     </div>
+                    <div class="row clearfix">
+                        <div class="col-md-6">
+                            @Html.Label("Dirección Actual")
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.DireccionActual_Docente, new { @class = "form-control", @placeholder = "Ingrese Direccion" })
 
-                </div>
-
-
-                <div class="row clearfix">
-                    <div class="col-md-12">
-                        @Html.Label("Estado")
-                        <div class="form-group">
-                            @Html.RadioButtonFor(x => x.Estado_Docente, true, new { @checked = true }) Activo  <label>&nbsp &nbsp</label>
-                            @Html.RadioButtonFor(x => x.Estado_Docente, false) Inactivo
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.Label("Dirección de Referencia")
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.DireccionReferencia_Docente, new { @class = "form-control", @placeholder = "Ingrese de referencia" })
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row clearfix">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <div class="form-group row">
-                                <div class="col-sm-8 col-9 text-left">
-                                    <div class="form-check form-check-inline">
-                                        <a href="~/Docente/Index2" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'> Cancelar</a>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input type="submit" value="Crear" class="btn btn btn-primary btn-rounded" style='width:100px; height:35px' />
+                    <div class="row clearfix">
+                        <div class="col-md-4">
+                            @Html.Label("Correo")
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.Correo_Docente, new { @class = "form-control", @placeholder = "Ingrese correo" })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.Label("Teléfono Fijo")
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.TelefonoFijo_Docente, new { @class = "form-control", @placeholder = "Ingrese teléfono fijo" })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.Label("Teléfono Celular")
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.TelefonoCelular_Docente, new { @class = "form-control", @placeholder = "Ingrese teléfono celular" })
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-md-12">
+                            @Html.Label("Foto")
+                            <div class="form-group">
+                                <div class="profile-upload">
+                                    @if (Model.Foto_Docente == null)
+                                    {
+                                        <div class="upload-img">
+                                            <img alt="" src="~/assets/img/user.jpg">
+
+                                        </div>
+                                        <div class="upload-input">
+                                            @Html.TextBoxFor(x => x.Foto_Docente, new { @class = "form-control", @type = "file", @placeholder = "Ingrese Foto"})
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="upload-img">
+                                            <img alt="" src="~/assets/img/@Model.Foto_Docente">
+
+                                        </div>
+                                        <div class="upload-input">
+                                            @*@Html.TextBoxFor(x => x.Foto_Docente, new { @class = "form-control", @type = "file",@name="file", @placeholder = "Ingrese Foto" })*@
+                                            @Html.HiddenFor(x => x.Foto_Docente)
+                                        </div>
+
+                                    }
+                                    <input type="file" name="file" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row clearfix">
+                        <div class="col-md-12">
+                            @Html.Label("Estado")
+                            <div class="form-group">
+                                @Html.RadioButtonFor(x => x.Estado_Docente, true, new { @checked = true }) Activo  <label>&nbsp &nbsp</label>
+                                @Html.RadioButtonFor(x => x.Estado_Docente, false) Inactivo
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="form-group row">
+                                    <div class="col-sm-8 col-9 text-left">
+                                        <div class="form-check form-check-inline">
+                                            <a href="~/Docente/Index2" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'> Cancelar</a>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input type="submit" value="Crear" class="btn btn btn-primary btn-rounded" style='width:100px; height:35px' />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                </div>
-            }
+                    </div>
+                }
+            </div>
         </div>
     </div>
-</div>

@@ -45,11 +45,25 @@ namespace PortafolioEPIS.Controllers
         }
 
        // Action Guardar
-        public ActionResult Guardar(Tbl_Docente objDocente)
+        public ActionResult Guardar(Tbl_Docente objDocente, HttpPostedFileBase file)
         {
-            
+            if (ModelState.IsValid)
+            {
+                if (file != null)
+                {
+                    string archivo = (file.FileName).ToLower();
+
+                    file.SaveAs(Server.MapPath("~/assets/img/" + file.FileName));
+
+                    objDocente.Foto_Docente = file.FileName;
+                }
                 objDocente.Guardar();
                 return Redirect("~/Docente");
+            }
+            else
+            {
+                return View("~/Views/Docente/Agregar.cshtml");
+            }
             
            
 
