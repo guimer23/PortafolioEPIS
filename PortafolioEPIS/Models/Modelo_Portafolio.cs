@@ -68,6 +68,10 @@ namespace PortafolioEPIS.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Tbl_Docente>()
+                .Property(e => e.Codigo_Docenteepis)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Tbl_Docente>()
                 .Property(e => e.DNI_Docente)
                 .IsUnicode(false);
 
@@ -78,8 +82,6 @@ namespace PortafolioEPIS.Models
             modelBuilder.Entity<Tbl_Docente>()
                 .Property(e => e.Apellidos_Docente)
                 .IsUnicode(false);
-
-           
 
             modelBuilder.Entity<Tbl_Docente>()
                 .Property(e => e.EstadoCivil_Docente)
