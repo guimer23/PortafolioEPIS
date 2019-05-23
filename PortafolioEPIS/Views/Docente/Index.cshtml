@@ -1,4 +1,4 @@
-@*@model List<PortafolioEPIS.Models.Tbl_Docente>
+@model List<PortafolioEPIS.Models.Tbl_Docente>
     @using PortafolioEPIS.Models
     @{
         ViewBag.Title = "Index";
@@ -68,9 +68,9 @@
                             num = num + 1;
                             <tr>
                                 <td>@num</td>
-                                <td>@(s.Codigo_Docente)</td>
+                                <td>@(s.Codigo_Docenteepis)</td>
                                 <td>
-                                    <a class="avatar" href="~/Docente/Ver/@s.Codigo_Docente"><img alt="" src="~/assets/img/doctor-thumb-04.jpg"></a>
+                                    <a class="avatar" href="~/Docente/Ver/@s.Codigo_Docente"><img alt="" src="~/Imagen/@s.Foto_Docente"></a>
 
                                     <h2 class="doctor-name text-ellipsis"><a href="~/Docente/Ver/@s.Codigo_Docente"> @(s.Nombres_Docente + " " + s.Apellidos_Docente)</a></h2>
                                     @{
@@ -122,4 +122,3 @@
             </div>
         </div>
     </div>
-*@

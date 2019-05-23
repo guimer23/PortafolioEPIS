@@ -16,30 +16,30 @@ namespace PortafolioEPIS.Controllers
         private Tbl_CargoDocente objCargoDocente = new Tbl_CargoDocente();
 
         // Accion Listar
-       /* public ActionResult Index()
+        public ActionResult Index()
         {
-            //return View(objDocente.Listar());
+            return View(objDocente.Listar());
         }
         // Accion Listar Mosaico
         public ActionResult Index2()
         {
             return View(objDocente.Listar2());
-        }*/
+        }
 
 
 
         //Accion Agregar
         
-        /*public ActionResult Agregar(string id="")
+        public ActionResult Agregar(int id=0)
         {
             ViewBag.Tbl_Profesion = objProfesion.Listar();
             ViewBag.Tbl_CargoDocente = objCargoDocente.Listar();
-            return View(id == "" ? new Tbl_Docente() // Agregar un nuevo objeto
+            return View(id == 0? new Tbl_Docente() // Agregar un nuevo objeto
                 : objDocente.Obtener(id));
         }
         
         // Action Ver
-        public ActionResult Ver(string id ="")
+        public ActionResult Ver(int id =0)
         {
             return View(objDocente.Obtener(id));
         }
@@ -81,11 +81,11 @@ namespace PortafolioEPIS.Controllers
 
         //Action Eliminar
 
-        public ActionResult Eliminar(string id)
+        public ActionResult Eliminar(int id)
         {
             objDocente.Codigo_Docente= id;
             objDocente.Eliminar();
             return Redirect("~/Docente");
-        }*/
+        }
     }
 }
