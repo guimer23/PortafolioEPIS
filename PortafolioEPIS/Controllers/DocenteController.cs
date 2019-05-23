@@ -49,14 +49,7 @@ namespace PortafolioEPIS.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (file != null)
-                {
-                    string archivo = (file.FileName).ToLower();
-
-                    file.SaveAs(Server.MapPath("~/assets/img/" + file.FileName));
-
-                    objDocente.Foto_Docente = file.FileName;
-                }
+               
                 objDocente.Guardar();
                 return Redirect("~/Docente");
             }

@@ -145,9 +145,17 @@ namespace PortafolioEPIS.Models
                 using (var db = new Modelo_Portafolio())
                 {
 
-                    //SINO EXISTE EL REGISTRO LO GRABA(nuevo)
-                    db.Entry(this).State = System.Data.Entity.EntityState.Added;
+                    if (this.Codigo_Docente > 0)
+                    {
+                        //si existe un valor mayor que cero es por que existe el registro
+                        db.Entry(this).State = EntityState.Modified;
+                    }
+                    else
+                    {
+                        ///no existe el registro lo graba (Nuevo)
+                        db.Entry(this).State = EntityState.Added;
 
+                    }
                     db.SaveChanges();
                 }
             }
