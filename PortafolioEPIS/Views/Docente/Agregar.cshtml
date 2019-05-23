@@ -148,19 +148,14 @@
                         </div>
                         <div class="row clearfix">
                             <div class="col-md-12">
-                                @Html.Label("Foto")
                                 <div class="form-group">
-                                    <div class="profile-upload">
-                                        
-                                            <div class="upload-img">
-                                                <img alt="" src="~/assets/img/user.jpg">
-
-                                            </div>
-                                            <div class="upload-input">
-                                                @Html.TextBoxFor(x => x.Foto_Docente, new { @class = "form-control", @type = "file", @placeholder = "Ingrese Foto"})
-                                            </div>
-                                        
-                                    </div>
+                                    @Html.Label("foto")
+                                    @if (Model.Codigo_Docente > 0)
+                                    {
+                                        <img src="~/Imagen/@Model.Foto_Docente" height="70" width="70" />
+                                        @Html.HiddenFor(x => x.Foto_Docente)
+                                    }
+                                    <input type="file" name="foto" />
                                 </div>
                             </div>
 
