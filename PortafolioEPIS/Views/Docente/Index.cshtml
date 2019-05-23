@@ -1,124 +1,125 @@
-@model List<PortafolioEPIS.Models.Tbl_Docente>
-@using PortafolioEPIS.Models
-@{
-    ViewBag.Title = "Index";
-}
+@*@model List<PortafolioEPIS.Models.Tbl_Docente>
+    @using PortafolioEPIS.Models
+    @{
+        ViewBag.Title = "Index";
+    }
 
-<div class="row">
-    <div class="col-sm-4 col-3">
-        <h4 class="page-title">Docentes</h4>
-    </div>
-    <div class="col-sm-8 col-9 text-right m-b-20">
-        <div class="form-check form-check-inline">
-            <a href="~/Docente/Index2" class="btn btn btn-outline-primary btn-rounded"><i class="fa fa-table"></i> Cambiar Vista</a>
+    <div class="row">
+        <div class="col-sm-4 col-3">
+            <h4 class="page-title">Docentes</h4>
         </div>
-        <div class="form-check form-check-inline">
-            <a href="~/Docente/Agregar" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Agregar Docente</a>
-        </div>
-    </div>
-</div>
-<div class="row filter-row">
-    <div class="col-sm-6 col-md-3">
-        <div class="form-group form-focus">
-            <label class="focus-label">Código</label>
-            <input type="text" class="form-control floating">
+        <div class="col-sm-8 col-9 text-right m-b-20">
+            <div class="form-check form-check-inline">
+                <a href="~/Docente/Index2" class="btn btn btn-outline-primary btn-rounded"><i class="fa fa-table"></i> Cambiar Vista</a>
+            </div>
+            <div class="form-check form-check-inline">
+                <a href="~/Docente/Agregar" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Agregar Docente</a>
+            </div>
         </div>
     </div>
-    <div class="col-sm-6 col-md-3">
-        <div class="form-group form-focus">
-            <label class="focus-label">Nombre</label>
-            <input type="text" class="form-control floating">
+    <div class="row filter-row">
+        <div class="col-sm-6 col-md-3">
+            <div class="form-group form-focus">
+                <label class="focus-label">Código</label>
+                <input type="text" class="form-control floating">
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="form-group form-focus">
+                <label class="focus-label">Nombre</label>
+                <input type="text" class="form-control floating">
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="form-group form-focus select-focus">
+                <label class="focus-label">Estado</label>
+                <select class="select floating">
+                    <option>Seleccionar Estado</option>
+                    <option>Activo</option>
+                    <option>Inactivo</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <a href="#" class="btn btn-success btn-block"> Buscar </a>
         </div>
     </div>
-    <div class="col-sm-6 col-md-3">
-        <div class="form-group form-focus select-focus">
-            <label class="focus-label">Estado</label>
-            <select class="select floating">
-                <option>Seleccionar Estado</option>
-                <option>Activo</option>
-                <option>Inactivo</option>
-            </select>
-        </div>
-    </div>
-    <div class="col-sm-6 col-md-3">
-        <a href="#" class="btn btn-success btn-block"> Buscar </a>
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="table-responsive">
-            <table class="table table-striped custom-table mb-0 datatable">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Código</th>
-                        <th>Nombres y Apellidos</th>
-                        <th>Fecha Nacimiento</th>
-                        <th>Correo</th>
-                        <th>Celular</th>
-                        <th class="text-center">Estado</th>
-                        <th class="text-right">Accción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @{ int num = 0;}
-                    @foreach (var s in Model)
-                    {
-                        num = num + 1;
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-striped custom-table mb-0 datatable">
+                    <thead>
                         <tr>
-                            <td>@num</td>
-                            <td>@(s.Codigo_Docente)</td>
-                            <td>
-                                <a class="avatar" href="~/Docente/Ver/@s.Codigo_Docente"><img alt="" src="~/assets/img/doctor-thumb-04.jpg"></a>
-
-                                <h2 class="doctor-name text-ellipsis"><a href="~/Docente/Ver/@s.Codigo_Docente"> @(s.Nombres_Docente + " " + s.Apellidos_Docente)</a></h2>
-                                @{
-                                    var objTbl_Profesion = new Tbl_Profesion();
-                                    try
-                                    {
-                                        using (var db = new Modelo_Portafolio())
-                                        {
-                                            objTbl_Profesion = db.Tbl_Profesion
-                                                .Where(x => x.Codigo_Profesion == s.Codigo_Profesion)
-                                                .SingleOrDefault();
-                                            <div class="doc-prof"><center>@(objTbl_Profesion.Nombre_Profesion)</center></div>
-                                        }
-                                    }
-                                    catch (Exception ex)
-                                    {
-                                        throw;
-                                    }
-
-                                }
-                            </td>
-                            <td>@(s.FechaNac_Docente)</td>
-                            <td>@(s.Correo_Docente)</td>
-                            <td>@(s.TelefonoCelular_Docente)</td>
-
-                            @if (s.Estado_Docente == true)
-                            {
-                                <td><span class="custom-badge status-green">Activo</span></td>
-                            }
-                            else
-                            {
-                                <td><span class="custom-badge status-red">Inactivo</span></td>
-                            }
-                            <td class="text-right">
-                                <div class="dropdown dropdown-action">
-                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="~/Docente/Agregar/@s.Codigo_Docente"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                        <a class="dropdown-item" href="~/Docente/Eliminar/@s.Codigo_Docente" onclick="return confirm('¿Esta seguro que desea de Eliminar?');"><i class="fa fa-trash-o m-r-5"></i>  Eliminar</a>
-
-                                    </div>
-                                </div>
-                            </td>
+                            <th>#</th>
+                            <th>Código</th>
+                            <th>Nombres y Apellidos</th>
+                            <th>Fecha Nacimiento</th>
+                            <th>Correo</th>
+                            <th>Celular</th>
+                            <th class="text-center">Estado</th>
+                            <th class="text-right">Accción</th>
                         </tr>
+                    </thead>
+                    <tbody>
+                        @{ int num = 0;}
+                        @foreach (var s in Model)
+                        {
+                            num = num + 1;
+                            <tr>
+                                <td>@num</td>
+                                <td>@(s.Codigo_Docente)</td>
+                                <td>
+                                    <a class="avatar" href="~/Docente/Ver/@s.Codigo_Docente"><img alt="" src="~/assets/img/doctor-thumb-04.jpg"></a>
 
-                    }
-                </tbody>
-            </table>
+                                    <h2 class="doctor-name text-ellipsis"><a href="~/Docente/Ver/@s.Codigo_Docente"> @(s.Nombres_Docente + " " + s.Apellidos_Docente)</a></h2>
+                                    @{
+                                        var objTbl_Profesion = new Tbl_Profesion();
+                                        try
+                                        {
+                                            using (var db = new Modelo_Portafolio())
+                                            {
+                                                objTbl_Profesion = db.Tbl_Profesion
+                                                    .Where(x => x.Codigo_Profesion == s.Codigo_Profesion)
+                                                    .SingleOrDefault();
+                                                <div class="doc-prof"><center>@(objTbl_Profesion.Nombre_Profesion)</center></div>
+                                            }
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            throw;
+                                        }
+
+                                    }
+                                </td>
+                                <td>@(s.FechaNac_Docente)</td>
+                                <td>@(s.Correo_Docente)</td>
+                                <td>@(s.TelefonoCelular_Docente)</td>
+
+                                @if (s.Estado_Docente == true)
+                                {
+                                    <td><span class="custom-badge status-green">Activo</span></td>
+                                }
+                                else
+                                {
+                                    <td><span class="custom-badge status-red">Inactivo</span></td>
+                                }
+                                <td class="text-right">
+                                    <div class="dropdown dropdown-action">
+                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="~/Docente/Agregar/@s.Codigo_Docente"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                            <a class="dropdown-item" href="~/Docente/Eliminar/@s.Codigo_Docente" onclick="return confirm('¿Esta seguro que desea de Eliminar?');"><i class="fa fa-trash-o m-r-5"></i>  Eliminar</a>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
+*@
