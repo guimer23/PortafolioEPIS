@@ -13,7 +13,7 @@
             <table class="table table-striped custom-table">
                 <thead>
                     <tr>
-                        <th>Código</th>
+                        <th>#</th>
                         <th>Nombre</th>
                         <th>Abrebiatura</th>
                         <th>Estado</th>
@@ -22,11 +22,12 @@
                     </tr>
                 </thead>
                 <tbody>
-
+                    @{ int conteo = 0;}
                     @foreach (var s in Model)
                     {
+                        conteo = conteo + 1;
                         <tr>
-                            <th scope="row">@(s.Codigo_Profesion)</th>
+                            <td>@conteo</td>
                             <td>@(s.Nombre_Profesion)</td>
                             <td>@(s.Abrebiatura_Profesion)</td>
                             <th><span class="custom-badge @(s.Estado_Profesion == true ?"status-green":"status-red")">@(s.Estado_Profesion == true ? "Activo" : "Inactivo")</th>
