@@ -1,0 +1,76 @@
+﻿<div class="row">
+    <div class="col-sm-12">
+        <h4 class="page-title">Agregar Carga Académica</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card-box">
+            <h4 class="card-title">Información de Carga Académica</h4>
+            @using (Html.BeginForm("Index", "CargaAcademica", FormMethod.Post))
+            {
+            <div class="row clearfix">
+                <div class="col-md-4">
+                    @Html.Label("Semestre")
+                    <div class="form-group">
+                        <select class="form-control">
+                            <option>-Seleccionar-</option>
+                            <option>2016-I</option>
+                            <option>2016-II</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    @Html.Label("Fecha Inicio")
+                    <div class="form-group">
+                        <div class="cal-icon">
+                            <input type="text" class="form-control datetimepicker" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    @Html.Label("Fecha Fin")
+                    <div class="form-group">
+                        <div class="cal-icon">
+                            <input type="text" class="form-control datetimepicker" />
+                        </div>
+                    </div>
+                </div>
+
+            </div> 
+            <div class="row clearfix">
+                <div class="col-md-12">
+                    @Html.Label("Estado")
+                    <div class="form-group">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="status1" id="patient_active" value="option1" checked>
+                            <label class="form-check-label" for="patient_active">Activo</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="status1" id="patient_inactive" value="option2">
+                            <label class="form-check-label" for="patient_inactive">Inactivo</label>
+                        </div>
+                    </div>
+                </div>
+            </div><div class="row clearfix">
+    <div class="col-md-12">
+        <div class="form-group">
+            <div class="form-group row">
+                <div class="col-sm-8 col-9 text-left">
+                    <div class="form-check form-check-inline">
+                        <a href="~/CargaAcademica/Index" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'> Cancelar</a>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="submit" value="Crear" class="btn btn btn-primary btn-rounded" style='width:100px; height:35px' />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                
+            }
+        </div>
+    </div>
+</div>

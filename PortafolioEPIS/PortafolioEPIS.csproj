@@ -177,6 +177,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CargaAcademicaController.cs" />
+    <Compile Include="Controllers\DetalleCargaAcademicaController.cs" />
     <Compile Include="Controllers\DetallePlanEstudioController.cs" />
     <Compile Include="Controllers\DocenteController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
@@ -238,6 +240,12 @@
     <Content Include="Views\DetallePlanEstudio\Index.cshtml" />
     <Content Include="Views\DetallePlanEstudio\Agregar.cshtml" />
     <Content Include="Views\DetallePlanEstudio\Ver.cshtml" />
+    <Content Include="Views\CargaAcademica\Index.cshtml" />
+    <Content Include="Views\CargaAcademica\Agregar.cshtml" />
+    <Content Include="Views\CargaAcademica\Ver.cshtml" />
+    <Content Include="Views\DetalleCargaAcademica\Index.cshtml" />
+    <Content Include="Views\DetalleCargaAcademica\Agregar.cshtml" />
+    <Content Include="Views\DetalleCargaAcademica\Ver.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
