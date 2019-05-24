@@ -1,4 +1,13 @@
-﻿<div class="row">
+﻿@model PortafolioEPIS.Models.Tbl_PlanEstudio
+@{
+    List<PortafolioEPIS.Models.Tbl_Semestre> semestre = ViewBag.Tbl_Semestre;
+}
+
+@{
+    ViewBag.Title = "Agregar";
+}
+
+<div class="row">
     <div class="col-sm-12">
         <h4 class="page-title">Agregar Plan de Estudio</h4>
     </div>
@@ -8,32 +17,37 @@
     <div class="col-md-12">
         <div class="card-box">
             <h4 class="card-title">Información Plan de Estudio</h4>
-            @using (Html.BeginForm("Index", "PlanEstudio", FormMethod.Post))
+
+            @using (Html.BeginForm("Guardar", "PlanEstudio", FormMethod.Post))
             {
+                @Html.HiddenFor(x => x.Codigo_PlanEstudio)
                 <div class="row clearfix">
                     <div class="col-md-4">
+
                         @Html.Label("Semestre")
-                        <div class="form-group">
-                            <select class="form-control">
-                                <option>-Seleccionar-</option>
-                                <option>2019-I</option>
-                                <option>2019-II</option>                                
-                            </select>
-                        </div>
+                        <select name="Codigo_Semestre" class="form-control">
+                            <option value=""> -- Seleccione --</option>
+                            @foreach (var e in semestre)
+                            {
+                                <option @(Model.Codigo_Semestre.Equals(e.Codigo_Semestre)) value="@e.Codigo_Semestre">@e.Nombre_Semestre</option>
+                            }
+                        </select>
                     </div>
+
                     <div class="col-md-8">
                         @Html.Label("Nombre Plan de Estudio")
                         <div class="form-group">
-                            <input type="text" class="form-control">
+                            @Html.TextBoxFor(x => x.Nombre_PlanEstudio, new { @class = "form-control" })
                         </div>
                     </div>
                 </div>
+
                 <div class="row clearfix">
                     <div class="col-md-6">
                         @Html.Label("Fecha Inicio")
                         <div class="form-group">
                             <div class="cal-icon">
-                                <input type="text" class="form-control datetimepicker">
+                                @Html.TextBoxFor(x => x.FechaInicio_PlanEstudio, new { @class = "form-control datetimepicker", @placeholder = "Ingrese Fecha" })
                             </div>
                         </div>
                     </div>
@@ -41,7 +55,7 @@
                         @Html.Label("Fecha Fin")
                         <div class="form-group">
                             <div class="cal-icon">
-                                <input type="text" class="form-control datetimepicker">
+                                @Html.TextBoxFor(x => x.FechaFin_PlanEstudio, new { @class = "form-control datetimepicker", @placeholder = "Ingrese Fecha" })
                             </div>
                         </div>
                     </div>
@@ -50,14 +64,14 @@
                     <div class="col-md-6">
                         @Html.Label("Total Cursos Obligatorios")
                         <div class="form-group">
-                            @*@Html.TextBoxFor(x => x.Nombre_Semestre, new { @class = "form-control", @placeholder="Ingrese Nombre" })*@
-                            <input type="number" class="form-control">
+                            @Html.TextBoxFor(x => x.TotalCursosObligatorios_PlanEstudio, new { @class = "form-control", @placeholder = "Ingrese la cantidad" })
+
                         </div>
                     </div>
                     <div class="col-md-6">
                         @Html.Label("Total Cursos Electivos")
                         <div class="form-group">
-                            <input type="number" class="form-control">
+                            @Html.TextBoxFor(x => x.TotalCursosElectivos_PlanEstudio, new { @class = "form-control", @placeholder = "Ingrese la cantidad" })
                         </div>
                     </div>
                 </div>
@@ -65,14 +79,13 @@
                     <div class="col-md-6">
                         @Html.Label("Total Créditos Obligatorios")
                         <div class="form-group">
-                            @*@Html.TextBoxFor(x => x.Nombre_Semestre, new { @class = "form-control", @placeholder="Ingrese Nombre" })*@
-                            <input type="number" class="form-control">
+                            @Html.TextBoxFor(x => x.TotalCreditosObligatorios_PlanEstudio, new { @class = "form-control", @placeholder = "Ingrese la cantidad" })
                         </div>
                     </div>
                     <div class="col-md-6">
                         @Html.Label("Total Créditos Electivos")
                         <div class="form-group">
-                            <input type="number" class="form-control">
+                            @Html.TextBoxFor(x => x.TotalCreditosElectivos_PlanEstudio, new { @class = "form-control", @placeholder = "Ingrese la cantidad" })
                         </div>
                     </div>
                 </div>
@@ -80,29 +93,22 @@
                     <div class="col-md-6">
                         @Html.Label("Total Créditos Extracurriculares")
                         <div class="form-group">
-                            @*@Html.TextBoxFor(x => x.Nombre_Semestre, new { @class = "form-control", @placeholder="Ingrese Nombre" })*@
-                            <input type="number" class="form-control">
+                            @Html.TextBoxFor(x => x.TotalCreditosExtracurriculares_PlanEstudio, new { @class = "form-control", @placeholder = "Ingrese la cantidad" })
                         </div>
                     </div>
                     <div class="col-md-6">
                         @Html.Label("Total Créditos Práticas")
                         <div class="form-group">
-                            <input type="number" class="form-control">
+                            @Html.TextBoxFor(x => x.TotalCreditosPracticas_PlanEstudio, new { @class = "form-control", @placeholder = "Ingrese la cantidad" })
                         </div>
                     </div>
-                </div>    
+                </div>
                 <div class="row clearfix">
                     <div class="col-md-12">
                         @Html.Label("Estado")
                         <div class="form-group">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="status1" id="patient_active" value="option1" checked>
-                                <label class="form-check-label" for="patient_active">Activo</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="status1" id="patient_inactive" value="option2">
-                                <label class="form-check-label" for="patient_inactive">Inactivo</label>
-                            </div>
+                            @Html.RadioButtonFor(x => x.Estado_PlanEstudio, true, new { @checked = true }) Activo  <label>&nbsp &nbsp</label>
+                            @Html.RadioButtonFor(x => x.Estado_PlanEstudio, false) Inactivo
                         </div>
                     </div>
                 </div>
@@ -115,7 +121,7 @@
                                         <a href="~/PlanEstudio/Index" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'> Cancelar</a>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input type="submit" value="Crear" class="btn btn btn-primary btn-rounded" style='width:100px; height:35px' />
+                                        <input type="submit" value="Guardar" class="btn btn btn-primary btn-rounded" style='width:100px; height:35px' />
                                     </div>
                                 </div>
                             </div>
