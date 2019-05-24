@@ -1,0 +1,130 @@
+﻿<div class="row">
+    <div class="col-sm-12">
+        <h4 class="page-title">Agregar Detalle Plan de Estudio</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card-box">
+            <h4 class="card-title">Información de Curso</h4>
+            @using (Html.BeginForm("Index", "DetallePlanEstudio", FormMethod.Post))
+            {
+            <div class="row clearfix">
+                <div class="col-md-3">
+                    @Html.Label("Plan de Estudio")
+                    <div class="form-group">
+                        <select class="form-control">
+                            <option>-Seleccionar-</option>
+                            <option>Plan de Estudio 2010-I</option>
+                            <option>Plan de Estudio 2016-I</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    @Html.Label("Código Curso")
+                    <div class="form-group">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    @Html.Label("Asignatura")
+                    <div class="form-group">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row clearfix">
+                <div class="col-md-4">
+                    @Html.Label("Horas Teóricas")
+                    <div class="form-group">
+                        <input type="number" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    @Html.Label("Horas Prácticas")
+                    <div class="form-group">
+                        <input type="number" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    @Html.Label("Créditos")
+                    <div class="form-group">
+                        <input type="number" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row clearfix">
+                <div class="col-md-4">
+                    @Html.Label("Pre-Requisito")
+                    <div class="form-group">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    @Html.Label("Ciclo")
+                    <div class="form-group">
+                        <select class="form-control">
+                            <option>-Seleccionar-</option>
+                            <option>I</option>
+                            <option>II</option>
+                            <option>III</option>
+                            <option>IV</option>
+                            <option>V</option>
+                            <option>VI</option>
+                            <option>VII</option>
+                            <option>VIII</option>
+                            <option>IX</option>
+                            <option>X</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    @Html.Label("Tipo")
+                    <div class="form-group">
+                        <select class="form-control">
+                            <option>-Seleccionar-</option>
+                            <option>Obligatorio</option>
+                            <option>Electivo</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+                
+                
+                <div class="row clearfix">
+                    <div class="col-md-12">
+                        @Html.Label("Estado")
+                        <div class="form-group">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="status1" id="patient_active" value="option1" checked>
+                                <label class="form-check-label" for="patient_active">Activo</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="status1" id="patient_inactive" value="option2">
+                                <label class="form-check-label" for="patient_inactive">Inactivo</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="form-group row">
+                                <div class="col-sm-8 col-9 text-left">
+                                    <div class="form-check form-check-inline">
+                                        <a href="~/DetallePlanEstudio/Index" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'> Cancelar</a>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="submit" value="Crear" class="btn btn btn-primary btn-rounded" style='width:100px; height:35px' />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+</div>

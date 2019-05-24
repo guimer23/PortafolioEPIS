@@ -176,6 +176,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DetallePlanEstudioController.cs" />
     <Compile Include="Controllers\DocenteController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
     <Compile Include="Controllers\Mantenimiento\CargoController.cs" />
@@ -233,6 +234,9 @@
     <Content Include="Views\PlanEstudio\Index.cshtml" />
     <Content Include="Views\PlanEstudio\Agregar.cshtml" />
     <Content Include="Views\PlanEstudio\Ver.cshtml" />
+    <Content Include="Views\DetallePlanEstudio\Index.cshtml" />
+    <Content Include="Views\DetallePlanEstudio\Agregar.cshtml" />
+    <Content Include="Views\DetallePlanEstudio\Ver.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
