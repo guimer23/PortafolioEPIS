@@ -1,37 +1,35 @@
 ﻿@model PortafolioEPIS.Models.Tbl_PlanEstudio
-@{
-    List<PortafolioEPIS.Models.Tbl_Semestre> semestre = ViewBag.Tbl_Semestre;
-}
 
 @{
+    List<PortafolioEPIS.Models.Tbl_Semestre> objSemestre = ViewBag.Tbl_Semestre;
     ViewBag.Title = "Agregar";
 }
 
-<div class="row">
-    <div class="col-sm-12">
-        <h4 class="page-title">Agregar Plan de Estudio</h4>
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 class="page-title">Agregar Plan de Estudio</h4>
+        </div>
     </div>
-</div>
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="card-box">
-            <h4 class="card-title">Información Plan de Estudio</h4>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-box">
+                <h4 class="card-title">Información Plan de Estudio</h4>
 
-            @using (Html.BeginForm("Guardar", "PlanEstudio", FormMethod.Post))
-            {
-                @Html.HiddenFor(x => x.Codigo_PlanEstudio)
+                @using (Html.BeginForm("Guardar", "PlanEstudio", FormMethod.Post, new { id = "frm-PlanEstudio" }))
+                {
+                    @Html.HiddenFor(x => x.Codigo_PlanEstudio)
                 <div class="row clearfix">
                     <div class="col-md-4">
-
                         @Html.Label("Semestre")
                         <select name="Codigo_Semestre" class="form-control">
                             <option value=""> -- Seleccione --</option>
-                            @foreach (var e in semestre)
+                            @foreach (var e in objSemestre)
                             {
                                 <option @(Model.Codigo_Semestre.Equals(e.Codigo_Semestre)) value="@e.Codigo_Semestre">@e.Nombre_Semestre</option>
                             }
                         </select>
+
                     </div>
 
                     <div class="col-md-8">
@@ -42,94 +40,94 @@
                     </div>
                 </div>
 
-                <div class="row clearfix">
-                    <div class="col-md-6">
-                        @Html.Label("Fecha Inicio")
-                        <div class="form-group">
-                            <div class="cal-icon">
-                                @Html.TextBoxFor(x => x.FechaInicio_PlanEstudio, new { @class = "form-control datetimepicker", @placeholder = "Ingrese Fecha" })
+                    <div class="row clearfix">
+                        <div class="col-md-6">
+                            @Html.Label("Fecha Inicio")
+                            <div class="form-group">
+                                <div class="cal-icon">
+                                    @Html.TextBoxFor(x => x.FechaInicio_PlanEstudio, new { @class = "form-control datetimepicker", @placeholder = "Ingrese Fecha" })
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        @Html.Label("Fecha Fin")
-                        <div class="form-group">
-                            <div class="cal-icon">
-                                @Html.TextBoxFor(x => x.FechaFin_PlanEstudio, new { @class = "form-control datetimepicker", @placeholder = "Ingrese Fecha" })
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row clearfix">
-                    <div class="col-md-6">
-                        @Html.Label("Total Cursos Obligatorios")
-                        <div class="form-group">
-                            @Html.TextBoxFor(x => x.TotalCursosObligatorios_PlanEstudio, new { @class = "form-control", @placeholder = "Ingrese la cantidad" })
-
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        @Html.Label("Total Cursos Electivos")
-                        <div class="form-group">
-                            @Html.TextBoxFor(x => x.TotalCursosElectivos_PlanEstudio, new { @class = "form-control", @placeholder = "Ingrese la cantidad" })
-                        </div>
-                    </div>
-                </div>
-                <div class="row clearfix">
-                    <div class="col-md-6">
-                        @Html.Label("Total Créditos Obligatorios")
-                        <div class="form-group">
-                            @Html.TextBoxFor(x => x.TotalCreditosObligatorios_PlanEstudio, new { @class = "form-control", @placeholder = "Ingrese la cantidad" })
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        @Html.Label("Total Créditos Electivos")
-                        <div class="form-group">
-                            @Html.TextBoxFor(x => x.TotalCreditosElectivos_PlanEstudio, new { @class = "form-control", @placeholder = "Ingrese la cantidad" })
-                        </div>
-                    </div>
-                </div>
-                <div class="row clearfix">
-                    <div class="col-md-6">
-                        @Html.Label("Total Créditos Extracurriculares")
-                        <div class="form-group">
-                            @Html.TextBoxFor(x => x.TotalCreditosExtracurriculares_PlanEstudio, new { @class = "form-control", @placeholder = "Ingrese la cantidad" })
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        @Html.Label("Total Créditos Práticas")
-                        <div class="form-group">
-                            @Html.TextBoxFor(x => x.TotalCreditosPracticas_PlanEstudio, new { @class = "form-control", @placeholder = "Ingrese la cantidad" })
-                        </div>
-                    </div>
-                </div>
-                <div class="row clearfix">
-                    <div class="col-md-12">
-                        @Html.Label("Estado")
-                        <div class="form-group">
-                            @Html.RadioButtonFor(x => x.Estado_PlanEstudio, true, new { @checked = true }) Activo  <label>&nbsp &nbsp</label>
-                            @Html.RadioButtonFor(x => x.Estado_PlanEstudio, false) Inactivo
-                        </div>
-                    </div>
-                </div>
-                <div class="row clearfix">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <div class="form-group row">
-                                <div class="col-sm-8 col-9 text-left">
-                                    <div class="form-check form-check-inline">
-                                        <a href="~/PlanEstudio/Index" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'> Cancelar</a>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input type="submit" value="Guardar" class="btn btn btn-primary btn-rounded" style='width:100px; height:35px' />
-                                    </div>
+                        <div class="col-md-6">
+                            @Html.Label("Fecha Fin")
+                            <div class="form-group">
+                                <div class="cal-icon">
+                                    @Html.TextBoxFor(x => x.FechaFin_PlanEstudio, new { @class = "form-control datetimepicker", @placeholder = "Ingrese Fecha" })
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="row clearfix">
+                        <div class="col-md-6">
+                            @Html.Label("Total Cursos Obligatorios")
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.TotalCursosObligatorios_PlanEstudio, new { @class = "form-control", @placeholder = "Ingrese la cantidad" })
 
-                </div>
-            }
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.Label("Total Cursos Electivos")
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.TotalCursosElectivos_PlanEstudio, new { @class = "form-control", @placeholder = "Ingrese la cantidad" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-md-6">
+                            @Html.Label("Total Créditos Obligatorios")
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.TotalCreditosObligatorios_PlanEstudio, new { @class = "form-control", @placeholder = "Ingrese la cantidad" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.Label("Total Créditos Electivos")
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.TotalCreditosElectivos_PlanEstudio, new { @class = "form-control", @placeholder = "Ingrese la cantidad" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-md-6">
+                            @Html.Label("Total Créditos Extracurriculares")
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.TotalCreditosExtracurriculares_PlanEstudio, new { @class = "form-control", @placeholder = "Ingrese la cantidad" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.Label("Total Créditos Práticas")
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.TotalCreditosPracticas_PlanEstudio, new { @class = "form-control", @placeholder = "Ingrese la cantidad" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-md-12">
+                            @Html.Label("Estado")
+                            <div class="form-group">
+                                @Html.RadioButtonFor(x => x.Estado_PlanEstudio, true, new { @checked = true }) Activo  <label>&nbsp &nbsp</label>
+                                @Html.RadioButtonFor(x => x.Estado_PlanEstudio, false) Inactivo
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="form-group row">
+                                    <div class="col-sm-8 col-9 text-left">
+                                        <div class="form-check form-check-inline">
+                                            <a href="~/PlanEstudio/Index" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'> Cancelar</a>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input type="submit" value="Guardar" class="btn btn btn-primary btn-rounded" style='width:100px; height:35px' />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                }
+            </div>
         </div>
     </div>
-</div>
