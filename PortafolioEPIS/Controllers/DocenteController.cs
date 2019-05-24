@@ -27,8 +27,6 @@ namespace PortafolioEPIS.Controllers
             return View(objDocente.Listar2());
         }
 
-
-
         //Accion Agregar
         
         public ActionResult Agregar(int id=0)
@@ -56,8 +54,7 @@ namespace PortafolioEPIS.Controllers
                     string archivo = (foto.FileName).ToLower();
 
                     foto.SaveAs(Server.MapPath("~/Imagen/" + foto.FileName));
-
-
+                    objDocente.Foto_Docente = foto.FileName;
                 }
 
                 objDocente.Guardar();
@@ -66,9 +63,7 @@ namespace PortafolioEPIS.Controllers
             else
             {
                 return View("~/Views/Docente/Agregar.cshtml");
-            }
-            
-           
+            }  
 
         }
 
