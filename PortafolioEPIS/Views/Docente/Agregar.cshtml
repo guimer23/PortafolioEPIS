@@ -22,7 +22,7 @@
                     <h4 class="card-title">Información Docente</h4>
                     @using (Html.BeginForm("Guardar", "Docente", FormMethod.Post, new { id = "frm-docente", enctype = "multipart/form-data" }))
                     {
-
+                        @Html.HiddenFor(x => x.Codigo_Docente)
                         <div class="row clearfix">
                             <div class="col-md-6">
                                 @Html.Label("Código")
@@ -149,11 +149,18 @@
                         <div class="row clearfix">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    @Html.Label("foto")
+                                    @Html.Label("Foto")
+                                    <br />
                                     @if (Model.Codigo_Docente > 0)
                                     {
                                         <img src="~/Imagen/@Model.Foto_Docente" height="70" width="70" />
                                         @Html.HiddenFor(x => x.Foto_Docente)
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Imagen/user.jpg" height="70" width="70" />
+                                        @Html.HiddenFor(x => x.Foto_Docente)
+
                                     }
                                     <input type="file" name="foto" />
                                 </div>
