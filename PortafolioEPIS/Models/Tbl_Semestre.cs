@@ -36,6 +36,7 @@ namespace PortafolioEPIS.Models
         public virtual ICollection<Tbl_DetalleCargaAcademica> Tbl_DetalleCargaAcademica { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
         public virtual ICollection<Tbl_PlanEstudio> Tbl_PlanEstudio { get; set; }
 
         //Metodo Listar

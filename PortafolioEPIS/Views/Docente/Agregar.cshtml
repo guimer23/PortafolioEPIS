@@ -1,4 +1,4 @@
-﻿@*@model PortafolioEPIS.Models.Tbl_Docente
+﻿@model PortafolioEPIS.Models.Tbl_Docente
 
 
     @{
@@ -22,12 +22,12 @@
                     <h4 class="card-title">Información Docente</h4>
                     @using (Html.BeginForm("Guardar", "Docente", FormMethod.Post, new { id = "frm-docente", enctype = "multipart/form-data" }))
                     {
-
+                        @Html.HiddenFor(x => x.Codigo_Docente)
                         <div class="row clearfix">
                             <div class="col-md-6">
                                 @Html.Label("Código")
                                 <div class="form-group">
-                                    @Html.TextBoxFor(x => x.Codigo_Docente, new { @class = "form-control", @placeholder = "Ingrese codigo" })
+                                    @Html.TextBoxFor(x => x.Codigo_Docenteepis, new { @class = "form-control", @placeholder = "Ingrese codigo" })
 
                                 </div>
                             </div>
@@ -148,33 +148,21 @@
                         </div>
                         <div class="row clearfix">
                             <div class="col-md-12">
-                                @Html.Label("Foto")
                                 <div class="form-group">
-                                    <div class="profile-upload">
-                                        @if (Model.Foto_Docente == null)
-                                        {
-                                            <div class="upload-img">
-                                                <img alt="" src="~/assets/img/user.jpg">
+                                    @Html.Label("Foto")
+                                    <br />
+                                    @if (Model.Codigo_Docente > 0)
+                                    {
+                                        <img src="~/Imagen/@Model.Foto_Docente" height="70" width="70" />
+                                        @Html.HiddenFor(x => x.Foto_Docente)
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Imagen/user.jpg" height="70" width="70" />
+                                        @Html.HiddenFor(x => x.Foto_Docente)
 
-                                            </div>
-                                            <div class="upload-input">
-                                                @Html.TextBoxFor(x => x.Foto_Docente, new { @class = "form-control", @type = "file", @placeholder = "Ingrese Foto"})
-                                            </div>
-                                        }
-                                        else
-                                        {
-                                            <div class="upload-img">
-                                                <img alt="" src="~/assets/img/@Model.Foto_Docente">
-
-                                            </div>
-                                            <div class="upload-input">
-                                                @Html.TextBoxFor(x => x.Foto_Docente, new { @class = "form-control", @type = "file",@name="file", @placeholder = "Ingrese Foto" })
-                                                @Html.HiddenFor(x => x.Foto_Docente)
-                                            </div>
-
-                                        }
-                                        <input type="file" name="file" />
-                                    </div>
+                                    }
+                                    <input type="file" name="foto" />
                                 </div>
                             </div>
 
@@ -211,4 +199,3 @@
                 </div>
             </div>
         </div>
-*@
