@@ -1,7 +1,90 @@
-﻿
+﻿@model PortafolioEPIS.Models.Tbl_DetallePlanEstudio
 @{
     ViewBag.Title = "Ver";
 }
+<div class="row">
+    <div class="col-sm-7 col-6">
+        <h4 class="page-title">Detalle Plan de Estudio</h4>
+    </div>
+    <div class="col-sm-5 col-6 text-right m-b-30">
+        <a href="~/DetallePlanEstudio/Agregar" class="btn btn-primary btn-rounded"><i class="fa fa-edit"></i> Editar Plan Estudio</a>
+    </div>
+</div>
 
-<h2>Ver</h2>
+<div class="card-box profile-header">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="profile-view">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="profile-info-left">
+                            <ul class="personal-info">
+                                <li>
+                                    <span class="title">Codigo Plan Estudio:</span>
+                                    <span class="title">@Model.Tbl_PlanEstudio.Nombre_PlanEstudio</span>
+                                </li>
+                                
+                                <li>
+                                    <span class="title">Codigo Curso:</span>
+                                    <span class="text">@Model.CodigoCurso_DetallePlanEstudio</span>
+                                </li>
 
+                                <li>
+                                    <span class="title">Asignatura:</span>
+                                    <span class="text">@Model.Asignatura_DetallePlanEstudio</span>
+                                </li>
+                                <li>
+                                    <span class="title">Horas Teoricas:</span>
+                                    <span class="text">@Model.HorasTeoricas_DetallePlanEstudio</span>
+                                </li>
+                                <li>
+                                    <span class="title">Horas Practicas:</span>
+                                    <span class="text">@Model.HorasPracticas_DetallePlanEstudio</span>
+                                </li>
+
+                                <li>
+                                    <span class="title">Total Horas:</span>
+                                    <span class="text">@Model.TotalHoras_DetallePlanEstudio</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="personal-info">
+                            <li>
+                                <span class="title">Total Creditos:</span>
+                                <span class="text">@Model.TotalCreditos_DetallePlanEstudio</span>
+                            </li>
+                            <li>
+                                <span class="title">Curso Pre-Requisito:</span>
+                                <span class="text">@Model.PreRequisito_DetallePlanEstudio</span>
+                            </li>
+                            <li>
+                                <span class="title">Ciclo:</span>
+                                <span class="text">@Model.Ciclo_DetallePlanEstudio</span>
+                            </li>
+                            <li>
+                                <span class="title">Tipo Curso:</span>
+                                <span class="text">@Model.TipoCurso_DetallePlanEstudio</span>
+                            </li>
+
+                            <li>
+                                <span class="title">Estado:</span>
+                                @if (Model.Estado_DetallePlanEstudio == true)
+                                {
+                                    <span class="text">Activo</span>
+                                }
+                                else
+                                {
+                                    <span class="text">Inactivo</span>
+                                }
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
