@@ -83,18 +83,35 @@
                 </div>
                 <div class="row clearfix">
                     <div class="col-md-6">
-                        @Html.Label("Profesion")
-
-                        <select name="Codigo_Profesion" class="form-control">
-                            <option value=""> -- Seleccione --</option>
-                            @foreach (var d in profesion)
-                            {
-                                if (d.Estado_Profesion == true)
+                        <div class="form-group">
+                            @Html.Label("Profesion:")
+                            <select name="Codigo_Profesion" class="form-control">
+                                <option @(Model.Codigo_Profesion.Equals("") ? "selected" : "") value="">-Seleccione-</option>
+                                @foreach (var p in profesion)
                                 {
-                                    <option @(Model.Codigo_Profesion.Equals(d.Codigo_Profesion)) value="@d.Codigo_Profesion">@d.Nombre_Profesion</option>
+                                    if (p.Estado_Profesion == true)
+                                    {
+                                        <option @(Model.Codigo_Profesion.Equals(p.Codigo_Profesion) ? "selected" : "") value="@p.Codigo_Profesion"> @p.Nombre_Profesion</option>
+                                    }
+
                                 }
-                            }
-                        </select>
+                            </select>
+                            @Html.ValidationMessageFor(x => x.Codigo_Profesion, null, new { @class = "label label-danger" })
+                        </div>
+
+
+
+                        @*@Html.Label("Profesion")
+
+                            <select name="Codigo_Profesion" class="form-control">
+                                <option value=""> -- Seleccione --</option>
+                                @foreach (var d in profesion)
+                                {
+                                    if (d.Estado_Profesion == true) {
+                                    <option @(Model.Codigo_Profesion.Equals(d.Codigo_Profesion)) value="@d.Codigo_Profesion">@d.Nombre_Profesion</option>
+                                    }
+                                }
+                            </select>*@
                     </div>
 
 
@@ -221,4 +238,3 @@
         </div>
     </div>
 </div>
-

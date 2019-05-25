@@ -19,17 +19,18 @@
                 @Html.HiddenFor(x => x.Codigo_DetallePlanEstudio)
                 <div class="row clearfix">
                     <div class="col-md-3">
-                        @Html.Label("Plan Estudio")
-                        @*<div class="form-group">
-                         @Html.TextBoxFor(x => x.Tbl_PlanEstudio.Nombre_PlanEstudio, new { @class = "form-control", disabled = true })
-                         </div>*@
-                        <select name="Codigo_PlanEstudio" class="form-control">
-                            <option value=""> -- Seleccione --</option>
-                            @foreach (var e in objPlanEstudio)
-                            {
-                                <option @(Model.Codigo_PlanEstudio.Equals(e.Codigo_PlanEstudio)) value="@e.Codigo_PlanEstudio">@e.Nombre_PlanEstudio</option>
-                            }
-                        </select>
+                        <div class="form-group">
+                            @Html.Label("Plan de Estudio")
+
+
+                            <select name="Codigo_PlanEstudio" class="form-control">
+                                <option value=""> -- Seleccione --</option>
+                                @foreach (var e in objPlanEstudio)
+                                {
+                                    <option @(Model.Codigo_PlanEstudio.Equals(e.Codigo_PlanEstudio)) value="@e.Codigo_PlanEstudio">@e.Nombre_PlanEstudio</option>
+                                }
+                            </select>
+                        </div>
                     </div>
                     <div class="col-md-3">
                         @Html.Label("Código Curso")
@@ -55,6 +56,12 @@
                         @Html.Label("Horas Prácticas")
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.HorasPracticas_DetallePlanEstudio, new { @class = "form-control", @placeholder = "Ingrese total hora practica" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        @Html.Label("Total Horas")
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.TotalHoras_DetallePlanEstudio, new { @class = "form-control", @placeholder = "Ingrese total Horas" })
                         </div>
                     </div>
                     <div class="col-md-4">
