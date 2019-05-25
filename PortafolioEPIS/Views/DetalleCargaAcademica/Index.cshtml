@@ -1,4 +1,5 @@
-﻿<div class="row">
+﻿@model List<PortafolioEPIS.Models.Tbl_DetalleCargaAcademica>
+<div class="row">
     <div class="col-sm-4 col-3">
         <h4 class="page-title">Detalle Carga Académica <strong>2016-I</strong></h4>
     </div>
@@ -44,26 +45,40 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @{ int num = 0;}
+                                            @foreach (var p in Model)
+                                            {
+                                                if (p.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio == "I") {
+                                                num = num + 1;
                                             <tr>
-                                                <td>1</td>
-                                                <td><a href="~/DetalleCargaAcademica/Ver">ING-101</a></td>
-                                                <td>Matemática I</td>
-                                                <td>Obligatorio</td>
-                                                <td>Silvia Marlene Centella Vildoso</td>                                                
-                                                <td>A</td>
-                                                <td><span class="custom-badge status-green">Activo</span></td>
+                                                <td>@num</td>
+                                                <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
+                                                <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
+                                                <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
+                                                <td>@p.Tbl_Docente.Nombres_Docente, @p.Tbl_Docente.Apellidos_Docente</td>
+                                                <td>@p.Tbl_Seccion.Nombre_Seccion</td>
+
+                                                @if (p.Estado_DetalleCargaAcademica == true)
+                                                {
+                                                    <td><span class="custom-badge status-green">Activo</span></td>
+                                                }
+                                                else
+                                                {
+                                                    <td><span class="custom-badge status-red">Inactivo</span></td>
+                                                }
                                                 <td class="text-right">
                                                     <div class="dropdown dropdown-action">
                                                         <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                         <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="~/DetalleCargaAcademica/Ver"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                            <a class="dropdown-item" href="~/DetalleCargaAcademica/Ver/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
                                                             <a class="dropdown-item" href="~/DetalleCargaAcademica/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
                                                             <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
                                                         </div>
                                                     </div>
                                                 </td>
                                             </tr>
-
+                                                }
+                                            }
                                         </tbody>
                                     </table>
                                 </div>
@@ -95,25 +110,41 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td><a href="~/DetalleCargaAcademica/Ver">ING-202</a></td>
-                                                <td>Matemática II</td>
-                                                <td>Obligatorio</td>
-                                                <td>Nelida Brigida Maquera Cardenas</td>
-                                                <td>A</td>
-                                                <td><span class="custom-badge status-green">Activo</span></td>
-                                                <td class="text-right">
-                                                    <div class="dropdown dropdown-action">
-                                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="~/DetalleCargaAcademica/Ver"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                            <a class="dropdown-item" href="~/DetalleCargaAcademica/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                                            <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            @{ int num2 = 0;}
+                                            @foreach (var p in Model)
+                                            {
+                                                if (p.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio == "II")
+                                                {
+                                                    num2 = num2 + 1;
+                                                    <tr>
+                                                        <td>@num2</td>
+                                                        <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
+                                                        <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
+                                                        <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.Tbl_Docente.Nombres_Docente, @p.Tbl_Docente.Apellidos_Docente</td>
+                                                        <td>@p.Tbl_Seccion.Nombre_Seccion</td>
+
+                                                        @if (p.Estado_DetalleCargaAcademica == true)
+                                                        {
+                                                            <td><span class="custom-badge status-green">Activo</span></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><span class="custom-badge status-red">Inactivo</span></td>
+                                                        }
+                                                        <td class="text-right">
+                                                            <div class="dropdown dropdown-action">
+                                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="~/DetalleCargaAcademica/Ver/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                    <a class="dropdown-item" href="~/DetalleCargaAcademica/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                    <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
 
                                         </tbody>
                                     </table>
@@ -147,26 +178,41 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td><a href="~/DetalleCargaAcademica/Ver">SI-371</a></td>
-                                                <td>Matemática Discreta</td>
-                                                <td>Obligatorio</td>
-                                                <td>Silvia Marlene Centella Vildoso</td>
-                                                <td>A</td>
-                                                <td><span class="custom-badge status-green">Activo</span></td>
-                                                <td class="text-right">
-                                                    <div class="dropdown dropdown-action">
-                                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="~/DetalleCargaAcademica/Ver"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                            <a class="dropdown-item" href="~/DetalleCargaAcademica/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                                            <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            @{ int num3 = 0;}
+                                            @foreach (var p in Model)
+                                            {
+                                                if (p.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio == "III")
+                                                {
+                                                    num3 = num3 + 1;
+                                                    <tr>
+                                                        <td>@num3</td>
+                                                        <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
+                                                        <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
+                                                        <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.Tbl_Docente.Nombres_Docente, @p.Tbl_Docente.Apellidos_Docente</td>
+                                                        <td>@p.Tbl_Seccion.Nombre_Seccion</td>
 
+                                                        @if (p.Estado_DetalleCargaAcademica == true)
+                                                        {
+                                                            <td><span class="custom-badge status-green">Activo</span></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><span class="custom-badge status-red">Inactivo</span></td>
+                                                        }
+                                                        <td class="text-right">
+                                                            <div class="dropdown dropdown-action">
+                                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="~/DetalleCargaAcademica/Ver/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                    <a class="dropdown-item" href="~/DetalleCargaAcademica/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                    <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
                                         </tbody>
                                     </table>
                                 </div>
@@ -199,26 +245,41 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td><a href="~/DetalleCargaAcademica/Ver">SI-471</a></td>
-                                                <td>INTRODUCCION AL DESARROLLO WEB</td>
-                                                <td>Obligatorio</td>
-                                                <td>Tito Fernando Ale Nieto</td>
-                                                <td>A</td>
-                                                <td><span class="custom-badge status-green">Activo</span></td>
-                                                <td class="text-right">
-                                                    <div class="dropdown dropdown-action">
-                                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="~/DetalleCargaAcademica/Ver"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                            <a class="dropdown-item" href="~/DetalleCargaAcademica/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                                            <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            @{ int num4 = 0;}
+                                            @foreach (var p in Model)
+                                            {
+                                                if (p.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio == "IV")
+                                                {
+                                                    num4 = num4 + 1;
+                                                    <tr>
+                                                        <td>@num4</td>
+                                                        <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
+                                                        <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
+                                                        <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.Tbl_Docente.Nombres_Docente, @p.Tbl_Docente.Apellidos_Docente</td>
+                                                        <td>@p.Tbl_Seccion.Nombre_Seccion</td>
 
+                                                        @if (p.Estado_DetalleCargaAcademica == true)
+                                                        {
+                                                            <td><span class="custom-badge status-green">Activo</span></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><span class="custom-badge status-red">Inactivo</span></td>
+                                                        }
+                                                        <td class="text-right">
+                                                            <div class="dropdown dropdown-action">
+                                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="~/DetalleCargaAcademica/Ver/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                    <a class="dropdown-item" href="~/DetalleCargaAcademica/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                    <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
                                         </tbody>
                                     </table>
                                 </div>
@@ -251,25 +312,41 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td><a href="~/DetalleCargaAcademica/Ver">SI-571</a></td>
-                                                <td>DISEÑO DE BASE DE DATOS</td>
-                                                <td>Obligatorio</td>
-                                                <td>Oliver Santana Carbajal</td>
-                                                <td>A</td>
-                                                <td><span class="custom-badge status-green">Activo</span></td>
-                                                <td class="text-right">
-                                                    <div class="dropdown dropdown-action">
-                                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="~/DetalleCargaAcademica/Ver"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                            <a class="dropdown-item" href="~/DetalleCargaAcademica/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                                            <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            @{ int num5 = 0;}
+                                            @foreach (var p in Model)
+                                            {
+                                                if (p.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio == "V")
+                                                {
+                                                    num5 = num5 + 1;
+                                                    <tr>
+                                                        <td>@num5</td>
+                                                        <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
+                                                        <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
+                                                        <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.Tbl_Docente.Nombres_Docente, @p.Tbl_Docente.Apellidos_Docente</td>
+                                                        <td>@p.Tbl_Seccion.Nombre_Seccion</td>
+
+                                                        @if (p.Estado_DetalleCargaAcademica == true)
+                                                        {
+                                                            <td><span class="custom-badge status-green">Activo</span></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><span class="custom-badge status-red">Inactivo</span></td>
+                                                        }
+                                                        <td class="text-right">
+                                                            <div class="dropdown dropdown-action">
+                                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="~/DetalleCargaAcademica/Ver/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                    <a class="dropdown-item" href="~/DetalleCargaAcademica/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                    <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
 
                                         </tbody>
                                     </table>
@@ -303,25 +380,41 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td><a href="~/DetalleCargaAcademica/Ver">SI-671</a></td>
-                                                <td>BASE DE DATOS I</td>
-                                                <td>Obligatorio</td>
-                                                <td>Carlos Alberto Ruiz Cancino</td>
-                                                <td>A</td>
-                                                <td><span class="custom-badge status-green">Activo</span></td>
-                                                <td class="text-right">
-                                                    <div class="dropdown dropdown-action">
-                                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="~/DetalleCargaAcademica/Ver"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                            <a class="dropdown-item" href="~/DetalleCargaAcademica/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                                            <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            @{ int num6 = 0;}
+                                            @foreach (var p in Model)
+                                            {
+                                                if (p.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio == "VI")
+                                                {
+                                                    num6 = num6 + 1;
+                                                    <tr>
+                                                        <td>@num6</td>
+                                                        <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
+                                                        <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
+                                                        <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.Tbl_Docente.Nombres_Docente, @p.Tbl_Docente.Apellidos_Docente</td>
+                                                        <td>@p.Tbl_Seccion.Nombre_Seccion</td>
+
+                                                        @if (p.Estado_DetalleCargaAcademica == true)
+                                                        {
+                                                            <td><span class="custom-badge status-green">Activo</span></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><span class="custom-badge status-red">Inactivo</span></td>
+                                                        }
+                                                        <td class="text-right">
+                                                            <div class="dropdown dropdown-action">
+                                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="~/DetalleCargaAcademica/Ver/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                    <a class="dropdown-item" href="~/DetalleCargaAcademica/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                    <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
 
                                         </tbody>
                                     </table>
@@ -355,26 +448,41 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td><a href="~/DetalleCargaAcademica/Ver">SI-771</a></td>
-                                                <td>BASE DE DATOS II</td>
-                                                <td>Obligatorio</td>
-                                                <td>Patrick Jose Cuadros Quiroga</td>
-                                                <td>A</td>
-                                                <td><span class="custom-badge status-green">Activo</span></td>
-                                                <td class="text-right">
-                                                    <div class="dropdown dropdown-action">
-                                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="~/DetalleCargaAcademica/Ver"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                            <a class="dropdown-item" href="~/DetalleCargaAcademica/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                                            <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            @{ int num7 = 0;}
+                                            @foreach (var p in Model)
+                                            {
+                                                if (p.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio == "VII")
+                                                {
+                                                    num7 = num7 + 1;
+                                                    <tr>
+                                                        <td>@num7</td>
+                                                        <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
+                                                        <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
+                                                        <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.Tbl_Docente.Nombres_Docente, @p.Tbl_Docente.Apellidos_Docente</td>
+                                                        <td>@p.Tbl_Seccion.Nombre_Seccion</td>
 
+                                                        @if (p.Estado_DetalleCargaAcademica == true)
+                                                        {
+                                                            <td><span class="custom-badge status-green">Activo</span></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><span class="custom-badge status-red">Inactivo</span></td>
+                                                        }
+                                                        <td class="text-right">
+                                                            <div class="dropdown dropdown-action">
+                                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="~/DetalleCargaAcademica/Ver/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                    <a class="dropdown-item" href="~/DetalleCargaAcademica/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                    <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
                                         </tbody>
                                     </table>
                                 </div>
@@ -407,25 +515,41 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td><a href="~/DetalleCargaAcademica/Ver">ING-02</a></td>
-                                                <td>Matemática II</td>
-                                                <td>Obligatorio</td>
-                                                <td>Javier Alca</td>
-                                                <td>A</td>
-                                                <td><span class="custom-badge status-green">Activo</span></td>
-                                                <td class="text-right">
-                                                    <div class="dropdown dropdown-action">
-                                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="~/DetalleCargaAcademica/Ver"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                            <a class="dropdown-item" href="~/DetalleCargaAcademica/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                                            <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            @{ int num8 = 0;}
+                                            @foreach (var p in Model)
+                                            {
+                                                if (p.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio == "VIII")
+                                                {
+                                                    num8 = num8 + 1;
+                                                    <tr>
+                                                        <td>@num8</td>
+                                                        <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
+                                                        <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
+                                                        <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.Tbl_Docente.Nombres_Docente, @p.Tbl_Docente.Apellidos_Docente</td>
+                                                        <td>@p.Tbl_Seccion.Nombre_Seccion</td>
+
+                                                        @if (p.Estado_DetalleCargaAcademica == true)
+                                                        {
+                                                            <td><span class="custom-badge status-green">Activo</span></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><span class="custom-badge status-red">Inactivo</span></td>
+                                                        }
+                                                        <td class="text-right">
+                                                            <div class="dropdown dropdown-action">
+                                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="~/DetalleCargaAcademica/Ver/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                    <a class="dropdown-item" href="~/DetalleCargaAcademica/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                    <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
 
                                         </tbody>
                                     </table>
@@ -459,25 +583,41 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td><a href="~/DetalleCargaAcademica/Ver">ING-02</a></td>
-                                                <td>Matemática II</td>
-                                                <td>Obligatorio</td>
-                                                <td>Javier Alca</td>
-                                                <td>A</td>
-                                                <td><span class="custom-badge status-green">Activo</span></td>
-                                                <td class="text-right">
-                                                    <div class="dropdown dropdown-action">
-                                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="~/DetalleCargaAcademica/Ver"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                            <a class="dropdown-item" href="~/DetalleCargaAcademica/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                                            <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            @{ int num9 = 0;}
+                                            @foreach (var p in Model)
+                                            {
+                                                if (p.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio == "IX")
+                                                {
+                                                    num9 = num9 + 1;
+                                                    <tr>
+                                                        <td>@num9</td>
+                                                        <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
+                                                        <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
+                                                        <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.Tbl_Docente.Nombres_Docente, @p.Tbl_Docente.Apellidos_Docente</td>
+                                                        <td>@p.Tbl_Seccion.Nombre_Seccion</td>
+
+                                                        @if (p.Estado_DetalleCargaAcademica == true)
+                                                        {
+                                                            <td><span class="custom-badge status-green">Activo</span></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><span class="custom-badge status-red">Inactivo</span></td>
+                                                        }
+                                                        <td class="text-right">
+                                                            <div class="dropdown dropdown-action">
+                                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="~/DetalleCargaAcademica/Ver/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                    <a class="dropdown-item" href="~/DetalleCargaAcademica/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                    <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
 
                                         </tbody>
                                     </table>
@@ -511,25 +651,41 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td><a href="~/DetalleCargaAcademica/Ver">SI-071</a></td>
-                                                <td>TALLER DE LIDERAZGO Y EMPRENDIMIENTO</td>
-                                                <td>Obligatorio</td>
-                                                <td>Liliana Mercedes Vega Bernal</td>
-                                                <td>A</td>
-                                                <td><span class="custom-badge status-green">Activo</span></td>
-                                                <td class="text-right">
-                                                    <div class="dropdown dropdown-action">
-                                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="~/DetalleCargaAcademica/Ver"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                            <a class="dropdown-item" href="~/DetalleCargaAcademica/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                                            <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            @{ int num10 = 0;}
+                                            @foreach (var p in Model)
+                                            {
+                                                if (p.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio == "X")
+                                                {
+                                                    num10 = num10 + 1;
+                                                    <tr>
+                                                        <td>@num10</td>
+                                                        <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
+                                                        <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
+                                                        <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.Tbl_Docente.Nombres_Docente, @p.Tbl_Docente.Apellidos_Docente</td>
+                                                        <td>@p.Tbl_Seccion.Nombre_Seccion</td>
+
+                                                        @if (p.Estado_DetalleCargaAcademica == true)
+                                                        {
+                                                            <td><span class="custom-badge status-green">Activo</span></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><span class="custom-badge status-red">Inactivo</span></td>
+                                                        }
+                                                        <td class="text-right">
+                                                            <div class="dropdown dropdown-action">
+                                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="~/DetalleCargaAcademica/Ver/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                    <a class="dropdown-item" href="~/DetalleCargaAcademica/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                    <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
 
                                         </tbody>
                                     </table>

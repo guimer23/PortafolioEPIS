@@ -67,7 +67,7 @@ namespace PortafolioEPIS.Models
                     objDetallePlanEstudio = db.Tbl_DetallePlanEstudio.Include("Tbl_PlanEstudio").ToList();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -87,7 +87,7 @@ namespace PortafolioEPIS.Models
                                     .SingleOrDefault();
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 throw;
             }
@@ -117,7 +117,7 @@ namespace PortafolioEPIS.Models
                     db.SaveChanges();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -134,7 +134,7 @@ namespace PortafolioEPIS.Models
                     db.SaveChanges();
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 throw;
             }
