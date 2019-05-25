@@ -48,7 +48,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="table-responsive">
-                <table class="table table-striped custom-table mb-0 datatable">
+                <table id="datatable" class="table table-striped custom-table mb-0 datatable">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -72,25 +72,30 @@
                                 <td>
                                     <a class="avatar" href="~/Docente/Ver/@s.Codigo_Docente"><img alt="" src="~/Imagen/@s.Foto_Docente"></a>
 
-                                    <h2 class="doctor-name text-ellipsis"><a href="~/Docente/Ver/@s.Codigo_Docente"> @(s.Nombres_Docente + " " + s.Apellidos_Docente)</a></h2>
-                                    @{
-                                        var objTbl_Profesion = new Tbl_Profesion();
-                                        try
-                                        {
-                                            using (var db = new Modelo_Portafolio())
-                                            {
-                                                objTbl_Profesion = db.Tbl_Profesion
-                                                    .Where(x => x.Codigo_Profesion == s.Codigo_Profesion)
-                                                    .SingleOrDefault();
-                                                <div class="doc-prof"><center>@(objTbl_Profesion.Nombre_Profesion)</center></div>
-                                            }
-                                        }
-                                        catch (Exception ex)
-                                        {
-                                            throw;
-                                        }
+                                    <h2 class="doctor-name text-ellipsis">
+                                        <a href="~/Docente/Ver/@s.Codigo_Docente">
+                                            @(s.Nombres_Docente + " " + s.Apellidos_Docente)
+                                            @{
+                                                var objTbl_Profesion = new Tbl_Profesion();
+                                                try
+                                                {
+                                                    using (var db = new Modelo_Portafolio())
+                                                    {
+                                                        objTbl_Profesion = db.Tbl_Profesion
+                                                            .Where(x => x.Codigo_Profesion == s.Codigo_Profesion)
+                                                            .SingleOrDefault();
+                                                        <span>@(objTbl_Profesion.Nombre_Profesion)</span>
+                                                        @*<div class="doc-prof"><center>@(objTbl_Profesion.Nombre_Profesion)</center></div>*@
+                                                    }
+                                                }
+                                                catch (Exception ex)
+                                                {
+                                                    throw;
+                                                }
 
-                                    }
+                                            }
+                                        </a>
+                                    </h2>
                                 </td>
                                 <td>@(s.FechaNac_Docente)</td>
                                 <td>@(s.Correo_Docente)</td>
