@@ -26,7 +26,9 @@
                             <option value=""> -- Seleccione --</option>
                             @foreach (var e in objSemestre)
                             {
+                                
                                 <option @(Model.Codigo_Semestre.Equals(e.Codigo_Semestre)) value="@e.Codigo_Semestre">@e.Nombre_Semestre</option>
+
                             }
                         </select>
 

@@ -1,6 +1,9 @@
 ﻿@{ 
-
+    List<PortafolioEPIS.Models.Tbl_CargaAcademica> carga = new PortafolioEPIS.Models.Tbl_CargaAcademica().Listar();
+    List<PortafolioEPIS.Models.Tbl_PlanEstudio> plan = new PortafolioEPIS.Models.Tbl_PlanEstudio().Listar();
+    List<PortafolioEPIS.Models.Tbl_Docente> docente = new PortafolioEPIS.Models.Tbl_Docente().Listar();
 }
+   
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -59,6 +62,17 @@
                 </div>
             </div>
         </div>
+        @{ int a = 0;
+            int c = 0;
+            int p = 0;}
+        @foreach (var doc in docente)
+        { a++; }
+        @foreach (var pl in plan)
+        { p++; }
+        @foreach (var ca in carga)
+        { c++; }
+
+
         <div class="sidebar" id="sidebar">
             <div class="sidebar-inner slimscroll">
                 <div id="sidebar-menu" class="sidebar-menu">
@@ -68,13 +82,16 @@
                             <a href="~/Inicio/Index"><i class="fa fa-dashboard"></i> <span>Inicio</span></a>
                         </li>
                         <li>
-                            <a href="~/PlanEstudio/Index"><i class="fa fa-book"></i> <span>Plan de Estudio</span> <span class="badge badge-pill bg-primary float-right">2</span></a>
+                            <a href="~/PlanEstudio/Index"><i class="fa fa-book"></i> <span>Plan de Estudio</span> <span class="badge badge-pill bg-primary float-right">@p</span></a>
                         </li>
                         <li>
-                            <a href="~/CargaAcademica/Index"><i class="fa fa-cube"></i> <span>Carga Académica</span> <span class="badge badge-pill bg-primary float-right">8</span></a>
+                            <a href="~/CargaAcademica/Index"><i class="fa fa-cube"></i> <span>Carga Académica</span> <span class="badge badge-pill bg-primary float-right">@c</span></a>
                         </li>
+
+
+
                         <li>
-                            @{ int a = 0;}
+
                             <a href="~/Docente/Index2"><i class="fa fa-user"></i> <span>Docentes</span> <span class="badge badge-pill bg-primary float-right">@a</span></a>
                         </li>
                         <li class="submenu">
