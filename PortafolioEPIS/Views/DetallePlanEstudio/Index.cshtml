@@ -1,10 +1,16 @@
-﻿<div class="row">
+﻿@model List<PortafolioEPIS.Models.Tbl_DetallePlanEstudio>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
     <div class="col-sm-4 col-3">
         <h4 class="page-title">Detalle Plan de Estudio <strong>2016-I</strong></h4>
     </div>
     <div class="col-sm-8 col-9 text-right m-b-20">
         <div class="form-check form-check-inline">
-            <a href="~/DetallePlanEstudio/Agregar" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Agregar Curso</a>
+            <a href="~/DetallePlanEstudio/Agregar/" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Agregar Curso</a>
         </div>
     </div>
 </div>
@@ -15,7 +21,8 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Código Curso</th>
+                        <th>Plan Estudio</th>
+                        <th>Codigo Curso</th>
                         <th>Asignatura</th>
                         <th>Tipo</th>
                         <th>Total Horas</th>
@@ -26,50 +33,48 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td><a href="~/DetallePlanEstudio/Ver">ING-02</a></td>
-                        <td>Matemática II</td>
-                        <td>Obligatorio</td>
-                        <td>6</td>
-                        <td>4</td>
-                        <td>II</td>
-                        <td><span class="custom-badge status-green">Activo</span></td>
-                        <td class="text-right">
-                            <div class="dropdown dropdown-action">
-                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Ver"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                    <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                    @{ int num = 0;}
+                    @foreach (var p in Model)
+                    {
+                        num = num + 1;
+                        <tr>
+                            <td>@num</td>
+                            <td><a href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio">@p.Tbl_PlanEstudio.Nombre_PlanEstudio</a></td>
+                            <td>@p.CodigoCurso_DetallePlanEstudio</td>
+                            <td>@p.Asignatura_DetallePlanEstudio</td>
+                            <td>@p.TipoCurso_DetallePlanEstudio</td>
+                            <td>@p.HorasTeoricas_DetallePlanEstudio</td>
+                            <td>@p.HorasPracticas_DetallePlanEstudio</td>
+                            <td>@p.Ciclo_DetallePlanEstudio</td>
+
+                            @if (p.Estado_DetallePlanEstudio == true)
+                            {
+                                <td><span class="custom-badge status-green">Activo</span></td>
+                            }
+                            else
+                            {
+                                <td><span class="custom-badge status-red">Inactivo</span></td>
+                            }
+                            <td class="text-right">
+                                <div class="dropdown dropdown-action">
+                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="~/DetallePlanEstudio/Ver/@p.Codigo_DetallePlanEstudio"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                        <a class="dropdown-item" href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                        <a class="dropdown-item" href="~/DetallePlanEstudio/Eliminar/@p.Codigo_DetallePlanEstudio" onclick="return confirm('¿Esta Seguro de Eliminar.........?');"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="~/DetallePlanEstudio/Ver">ING-03</a></td>
-                        <td>Matemática Discreta</td>
-                        <td>Obligatorio</td>
-                        <td>6</td>
-                        <td>4</td>
-                        <td>III</td>
-                        <td><span class="custom-badge status-green">Activo</span></td>
-                        <td class="text-right">
-                            <div class="dropdown dropdown-action">
-                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Ver"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Agregar"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                    <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+
+
+
+
 
 
