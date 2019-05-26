@@ -4,22 +4,20 @@
         <h4 class="page-title">Agregar Cargo</h4>
     </div>
 </div>
-
 <div class="row">
     <div class="col-md-12">
         <div class="card-box">
             <h4 class="card-title">Información Cargo</h4>
             @using (Html.BeginForm("Guardar", "Cargo", FormMethod.Post))
             {
-                
+
                 @Html.HiddenFor(x => x.Codigo_CargoDocente)
                 <div class="row clearfix">
                     <div class="col-md-6">
                         <div class="form-group">
-
                             @Html.Label("Nombre")
                             @Html.TextBoxFor(x => x.Nombre_CargoDocente, new { @class = "form-control", @placeholder = "Ingrese Nombre" })
-
+                            @Html.ValidationMessageFor(x => x.Nombre_CargoDocente, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                 </div>
@@ -27,12 +25,9 @@
                     <div class="col-md-12">
                         @Html.Label("Estado")
                         <div class="form-group">
-
                             @Html.RadioButtonFor(x => x.Estado_CargoDocente, true)@Html.Label("Activo")
 
-
                             @Html.RadioButtonFor(x => x.Estado_CargoDocente, false)@Html.Label("Inactivo")
-
                         </div>
                     </div>
                 </div>

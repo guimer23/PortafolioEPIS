@@ -3,7 +3,6 @@
     List<PortafolioEPIS.Models.Tbl_PlanEstudio> objPlanEstudio = ViewBag.Tbl_PlanEstudio;
     ViewBag.Title = "Agregar";
 }
-
 <div class="row">
     <div class="col-sm-12">
         <h4 class="page-title">Agregar Detalle Plan de Estudio</h4>
@@ -19,29 +18,32 @@
                 @Html.HiddenFor(x => x.Codigo_DetallePlanEstudio)
                 <div class="row clearfix">
                     <div class="col-md-3">
+                        @Html.Label("Plan de Estudio")
                         <div class="form-group">
-                            @Html.Label("Plan de Estudio")
-
-
                             <select name="Codigo_PlanEstudio" class="form-control">
-                                <option value=""> -- Seleccione --</option>
-                                @foreach (var e in objPlanEstudio)
+                                <option @(Model.Codigo_PlanEstudio.Equals("") ? "Selected" : "") value="">--Seleccione--</option>
+
+                                @foreach (var d in objPlanEstudio)
                                 {
-                                    <option @(Model.Codigo_PlanEstudio.Equals(e.Codigo_PlanEstudio)) value="@e.Codigo_PlanEstudio">@e.Nombre_PlanEstudio</option>
+                                    <option @(Model.Codigo_PlanEstudio.Equals(d.Codigo_PlanEstudio) ? "Selected" : "") value="@d.Codigo_PlanEstudio">@d.Nombre_PlanEstudio</option>
                                 }
                             </select>
+                            @Html.ValidationMessageFor(x => x.Codigo_PlanEstudio, null, new { @class = "text-danger" })
+
                         </div>
                     </div>
                     <div class="col-md-3">
                         @Html.Label("Código Curso")
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.CodigoCurso_DetallePlanEstudio, new { @class = "form-control", @placeholder = "Ingrese el Codigo" })
+                            @Html.ValidationMessageFor(x => x.CodigoCurso_DetallePlanEstudio, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                     <div class="col-md-6">
                         @Html.Label("Asignatura")
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.Asignatura_DetallePlanEstudio, new { @class = "form-control", @placeholder = "Ingrese nombre del curso" })
+                            @Html.ValidationMessageFor(x => x.Asignatura_DetallePlanEstudio, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                 </div>
@@ -50,24 +52,28 @@
                         @Html.Label("Horas Teóricas")
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.HorasTeoricas_DetallePlanEstudio, new { @class = "form-control", @placeholder = "Ingrese total hora teorica" })
+                            @Html.ValidationMessageFor(x => x.HorasTeoricas_DetallePlanEstudio, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                     <div class="col-md-4">
                         @Html.Label("Horas Prácticas")
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.HorasPracticas_DetallePlanEstudio, new { @class = "form-control", @placeholder = "Ingrese total hora practica" })
+                            @Html.ValidationMessageFor(x => x.HorasPracticas_DetallePlanEstudio, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                     <div class="col-md-4">
                         @Html.Label("Total Horas")
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.TotalHoras_DetallePlanEstudio, new { @class = "form-control", @placeholder = "Ingrese total Horas" })
+                            @Html.ValidationMessageFor(x => x.TotalHoras_DetallePlanEstudio, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                     <div class="col-md-4">
                         @Html.Label("Créditos")
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.TotalCreditos_DetallePlanEstudio, new { @class = "form-control", @placeholder = "Ingrese total credito" })
+                            @Html.ValidationMessageFor(x => x.TotalCreditos_DetallePlanEstudio, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                 </div>
@@ -76,37 +82,41 @@
                         @Html.Label("Pre-Requisito")
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.PreRequisito_DetallePlanEstudio, new { @class = "form-control", @placeholder = "Ingrese curso pre-requisito" })
+                            @Html.ValidationMessageFor(x => x.PreRequisito_DetallePlanEstudio, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                     <div class="col-md-4">
                         @Html.Label("Ciclo")
                         <div class="form-group">
-                            <select class="form-control">
-                                <option>-Seleccionar-</option>
-                                <option>I</option>
-                                <option>II</option>
-                                <option>III</option>
-                                <option>IV</option>
-                                <option>V</option>
-                                <option>VI</option>
-                                <option>VII</option>
-                                <option>VIII</option>
-                                <option>IX</option>
-                                <option>X</option>
+                            <select name="Ciclo_DetallePlanEstudio" class="form-control">
+                                <option @(Model.Ciclo_DetallePlanEstudio == "" ? "Selected" : "") value="">-Seleccionar-</option>
+                                <option @(Model.Ciclo_DetallePlanEstudio == "I" ? "Selected" : "") value="I">I</option>
+                                <option @(Model.Ciclo_DetallePlanEstudio == "II" ? "Selected" : "") value="II">II</option>
+                                <option @(Model.Ciclo_DetallePlanEstudio == "III" ? "Selected" : "") value="III">III</option>
+                                <option @(Model.Ciclo_DetallePlanEstudio == "IV" ? "Selected" : "") value="IV">IV</option>
+                                <option @(Model.Ciclo_DetallePlanEstudio == "V" ? "Selected" : "") value="V">V</option>
+                                <option @(Model.Ciclo_DetallePlanEstudio == "VI" ? "Selected" : "") value="VI">VI</option>
+                                <option @(Model.Ciclo_DetallePlanEstudio == "VII" ? "Selected" : "") value="VII">VII</option>
+                                <option @(Model.Ciclo_DetallePlanEstudio == "VIII" ? "Selected" : "") value="VIII">VIII</option>
+                                <option @(Model.Ciclo_DetallePlanEstudio == "IX" ? "Selected" : "") value="IX">IX</option>
+                                <option @(Model.Ciclo_DetallePlanEstudio == "X" ? "Selected" : "") value="X">X</option>
                             </select>
+                            @Html.ValidationMessageFor(x => x.Ciclo_DetallePlanEstudio, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                     <div class="col-md-4">
                         @Html.Label("Tipo")
                         <div class="form-group">
-                            <select class="form-control">
-                                <option>-Seleccionar-</option>
-                                <option>Obligatorio</option>
-                                <option>Electivo</option>
+                            <select name="TipoCurso_DetallePlanEstudio" class="form-control">
+                                <option @(Model.TipoCurso_DetallePlanEstudio == "" ? "Selected" : "") value="">-Seleccionar-</option>
+                                <option @(Model.TipoCurso_DetallePlanEstudio == "Obligatorio" ? "Selected" : "") value="Obligatorio">Obligatorio</option>
+                                <option @(Model.TipoCurso_DetallePlanEstudio == "Electivo" ? "Selected" : "") value="Electivo">Electivo</option>
                             </select>
+                            @Html.ValidationMessageFor(x => x.TipoCurso_DetallePlanEstudio, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                 </div>
+
 
                 <div class="row clearfix">
                     <div class="col-md-12">

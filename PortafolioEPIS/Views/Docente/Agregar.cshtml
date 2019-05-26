@@ -1,9 +1,10 @@
 ﻿@model PortafolioEPIS.Models.Tbl_Docente
 
-
 @{
-    List<PortafolioEPIS.Models.Tbl_CargoDocente> cargodocente = ViewBag.Tbl_CargoDocente;
-    List<PortafolioEPIS.Models.Tbl_Profesion> profesion = ViewBag.Tbl_Profesion;
+                /**/
+
+                List<PortafolioEPIS.Models.Tbl_CargoDocente> cargodocente = ViewBag.Tbl_CargoDocente;
+                List<PortafolioEPIS.Models.Tbl_Profesion> profesion = ViewBag.Tbl_Profesion;
 
 
 }
@@ -15,7 +16,6 @@
         <h4 class="page-title">Agregar Docente</h4>
     </div>
 </div>
-
 <div class="row">
     <div class="col-md-12">
         <div class="card-box">
@@ -28,13 +28,14 @@
                         @Html.Label("Código")
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.Codigo_Docenteepis, new { @class = "form-control", @placeholder = "Ingrese codigo" })
-
+                            @Html.ValidationMessageFor(x => x.Codigo_Docenteepis, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                     <div class="col-md-6">
                         @Html.Label("DNI")
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.DNI_Docente, new { @class = "form-control", @placeholder = "Ingrese DNI" })
+                            @Html.ValidationMessageFor(x => x.DNI_Docente, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                 </div>
@@ -43,12 +44,14 @@
                         @Html.Label("Nombres")
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.Nombres_Docente, new { @class = "form-control", @placeholder = "Ingrese nombres" })
+                            @Html.ValidationMessageFor(x => x.Nombres_Docente, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                     <div class="col-md-6">
                         @Html.Label("Apellidos")
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.Apellidos_Docente, new { @class = "form-control", @placeholder = "Ingrese apellidos" })
+                            @Html.ValidationMessageFor(x => x.Apellidos_Docente, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                 </div>
@@ -56,9 +59,9 @@
                     <div class="col-md-4">
                         @Html.Label("Sexo")
                         <br />
-
                         @Html.RadioButtonFor(x => x.Sexo_Docente, true, new { @checked = true }) Masculino  <label>&nbsp &nbsp</label>
                         @Html.RadioButtonFor(x => x.Sexo_Docente, false) Femenino
+
                     </div>
                     <div class="col-md-4">
                         @Html.Label("Estado Civil")
@@ -69,6 +72,7 @@
                                 <option @(Model.EstadoCivil_Docente == "Casado" ? "Selected" : "") value="Casado">Casado</option>
                                 <option @(Model.EstadoCivil_Docente == "Divorciado" ? "Selected" : "") value="Divorciado">Divorciado</option>
                             </select>
+                            @Html.ValidationMessageFor(x => x.EstadoCivil_Docente, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -76,7 +80,7 @@
                         <div class="form-group">
                             <div class="cal-icon">
                                 @Html.TextBoxFor(x => x.FechaNac_Docente, new { @class = "form-control datetimepicker", @placeholder = "Ingrese Fecha" })
-
+                                @Html.ValidationMessageFor(x => x.FechaNac_Docente, null, new { @class = "label label-danger" })
                             </div>
                         </div>
                     </div>
@@ -86,67 +90,33 @@
                         <div class="form-group">
                             @Html.Label("Profesion:")
                             <select name="Codigo_Profesion" class="form-control">
-                                <option @(Model.Codigo_Profesion.Equals("") ? "selected" : "") value="">-Seleccione-</option>
+                                <option @(Model.Codigo_Profesion.Equals("") ? "Selected" : "") value="">--Seleccione--</option>
+
                                 @foreach (var p in profesion)
                                 {
-                                    if (p.Estado_Profesion == true)
-                                    {
-                                        <option @(Model.Codigo_Profesion.Equals(p.Codigo_Profesion) ? "selected" : "") value="@p.Codigo_Profesion"> @p.Nombre_Profesion</option>
-                                    }
-
+                                    <option @(Model.Codigo_Profesion.Equals(p.Codigo_Profesion) ? "Selected" : "") value="@p.Codigo_Profesion">@p.Nombre_Profesion</option>
                                 }
                             </select>
                             @Html.ValidationMessageFor(x => x.Codigo_Profesion, null, new { @class = "label label-danger" })
+
                         </div>
-
-
-
-                        @*@Html.Label("Profesion")
-
-                            <select name="Codigo_Profesion" class="form-control">
-                                <option value=""> -- Seleccione --</option>
-                                @foreach (var d in profesion)
-                                {
-                                    if (d.Estado_Profesion == true) {
-                                    <option @(Model.Codigo_Profesion.Equals(d.Codigo_Profesion)) value="@d.Codigo_Profesion">@d.Nombre_Profesion</option>
-                                    }
-                                }
-                            </select>*@
                     </div>
-
-
-
                     <div class="col-md-6">
-
                         <div class="form-group">
                             @Html.Label("Cargo:")
                             <select name="Codigo_CargoDocente" class="form-control">
-                                <option @(Model.Codigo_CargoDocente.Equals("") ? "selected" : "") value="">-Seleccione-</option>
+                                <option value=""> -- Seleccione --</option>
                                 @foreach (var p in cargodocente)
                                 {
                                     if (p.Estado_CargoDocente == true)
                                     {
-                                        <option @(Model.Codigo_CargoDocente.Equals(p.Codigo_CargoDocente) ? "selected" : "") value="@p.Codigo_CargoDocente"> @p.Nombre_CargoDocente</option>
-                                    }
 
+                                        <option @(Model.Codigo_CargoDocente.Equals(p.Codigo_CargoDocente) ? "selected" : "") value="@p.Codigo_CargoDocente">@p.Nombre_CargoDocente</option>
+                                    }
                                 }
                             </select>
                             @Html.ValidationMessageFor(x => x.Codigo_CargoDocente, null, new { @class = "label label-danger" })
                         </div>
-
-
-                        @*<div class="form-group">
-                                @Html.Label("Cargo")
-
-
-                                <select name="Codigo_CargoDocente" class="form-control">
-                                    <option value=""> -- Seleccione --</option>
-                                    @foreach (var e in cargodocente)
-                                    {
-                                        <option @(Model.Codigo_CargoDocente.Equals(e.Codigo_CargoDocente)) value="@e.Codigo_CargoDocente">@e.Nombre_CargoDocente</option>
-                                    }
-                                </select>
-                            </div>*@
                     </div>
                 </div>
                 <div class="row clearfix">
@@ -154,13 +124,14 @@
                         @Html.Label("Dirección Actual")
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.DireccionActual_Docente, new { @class = "form-control", @placeholder = "Ingrese Direccion" })
-
+                            @Html.ValidationMessageFor(x => x.DireccionActual_Docente, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                     <div class="col-md-6">
                         @Html.Label("Dirección de Referencia")
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.DireccionReferencia_Docente, new { @class = "form-control", @placeholder = "Ingrese de referencia" })
+                            @Html.ValidationMessageFor(x => x.DireccionReferencia_Docente, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                 </div>
@@ -169,19 +140,21 @@
                         @Html.Label("Correo")
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.Correo_Docente, new { @class = "form-control", @placeholder = "Ingrese correo" })
+                            @Html.ValidationMessageFor(x => x.Correo_Docente, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                     <div class="col-md-4">
                         @Html.Label("Teléfono Fijo")
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.TelefonoFijo_Docente, new { @class = "form-control", @placeholder = "Ingrese teléfono fijo" })
+                            @Html.ValidationMessageFor(x => x.TelefonoFijo_Docente, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                     <div class="col-md-4">
                         @Html.Label("Teléfono Celular")
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.TelefonoCelular_Docente, new { @class = "form-control", @placeholder = "Ingrese teléfono celular" })
-
+                            @Html.ValidationMessageFor(x => x.TelefonoCelular_Docente, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                 </div>
@@ -204,7 +177,6 @@
                             <input type="file" name="foto" />
                         </div>
                     </div>
-
                 </div>
 
 
@@ -226,13 +198,12 @@
                                         <a href="~/Docente/Index2" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'> Cancelar</a>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input type="submit" value="Crear" class="btn btn btn-primary btn-rounded" style='width:100px; height:35px' />
+                                        <input type="submit" value="Guardar" class="btn btn btn-primary btn-rounded" style='width:100px; height:35px' />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             }
         </div>

@@ -4,7 +4,6 @@
         <h4 class="page-title">Agregar Profesión</h4>
     </div>
 </div>
-
 <div class="row">
     <div class="col-md-12">
         <div class="card-box">
@@ -17,29 +16,25 @@
                         <div class="form-group">
                             @Html.Label("Nombre")
                             @Html.TextBoxFor(x => x.Nombre_Profesion, new { @class = "form-control", @placeholder = "Ingrese Nombre" })
-
+                            @Html.ValidationMessageFor(x => x.Nombre_Profesion, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             @Html.Label("Abrebiatura")
                             @Html.TextBoxFor(x => x.Abrebiatura_Profesion, new { @class = "form-control", @placeholder = "Ingrese Abrebiatura" })
-
+                            @Html.ValidationMessageFor(x => x.Abrebiatura_Profesion, null, new { @class = "label label-danger" })
                         </div>
                     </div>
-
                 </div>
                 <div class="row clearfix">
                     <div class="col-md-12">
                         @Html.Label("Estado")
                         <div class="form-group">
 
-
                             @Html.RadioButtonFor(x => x.Estado_Profesion, true)@Html.Label("Activo")
 
-
                             @Html.RadioButtonFor(x => x.Estado_Profesion, false)@Html.Label("Inactivo")
-
 
                         </div>
                     </div>
@@ -59,7 +54,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             }
         </div>
