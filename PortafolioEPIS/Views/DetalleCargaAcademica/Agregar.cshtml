@@ -1,4 +1,14 @@
-﻿<div class="row">
+﻿@model PortafolioEPIS.Models.Tbl_DetalleCargaAcademica
+@{
+    List<PortafolioEPIS.Models.Tbl_CargaAcademica> objCargaAcademica = ViewBag.Tbl_CargaAcademica;
+    List<PortafolioEPIS.Models.Tbl_PlanEstudio> objPlanEstudio = ViewBag.Tbl_PlanEstudio;
+    List<PortafolioEPIS.Models.Tbl_Docente> objDocente = ViewBag.Tbl_Docente;
+    List<PortafolioEPIS.Models.Tbl_Seccion> objSeccion = ViewBag.Tbl_Seccion;
+    List<PortafolioEPIS.Models.Tbl_DetallePlanEstudio> objDetallePlanEstudio = ViewBag.Tbl_DetallePlanEstudio;
+    List<PortafolioEPIS.Models.Tbl_Semestre> objSemestre = ViewBag.Tbl_Semestre;
+
+}
+<div class="row">
     <div class="col-sm-12">
         <h4 class="page-title">Agregar  Detalle Carga Académica</h4>
     </div>
@@ -8,19 +18,41 @@
     <div class="col-md-12">
         <div class="card-box">
             <h4 class="card-title">Información Detalle Carga Académica</h4>
-            @using (Html.BeginForm("Index", "DetalleCargaAcademica", FormMethod.Post))
+            @using (Html.BeginForm("Guardar", "DetalleCargaAcademica", FormMethod.Post))
             {
+                @Html.HiddenFor(x => x.Codigo_DetalleCargaAcademica)
                 <div class="row clearfix">
                     <div class="col-md-4">
                         @Html.Label("Plan de Estudio")
+
                         <div class="form-group">
-                            <input type="text" class="form-control" value="2016-I" disabled>
+                            <select name="Codigo_PlanEstudio" class="form-control">
+                                <option @(Model.Codigo_PlanEstudio.Equals("") ? "Selected" : "") value="">--Seleccione--</option>
+
+                                @foreach (var d in objPlanEstudio)
+                                {
+                                    <option @(Model.Codigo_PlanEstudio.Equals(d.Codigo_PlanEstudio) ? "Selected" : "") value="@d.Codigo_PlanEstudio">@d.Nombre_PlanEstudio</option>
+                                }
+                            </select>
+                            @Html.ValidationMessageFor(x => x.Codigo_PlanEstudio, null, new { @class = "text-danger" })
+
                         </div>
+
+
                     </div>
+
                     <div class="col-md-4">
                         @Html.Label("Carga Académica")
                         <div class="form-group">
-                            <input type="text" class="form-control" value="2016-I" disabled>
+                            <select name="Codigo_CargaAcademica" class="form-control">
+                                <option @(Model.Codigo_CargaAcademica.Equals("") ? "Selected" : "") value="">--Seleccione--</option>
+
+                                @foreach (var d in objCargaAcademica)
+                                {
+                                    <option @(Model.Codigo_CargaAcademica.Equals(d.Codigo_CargaAcademica) ? "Selected" : "") value="@d.Codigo_CargaAcademica">@d.Nombre_CargaAcademica</option>
+                                }
+                            </select>
+                            @Html.ValidationMessageFor(x => x.Codigo_CargaAcademica, null, new { @class = "text-danger" })
                         </div>
                     </div>
                 </div>
@@ -28,47 +60,71 @@
                     <div class="col-md-4">
                         @Html.Label("Asignatura")
                         <div class="form-group">
-                            <select class="form-control">
-                                <option>-Seleccionar-</option>
-                                <option>Matemática II</option>
-                                <option>Economía I</option>
+                            <select name="Codigo_DetallePlanEstudio" class="form-control">
+                                <option @(Model.Codigo_DetallePlanEstudio.Equals("") ? "Selected" : "") value="">--Seleccione--</option>
+
+                                @foreach (var d in objDetallePlanEstudio)
+                                {
+                                    <option @(Model.Codigo_DetallePlanEstudio.Equals(d.Codigo_DetallePlanEstudio) ? "Selected" : "") value="@d.Codigo_DetallePlanEstudio">@d.Asignatura_DetallePlanEstudio</option>
+                                }
                             </select>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        @Html.Label("Docente")
-                        <div class="form-group">
-                            <select class="form-control">
-                                <option>-Seleccionar-</option>
-                                <option>Liliana Vega Bernal</option>
-                                <option>Lanchipa Enrique Valencia</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        @Html.Label("Sección")
-                        <div class="form-group">
-                            <select class="form-control">
-                                <option>-Seleccionar-</option>
-                                <option>A</option>
-                                <option>B</option>
-                            </select>
+                            @Html.ValidationMessageFor(x => x.Codigo_DetallePlanEstudio, null, new { @class = "text-danger" })
                         </div>
                     </div>
                 </div>
+                <div class="col-md-5">
+                    @Html.Label("Docente")
+                    <div class="form-group">
+                        <select name="Codigo_Docente" class="form-control">
+                            <option @(Model.Codigo_Docente.Equals("") ? "Selected" : "") value="">--Seleccione--</option>
 
+                            @foreach (var d in objDocente)
+                            {
+                                <option @(Model.Codigo_Docente.Equals(d.Codigo_Docente) ? "Selected" : "") value="@d.Codigo_Docente">@d.Nombres_Docente</option>
+                            }
+                        </select>
+                        @Html.ValidationMessageFor(x => x.Codigo_Docente, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    @Html.Label("Sección")
+                    <div class="form-group">
+                        <select name="Codigo_Seccion" class="form-control">
+                            <option @(Model.Codigo_Seccion.Equals("") ? "Selected" : "") value="">--Seleccione--</option>
+
+                            @foreach (var d in objSeccion)
+                            {
+                                <option @(Model.Codigo_Seccion.Equals(d.Codigo_Seccion) ? "Selected" : "") value="@d.Codigo_Seccion">@d.Nombre_Seccion</option>
+                            }
+                        </select>
+                        @Html.ValidationMessageFor(x => x.Codigo_Seccion, null, new { @class = "text-danger" })
+
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    @Html.Label("Semestre")
+                    <div class="form-group">
+                        <select name="Codigo_Semestre" class="form-control">
+                            <option @(Model.Codigo_Semestre.Equals("") ? "Selected" : "") value="">--Seleccione--</option>
+
+                            @foreach (var d in objSemestre)
+                            {
+                                <option @(Model.Codigo_Semestre.Equals(d.Codigo_Semestre) ? "Selected" : "") value="@d.Codigo_Semestre">@d.Nombre_Semestre</option>
+                            }
+                        </select>
+                        @Html.ValidationMessageFor(x => x.Codigo_Semestre, null, new { @class = "text-danger" })
+
+
+                    </div>
+                </div>
                 <div class="row clearfix">
                     <div class="col-md-12">
                         @Html.Label("Estado")
                         <div class="form-group">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="status1" id="patient_active" value="option1" checked>
-                                <label class="form-check-label" for="patient_active">Activo</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="status1" id="patient_inactive" value="option2">
-                                <label class="form-check-label" for="patient_inactive">Inactivo</label>
-                            </div>
+                            @Html.RadioButtonFor(x => x.Estado_DetalleCargaAcademica, true, new { @checked = true }) Activo  <label>&nbsp &nbsp</label>
+                            @Html.RadioButtonFor(x => x.Estado_DetalleCargaAcademica, false) Inactivo
                         </div>
                     </div>
                 </div><div class="row clearfix">
@@ -92,4 +148,3 @@
         </div>
     </div>
 </div>
-

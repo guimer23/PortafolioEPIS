@@ -2,13 +2,11 @@
 @{
     ViewBag.Title = "Agregar";
 }
-
 <div class="row">
     <div class="col-sm-12">
         <h4 class="page-title">Agregar Semestre</h4>
     </div>
 </div>
-
 <div class="row">
     <div class="col-md-12">
         <div class="card-box">
@@ -17,7 +15,7 @@
             {
                 <div class="row clearfix">
                     <div class="col-md-6">
-                        @Html.HiddenFor(x=> x.Codigo_Semestre)
+                        @Html.HiddenFor(x => x.Codigo_Semestre)
                         @Html.Label("Nombre")
                         <label>Nombre <span class="text-danger">*</span></label>
                         <div class="form-group">
@@ -59,7 +57,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             }
         </div>

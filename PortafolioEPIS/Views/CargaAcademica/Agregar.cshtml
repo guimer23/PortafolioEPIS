@@ -1,16 +1,13 @@
 ﻿@model PortafolioEPIS.Models.Tbl_CargaAcademica
-
 @{
     List<PortafolioEPIS.Models.Tbl_Semestre> objSemestre = ViewBag.Tbl_Semestre;
     ViewBag.Title = "Agregar";
 }
-
 <div class="row">
     <div class="col-sm-12">
         <h4 class="page-title">Agregar Carga Académica</h4>
     </div>
 </div>
-
 <div class="row">
     <div class="col-md-12">
         <div class="card-box">
@@ -27,26 +24,29 @@
                             {
                                 if (e.Estado_Semestre == true)
                                 {
-                                    
+
                                     <option @(Model.Codigo_Semestre.Equals(e.Codigo_Semestre) ? "selected" : "") value="@e.Codigo_Semestre">@e.Nombre_Semestre</option>
                                 }
                             }
-
                         </select>
+                        @Html.ValidationMessageFor(x => x.Codigo_Semestre, null, new { @class = "label label-danger" })
                     </div>
                     <div class="col-md-8">
                         @Html.Label("Nombre")
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.Nombre_CargaAcademica, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Nombre_CargaAcademica, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                 </div>
+
                 <div class="row clearfix">
                     <div class="col-md-4">
                         @Html.Label("Fecha Inicio")
                         <div class="form-group">
                             <div class="cal-icon">
                                 @Html.TextBoxFor(x => x.FechaInicio_CargaAcademica, new { @class = "form-control datetimepicker", @placeholder = "Ingrese Fecha" })
+                                @Html.ValidationMessageFor(x => x.FechaInicio_CargaAcademica, null, new { @class = "label label-danger" })
                             </div>
                         </div>
                     </div>
@@ -55,6 +55,7 @@
                         <div class="form-group">
                             <div class="cal-icon">
                                 @Html.TextBoxFor(x => x.FechaFin_CargaAcademica, new { @class = "form-control datetimepicker", @placeholder = "Ingrese Fecha" })
+                                @Html.ValidationMessageFor(x => x.FechaFin_CargaAcademica, null, new { @class = "label label-danger" })
                             </div>
                         </div>
                     </div>
@@ -76,7 +77,7 @@
                                         <a href="~/CargaAcademica/Index" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'> Cancelar</a>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input type="submit" value="Crear" class="btn btn btn-primary btn-rounded" style='width:100px; height:35px' />
+                                        <input type="submit" value="Guardar" class="btn btn btn-primary btn-rounded" style='width:100px; height:35px' />
                                     </div>
                                 </div>
                             </div>

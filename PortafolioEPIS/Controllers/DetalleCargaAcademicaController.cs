@@ -16,7 +16,7 @@ namespace PortafolioEPIS.Controllers
         private Tbl_Docente objDocente = new Tbl_Docente();
         private Tbl_Seccion objSeccion = new Tbl_Seccion();
         private Tbl_DetallePlanEstudio objDetallePlanEstudio = new Tbl_DetallePlanEstudio();
-        private  Tbl_Semestre objSemestre= new Tbl_Semestre();
+        private Tbl_Semestre objSemestre = new Tbl_Semestre();
 
         public ActionResult Index()
         {
@@ -33,13 +33,13 @@ namespace PortafolioEPIS.Controllers
         // Accion Agregar
         public ActionResult Agregar(int id = 0)
         {
-            
+
             ViewBag.Tbl_CargaAcademica = objCargaAcademica.Listar();
-            ViewBag.Tbl_CargaAcademica = objPlanEstudio.Listar();
-            ViewBag.Tbl_CargaAcademica = objDocente.Listar();
-            ViewBag.Tbl_CargaAcademica = objSeccion.Listar();
-            ViewBag.Tbl_CargaAcademica = objDetallePlanEstudio.Listar();
-            ViewBag.Tbl_CargaAcademica = objSemestre.Listar();
+            ViewBag.Tbl_PlanEstudio = objPlanEstudio.Listar();
+            ViewBag.Tbl_Docente = objDocente.Listar();
+            ViewBag.Tbl_Seccion = objSeccion.Listar();
+            ViewBag.Tbl_DetallePlanEstudio = objDetallePlanEstudio.Listar();
+            ViewBag.Tbl_Semestre = objSemestre.Listar();
 
             return View(id == 0 ? new Tbl_DetalleCargaAcademica()//Agregar un nuevo objeto
                : objDetalleCargaAcademica.Obtener(id));

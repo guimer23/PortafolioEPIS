@@ -4,7 +4,6 @@
         <h4 class="page-title">Agregar Sección</h4>
     </div>
 </div>
-
 <div class="row">
     <div class="col-md-12">
         <div class="card-box">
@@ -18,7 +17,7 @@
                         <label>Nombre <span class="text-danger">*</span></label>
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.Nombre_Seccion, new { @class = "form-control", @placeholder = "Ingrese Nombre" })
-
+                            @Html.ValidationMessageFor(x => x.Nombre_Seccion, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                 </div>
@@ -26,8 +25,6 @@
                     <div class="col-md-12">
                         @Html.Label("Estado")
                         <br />
-
-
                         @Html.RadioButtonFor(x => x.Estado_Seccion, true) Activo  <label>&nbsp &nbsp</label>
                         @Html.RadioButtonFor(x => x.Estado_Seccion, false, new { @checked = true }) Inactivo
 
@@ -51,10 +48,8 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             }
         </div>
     </div>
 </div>
-
