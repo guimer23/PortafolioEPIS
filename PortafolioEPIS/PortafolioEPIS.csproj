@@ -243,6 +243,7 @@
     <Compile Include="Controllers\DetalleCargaAcademicaController.cs" />
     <Compile Include="Controllers\DetallePlanEstudioController.cs" />
     <Compile Include="Controllers\DocenteController.cs" />
+    <Compile Include="Controllers\Informes\PruebaEntradaController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
     <Compile Include="Controllers\Mantenimiento\CargoController.cs" />
     <Compile Include="Controllers\Mantenimiento\ProfesionController.cs" />
@@ -307,6 +308,7 @@
     <Content Include="Views\DetalleCargaAcademica\Index.cshtml" />
     <Content Include="Views\DetalleCargaAcademica\Agregar.cshtml" />
     <Content Include="Views\DetalleCargaAcademica\Ver.cshtml" />
+    <Content Include="Views\PruebaEntrada\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
