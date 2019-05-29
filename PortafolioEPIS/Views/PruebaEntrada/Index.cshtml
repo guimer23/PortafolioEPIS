@@ -20,49 +20,168 @@
                 <div class="col-md-12">
                     <div class="card-box">
 
-                        <h4 class="card-title">Información Docente</h4>
                         @using (Html.BeginForm("Guardar", "Docente", FormMethod.Post, new { id = "frm-docente", enctype = "multipart/form-data" }))
                         {
-
-                            <div class="row clearfix">
-                                <div class="col-md-4">
-                                    @Html.Label("Código")
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" />
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    @Html.Label("Asignatura")
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row clearfix">
-                                <div class="col-md-4">
-                                    @Html.Label("Código")
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" />
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    @Html.Label("Asignatura")
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" />
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="row clearfix">
                                 <div class="col-md-12">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item active" aria-current="page">INFORMACION DE CURSO</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-4">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Codigo:</label>
+                                        <input type="text" class="form-control floating" value="SI-671">
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Asignatura:</label>
+                                        <input type="text" class="form-control floating" value="BASE DE DATOS I">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-2">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Sección:</label>
+                                        <input type="text" class="form-control floating" value="A">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Ciclo:</label>
+                                        <input type="text" class="form-control floating" value="VI">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Horas:</label>
+                                        <input type="text" class="form-control floating" value="6">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Créditos:</label>
+                                        <input type="text" class="form-control floating" value="4">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Tipo Curso:</label>
+                                        <input type="text" class="form-control floating" value="Obligatorio">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item active" aria-current="page">DATOS DOCENTE</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-4">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Codigo:</label>
+                                        <input type="text" class="form-control floating" value="254511">
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Nombre:</label>
+                                        <input type="text" class="form-control floating" value="Ing. CARLOS ALBERTO RUIZ CANCINO">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-8">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Email:</label>
+                                        <input type="text" class="form-control floating" value="carlosruiz@gmail.com">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Celular:</label>
+                                        <input type="text" class="form-control floating" value="995686874">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item active" aria-current="page">NUMERO DE ESTUDIANTES</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-6">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Matriculados:</label>
+                                        <input type="text" class="form-control floating" value="30">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Evaluados:</label>
+                                        <input type="text" class="form-control floating" value="25">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item active" aria-current="page">CONOCIMIENTOS Y HABILIDADES</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-6">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Nombre:</label>
+                                        <input type="text" class="form-control floating" value="Conocimientos de Base de datos">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Deficiente:</label>
+                                        <input type="text" class="form-control floating" value="5">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Suficiente:</label>
+                                        <input type="text" class="form-control floating" value="10">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Bueno:</label>
+                                        <input type="text" class="form-control floating" value="10">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="form-group row">
                                             <div class="col-sm-8 col-9 text-left">
                                                 <div class="form-check form-check-inline">
-                                                    <a href="~/Docente/Index2" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'> Cancelar</a>
+                                                    <a href="#" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'> Limpiar</a>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input type="submit" value="Crear" class="btn btn btn-primary btn-rounded" style='width:100px; height:35px' />
+                                                    <a href="#" class="btn btn btn-primary btn-rounded" style='width:100px; height:35px'>Agregar</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -70,6 +189,185 @@
                                 </div>
 
                             </div>
+                            <!--Listar tabla conocimientos habilidades-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped custom-table example" id="example">
+                                            <thead>
+                                                <tr>
+                                                    <th rowspan="2">#</th>
+                                                    <th rowspan="2">Nombre</th>
+                                                    <th class="text-center" colspan="7">Numero de estudiantes por rango de nota (Nivel lcanzado en %)</th>
+                                                    <th rowspan="2" class="text-right">Acción</th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="text-center">Deficiente</th>
+                                                    <th class="text-center">%</th>
+                                                    <th class="text-center">Suficiente</th>
+                                                    <th class="text-center">%</th>
+                                                    <th class="text-center">Bueno</th>
+                                                    <th class="text-center">%</th>
+                                                    <th class="text-center">Total</th>
+                                                </tr>
+
+                                            </thead>
+                                            <tbody>
+
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Conocimientos de base de datos</td>
+                                                    <td class="text-center">5</td>
+                                                    <td class="text-center">20.00</td>
+                                                    <td class="text-center">10</td>
+                                                    <td class="text-center">40.00</td>
+                                                    <td class="text-center">10</td>
+                                                    <td class="text-center">40.00</td>
+                                                    <td class="text-center" bgcolor="#43FF52">100%</td>
+                                                    <td class="text-right">
+                                                        <div class="dropdown dropdown-action">
+                                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a class="dropdown-item" href="#"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                <a class="dropdown-item" href="#" onclick="return confirm('¿Esta seguro que desea de Eliminar?');"><i class="fa fa-trash-o m-r-5"></i>  Eliminar</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Conocimientos de modelo E/R</td>
+                                                    <td class="text-center">14</td>
+                                                    <td class="text-center">56.00</td>
+                                                    <td class="text-center">11</td>
+                                                    <td class="text-center">44.00</td>
+                                                    <td class="text-center">0</td>
+                                                    <td class="text-center">0.00</td>
+                                                    <td class="text-center" bgcolor="#FF8168">100%</td>
+                                                    <td class="text-right">
+                                                        <div class="dropdown dropdown-action">
+                                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a class="dropdown-item" href="#"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                <a class="dropdown-item" href="#" onclick="return confirm('¿Esta seguro que desea de Eliminar?');"><i class="fa fa-trash-o m-r-5"></i>  Eliminar</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <div class="float-right">
+                                        <ul class="chat-user-total">
+                                            <li><button class="btn btn btn-success btn-rounded"></button> Capacidad alcanzada</li>
+                                            <li><button class="btn btn btn-warning btn-rounded"></button> No requiere accion de mejora</li>
+                                            <li><button class="btn btn btn-danger btn-rounded"></button> Requiere accion de mejora</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item active" aria-current="page">GRAFICO -  RESUMEN POR CONOCIMIENTOS Y HABILIDADES</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="chart-title">
+                                                <h4>Patient Total</h4>
+                                                <span class="float-right"><i class="fa fa-caret-up" aria-hidden="true"></i> 15% Higher than Last Month</span>
+                                            </div>
+                                            <canvas id="linegraph"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="chart-title">
+                                                <h4>Patients In</h4>
+                                                <div class="float-right">
+                                                    <ul class="chat-user-total">
+                                                        <li><i class="fa fa-circle current-users" aria-hidden="true"></i>ICU</li>
+                                                        <li><i class="fa fa-circle old-users" aria-hidden="true"></i> OPD</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <canvas id="bargraph"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item active" aria-current="page">MEDIDAS CORRECTIVAS</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                            <p>Medidas correctivas que ha tomado en los casos de grado <span class="custom-badge status-red">Deficiente</span> Seleccione las acciones realizadas: </p>
+                            <div class="row clearfix">
+                                <div class="col-md-6">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="checkbox"> 1. Repaso en horas de clase
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="checkbox"> 2. Repaso con horas adicionales de clase
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="checkbox"> 3. Ejercicios propuestos para resolver en casa
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="checkbox"> 4. Entrega de material de repaso
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="checkbox"> 5. Recomendacion de bibliografia
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="checkbox"> 6. Otros(Detalle en la descripcion)
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Describa otras medidas correctivas y/o recomendaciones</label>
+                                        <div class="form-group">
+                                            <textarea rows="3" cols="5" class="form-control" placeholder="Escriba aquí"></textarea>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                            </div>
+                            
+
                         }
 
 
