@@ -15,8 +15,8 @@
                 <div class="row clearfix">
                     <div class="col-md-6">
                         <div class="form-group">
-                            @Html.Label("Nombre")
-                            @Html.TextBoxFor(x => x.Nombre_CargoDocente, new { @class = "form-control", @placeholder = "Ingrese Nombre" })
+                            @Html.Label("Nombre")<span class="text-danger">*</span>
+                            @Html.TextBoxFor(x => x.Nombre_CargoDocente, new { @class = "form-control"})
                             @Html.ValidationMessageFor(x => x.Nombre_CargoDocente, null, new { @class = "label label-danger" })
                         </div>
                     </div>

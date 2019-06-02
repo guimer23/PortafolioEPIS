@@ -15,7 +15,7 @@
                     <div class="col-md-12">
                         @Html.Label("Nombre")<span class="text-danger">*</span>                        
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.Nombre_Seccion, new { @class = "form-control", @placeholder = "Ingrese Nombre" })
+                            @Html.TextBoxFor(x => x.Nombre_Seccion, new { @class = "form-control"})
                             @Html.ValidationMessageFor(x => x.Nombre_Seccion, null, new { @class = "label label-danger" })
                         </div>
                     </div>
