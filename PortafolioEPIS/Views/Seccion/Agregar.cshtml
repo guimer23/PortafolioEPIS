@@ -1,7 +1,7 @@
 ﻿@model PortafolioEPIS.Models.Tbl_Seccion
 <div class="row">
     <div class="col-sm-12">
-        <h4 class="page-title">Agregar Sección</h4>
+        <h4 class="page-title">Agregar / Editar Sección</h4>
     </div>
 </div>
 <div class="row">
@@ -13,8 +13,7 @@
                 @Html.HiddenFor(x => x.Codigo_Seccion)
                 <div class="row clearfix">
                     <div class="col-md-12">
-                        @Html.Label("Nombre")
-                        <label>Nombre <span class="text-danger">*</span></label>
+                        @Html.Label("Nombre")<span class="text-danger">*</span>                        
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.Nombre_Seccion, new { @class = "form-control", @placeholder = "Ingrese Nombre" })
                             @Html.ValidationMessageFor(x => x.Nombre_Seccion, null, new { @class = "label label-danger" })
@@ -27,8 +26,6 @@
                         <br />
                         @Html.RadioButtonFor(x => x.Estado_Seccion, true) Activo  <label>&nbsp &nbsp</label>
                         @Html.RadioButtonFor(x => x.Estado_Seccion, false, new { @checked = true }) Inactivo
-
-
                         <br />
                         <br />
                     </div>
@@ -39,10 +36,10 @@
                             <div class="form-group row">
                                 <div class="col-sm-8 col-9 text-left">
                                     <div class="form-check form-check-inline">
-                                        <a href="~/Seccion/Index" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'> Cancelar</a>
+                                        <a href="~/Seccion/Index" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'><i class="fa fa-close"></i>  Cancelar</a>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input type="submit" value="Guardar" class="btn btn btn-primary btn-rounded" style='width:100px; height:35px' />
+                                        <button class="btn btn-primary btn-rounded" style='width:100px; height:35px' type="submit"><i class="fa fa-check"></i> Guardar</button>
                                     </div>
                                 </div>
                             </div>

@@ -31,12 +31,7 @@ namespace PortafolioEPIS.Controllers.Mantenimiento
             return View(id == 0 ? new Tbl_Semestre()//Agregar un nuevo objeto
                : objSemestre.Obtener(id));
         }
-        //public ActionResult Editar(int id = 0)
-        //{
-        //    return View(id == 0 ? new Tbl_Semestre()//Agregar un nuevo objeto
-        //        : objSemestre.Obtener(id));
-        //}
-
+       
         //Action Guardar
         public ActionResult Guardar(Tbl_Semestre objSemestre)
         {
