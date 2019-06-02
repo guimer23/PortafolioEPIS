@@ -16,15 +16,10 @@
     <link rel="stylesheet" type="text/css" href="~/assets/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="~/assets/css/style.css">
 
-    <!--data table-->
-    <link href="~/assets/DataTables/datatables.min.css" rel="stylesheet" />
-    <link href="~/assets/DataTables/DataTables-1.10.18/css/dataTables.foundation.min.css" rel="stylesheet" />
-    <link href="~/assets/DataTables/DataTables-1.10.18/css/dataTables.semanticui.min.css" rel="stylesheet" />
+    <!--Datatables-->
+    <link href="~/assets/DataTables/dataTables.bootstrap4.min.css" rel="stylesheet" />
 
-    @* Estilo de Tabla *@
-    <link rel="stylesheet" type="text/css" href="~/assets/css/dataTables.bootstrap4.min.css">
-
-    @* Estilos de combobox y campo de fecha nacimiento *@
+    <!--Estilos de combobox y campo de fecha nacimiento-->
     <link rel="stylesheet" type="text/css" href="~/assets/css/select2.min.css">
     <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap-datetimepicker.min.css">
 
@@ -129,9 +124,6 @@
     <script src="~/assets/js/chart.js"></script>
     <script src="~/assets/js/app.js"></script>
 
-    @* JS para Tabla*@
-    <script src="~/assets/js/jquery.dataTables.min.js"></script>
-    <script src="~/assets/js/dataTables.bootstrap4.min.js"></script>
 
 
 
@@ -142,22 +134,12 @@
     <script src="~/assets/js/moment.min.js"></script>
     <script src="~/assets/js/bootstrap-datetimepicker.min.js"></script>
 
-    <!--data table-->
-    <script src="~/assets/DataTables/datatables.min.js"></script>
-
+    <!--Datatables-->
+    <script src="~/assets/DataTables/jquery.dataTables.min.js"></script>
+    <script src="~/assets/DataTables/dataTables.bootstrap4.min.js"></script>
     <script>
-        $(document).ready(function () {
+        $(function (e) {
             $('#example').DataTable({
-                "scrollY": "200px",
-                "scrollCollapse": true,
-                "paging": false
-            });
-        });
-
-
-        $(document).ready(function () {
-            $("#datatable").DataTable({
-
                 "aLengthMenu": [[5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "Todos"]],
                 "bDestroy": true,
                 "language": {
@@ -185,7 +167,7 @@
                     }
                 }
             });
-    </script>
+        });</script>
 
 
 </body>
