@@ -245,7 +245,6 @@
     <Content Include="Views\Profesion\Agregar.cshtml" />
     <Content Include="Views\Docente\Index.cshtml" />
     <Content Include="Views\Docente\Agregar.cshtml" />
-    <Content Include="Views\Seccion\Editar.cshtml" />
     <Content Include="Views\Docente\Index2.cshtml" />
     <Content Include="Views\Docente\Ver.cshtml" />
     <Content Include="Views\PlanEstudio\Index.cshtml" />
