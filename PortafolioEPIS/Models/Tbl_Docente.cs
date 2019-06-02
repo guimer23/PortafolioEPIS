@@ -6,6 +6,9 @@ namespace PortafolioEPIS.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    using System.Linq;
+    using System.Data.Entity;
+
     public partial class Tbl_Docente
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -78,5 +81,108 @@ namespace PortafolioEPIS.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_PruebaEntrada> Tbl_PruebaEntrada { get; set; }
+
+
+        public List<Tbl_Docente> Listar2()//retorna una coleccion
+        {
+            var objDocente = new List<Tbl_Docente>();
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    objDocente = db.Tbl_Docente.Include("Tbl_Profesion").ToList();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objDocente;
+        }
+
+        //Metodo Listar
+        public List<Tbl_Docente> Listar()
+        {
+            var objDocente = new List<Tbl_Docente>();
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    objDocente = db.Tbl_Docente.Include("Tbl_Profesion").ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objDocente;
+        }
+
+        //Metodo Obtener
+        public Tbl_Docente Obtener(int id)//retorna solo un objeto
+        {
+            var objDocente = new Tbl_Docente();
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    objDocente = db.Tbl_Docente.Include("Tbl_Profesion")
+                                    .Where(x => x.Codigo_Docente == id)
+                                    .SingleOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objDocente;
+        }
+
+        //Metodo Guardar
+
+        public void Guardar()
+        {
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+
+                    if (this.Codigo_Docente > 0)
+                    {
+                        //si existe un valor mayor que cero es por que existe el registro
+                        db.Entry(this).State = EntityState.Modified;
+                    }
+                    else
+                    {
+                        ///no existe el registro lo graba (Nuevo)
+                        db.Entry(this).State = EntityState.Added;
+
+                    }
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        //metodo Eliminar 
+        public void Eliminar()
+        {
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    db.Entry(this).State = System.Data.Entity.EntityState.Deleted;
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }
