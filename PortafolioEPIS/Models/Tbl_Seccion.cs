@@ -1,0 +1,33 @@
+namespace PortafolioEPIS.Models
+{
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+
+    public partial class Tbl_Seccion
+    {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Tbl_Seccion()
+        {
+            Tbl_DetalleCargaAcademica = new HashSet<Tbl_DetalleCargaAcademica>();
+            Tbl_PruebaEntrada = new HashSet<Tbl_PruebaEntrada>();
+        }
+
+        [Key]
+        public int Codigo_Seccion { get; set; }
+
+        [Required]
+        [StringLength(10)]
+        public string Nombre_Seccion { get; set; }
+
+        public bool Estado_Seccion { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_DetalleCargaAcademica> Tbl_DetalleCargaAcademica { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_PruebaEntrada> Tbl_PruebaEntrada { get; set; }
+    }
+}
