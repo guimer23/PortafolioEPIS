@@ -1,0 +1,429 @@
+﻿@model List<PortafolioEPIS.Models.Tbl_DetalleCargaAcademica>
+@{
+    Layout = null;
+}
+
+<div class="card-box">
+
+
+
+    @{ int num1 = 1;}
+    @foreach (var p in Model)
+    {
+
+
+        if (p.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio == "I" && p.Tbl_Docente.Codigo_Docente.Equals(Convert.ToInt32(ViewBag.id)))
+        {
+            if (num1 == 1)
+            {
+                <h3 class="card-title">Cursos I Ciclo</h3>
+            }
+
+            <div class="experience-box">
+                <ul class="experience-list">
+                    <li>
+                        @{num1 = num1 + 1;}
+                        <div class="experience-user">
+                            <div class="before-circle"></div>
+                        </div>
+
+                        <div class="experience-content">
+                            <div class="timeline-content">
+                                <a href="#/" class="name">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio (@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio) @p.Tbl_Seccion.Nombre_Seccion</a>
+                                <div>Total Horas: @p.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio </div>
+                                <span class="time">Créditos: @p.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio</span>
+                                <span class="time">Pre-requisito: @p.Tbl_DetallePlanEstudio.PreRequisito_DetallePlanEstudio</span>
+                            </div>
+                        </div>
+                    </li>
+
+
+                </ul>
+            </div>
+
+
+        }
+
+
+
+    }
+
+
+    @{ int num2 = 1;}
+    @foreach (var p in Model)
+    {
+
+
+        if (p.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio == "II" && p.Tbl_Docente.Codigo_Docente.Equals(Convert.ToInt32(ViewBag.id)))
+        {
+            if (num2 == 1)
+            {
+                <h3 class="card-title">Cursos II Ciclo</h3>
+            }
+
+            <div class="experience-box">
+                <ul class="experience-list">
+                    <li>
+                        @{num2 = num2 + 1;}
+                        <div class="experience-user">
+                            <div class="before-circle"></div>
+                        </div>
+
+                        <div class="experience-content">
+                            <div class="timeline-content">
+                                <a href="#/" class="name">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio (@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio) @p.Tbl_Seccion.Nombre_Seccion</a>
+                                <div>Total Horas: @p.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio </div>
+                                <span class="time">Créditos: @p.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio</span>
+                                <span class="time">Pre-requisito: @p.Tbl_DetallePlanEstudio.PreRequisito_DetallePlanEstudio</span>
+                            </div>
+                        </div>
+                    </li>
+
+
+                </ul>
+            </div>
+
+
+        }
+
+
+
+    }
+    <br>
+
+    @{ int num3 = 1;}
+    @foreach (var p in Model)
+    {
+
+
+        if (p.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio == "III" && p.Tbl_Docente.Codigo_Docente.Equals(Convert.ToInt32(ViewBag.id)))
+        {
+            if (num3 == 1)
+            {
+                <h3 class="card-title">Cursos III Ciclo</h3>
+            }
+            
+            <div class="experience-box">
+                <ul class="experience-list">
+                    <li>
+                        @{num3 = num3 + 1;}
+                        <div class="experience-user">
+                            <div class="before-circle"></div>
+                        </div>
+
+                        <div class="experience-content">
+                            <div class="timeline-content">
+
+                                <a href="#/" class="name">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio (@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio) @p.Tbl_Seccion.Nombre_Seccion</a>
+                                <div>Total Horas: @p.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio </div>
+                                <span class="time">Créditos: @p.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio</span>
+                                <span class="time">Pre-requisito: @p.Tbl_DetallePlanEstudio.PreRequisito_DetallePlanEstudio</span>
+                               
+                            </div>
+                        </div>
+                    </li>
+
+
+                </ul>
+            </div>
+
+
+        }
+
+
+
+    }
+
+
+    @{ int num4 = 1;}
+    @foreach (var p in Model)
+    {
+
+
+        if (p.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio == "IV" && p.Tbl_Docente.Codigo_Docente.Equals(Convert.ToInt32(ViewBag.id)))
+        {
+            if (num4 == 1)
+            {
+                <h3 class="card-title">Cursos IV Ciclo</h3>
+            }
+
+            <div class="experience-box">
+                <ul class="experience-list">
+                    <li>
+                        @{num4 = num4 + 1;}
+                        <div class="experience-user">
+                            <div class="before-circle"></div>
+                        </div>
+
+                        <div class="experience-content">
+                            <div class="timeline-content">
+                                <a href="#/" class="name">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio (@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio) @p.Tbl_Seccion.Nombre_Seccion</a>
+                                <div>Total Horas: @p.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio </div>
+                                <span class="time">Créditos: @p.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio</span>
+                                <span class="time">Pre-requisito: @p.Tbl_DetallePlanEstudio.PreRequisito_DetallePlanEstudio</span>
+                            </div>
+                        </div>
+                    </li>
+
+
+                </ul>
+            </div>
+
+
+        }
+
+
+
+    }
+
+
+    @{ int num5 = 1;}
+    @foreach (var p in Model)
+    {
+
+
+        if (p.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio == "V" && p.Tbl_Docente.Codigo_Docente.Equals(Convert.ToInt32(ViewBag.id)))
+        {
+            if (num5 == 1)
+            {
+                <h3 class="card-title">Cursos V Ciclo</h3>
+            }
+
+            <div class="experience-box">
+                <ul class="experience-list">
+                    <li>
+                        @{num5 = num5 + 1;}
+                        <div class="experience-user">
+                            <div class="before-circle"></div>
+                        </div>
+
+                        <div class="experience-content">
+                            <div class="timeline-content">
+                                <a href="#/" class="name">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio (@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio) @p.Tbl_Seccion.Nombre_Seccion</a>
+                                <div>Total Horas: @p.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio </div>
+                                <span class="time">Créditos: @p.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio</span>
+                                <span class="time">Pre-requisito: @p.Tbl_DetallePlanEstudio.PreRequisito_DetallePlanEstudio</span>
+                            </div>
+                        </div>
+                    </li>
+
+
+                </ul>
+            </div>
+
+
+        }
+
+
+
+    }
+
+    @{ int num6 = 1;}
+    @foreach (var p in Model)
+    {
+
+
+        if (p.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio == "VI" && p.Tbl_Docente.Codigo_Docente.Equals(Convert.ToInt32(ViewBag.id)))
+        {
+            if (num6 == 1)
+            {
+                <h3 class="card-title">Cursos VI Ciclo</h3>
+            }
+
+            <div class="experience-box">
+                <ul class="experience-list">
+                    <li>
+                        @{num6 = num6 + 1;}
+                        <div class="experience-user">
+                            <div class="before-circle"></div>
+                        </div>
+
+                        <div class="experience-content">
+                            <div class="timeline-content">
+                                <a href="#/" class="name">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio (@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio) @p.Tbl_Seccion.Nombre_Seccion</a>
+                                <div>Total Horas: @p.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio </div>
+                                <span class="time">Créditos: @p.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio</span>
+                                <span class="time">Pre-requisito: @p.Tbl_DetallePlanEstudio.PreRequisito_DetallePlanEstudio</span>
+                            </div>
+                        </div>
+                    </li>
+
+
+                </ul>
+            </div>
+
+
+        }
+
+
+
+    }
+
+
+    @{ int num7 = 1;}
+    @foreach (var p in Model)
+    {
+
+
+        if (p.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio == "VII" && p.Tbl_Docente.Codigo_Docente.Equals(Convert.ToInt32(ViewBag.id)))
+        {
+            if (num7 == 1)
+            {
+                <h3 class="card-title">Cursos VII Ciclo</h3>
+            }
+
+            <div class="experience-box">
+                <ul class="experience-list">
+                    <li>
+                        @{num7 = num7 + 1;}
+                        <div class="experience-user">
+                            <div class="before-circle"></div>
+                        </div>
+
+                        <div class="experience-content">
+                            <div class="timeline-content">
+                                <a href="#/" class="name">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio (@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio) @p.Tbl_Seccion.Nombre_Seccion</a>
+                                <div>Total Horas: @p.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio </div>
+                                <span class="time">Créditos: @p.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio</span>
+                                <span class="time">Pre-requisito: @p.Tbl_DetallePlanEstudio.PreRequisito_DetallePlanEstudio</span>
+                            </div>
+                        </div>
+                    </li>
+
+
+                </ul>
+            </div>
+
+
+        }
+
+
+
+    }
+
+
+    @{ int num8 = 1;}
+    @foreach (var p in Model)
+    {
+
+
+        if (p.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio == "VIII" && p.Tbl_Docente.Codigo_Docente.Equals(Convert.ToInt32(ViewBag.id)))
+        {
+            if (num8 == 1)
+            {
+                <h3 class="card-title">Cursos VIII Ciclo</h3>
+            }
+
+            <div class="experience-box">
+                <ul class="experience-list">
+                    <li>
+                        @{num8 = num8 + 1;}
+                        <div class="experience-user">
+                            <div class="before-circle"></div>
+                        </div>
+
+                        <div class="experience-content">
+                            <div class="timeline-content">
+                                <a href="#/" class="name">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio (@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio) @p.Tbl_Seccion.Nombre_Seccion</a>
+                                <div>Total Horas: @p.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio </div>
+                                <span class="time">Créditos: @p.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio</span>
+                                <span class="time">Pre-requisito: @p.Tbl_DetallePlanEstudio.PreRequisito_DetallePlanEstudio</span>
+                            </div>
+                        </div>
+                    </li>
+
+
+                </ul>
+            </div>
+
+
+        }
+
+
+
+    }
+
+
+    @{ int num9 = 1;}
+    @foreach (var p in Model)
+    {
+
+
+        if (p.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio == "IX" && p.Tbl_Docente.Codigo_Docente.Equals(Convert.ToInt32(ViewBag.id)))
+        {
+            if (num9 == 1)
+            {
+                <h3 class="card-title">Cursos IX Ciclo</h3>
+            }
+
+            <div class="experience-box">
+                <ul class="experience-list">
+                    <li>
+                        @{num9 = num9 + 1;}
+                        <div class="experience-user">
+                            <div class="before-circle"></div>
+                        </div>
+
+                        <div class="experience-content">
+                            <div class="timeline-content">
+                                <a href="#/" class="name">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio (@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio) @p.Tbl_Seccion.Nombre_Seccion</a>
+                                <div>Total Horas: @p.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio </div>
+                                <span class="time">Créditos: @p.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio</span>
+                                <span class="time">Pre-requisito: @p.Tbl_DetallePlanEstudio.PreRequisito_DetallePlanEstudio</span>
+                            </div>
+                        </div>
+                    </li>
+
+
+                </ul>
+            </div>
+
+
+        }
+
+
+
+    }
+
+
+    @{ int num10 = 1;}
+    @foreach (var p in Model)
+    {
+
+
+        if (p.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio == "X" && p.Tbl_Docente.Codigo_Docente.Equals(Convert.ToInt32(ViewBag.id)))
+        {
+            if (num10 == 1)
+            {
+                <h3 class="card-title">Cursos X  Ciclo</h3>
+            }
+
+            <div class="experience-box">
+                <ul class="experience-list">
+                    <li>
+                        @{num10 = num10 + 1;}
+                        <div class="experience-user">
+                            <div class="before-circle"></div>
+                        </div>
+
+                        <div class="experience-content">
+                            <div class="timeline-content">
+                                <a href="#/" class="name">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio (@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio) @p.Tbl_Seccion.Nombre_Seccion</a>
+                                <div>Total Horas: @p.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio </div>
+                                <span class="time">Créditos: @p.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio</span>
+                                <span class="time">Pre-requisito: @p.Tbl_DetallePlanEstudio.PreRequisito_DetallePlanEstudio</span>
+                            </div>
+                        </div>
+                    </li>
+
+
+                </ul>
+            </div>
+
+
+        }
+
+
+
+    }
+</div>

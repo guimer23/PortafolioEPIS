@@ -98,8 +98,11 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card-box">
-                            <!--Carga Academica 2019-I-->
-                            Lista de cursos asignados
+                            
+                           
+                           
+                        @{Html.RenderAction("VistaCursosTabla", "Docente", new ViewDataDictionary(new { id = Model.Codigo_Docente})); }
+                           
 
                         </div>
 

@@ -259,6 +259,8 @@
     <Content Include="Views\DetalleCargaAcademica\Agregar.cshtml" />
     <Content Include="Views\DetalleCargaAcademica\Ver.cshtml" />
     <Content Include="Views\PruebaEntrada\Index.cshtml" />
+    <Content Include="Views\Docente\VistaCursosDocente.cshtml" />
+    <Content Include="Views\Docente\VistaCursosTabla.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
