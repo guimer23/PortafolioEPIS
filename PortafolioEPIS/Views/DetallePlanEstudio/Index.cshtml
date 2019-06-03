@@ -10,68 +10,798 @@
     </div>
     <div class="col-sm-8 col-9 text-right m-b-20">
         <div class="form-check form-check-inline">
-            <a href="~/DetallePlanEstudio/Agregar/" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Agregar Curso</a>
+            <a href="~/DetallePlanEstudio/Agregar/" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Nuevo Registro</a>
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-12">
-        <div class="table-responsive">
-            <table class="table table-striped custom-table mb-0 datatable">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Plan Estudio</th>
-                        <th>Codigo Curso</th>
-                        <th>Asignatura</th>
-                        <th>Tipo</th>
-                        <th>Total Horas</th>
-                        <th>Créditos</th>
-                        <th>Ciclo</th>
-                        <th class="text-center">Estado</th>
-                        <th class="text-right">Accción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @{ int num = 0;}
-                    @foreach (var p in Model)
-                    {
-                        num = num + 1;
-                        <tr>
-                            <td>@num</td>
-                            <td><a href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio">@p.Tbl_PlanEstudio.Nombre_PlanEstudio</a></td>
-                            <td>@p.CodigoCurso_DetallePlanEstudio</td>
-                            <td>@p.Asignatura_DetallePlanEstudio</td>
-                            <td>@p.TipoCurso_DetallePlanEstudio</td>
-                            <td>@p.TotalHoras_DetallePlanEstudio</td>
-                            <td>@p.TotalCreditos_DetallePlanEstudio</td>
-                            <td>@p.Ciclo_DetallePlanEstudio</td>
 
-                            @if (p.Estado_DetallePlanEstudio == true)
-                            {
-                                <td><span class="custom-badge status-green">Activo</span></td>
-                            }
-                            else
-                            {
-                                <td><span class="custom-badge status-red">Inactivo</span></td>
-                            }
-                            <td class="text-right">
-                                <div class="dropdown dropdown-action">
-                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="~/DetallePlanEstudio/Ver/@p.Codigo_DetallePlanEstudio"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                        <a class="dropdown-item" href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                        <a class="dropdown-item" href="~/DetallePlanEstudio/Eliminar/@p.Codigo_DetallePlanEstudio" onclick="return confirm('¿Esta Seguro de Eliminar.........?');"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
-                                    </div>
+<div class="profile-tabs">
+    <ul class="nav nav-tabs nav-tabs-bottom">
+        <li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">Todo los Ciclos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab1" data-toggle="tab">Ciclo I</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab">Ciclo II</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab3" data-toggle="tab">Ciclo III</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab4" data-toggle="tab">Ciclo IV</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab5" data-toggle="tab">Ciclo V</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab6" data-toggle="tab">Ciclo VI</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab7" data-toggle="tab">Ciclo VII</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab8" data-toggle="tab">Ciclo VIII</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab9" data-toggle="tab">Ciclo IX</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab10" data-toggle="tab">Ciclo X</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane show active" id="about-cont">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table id="example" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Codigo Curso</th>
+                                                <th>Asignatura</th>
+                                                <th>Tipo</th>
+                                                <th>Total Horas</th>
+                                                <th>Créditos</th>
+                                                <th>Ciclo</th>
+                                                <th class="text-center">Estado</th>
+                                                <th class="text-right">Accción</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{ int num0 = 0;}
+                                            @foreach (var p in Model)
+                                            {
+                                                num0 = num0 + 1;
+                                                
+                                                    <tr>
+                                                        <td>@num0</td>
+                                                        <td><a href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio">@p.CodigoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.Asignatura_DetallePlanEstudio</td>
+                                                        <td>@p.TipoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.TotalHoras_DetallePlanEstudio</td>
+                                                        <td>@p.TotalCreditos_DetallePlanEstudio</td>
+                                                        <td>@p.Ciclo_DetallePlanEstudio</td>
+
+                                                        @if (p.Estado_DetallePlanEstudio == true)
+                                                        {
+                                                            <td><span class="custom-badge status-green">Activo</span></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><span class="custom-badge status-red">Inactivo</span></td>
+                                                        }
+                                                        <td class="text-right">
+                                                            <div class="dropdown dropdown-action">
+                                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Ver/@p.Codigo_DetallePlanEstudio"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Eliminar/@p.Codigo_DetallePlanEstudio" onclick="return confirm('¿Esta Seguro de Eliminar.........?');"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr> 
+                                            }
+                                        </tbody>
+                                    </table>
                                 </div>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="bottom-tab1">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table id="example" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Codigo Curso</th>
+                                                <th>Asignatura</th>
+                                                <th>Tipo</th>
+                                                <th>Total Horas</th>
+                                                <th>Créditos</th>
+                                                <th>Ciclo</th>
+                                                <th class="text-center">Estado</th>
+                                                <th class="text-right">Accción</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{ int num1 = 0;}
+                                            @foreach (var p1 in Model)
+                                            {
+                                                num1 = num1 + 1;
+                                                if (p1.Ciclo_DetallePlanEstudio == "I")
+                                                {
+                                                    <tr>
+                                                        <td>@num1</td>
+                                                        <td><a href="~/DetallePlanEstudio/Agregar/@p1.Codigo_DetallePlanEstudio">@p1.CodigoCurso_DetallePlanEstudio</td>
+                                                        <td>@p1.Asignatura_DetallePlanEstudio</td>
+                                                        <td>@p1.TipoCurso_DetallePlanEstudio</td>
+                                                        <td>@p1.TotalHoras_DetallePlanEstudio</td>
+                                                        <td>@p1.TotalCreditos_DetallePlanEstudio</td>
+                                                        <td>@p1.Ciclo_DetallePlanEstudio</td>
+
+                                                        @if (p1.Estado_DetallePlanEstudio == true)
+                                                        {
+                                                            <td><span class="custom-badge status-green">Activo</span></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><span class="custom-badge status-red">Inactivo</span></td>
+                                                        }
+                                                        <td class="text-right">
+                                                            <div class="dropdown dropdown-action">
+                                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Ver/@p1.Codigo_DetallePlanEstudio"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Agregar/@p1.Codigo_DetallePlanEstudio"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Eliminar/@p1.Codigo_DetallePlanEstudio" onclick="return confirm('¿Esta Seguro de Eliminar.........?');"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-pane" id="bottom-tab2">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table id="example" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Codigo Curso</th>
+                                                <th>Asignatura</th>
+                                                <th>Tipo</th>
+                                                <th>Total Horas</th>
+                                                <th>Créditos</th>
+                                                <th>Ciclo</th>
+                                                <th class="text-center">Estado</th>
+                                                <th class="text-right">Accción</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{ int num2 = 0;}
+                                            @foreach (var p in Model)
+                                            {
+                                                num2 = num2 + 1;
+                                                if (p.Ciclo_DetallePlanEstudio == "II")
+                                                {
+                                                    <tr>
+                                                        <td>@num2</td>
+                                                        <td><a href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio">@p.CodigoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.Asignatura_DetallePlanEstudio</td>
+                                                        <td>@p.TipoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.TotalHoras_DetallePlanEstudio</td>
+                                                        <td>@p.TotalCreditos_DetallePlanEstudio</td>
+                                                        <td>@p.Ciclo_DetallePlanEstudio</td>
+
+                                                        @if (p.Estado_DetallePlanEstudio == true)
+                                                        {
+                                                            <td><span class="custom-badge status-green">Activo</span></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><span class="custom-badge status-red">Inactivo</span></td>
+                                                        }
+                                                        <td class="text-right">
+                                                            <div class="dropdown dropdown-action">
+                                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Ver/@p.Codigo_DetallePlanEstudio"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Eliminar/@p.Codigo_DetallePlanEstudio" onclick="return confirm('¿Esta Seguro de Eliminar.........?');"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-pane" id="bottom-tab3">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table id="example" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Codigo Curso</th>
+                                                <th>Asignatura</th>
+                                                <th>Tipo</th>
+                                                <th>Total Horas</th>
+                                                <th>Créditos</th>
+                                                <th>Ciclo</th>
+                                                <th class="text-center">Estado</th>
+                                                <th class="text-right">Accción</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{ int num3 = 0;}
+                                            @foreach (var p in Model)
+                                            {
+                                                num3 = num3 + 1;
+                                                if (p.Ciclo_DetallePlanEstudio == "III")
+                                                {
+                                                    <tr>
+                                                        <td>@num3</td>
+                                                        <td><a href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio">@p.CodigoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.Asignatura_DetallePlanEstudio</td>
+                                                        <td>@p.TipoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.TotalHoras_DetallePlanEstudio</td>
+                                                        <td>@p.TotalCreditos_DetallePlanEstudio</td>
+                                                        <td>@p.Ciclo_DetallePlanEstudio</td>
+
+                                                        @if (p.Estado_DetallePlanEstudio == true)
+                                                        {
+                                                            <td><span class="custom-badge status-green">Activo</span></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><span class="custom-badge status-red">Inactivo</span></td>
+                                                        }
+                                                        <td class="text-right">
+                                                            <div class="dropdown dropdown-action">
+                                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Ver/@p.Codigo_DetallePlanEstudio"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Eliminar/@p.Codigo_DetallePlanEstudio" onclick="return confirm('¿Esta Seguro de Eliminar.........?');"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-pane" id="bottom-tab4">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table id="example" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Codigo Curso</th>
+                                                <th>Asignatura</th>
+                                                <th>Tipo</th>
+                                                <th>Total Horas</th>
+                                                <th>Créditos</th>
+                                                <th>Ciclo</th>
+                                                <th class="text-center">Estado</th>
+                                                <th class="text-right">Accción</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{ int num4 = 0;}
+                                            @foreach (var p in Model)
+                                            {
+                                                num4 = num4 + 1;
+                                                if (p.Ciclo_DetallePlanEstudio == "IV")
+                                                {
+                                                    <tr>
+                                                        <td>@num4</td>
+                                                        <td><a href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio">@p.CodigoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.Asignatura_DetallePlanEstudio</td>
+                                                        <td>@p.TipoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.TotalHoras_DetallePlanEstudio</td>
+                                                        <td>@p.TotalCreditos_DetallePlanEstudio</td>
+                                                        <td>@p.Ciclo_DetallePlanEstudio</td>
+
+                                                        @if (p.Estado_DetallePlanEstudio == true)
+                                                        {
+                                                            <td><span class="custom-badge status-green">Activo</span></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><span class="custom-badge status-red">Inactivo</span></td>
+                                                        }
+                                                        <td class="text-right">
+                                                            <div class="dropdown dropdown-action">
+                                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Ver/@p.Codigo_DetallePlanEstudio"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Eliminar/@p.Codigo_DetallePlanEstudio" onclick="return confirm('¿Esta Seguro de Eliminar.........?');"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-pane" id="bottom-tab5">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table id="example" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Codigo Curso</th>
+                                                <th>Asignatura</th>
+                                                <th>Tipo</th>
+                                                <th>Total Horas</th>
+                                                <th>Créditos</th>
+                                                <th>Ciclo</th>
+                                                <th class="text-center">Estado</th>
+                                                <th class="text-right">Accción</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{ int num5 = 0;}
+                                            @foreach (var p in Model)
+                                            {
+                                                num5 = num5 + 1;
+                                                if (p.Ciclo_DetallePlanEstudio == "V")
+                                                {
+                                                    <tr>
+                                                        <td>@num5</td>
+                                                        <td><a href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio">@p.CodigoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.Asignatura_DetallePlanEstudio</td>
+                                                        <td>@p.TipoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.TotalHoras_DetallePlanEstudio</td>
+                                                        <td>@p.TotalCreditos_DetallePlanEstudio</td>
+                                                        <td>@p.Ciclo_DetallePlanEstudio</td>
+
+                                                        @if (p.Estado_DetallePlanEstudio == true)
+                                                        {
+                                                            <td><span class="custom-badge status-green">Activo</span></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><span class="custom-badge status-red">Inactivo</span></td>
+                                                        }
+                                                        <td class="text-right">
+                                                            <div class="dropdown dropdown-action">
+                                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Ver/@p.Codigo_DetallePlanEstudio"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Eliminar/@p.Codigo_DetallePlanEstudio" onclick="return confirm('¿Esta Seguro de Eliminar.........?');"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-pane" id="bottom-tab6">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table id="example" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Codigo Curso</th>
+                                                <th>Asignatura</th>
+                                                <th>Tipo</th>
+                                                <th>Total Horas</th>
+                                                <th>Créditos</th>
+                                                <th>Ciclo</th>
+                                                <th class="text-center">Estado</th>
+                                                <th class="text-right">Accción</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{ int num6 = 0;}
+                                            @foreach (var p in Model)
+                                            {
+                                                num6 = num6 + 1;
+                                                if (p.Ciclo_DetallePlanEstudio == "VI")
+                                                {
+                                                    <tr>
+                                                        <td>@num6</td>
+                                                        <td><a href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio">@p.CodigoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.Asignatura_DetallePlanEstudio</td>
+                                                        <td>@p.TipoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.TotalHoras_DetallePlanEstudio</td>
+                                                        <td>@p.TotalCreditos_DetallePlanEstudio</td>
+                                                        <td>@p.Ciclo_DetallePlanEstudio</td>
+
+                                                        @if (p.Estado_DetallePlanEstudio == true)
+                                                        {
+                                                            <td><span class="custom-badge status-green">Activo</span></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><span class="custom-badge status-red">Inactivo</span></td>
+                                                        }
+                                                        <td class="text-right">
+                                                            <div class="dropdown dropdown-action">
+                                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Ver/@p.Codigo_DetallePlanEstudio"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Eliminar/@p.Codigo_DetallePlanEstudio" onclick="return confirm('¿Esta Seguro de Eliminar.........?');"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-pane" id="bottom-tab7">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table id="example" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Codigo Curso</th>
+                                                <th>Asignatura</th>
+                                                <th>Tipo</th>
+                                                <th>Total Horas</th>
+                                                <th>Créditos</th>
+                                                <th>Ciclo</th>
+                                                <th class="text-center">Estado</th>
+                                                <th class="text-right">Accción</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{ int num7 = 0;}
+                                            @foreach (var p in Model)
+                                            {
+                                                num7 = num7 + 1;
+                                                if (p.Ciclo_DetallePlanEstudio == "VII")
+                                                {
+                                                    <tr>
+                                                        <td>@num7</td>
+                                                        <td><a href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio">@p.CodigoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.Asignatura_DetallePlanEstudio</td>
+                                                        <td>@p.TipoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.TotalHoras_DetallePlanEstudio</td>
+                                                        <td>@p.TotalCreditos_DetallePlanEstudio</td>
+                                                        <td>@p.Ciclo_DetallePlanEstudio</td>
+
+                                                        @if (p.Estado_DetallePlanEstudio == true)
+                                                        {
+                                                            <td><span class="custom-badge status-green">Activo</span></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><span class="custom-badge status-red">Inactivo</span></td>
+                                                        }
+                                                        <td class="text-right">
+                                                            <div class="dropdown dropdown-action">
+                                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Ver/@p.Codigo_DetallePlanEstudio"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Eliminar/@p.Codigo_DetallePlanEstudio" onclick="return confirm('¿Esta Seguro de Eliminar.........?');"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-pane" id="bottom-tab8">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table id="example" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Codigo Curso</th>
+                                                <th>Asignatura</th>
+                                                <th>Tipo</th>
+                                                <th>Total Horas</th>
+                                                <th>Créditos</th>
+                                                <th>Ciclo</th>
+                                                <th class="text-center">Estado</th>
+                                                <th class="text-right">Accción</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{ int num8 = 0;}
+                                            @foreach (var p in Model)
+                                            {
+                                                num8 = num8 + 1;
+                                                if (p.Ciclo_DetallePlanEstudio == "VIII")
+                                                {
+                                                    <tr>
+                                                        <td>@num8</td>
+                                                        <td><a href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio">@p.CodigoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.Asignatura_DetallePlanEstudio</td>
+                                                        <td>@p.TipoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.TotalHoras_DetallePlanEstudio</td>
+                                                        <td>@p.TotalCreditos_DetallePlanEstudio</td>
+                                                        <td>@p.Ciclo_DetallePlanEstudio</td>
+
+                                                        @if (p.Estado_DetallePlanEstudio == true)
+                                                        {
+                                                            <td><span class="custom-badge status-green">Activo</span></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><span class="custom-badge status-red">Inactivo</span></td>
+                                                        }
+                                                        <td class="text-right">
+                                                            <div class="dropdown dropdown-action">
+                                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Ver/@p.Codigo_DetallePlanEstudio"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Eliminar/@p.Codigo_DetallePlanEstudio" onclick="return confirm('¿Esta Seguro de Eliminar.........?');"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-pane" id="bottom-tab9">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table id="example" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Codigo Curso</th>
+                                                <th>Asignatura</th>
+                                                <th>Tipo</th>
+                                                <th>Total Horas</th>
+                                                <th>Créditos</th>
+                                                <th>Ciclo</th>
+                                                <th class="text-center">Estado</th>
+                                                <th class="text-right">Accción</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{ int num9 = 0;}
+                                            @foreach (var p in Model)
+                                            {
+                                                num9 = num9 + 1;
+                                                if (p.Ciclo_DetallePlanEstudio == "IX")
+                                                {
+                                                    <tr>
+                                                        <td>@num9</td>
+                                                        <td><a href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio">@p.CodigoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.Asignatura_DetallePlanEstudio</td>
+                                                        <td>@p.TipoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.TotalHoras_DetallePlanEstudio</td>
+                                                        <td>@p.TotalCreditos_DetallePlanEstudio</td>
+                                                        <td>@p.Ciclo_DetallePlanEstudio</td>
+
+                                                        @if (p.Estado_DetallePlanEstudio == true)
+                                                        {
+                                                            <td><span class="custom-badge status-green">Activo</span></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><span class="custom-badge status-red">Inactivo</span></td>
+                                                        }
+                                                        <td class="text-right">
+                                                            <div class="dropdown dropdown-action">
+                                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Ver/@p.Codigo_DetallePlanEstudio"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Eliminar/@p.Codigo_DetallePlanEstudio" onclick="return confirm('¿Esta Seguro de Eliminar.........?');"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-pane" id="bottom-tab10">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table id="example" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Codigo Curso</th>
+                                                <th>Asignatura</th>
+                                                <th>Tipo</th>
+                                                <th>Total Horas</th>
+                                                <th>Créditos</th>
+                                                <th>Ciclo</th>
+                                                <th class="text-center">Estado</th>
+                                                <th class="text-right">Accción</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{ int num10 = 0;}
+                                            @foreach (var p in Model)
+                                            {
+                                                num10 = num10 + 1;
+                                                if (p.Ciclo_DetallePlanEstudio == "X")
+                                                {
+                                                    <tr>
+                                                        <td>@num10</td>
+                                                        <td><a href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio">@p.CodigoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.Asignatura_DetallePlanEstudio</td>
+                                                        <td>@p.TipoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.TotalHoras_DetallePlanEstudio</td>
+                                                        <td>@p.TotalCreditos_DetallePlanEstudio</td>
+                                                        <td>@p.Ciclo_DetallePlanEstudio</td>
+
+                                                        @if (p.Estado_DetallePlanEstudio == true)
+                                                        {
+                                                            <td><span class="custom-badge status-green">Activo</span></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><span class="custom-badge status-red">Inactivo</span></td>
+                                                        }
+                                                        <td class="text-right">
+                                                            <div class="dropdown dropdown-action">
+                                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Ver/@p.Codigo_DetallePlanEstudio"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Eliminar/@p.Codigo_DetallePlanEstudio" onclick="return confirm('¿Esta Seguro de Eliminar.........?');"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
+
+
+
+
 
 
 
