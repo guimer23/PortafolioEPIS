@@ -6,66 +6,71 @@
 
 <div class="row">
     <div class="col-sm-4 col-3">
-        <h4 class="page-title">Plan de Estudio</h4>
+        <h4 class="page-title">Lista de Plan de Estudios</h4>
     </div>
     <div class="col-sm-8 col-9 text-right m-b-20">
         <div class="form-check form-check-inline">
-            <a href="~/PlanEstudio/Agregar" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Agregar Plan de Estudio</a>
+            <a href="~/PlanEstudio/Agregar" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Nuevo Registro</a>
         </div>
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-12">
-        <div class="table-responsive">
-            <table class="table table-striped custom-table mb-0 datatable">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Semestre</th>
-                        <th>Nombre</th>
-                        <th>Fecha Inicio</th>
-                        <th>Fecha Fin</th>
-                        <th class="text-center">Estado</th>
-                        <th class="text-right">Accción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @{ int num = 0;}
-                    @foreach (var p in Model)
-                    {
-                        num = num + 1;
-                    <tr>
-                        <td>@num</td>
-                        <td>@p.Tbl_Semestre.Nombre_Semestre</td>
-                        <td><a href="~/DetallePlanEstudio/Index/@p.Codigo_PlanEstudio">@p.Nombre_PlanEstudio</a></td>
-                        <td>@p.FechaInicio_PlanEstudio</td>
-                        <td>@p.FechaFin_PlanEstudio</td>
-                        @if (p.Estado_PlanEstudio == true)
+        <div class="card-box">
+            <div class="table-responsive">
+                <table id="example" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Semestre</th>
+                            <th>Nombre</th>
+                            <th>Fecha Inicio</th>
+                            <th>Fecha Fin</th>
+                            <th class="text-center">Estado</th>
+                            <th class="text-right">Accción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ int num = 0;}
+                        @foreach (var p in Model)
                         {
-                            <td><span class="custom-badge status-green">Activo</span></td>
-                        }
-                        else
-                        {
-                            <td><span class="custom-badge status-red">Inactivo</span></td>
-                        }
+                            num = num + 1;
+                            <tr>
+                                <td>@num</td>
+                                <td>@p.Tbl_Semestre.Nombre_Semestre</td>
+                                <td><a href="~/DetallePlanEstudio/Index/@p.Codigo_PlanEstudio">@p.Nombre_PlanEstudio</a></td>
+                                <td>@p.FechaInicio_PlanEstudio</td>
+                                <td>@p.FechaFin_PlanEstudio</td>
+                                @if (p.Estado_PlanEstudio == true)
+                                {
+                                    <td><span class="custom-badge status-green">Activo</span></td>
+                                }
+                                else
+                                {
+                                    <td><span class="custom-badge status-red">Inactivo</span></td>
+                                }
 
-                        <td class="text-right">
-                            <div class="dropdown dropdown-action">
-                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="~/PlanEstudio/Ver/@p.Codigo_PlanEstudio"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                    <a class="dropdown-item" href="~/PlanEstudio/Agregar/@p.Codigo_PlanEstudio"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                    <a class="dropdown-item" href="~/PlanEstudio/Eliminar/@p.Codigo_PlanEstudio" onclick="return confirm('¿Esta Seguro de Eliminar.........?');"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-            
-                    }
+                                <td class="text-right">
+                                    <div class="dropdown dropdown-action">
+                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="~/PlanEstudio/Ver/@p.Codigo_PlanEstudio"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                            <a class="dropdown-item" href="~/PlanEstudio/Agregar/@p.Codigo_PlanEstudio"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                            <a class="dropdown-item" href="~/PlanEstudio/Eliminar/@p.Codigo_PlanEstudio" onclick="return confirm('¿Esta Seguro de Eliminar.........?');"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        }
                     </tbody>
-            </table>
+                </table>
+            </div>
         </div>
     </div>
 </div>
+
+
 
 

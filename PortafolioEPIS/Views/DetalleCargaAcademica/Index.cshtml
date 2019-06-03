@@ -1,18 +1,19 @@
 ﻿@model List<PortafolioEPIS.Models.Tbl_DetalleCargaAcademica>
 <div class="row">
     <div class="col-sm-4 col-3">
-        <h4 class="page-title">Detalle Carga Académica <strong>2016-I</strong></h4>
+        <h4 class="page-title">Detalle Carga Académica <strong>2019-I</strong></h4>
     </div>
     <div class="col-sm-8 col-9 text-right m-b-20">
         <div class="form-check form-check-inline">
-            <a href="~/DetalleCargaAcademica/Agregar" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Agregar Detalle Carga Académica</a>
+            <a href="~/DetalleCargaAcademica/Agregar" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Nuevo Registro</a>
         </div>
     </div>
 </div>
 
 <div class="profile-tabs">
     <ul class="nav nav-tabs nav-tabs-bottom">
-        <li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">Ciclo I</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">Todos los Ciclos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab1" data-toggle="tab">Ciclo I</a></li>
         <li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab">Ciclo II</a></li>
         <li class="nav-item"><a class="nav-link" href="#bottom-tab3" data-toggle="tab">Ciclo III</a></li>
         <li class="nav-item"><a class="nav-link" href="#bottom-tab4" data-toggle="tab">Ciclo IV</a></li>
@@ -27,18 +28,18 @@
         <div class="tab-pane show active" id="about-cont">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card-box">                        
+                    <div class="card-box">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="table-responsive">
-                                    <table class="table table-striped custom-table mb-0 datatable">
+                                    <table id="example" class="table table-hover">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
                                                 <th>Código</th>
                                                 <th>Asignatura</th>
                                                 <th>Tipo</th>
-                                                <th>Docente</th>                                                
+                                                <th>Docente</th>
                                                 <th>Seccion</th>
                                                 <th class="text-center">Estado</th>
                                                 <th class="text-right">Accción</th>
@@ -48,40 +49,103 @@
                                             @{ int num = 0;}
                                             @foreach (var p in Model)
                                             {
-                                                if (p.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio == "I") {
-                                                num = num + 1;
-                                            <tr>
-                                                <td>@num</td>
-                                                <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
-                                                <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
-                                                <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
-                                                <td>@p.Tbl_Docente.Nombres_Docente, @p.Tbl_Docente.Apellidos_Docente</td>
-                                                <td>@p.Tbl_Seccion.Nombre_Seccion</td>
 
-                                                @if (p.Estado_DetalleCargaAcademica == true)
-                                                {
-                                                    <td><span class="custom-badge status-green">Activo</span></td>
-                                                }
-                                                else
-                                                {
-                                                    <td><span class="custom-badge status-red">Inactivo</span></td>
-                                                }
-                                                <td class="text-right">
-                                                    <div class="dropdown dropdown-action">
-                                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="~/DetalleCargaAcademica/Ver/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                            <a class="dropdown-item" href="~/DetalleCargaAcademica/Agregar/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                                            <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                num = num + 1;
+                                                <tr>
+                                                    <td>@num</td>
+                                                    <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
+                                                    <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
+                                                    <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
+                                                    <td>@p.Tbl_Docente.Nombres_Docente, @p.Tbl_Docente.Apellidos_Docente</td>
+                                                    <td>@p.Tbl_Seccion.Nombre_Seccion</td>
+
+                                                    @if (p.Estado_DetalleCargaAcademica == true)
+                                                    {
+                                                        <td><span class="custom-badge status-green">Activo</span></td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td><span class="custom-badge status-red">Inactivo</span></td>
+                                                    }
+                                                    <td class="text-right">
+                                                        <div class="dropdown dropdown-action">
+                                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a class="dropdown-item" href="~/DetalleCargaAcademica/Ver/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/DetalleCargaAcademica/Agregar/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                                }
+                                                    </td>
+                                                </tr>
+
                                             }
                                         </tbody>
                                     </table>
                                 </div>
+
+                                <!--Resumen general de Semestre-->
+                                <br />
+                                @{
+                                    int cantObligatorio = 0, cantElectivo = 0;
+                                    foreach (var s in Model)
+                                    {
+                                        if (s.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio.Equals("Obligatorio"))
+                                        {
+                                            cantObligatorio++;
+                                        }
+                                        else
+                                        {
+                                            cantElectivo++;
+                                        }
+
+                                    }
+                                }
+
+                                <div class="card-box profile-header">
+                                    <div class="row clearfix">
+                                        <div class="col-md-12">
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item active" aria-current="page">RESUMEN - CANTIDAD DE REGISTROS</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                            <div class="profile-view">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="profile-info-left">
+                                                            <ul class="personal-info">
+                                                                <li>
+                                                                    <span class="title">Cursos Obligatorios:</span>
+                                                                    <span class="text">@cantObligatorio</span>
+                                                                </li>
+                                                                
+                                                                
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <ul class="personal-info">
+                                                            <li>
+                                                                <span class="title">Cursos Electivos:</span>
+                                                                <span class="text">@cantElectivo</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
                             </div>
                         </div>
                     </div>
@@ -89,14 +153,144 @@
                 </div>
             </div>
         </div>
-        <div class="tab-pane" id="bottom-tab2">
+        <div class="tab-pane" id="bottom-tab1">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card-box">                        
+                    <div class="card-box">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="table-responsive">
-                                    <table class="table table-striped custom-table mb-0 datatable">
+                                    <table id="example" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Código</th>
+                                                <th>Asignatura</th>
+                                                <th>Tipo</th>
+                                                <th>Docente</th>
+                                                <th>Seccion</th>
+                                                <th class="text-center">Estado</th>
+                                                <th class="text-right">Accción</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{ int num1 = 0;}
+                                            @foreach (var p in Model)
+                                            {
+                                                if (p.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio == "I")
+                                                {
+                                                    num1 = num1 + 1;
+                                                    <tr>
+                                                        <td>@num1</td>
+                                                        <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
+                                                        <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
+                                                        <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.Tbl_Docente.Nombres_Docente, @p.Tbl_Docente.Apellidos_Docente</td>
+                                                        <td>@p.Tbl_Seccion.Nombre_Seccion</td>
+
+                                                        @if (p.Estado_DetalleCargaAcademica == true)
+                                                        {
+                                                            <td><span class="custom-badge status-green">Activo</span></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><span class="custom-badge status-red">Inactivo</span></td>
+                                                        }
+                                                        <td class="text-right">
+                                                            <div class="dropdown dropdown-action">
+                                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="~/DetalleCargaAcademica/Ver/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                    <a class="dropdown-item" href="~/DetalleCargaAcademica/Agregar/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                    <a class="dropdown-item" href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                                <!--Resumen general de Semestre-->
+                                <br />
+                                @{
+                                    int cantObligatorio1 = 0, cantElectivo1 = 0;
+                                    foreach (var s in Model)
+                                    {
+                                        if (s.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio.Equals("I"))
+                                        {
+                                            if (s.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio.Equals("Obligatorio"))
+                                            {
+                                                cantObligatorio1++;
+                                            }
+                                            else
+                                            {
+                                                cantElectivo1++;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                <div class="card-box profile-header">
+                                    <div class="row clearfix">
+                                        <div class="col-md-12">
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item active" aria-current="page">RESUMEN - CANTIDAD DE REGISTROS</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="profile-view">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="profile-info-left">
+                                                            <ul class="personal-info">
+                                                                <li>
+                                                                    <span class="title">Cursos Obligatorios:</span>
+                                                                    <span class="text">@cantObligatorio1</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <ul class="personal-info">
+                                                            <li>
+                                                                <span class="title">Cursos Electivos:</span>
+                                                                <span class="text">@cantElectivo1</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-pane" id="bottom-tab2">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table id="example" class="table table-hover">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -149,6 +343,66 @@
                                         </tbody>
                                     </table>
                                 </div>
+
+                                <!--Resumen general de Semestre-->
+                                <br />
+                                @{
+                                    int cantObligatorio2 = 0, cantElectivo2 = 0;
+                                    foreach (var s in Model)
+                                    {
+                                        if (s.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio.Equals("II"))
+                                        {
+                                            if (s.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio.Equals("Obligatorio"))
+                                            {
+                                                cantObligatorio2++;
+                                            }
+                                            else
+                                            {
+                                                cantElectivo2++;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                <div class="card-box profile-header">
+                                    <div class="row clearfix">
+                                        <div class="col-md-12">
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item active" aria-current="page">RESUMEN - CANTIDAD DE REGISTROS</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="profile-view">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="profile-info-left">
+                                                            <ul class="personal-info">
+                                                                <li>
+                                                                    <span class="title">Cursos Obligatorios:</span>
+                                                                    <span class="text">@cantObligatorio2</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <ul class="personal-info">
+                                                            <li>
+                                                                <span class="title">Cursos Electivos:</span>
+                                                                <span class="text">@cantElectivo2</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                             </div>
                         </div>
                     </div>
@@ -160,11 +414,11 @@
         <div class="tab-pane" id="bottom-tab3">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card-box">                        
+                    <div class="card-box">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="table-responsive">
-                                    <table class="table table-striped custom-table mb-0 datatable">
+                                    <table id="example" class="table table-hover">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -216,6 +470,66 @@
                                         </tbody>
                                     </table>
                                 </div>
+
+                                <!--Resumen general de Semestre-->
+                                <br />
+                                @{
+                                    int cantObligatorio3 = 0, cantElectivo3 = 0;
+                                    foreach (var s in Model)
+                                    {
+                                        if (s.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio.Equals("III"))
+                                        {
+                                            if (s.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio.Equals("Obligatorio"))
+                                            {
+                                                cantObligatorio3++;
+                                            }
+                                            else
+                                            {
+                                                cantElectivo3++;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                <div class="card-box profile-header">
+                                    <div class="row clearfix">
+                                        <div class="col-md-12">
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item active" aria-current="page">RESUMEN - CANTIDAD DE REGISTROS</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="profile-view">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="profile-info-left">
+                                                            <ul class="personal-info">
+                                                                <li>
+                                                                    <span class="title">Cursos Obligatorios:</span>
+                                                                    <span class="text">@cantObligatorio3</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <ul class="personal-info">
+                                                            <li>
+                                                                <span class="title">Cursos Electivos:</span>
+                                                                <span class="text">@cantElectivo3</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                             </div>
                         </div>
                     </div>
@@ -227,11 +541,11 @@
         <div class="tab-pane" id="bottom-tab4">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card-box">                        
+                    <div class="card-box">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="table-responsive">
-                                    <table class="table table-striped custom-table mb-0 datatable">
+                                    <table id="example" class="table table-hover">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -283,6 +597,64 @@
                                         </tbody>
                                     </table>
                                 </div>
+
+                                <!--Resumen general de Semestre-->
+                                <br />
+                                @{
+                                    int cantObligatorio4 = 0, cantElectivo4 = 0;
+                                    foreach (var s in Model)
+                                    {
+                                        if (s.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio.Equals("IV"))
+                                        {
+                                            if (s.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio.Equals("Obligatorio"))
+                                            {
+                                                cantObligatorio4++;
+                                            }
+                                            else
+                                            {
+                                                cantElectivo4++;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                <div class="card-box profile-header">
+                                    <div class="row clearfix">
+                                        <div class="col-md-12">
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item active" aria-current="page">RESUMEN - CANTIDAD DE REGISTROS</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="profile-view">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="profile-info-left">
+                                                            <ul class="personal-info">
+                                                                <li>
+                                                                    <span class="title">Cursos Obligatorios:</span>
+                                                                    <span class="text">@cantObligatorio4</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <ul class="personal-info">
+                                                            <li>
+                                                                <span class="title">Cursos Electivos:</span>
+                                                                <span class="text">@cantElectivo4</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -294,11 +666,11 @@
         <div class="tab-pane" id="bottom-tab5">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card-box">                        
+                    <div class="card-box">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="table-responsive">
-                                    <table class="table table-striped custom-table mb-0 datatable">
+                                    <table id="example" class="table table-hover">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -351,6 +723,63 @@
                                         </tbody>
                                     </table>
                                 </div>
+                                <!--Resumen general de Semestre-->
+                                <br />
+                                @{
+                                    int cantObligatorio5 = 0, cantElectivo5 = 0;
+                                    foreach (var s in Model)
+                                    {
+                                        if (s.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio.Equals("V"))
+                                        {
+                                            if (s.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio.Equals("Obligatorio"))
+                                            {
+                                                cantObligatorio5++;
+                                            }
+                                            else
+                                            {
+                                                cantElectivo5++;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                <div class="card-box profile-header">
+                                    <div class="row clearfix">
+                                        <div class="col-md-12">
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item active" aria-current="page">RESUMEN - CANTIDAD DE REGISTROS</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="profile-view">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="profile-info-left">
+                                                            <ul class="personal-info">
+                                                                <li>
+                                                                    <span class="title">Cursos Obligatorios:</span>
+                                                                    <span class="text">@cantObligatorio5</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <ul class="personal-info">
+                                                            <li>
+                                                                <span class="title">Cursos Electivos:</span>
+                                                                <span class="text">@cantElectivo5</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -362,11 +791,11 @@
         <div class="tab-pane" id="bottom-tab6">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card-box">                        
+                    <div class="card-box">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="table-responsive">
-                                    <table class="table table-striped custom-table mb-0 datatable">
+                                    <table id="example" class="table table-hover">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -419,6 +848,65 @@
                                         </tbody>
                                     </table>
                                 </div>
+
+                                <!--Resumen general de Semestre-->
+                                <br />
+                                @{
+                                    int cantObligatorio6 = 0, cantElectivo6 = 0;
+                                    foreach (var s in Model)
+                                    {
+                                        if (s.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio.Equals("VI"))
+                                        {
+                                            if (s.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio.Equals("Obligatorio"))
+                                            {
+                                                cantObligatorio6++;
+                                            }
+                                            else
+                                            {
+                                                cantElectivo6++;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                <div class="card-box profile-header">
+                                    <div class="row clearfix">
+                                        <div class="col-md-12">
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item active" aria-current="page">RESUMEN - CANTIDAD DE REGISTROS</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="profile-view">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="profile-info-left">
+                                                            <ul class="personal-info">
+                                                                <li>
+                                                                    <span class="title">Cursos Obligatorios:</span>
+                                                                    <span class="text">@cantObligatorio6</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <ul class="personal-info">
+                                                            <li>
+                                                                <span class="title">Cursos Electivos:</span>
+                                                                <span class="text">@cantElectivo6</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -430,11 +918,11 @@
         <div class="tab-pane" id="bottom-tab7">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card-box">                        
+                    <div class="card-box">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="table-responsive">
-                                    <table class="table table-striped custom-table mb-0 datatable">
+                                    <table id="example" class="table table-hover">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -486,6 +974,65 @@
                                         </tbody>
                                     </table>
                                 </div>
+
+                                <!--Resumen general de Semestre-->
+                                <br />
+                                @{
+                                    int cantObligatorio7 = 0, cantElectivo7 = 0;
+                                    foreach (var s in Model)
+                                    {
+                                        if (s.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio.Equals("VII"))
+                                        {
+                                            if (s.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio.Equals("Obligatorio"))
+                                            {
+                                                cantObligatorio7++;
+                                            }
+                                            else
+                                            {
+                                                cantElectivo7++;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                <div class="card-box profile-header">
+                                    <div class="row clearfix">
+                                        <div class="col-md-12">
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item active" aria-current="page">RESUMEN - CANTIDAD DE REGISTROS</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="profile-view">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="profile-info-left">
+                                                            <ul class="personal-info">
+                                                                <li>
+                                                                    <span class="title">Cursos Obligatorios:</span>
+                                                                    <span class="text">@cantObligatorio7</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <ul class="personal-info">
+                                                            <li>
+                                                                <span class="title">Cursos Electivos:</span>
+                                                                <span class="text">@cantElectivo7</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -497,11 +1044,11 @@
         <div class="tab-pane" id="bottom-tab8">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card-box">                        
+                    <div class="card-box">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="table-responsive">
-                                    <table class="table table-striped custom-table mb-0 datatable">
+                                    <table id="example" class="table table-hover">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -554,6 +1101,63 @@
                                         </tbody>
                                     </table>
                                 </div>
+                                <!--Resumen general de Semestre-->
+                                <br />
+                                @{
+                                    int cantObligatorio8 = 0, cantElectivo8 = 0;
+                                    foreach (var s in Model)
+                                    {
+                                        if (s.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio.Equals("VIII"))
+                                        {
+                                            if (s.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio.Equals("Obligatorio"))
+                                            {
+                                                cantObligatorio8++;
+                                            }
+                                            else
+                                            {
+                                                cantElectivo8++;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                <div class="card-box profile-header">
+                                    <div class="row clearfix">
+                                        <div class="col-md-12">
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item active" aria-current="page">RESUMEN - CANTIDAD DE REGISTROS</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="profile-view">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="profile-info-left">
+                                                            <ul class="personal-info">
+                                                                <li>
+                                                                    <span class="title">Cursos Obligatorios:</span>
+                                                                    <span class="text">@cantObligatorio8</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <ul class="personal-info">
+                                                            <li>
+                                                                <span class="title">Cursos Electivos:</span>
+                                                                <span class="text">@cantElectivo8</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -565,11 +1169,11 @@
         <div class="tab-pane" id="bottom-tab9">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card-box">                        
+                    <div class="card-box">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="table-responsive">
-                                    <table class="table table-striped custom-table mb-0 datatable">
+                                    <table id="example" class="table table-hover">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -622,6 +1226,65 @@
                                         </tbody>
                                     </table>
                                 </div>
+
+                                <!--Resumen general de Semestre-->
+                                <br />
+                                @{
+                                    int cantObligatorio9 = 0, cantElectivo9 = 0;
+                                    foreach (var s in Model)
+                                    {
+                                        if (s.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio.Equals("IX"))
+                                        {
+                                            if (s.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio.Equals("Obligatorio"))
+                                            {
+                                                cantObligatorio9++;
+                                            }
+                                            else
+                                            {
+                                                cantElectivo9++;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                <div class="card-box profile-header">
+                                    <div class="row clearfix">
+                                        <div class="col-md-12">
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item active" aria-current="page">RESUMEN - CANTIDAD DE REGISTROS</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="profile-view">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="profile-info-left">
+                                                            <ul class="personal-info">
+                                                                <li>
+                                                                    <span class="title">Cursos Obligatorios:</span>
+                                                                    <span class="text">@cantObligatorio9</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <ul class="personal-info">
+                                                            <li>
+                                                                <span class="title">Cursos Electivos:</span>
+                                                                <span class="text">@cantElectivo9</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -633,11 +1296,11 @@
         <div class="tab-pane" id="bottom-tab10">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card-box">                        
+                    <div class="card-box">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="table-responsive">
-                                    <table class="table table-striped custom-table mb-0 datatable">
+                                    <table id="example" class="table table-hover">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -689,6 +1352,65 @@
 
                                         </tbody>
                                     </table>
+
+                                    <!--Resumen general de Semestre-->
+                                    <br />
+                                    @{
+                                        int cantObligatorio10 = 0, cantElectivo10 = 0;
+                                        foreach (var s in Model)
+                                        {
+                                            if (s.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio.Equals("X"))
+                                            {
+                                                if (s.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio.Equals("Obligatorio"))
+                                                {
+                                                    cantObligatorio10++;
+                                                }
+                                                else
+                                                {
+                                                    cantElectivo10++;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    <div class="card-box profile-header">
+                                        <div class="row clearfix">
+                                            <div class="col-md-12">
+                                                <nav aria-label="breadcrumb">
+                                                    <ol class="breadcrumb">
+                                                        <li class="breadcrumb-item active" aria-current="page">RESUMEN - CANTIDAD DE REGISTROS</li>
+                                                    </ol>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="profile-view">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="profile-info-left">
+                                                                <ul class="personal-info">
+                                                                    <li>
+                                                                        <span class="title">Cursos Obligatorios:</span>
+                                                                        <span class="text">@cantObligatorio10</span>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <ul class="personal-info">
+                                                                <li>
+                                                                    <span class="title">Cursos Electivos:</span>
+                                                                    <span class="text">@cantElectivo10</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
