@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace PortafolioEPIS.Controllers.Informes
 {
-    public class PruebaEntradaController : Controller
+    public class ConocimientoHabilidadController : Controller
     {
         // Accion Listar
         public ActionResult Index()

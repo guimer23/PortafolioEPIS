@@ -1,0 +1,225 @@
+﻿<div class="row">
+    <div class="col-sm-7 col-6">
+        <h4 class="page-title">Informe Prueba de Entrada</h4>
+    </div>
+    <div class="col-sm-5 col-6 text-right m-b-30">
+        <a href="~/Docente/Agregar" class="btn btn-primary btn-rounded"><i class="fa fa-edit"></i> Editar Perfil</a>
+    </div>
+
+</div>
+
+<div class="profile-tabs">
+    <ul class="nav nav-tabs nav-tabs-bottom">
+        <li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">Carga Academica 2019-I</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab">Carga Academica</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab3" data-toggle="tab">Mensajes</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane show active" id="about-cont">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+
+                        @using (Html.BeginForm("Guardar", "Docente", FormMethod.Post, new { id = "frm-docente", enctype = "multipart/form-data" }))
+                        {
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item active" aria-current="page">INFORMACION DE CURSO</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-4">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Codigo:</label>
+                                        <input type="text" class="form-control floating" value="SI-671">
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Asignatura:</label>
+                                        <input type="text" class="form-control floating" value="BASE DE DATOS I">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-2">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Sección:</label>
+                                        <input type="text" class="form-control floating" value="A">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Ciclo:</label>
+                                        <input type="text" class="form-control floating" value="VI">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Horas:</label>
+                                        <input type="text" class="form-control floating" value="6">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Créditos:</label>
+                                        <input type="text" class="form-control floating" value="4">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Tipo Curso:</label>
+                                        <input type="text" class="form-control floating" value="Obligatorio">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item active" aria-current="page">DATOS DOCENTE</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-4">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Codigo:</label>
+                                        <input type="text" class="form-control floating" value="254511">
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Nombre:</label>
+                                        <input type="text" class="form-control floating" value="Ing. CARLOS ALBERTO RUIZ CANCINO">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-8">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Email:</label>
+                                        <input type="text" class="form-control floating" value="carlosruiz@gmail.com">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Celular:</label>
+                                        <input type="text" class="form-control floating" value="995686874">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item active" aria-current="page">NUMERO DE ESTUDIANTES</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-6">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Matriculados:</label>
+                                        <input type="text" class="form-control floating" value="30">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Evaluados:</label>
+                                        <input type="text" class="form-control floating" value="25">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            @*
+                            @{Html.RenderAction("Agregar", "ConocimientoHabilidad", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
+                            <!--Listar tabla conocimientos habilidades-->
+                            @{Html.RenderAction("Index", "ConocimientoHabilidad", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
+                            <!--Listar tabla conocimientos habilidades-->
+                                *@
+
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item active" aria-current="page">MEDIDAS CORRECTIVAS</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                            <p>Medidas correctivas que ha tomado en los casos de grado <span class="custom-badge status-red">Deficiente</span> Seleccione las acciones realizadas: </p>
+                            <div class="row clearfix">
+                                <div class="col-md-6">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="checkbox"> 1. Repaso en horas de clase
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="checkbox"> 2. Repaso con horas adicionales de clase
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="checkbox"> 3. Ejercicios propuestos para resolver en casa
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="checkbox"> 4. Entrega de material de repaso
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="checkbox"> 5. Recomendacion de bibliografia
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="checkbox"> 6. Otros(Detalle en la descripcion)
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Describa otras medidas correctivas y/o recomendaciones</label>
+                                        <div class="form-group">
+                                            <textarea rows="3" cols="5" class="form-control" placeholder="Escriba aquí"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        }
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="bottom-tab2">
+            parte 2
+        </div>
+        <div class="tab-pane" id="bottom-tab3">
+            Parte 3
+        </div>
+    </div>
+</div>
+
+
+
+
