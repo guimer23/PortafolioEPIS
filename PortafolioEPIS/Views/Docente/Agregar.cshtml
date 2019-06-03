@@ -13,7 +13,7 @@
 }
 <div class="row">
     <div class="col-sm-12">
-        <h4 class="page-title">Agregar Docente</h4>
+        <h4 class="page-title">Agregar / Editar Docente</h4>
     </div>
 </div>
 <div class="row">
@@ -25,39 +25,39 @@
                 @Html.HiddenFor(x => x.Codigo_Docente)
                 <div class="row clearfix">
                     <div class="col-md-6">
-                        @Html.Label("Código")
+                        @Html.Label("Código")<span class="text-danger">*</span>
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.Codigo_Docenteepis, new { @class = "form-control", @placeholder = "Ingrese codigo" })
+                            @Html.TextBoxFor(x => x.Codigo_Docenteepis, new { @class = "form-control"})
                             @Html.ValidationMessageFor(x => x.Codigo_Docenteepis, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                     <div class="col-md-6">
-                        @Html.Label("DNI")
+                        @Html.Label("DNI")<span class="text-danger">*</span>
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.DNI_Docente, new { @class = "form-control", @placeholder = "Ingrese DNI" })
+                            @Html.TextBoxFor(x => x.DNI_Docente, new { @class = "form-control"})
                             @Html.ValidationMessageFor(x => x.DNI_Docente, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                 </div>
                 <div class="row clearfix">
                     <div class="col-md-6">
-                        @Html.Label("Nombres")
+                        @Html.Label("Nombres")<span class="text-danger">*</span>
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.Nombres_Docente, new { @class = "form-control", @placeholder = "Ingrese nombres" })
+                            @Html.TextBoxFor(x => x.Nombres_Docente, new { @class = "form-control"})
                             @Html.ValidationMessageFor(x => x.Nombres_Docente, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                     <div class="col-md-6">
-                        @Html.Label("Apellidos")
+                        @Html.Label("Apellidos")<span class="text-danger">*</span>
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.Apellidos_Docente, new { @class = "form-control", @placeholder = "Ingrese apellidos" })
+                            @Html.TextBoxFor(x => x.Apellidos_Docente, new { @class = "form-control"})
                             @Html.ValidationMessageFor(x => x.Apellidos_Docente, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                 </div>
                 <div class="row clearfix">
                     <div class="col-md-4">
-                        @Html.Label("Sexo")
+                        @Html.Label("Sexo")<span class="text-danger">*</span>
                         <br />
                         @Html.RadioButtonFor(x => x.Sexo_Docente, true, new { @checked = true }) Masculino  <label>&nbsp &nbsp</label>
                         @Html.RadioButtonFor(x => x.Sexo_Docente, false) Femenino
@@ -76,10 +76,10 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        @Html.Label("Fecha de Nacimiento")
+                        @Html.Label("Fecha de Nacimiento")<span class="text-danger">*</span>
                         <div class="form-group">
                             <div class="cal-icon">
-                                @Html.TextBoxFor(x => x.FechaNac_Docente, new { @class = "form-control datetimepicker", @placeholder = "Ingrese Fecha" })
+                                @Html.TextBoxFor(x => x.FechaNac_Docente, new { @class = "form-control datetimepicker"})
                                 @Html.ValidationMessageFor(x => x.FechaNac_Docente, null, new { @class = "label label-danger" })
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                 <div class="row clearfix">
                     <div class="col-md-6">
                         <div class="form-group">
-                            @Html.Label("Profesion:")
+                            @Html.Label("Profesion:")<span class="text-danger">*</span>
                             <select name="Codigo_Profesion" class="form-control">
                                 <option @(Model.Codigo_Profesion.Equals("") ? "Selected" : "") value="">--Seleccione--</option>
 
@@ -103,7 +103,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            @Html.Label("Cargo:")
+                            @Html.Label("Cargo:")<span class="text-danger">*</span>
                             <select name="Codigo_CargoDocente" class="form-control">
                                 <option value=""> -- Seleccione --</option>
                                 @foreach (var p in cargodocente)
@@ -121,39 +121,39 @@
                 </div>
                 <div class="row clearfix">
                     <div class="col-md-6">
-                        @Html.Label("Dirección Actual")
+                        @Html.Label("Dirección Actual")<span class="text-danger">*</span>
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.DireccionActual_Docente, new { @class = "form-control", @placeholder = "Ingrese Direccion" })
+                            @Html.TextBoxFor(x => x.DireccionActual_Docente, new { @class = "form-control" })
                             @Html.ValidationMessageFor(x => x.DireccionActual_Docente, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                     <div class="col-md-6">
                         @Html.Label("Dirección de Referencia")
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.DireccionReferencia_Docente, new { @class = "form-control", @placeholder = "Ingrese de referencia" })
+                            @Html.TextBoxFor(x => x.DireccionReferencia_Docente, new { @class = "form-control" })
                             @Html.ValidationMessageFor(x => x.DireccionReferencia_Docente, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                 </div>
                 <div class="row clearfix">
                     <div class="col-md-4">
-                        @Html.Label("Correo")
+                        @Html.Label("Correo")<span class="text-danger">*</span>
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.Correo_Docente, new { @class = "form-control", @placeholder = "Ingrese correo" })
+                            @Html.TextBoxFor(x => x.Correo_Docente, new { @class = "form-control" })
                             @Html.ValidationMessageFor(x => x.Correo_Docente, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                     <div class="col-md-4">
                         @Html.Label("Teléfono Fijo")
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.TelefonoFijo_Docente, new { @class = "form-control", @placeholder = "Ingrese teléfono fijo" })
+                            @Html.TextBoxFor(x => x.TelefonoFijo_Docente, new { @class = "form-control" })
                             @Html.ValidationMessageFor(x => x.TelefonoFijo_Docente, null, new { @class = "label label-danger" })
                         </div>
                     </div>
                     <div class="col-md-4">
-                        @Html.Label("Teléfono Celular")
+                        @Html.Label("Teléfono Celular")<span class="text-danger">*</span>
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.TelefonoCelular_Docente, new { @class = "form-control", @placeholder = "Ingrese teléfono celular" })
+                            @Html.TextBoxFor(x => x.TelefonoCelular_Docente, new { @class = "form-control" })
                             @Html.ValidationMessageFor(x => x.TelefonoCelular_Docente, null, new { @class = "label label-danger" })
                         </div>
                     </div>
@@ -182,7 +182,7 @@
 
                 <div class="row clearfix">
                     <div class="col-md-12">
-                        @Html.Label("Estado")
+                        @Html.Label("Estado")<span class="text-danger">*</span>
                         <div class="form-group">
                             @Html.RadioButtonFor(x => x.Estado_Docente, true, new { @checked = true }) Activo  <label>&nbsp &nbsp</label>
                             @Html.RadioButtonFor(x => x.Estado_Docente, false) Inactivo
@@ -195,10 +195,10 @@
                             <div class="form-group row">
                                 <div class="col-sm-8 col-9 text-left">
                                     <div class="form-check form-check-inline">
-                                        <a href="~/Docente/Index2" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'> Cancelar</a>
+                                        <a href="~/Docente/Index2" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'><i class="fa fa-close"></i>  Cancelar</a>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input type="submit" value="Guardar" class="btn btn btn-primary btn-rounded" style='width:100px; height:35px' />
+                                        <button class="btn btn-primary btn-rounded" style='width:100px; height:35px' type="submit"><i class="fa fa-check"></i> Guardar</button>
                                     </div>
                                 </div>
                             </div>

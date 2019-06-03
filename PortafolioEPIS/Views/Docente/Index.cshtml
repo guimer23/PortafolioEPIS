@@ -6,124 +6,171 @@
 
     <div class="row">
         <div class="col-sm-4 col-3">
-            <h4 class="page-title">Docentes</h4>
+            <h4 class="page-title">Lista de Docentes</h4>
         </div>
         <div class="col-sm-8 col-9 text-right m-b-20">
             <div class="form-check form-check-inline">
                 <a href="~/Docente/Index2" class="btn btn btn-outline-primary btn-rounded"><i class="fa fa-table"></i> Cambiar Vista</a>
             </div>
             <div class="form-check form-check-inline">
-                <a href="~/Docente/Agregar" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Agregar Docente</a>
+                <a href="~/Docente/Agregar" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Nuevo Registro</a>
             </div>
         </div>
     </div>
-    <div class="row filter-row">
-        <div class="col-sm-6 col-md-3">
-            <div class="form-group form-focus">
-                <label class="focus-label">Código</label>
-                <input type="text" class="form-control floating">
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-            <div class="form-group form-focus">
-                <label class="focus-label">Nombre</label>
-                <input type="text" class="form-control floating">
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-            <div class="form-group form-focus select-focus">
-                <label class="focus-label">Estado</label>
-                <select class="select floating">
-                    <option>Seleccionar Estado</option>
-                    <option>Activo</option>
-                    <option>Inactivo</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-            <a href="#" class="btn btn-success btn-block"> Buscar </a>
-        </div>
-    </div>
-
+    
     <div class="row">
         <div class="col-md-12">
-            <div class="table-responsive">
-                <table id="datatable" class="table table-striped custom-table mb-0 datatable">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Código</th>
-                            <th>Nombres y Apellidos</th>
-                            <th>Fecha Nacimiento</th>
-                            <th>Correo</th>
-                            <th>Celular</th>
-                            <th class="text-center">Estado</th>
-                            <th class="text-right">Accción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @{ int num = 0;}
-                        @foreach (var s in Model)
-                        {
-                            num = num + 1;
+            <div class="card-box">
+                <div class="table-responsive">
+                    <table id="example" class="table table-hover">
+                        <thead>
                             <tr>
-                                <td>@num</td>
-                                <td>@(s.Codigo_Docenteepis)</td>
-                                <td>
-                                    <a class="avatar" href="~/Docente/Ver/@s.Codigo_Docente"><img alt="" src="~/Imagen/@s.Foto_Docente"></a>
-
-                                    <h2 class="doctor-name text-ellipsis">
-                                        <a href="~/Docente/Ver/@s.Codigo_Docente">
-                                            @(s.Nombres_Docente + " " + s.Apellidos_Docente)
-                                            @{
-                                                var objTbl_Profesion = new Tbl_Profesion();
-                                                try
-                                                {
-                                                    using (var db = new Modelo_Portafolio())
+                                <th>#</th>
+                                <th>Código</th>
+                                <th>Nombres y Apellidos</th>
+                                <th>Correo</th>
+                                <th>Celular</th>
+                                <th class="text-center">Estado</th>
+                                <th class="text-right">Accción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{ int num = 0;}
+                            @foreach (var s in Model)
+                            {
+                                num = num + 1;
+                                <tr>
+                                    <td>@num</td>
+                                    <td>@(s.Codigo_Docenteepis)</td>
+                                    <td>
+                                        <a class="avatar" href="~/Docente/Ver/@s.Codigo_Docente"><img alt="" src="~/Imagen/@s.Foto_Docente"></a>
+                                        <h2 class="doctor-name text-ellipsis">
+                                            <a href="~/Docente/Ver/@s.Codigo_Docente">
+                                                @(s.Nombres_Docente + " " + s.Apellidos_Docente)
+                                                @{
+                                                    var objTbl_Profesion = new Tbl_Profesion();
+                                                    try
                                                     {
-                                                        objTbl_Profesion = db.Tbl_Profesion
-                                                            .Where(x => x.Codigo_Profesion == s.Codigo_Profesion)
-                                                            .SingleOrDefault();
-                                                        <span>@(objTbl_Profesion.Nombre_Profesion)</span>
-                                                        @*<div class="doc-prof"><center>@(objTbl_Profesion.Nombre_Profesion)</center></div>*@
+                                                        using (var db = new Modelo_Portafolio())
+                                                        {
+                                                            objTbl_Profesion = db.Tbl_Profesion
+                                                                .Where(x => x.Codigo_Profesion == s.Codigo_Profesion)
+                                                                .SingleOrDefault();
+                                                            <span>@(objTbl_Profesion.Nombre_Profesion)</span>
+                                                        }
+                                                    }
+                                                    catch (Exception ex)
+                                                    {
+                                                        throw;
                                                     }
                                                 }
-                                                catch (Exception ex)
-                                                {
-                                                    throw;
-                                                }
+                                            </a>
+                                        </h2>
+                                    </td>
+                                    <td>@(s.Correo_Docente)</td>
+                                    <td>@(s.TelefonoCelular_Docente)</td>
 
-                                            }
-                                        </a>
-                                    </h2>
-                                </td>
-                                <td>@(s.FechaNac_Docente)</td>
-                                <td>@(s.Correo_Docente)</td>
-                                <td>@(s.TelefonoCelular_Docente)</td>
+                                    @if (s.Estado_Docente == true)
+                                    {
+                                        <td><span class="custom-badge status-green">Activo</span></td>
+                                    }
+                                    else
+                                    {
+                                        <td><span class="custom-badge status-red">Inactivo</span></td>
+                                    }
+                                    <td class="text-right">
+                                        <div class="dropdown dropdown-action">
+                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href="~/Docente/Agregar/@s.Codigo_Docente"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                <a class="dropdown-item" href="~/Docente/Eliminar/@s.Codigo_Docente" onclick="return confirm('¿Esta seguro que desea de Eliminar?');"><i class="fa fa-trash-o m-r-5"></i>  Eliminar</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
 
-                                @if (s.Estado_Docente == true)
-                                {
-                                    <td><span class="custom-badge status-green">Activo</span></td>
-                                }
-                                else
-                                {
-                                    <td><span class="custom-badge status-red">Inactivo</span></td>
-                                }
-                                <td class="text-right">
-                                    <div class="dropdown dropdown-action">
-                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="~/Docente/Agregar/@s.Codigo_Docente"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                            <a class="dropdown-item" href="~/Docente/Eliminar/@s.Codigo_Docente" onclick="return confirm('¿Esta seguro que desea de Eliminar?');"><i class="fa fa-trash-o m-r-5"></i>  Eliminar</a>
+                <!--Resumen general de Semestre-->
+                <br />
+                @{
+                    int cantActivos = 0, cantInactivos = 0 , cantHombres=0, cantMujeres=0;
+                    foreach (var s in Model)
+                    {
+                        if (s.Estado_Docente.Equals(true))
+                        {
+                            cantActivos++;
+                        }
+                        else
+                        {
+                            cantInactivos++;
+                        }
+                        if (s.Sexo_Docente.Equals(true))
+                        {
+                            cantHombres++;
+                        }
+                        else
+                        {
+                            cantMujeres++;
+                        }
+                    }
+                }
 
+                <div class="card-box profile-header">
+                    <div class="row clearfix">
+                        <div class="col-md-12">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item active" aria-current="page">RESUMEN - CANTIDAD DE REGISTROS</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="profile-view">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="profile-info-left">
+                                            <ul class="personal-info">
+                                                <li>
+                                                    <span class="title">Docentes Hombres:</span>
+                                                    <span class="text">@cantHombres</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">Docentes Mujeres:</span>
+                                                    <span class="text">@cantMujeres</span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">Total Docentes:</span>
+                                                    <span class="text">@(cantMujeres + cantHombres)</span>
+                                                </li>                                                
+                                            </ul>
                                         </div>
                                     </div>
-                                </td>
-                            </tr>
+                                    <div class="col-md-6">
+                                        <ul class="personal-info">
+                                            <li>
+                                                <span class="title">Docentes Activos:</span>
+                                                <span class="text">@cantActivos</span>
+                                            </li>
+                                            <li>
+                                                <span class="title">Docentes Inactivos:</span>
+                                                <span class="text">@cantInactivos</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                        }
-                    </tbody>
-                </table>
+
             </div>
         </div>
     </div>
+
