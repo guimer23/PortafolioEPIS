@@ -15,6 +15,7 @@ namespace PortafolioEPIS.Controllers
         private Tbl_Docente objDocente = new Tbl_Docente();
         private Tbl_Profesion objProfesion = new Tbl_Profesion();
         private Tbl_CargoDocente objCargoDocente = new Tbl_CargoDocente();
+        private Tbl_DetalleCargaAcademica objDetalleCargaAcademica = new Tbl_DetalleCargaAcademica();
 
         // Accion Listar
         public ActionResult Index()
@@ -27,8 +28,20 @@ namespace PortafolioEPIS.Controllers
             return View(objDocente.Listar2());
         }
 
+        public ActionResult VistaCursosDocente(int id)
+        {
+            ViewBag.id = id;
+            return View(objDetalleCargaAcademica.Listar());
+        }
+
+        public ActionResult VistaCursosTabla(int id)
+        {
+            ViewBag.id = id;
+            return View(objDetalleCargaAcademica.Listar());
+        }
+
         //Accion Agregar
-        
+
         public ActionResult Agregar(int id=0)
         {
             ViewBag.Tbl_Profesion = objProfesion.Listar();

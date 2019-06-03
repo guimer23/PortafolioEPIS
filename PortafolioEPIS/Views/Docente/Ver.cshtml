@@ -1,151 +1,153 @@
 @model PortafolioEPIS.Models.Tbl_Docente
-@{
-    ViewBag.Title = "Ver";
-}
+    @{
+        ViewBag.Title = "Ver";
+    }
 
-<div class="row">
-    <div class="col-sm-7 col-6">
-        <h4 class="page-title">Perfil Docente</h4>
-    </div>
-    <div class="col-sm-5 col-6 text-right m-b-30">
-        <a href="~/Docente/Agregar" class="btn btn-primary btn-rounded"><i class="fa fa-edit"></i> Editar Perfil</a>
-    </div>
-
-</div>
-
-<div class="card-box profile-header">
     <div class="row">
-        <div class="col-md-12">
-            <div class="profile-view">
-                <div class="profile-img-wrap">
-                    <div class="profile-img">
-                        <a href="#"><img class="avatar" src="~/Imagen/@Model.Foto_Docente" alt=""></a>
-                    </div>
-                </div>
-                <div class="profile-basic">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div class="profile-info-left">
-                                <h3 class="user-name m-t-0 mb-0">@Model.Nombres_Docente @Model.Apellidos_Docente</h3>
-                                <small class="text-muted">
-                                    @Model.Tbl_Profesion.Nombre_Profesion
-                            </small>
-                            <div class="staff-id">@Model.DNI_Docente</div>
-                            <div class="staff-id">Correo : <a href="#">@Model.Correo_Docente</a></div>
-                            <div class="staff-id">Celular : <a href="#">@Model.TelefonoCelular_Docente</a></div>
-                            <div class="staff-id">Tel. Fijo : <a href="#">@Model.TelefonoFijo_Docente</a></div>
-                            <div class="staff-msg"><a href="#" class="btn btn-primary">Escribir Mensaje</a></div>
+        <div class="col-sm-7 col-6">
+            <h4 class="page-title">Perfil Docente</h4>
+        </div>
+        <div class="col-sm-5 col-6 text-right m-b-30">
+            <a href="~/Docente/Agregar" class="btn btn-primary btn-rounded"><i class="fa fa-edit"></i> Editar Perfil</a>
+        </div>
+
+    </div>
+
+    <div class="card-box profile-header">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="profile-view">
+                    <div class="profile-img-wrap">
+                        <div class="profile-img">
+                            <a href="#"><img class="avatar" src="~/Imagen/@Model.Foto_Docente" alt=""></a>
                         </div>
                     </div>
-                    <div class="col-md-7">
-                        <ul class="personal-info">
-                            <li>
-                                <span class="title">Sexo:</span>
-                                @if (Model.Sexo_Docente == true)
-                                {
-                                    <span class="text">Masculino</span>
-                                }
-                                else
-                                {
-                                    <span class="text">Femenino</span>
-                                }
+                    <div class="profile-basic">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="profile-info-left">
+                                    <h3 class="user-name m-t-0 mb-0">@Model.Nombres_Docente @Model.Apellidos_Docente</h3>
+                                    <small class="text-muted">@Model.Tbl_Profesion.Nombre_Profesion
+                                    </small>
+                                    <div class="staff-id">@Model.DNI_Docente</div>
+                                    <div class="staff-id">Correo : <a href="#">@Model.Correo_Docente</a></div>
+                                    <div class="staff-id">Celular : <a href="#">@Model.TelefonoCelular_Docente</a></div>
+                                    <div class="staff-id">Tel. Fijo : <a href="#">@Model.TelefonoFijo_Docente</a></div>
+                                    <div class="staff-msg"><a href="#" class="btn btn-primary">Escribir Mensaje</a></div>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <ul class="personal-info">
+                                    <li>
+                                        <span class="title">Sexo:</span>
+                                        @if (Model.Sexo_Docente == true )
+                                        {
+                                        <span class="text">Masculino</span>
+                                        }
+                                        else
+                                        {
+                                        <span class="text">Femenino</span>
+                                        }
 
-                            </li>
-                            <li>
-                                <span class="title">Estado Civil:</span>
-                                <span class="text">@Model.EstadoCivil_Docente</span>
-                            </li>
-                            <li>
-                                <span class="title">Fecha Nacimiento:</span>
-                                <span class="text">@Model.FechaNac_Docente</span>
-                            </li>
-                            <li>
-                                <span class="title">Dirección Actual:</span>
-                                <span class="text">@Model.DireccionActual_Docente</span>
-                            </li>
-                            <li>
-                                <span class="title">Dirección Ref.:</span>
-                                <span class="text">@Model.DireccionReferencia_Docente</span>
-                            </li>
-                            <li>
-                                <span class="title">Estado:</span>
-                                @if (Model.Estado_Docente == true)
-                                {
-                                    <span class="text">Activo</span>
-                                }
-                                else
-                                {
-                                    <span class="text">Inactivo</span>
-                                }
-                            </li>
+                                    </li>
+                                    <li>
+                                        <span class="title">Estado Civil:</span>
+                                        <span class="text">@Model.EstadoCivil_Docente</span>
+                                    </li>
+                                    <li>
+                                        <span class="title">Fecha Nacimiento:</span>
+                                        <span class="text">@Model.FechaNac_Docente</span>
+                                    </li>
+                                    <li>
+                                        <span class="title">Dirección Actual:</span>
+                                        <span class="text">@Model.DireccionActual_Docente</span>
+                                    </li>
+                                    <li>
+                                        <span class="title">Dirección Ref.:</span>
+                                        <span class="text">@Model.DireccionReferencia_Docente</span>
+                                    </li>
+                                    <li>
+                                        <span class="title">Estado:</span>
+                                        @if (Model.Estado_Docente == true)
+                                        {
+                                            <span class="text">Activo</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="text">Inactivo</span>
+                                        }
+                                    </li>
 
-                        </ul>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-</div>
-<div class="profile-tabs">
-    <ul class="nav nav-tabs nav-tabs-bottom">
-        <li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">Carga Academica 2019-I</a></li>
-        <li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab">Informe de Prueba de Entrada</a></li>
-        <li class="nav-item"><a class="nav-link" href="#bottom-tab3" data-toggle="tab">Informe Portafolio</a></li>
-        <li class="nav-item"><a class="nav-link" href="#bottom-tab4" data-toggle="tab">Informe Final</a></li>
-    </ul>
-    <div class="tab-content">
-        <div class="tab-pane show active" id="about-cont">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card-box">
-                        <!--Carga Academica 2019-I-->
-                        Lista de Informe de Prueba de Entrada
+    <div class="profile-tabs">
+        <ul class="nav nav-tabs nav-tabs-bottom">
+            <li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">Carga Academica 2019-I</a></li>
+            <li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab">Informe de Prueba de Entrada</a></li>
+            <li class="nav-item"><a class="nav-link" href="#bottom-tab3" data-toggle="tab">Informe Portafolio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#bottom-tab4" data-toggle="tab">Informe Final</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane show active" id="about-cont">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-box">
+                            
+                           
+                           
+                        @{Html.RenderAction("VistaCursosTabla", "Docente", new ViewDataDictionary(new { id = Model.Codigo_Docente})); }
+                           
 
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="tab-pane" id="bottom-tab2">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card-box">
-                        <!--Informe Prueba de Entrada-->
-                        Lista de Informe de Prueba de Entrada
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="tab-pane" id="bottom-tab3">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card-box">
-                        <!--Informe de portafolio por Unidad-->
-                        Lista de Informes de Portafolio de cada Unidad
+                        </div>
 
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="tab-pane" id="bottom-tab4">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card-box">
-                        <!--Informe de Informe Final-->
-                        Lista de Informe Final
+            <div class="tab-pane" id="bottom-tab2">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-box">
+                            <!--Informe Prueba de Entrada-->
+                            Lista de Informe de Prueba de Entrada
+
+                        </div>
 
                     </div>
-                </div>
+                </div>                
+            </div>
+
+            <div class="tab-pane" id="bottom-tab3">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-box">
+                            <!--Informe de portafolio por Unidad-->
+                            Lista de Informes de Portafolio de cada Unidad
+
+                        </div>
+                    </div>
+                </div>                
+            </div>
+
+            <div class="tab-pane" id="bottom-tab4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-box">
+                            <!--Informe de Informe Final-->
+                            Lista de Informe Final
+
+                        </div>
+                    </div>
+                </div>                
             </div>
         </div>
     </div>
-</div>
 
 
 
