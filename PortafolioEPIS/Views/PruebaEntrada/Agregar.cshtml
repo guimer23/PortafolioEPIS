@@ -145,12 +145,12 @@
                                 </div>
                             </div>
 
-                            @*
-                                @{Html.RenderAction("Agregar", "ConocimientoHabilidad", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
+                            
+                                {Html.RenderAction("Agregar", "ConocimientoHabilidad", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
                                 <!--Listar tabla conocimientos habilidades-->
-                                @{Html.RenderAction("Index", "ConocimientoHabilidad", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
+                                {Html.RenderAction("Index", "ConocimientoHabilidad", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
                                 <!--Listar tabla conocimientos habilidades-->
-                            *@
+                            
 
                             <div class="row clearfix">
                                 <div class="col-md-12">
