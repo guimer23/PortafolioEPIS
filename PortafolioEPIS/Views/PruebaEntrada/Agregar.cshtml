@@ -1,4 +1,10 @@
-﻿<div class="row">
+﻿@model PortafolioEPIS.Models.Tbl_DetalleCargaAcademica
+
+@{
+    
+ }
+
+<div class="row">
     <div class="col-sm-7 col-6">
         <h4 class="page-title">Informe Prueba de Entrada</h4>
     </div>
@@ -35,13 +41,14 @@
                                 <div class="col-md-4">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Codigo:</label>
-                                        <input type="text" class="form-control floating" value="SI-671">
+                                        <input type="text" class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio" disabled>
+                                        
                                     </div>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Asignatura:</label>
-                                        <input type="text" class="form-control floating" value="BASE DE DATOS I">
+                                        <input type="text" class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -49,31 +56,31 @@
                                 <div class="col-md-2">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Sección:</label>
-                                        <input type="text" class="form-control floating" value="A">
+                                        <input type="text" class="form-control floating" value="@Model.Tbl_Seccion.Nombre_Seccion" disabled>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Ciclo:</label>
-                                        <input type="text" class="form-control floating" value="VI">
+                                        <input type="text" class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio" disabled>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Horas:</label>
-                                        <input type="text" class="form-control floating" value="6">
+                                        <input type="text" class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio" disabled>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Créditos:</label>
-                                        <input type="text" class="form-control floating" value="4">
+                                        <input type="text" class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio" disabled>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Tipo Curso:</label>
-                                        <input type="text" class="form-control floating" value="Obligatorio">
+                                        <input type="text" class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -90,13 +97,13 @@
                                 <div class="col-md-4">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Codigo:</label>
-                                        <input type="text" class="form-control floating" value="254511">
+                                        <input type="text" class="form-control floating" value="@Model.Tbl_Docente.Codigo_Docenteepis" disabled>
                                     </div>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Nombre:</label>
-                                        <input type="text" class="form-control floating" value="Ing. CARLOS ALBERTO RUIZ CANCINO">
+                                        <input type="text" class="form-control floating" value="@Model.Tbl_Docente.Nombres_Docente @Model.Tbl_Docente.Apellidos_Docente"  disabled>
                                     </div>
                                 </div>
                             </div>
@@ -104,13 +111,13 @@
                                 <div class="col-md-8">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Email:</label>
-                                        <input type="text" class="form-control floating" value="carlosruiz@gmail.com">
+                                        <input type="text" class="form-control floating" value="@Model.Tbl_Docente.Correo_Docente" disabled>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Celular:</label>
-                                        <input type="text" class="form-control floating" value="995686874">
+                                        <input type="text" class="form-control floating" value="@Model.Tbl_Docente.TelefonoCelular_Docente" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -127,7 +134,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Matriculados:</label>
-                                        <input type="text" class="form-control floating" value="30">
+                                        <input type="text" class="form-control floating" value="@Model.Matriculados_DetalleCargaAcademica" disabled>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -137,13 +144,13 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             @*
-                            @{Html.RenderAction("Agregar", "ConocimientoHabilidad", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
-                            <!--Listar tabla conocimientos habilidades-->
-                            @{Html.RenderAction("Index", "ConocimientoHabilidad", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
-                            <!--Listar tabla conocimientos habilidades-->
-                                *@
+                                @{Html.RenderAction("Agregar", "ConocimientoHabilidad", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
+                                <!--Listar tabla conocimientos habilidades-->
+                                @{Html.RenderAction("Index", "ConocimientoHabilidad", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
+                                <!--Listar tabla conocimientos habilidades-->
+                            *@
 
                             <div class="row clearfix">
                                 <div class="col-md-12">
