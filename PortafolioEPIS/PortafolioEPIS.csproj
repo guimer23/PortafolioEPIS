@@ -183,6 +183,8 @@
     <Content Include="assets\plugins\summernote\dist\summernote-bs4.css" />
     <Content Include="assets\plugins\summernote\dist\summernote-bs4.min.js" />
     <Content Include="Global.asax" />
+    <Content Include="Imagen\fondo Portafolio.png" />
+    <Content Include="Imagen\fondo Portafoliov2.png" />
     <Content Include="Imagen\img.png" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -193,6 +195,7 @@
     <Compile Include="Controllers\DetallePlanEstudioController.cs" />
     <Compile Include="Controllers\DocenteController.cs" />
     <Compile Include="Controllers\Informes\ConocimientoHabilidadController.cs" />
+    <Compile Include="Controllers\Informes\MedidasCorrectivasController.cs" />
     <Compile Include="Controllers\Informes\PruebaEntradaController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
     <Compile Include="Controllers\Mantenimiento\CargoController.cs" />
@@ -265,6 +268,7 @@
     <Content Include="Views\PruebaEntrada\Agregar.cshtml" />
     <Content Include="Views\ConocimientoHabilidad\Index.cshtml" />
     <Content Include="Views\ConocimientoHabilidad\Agregar.cshtml" />
+    <Content Include="Views\MedidasCorrectivas\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

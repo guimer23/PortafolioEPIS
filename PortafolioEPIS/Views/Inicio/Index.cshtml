@@ -1,39 +1,68 @@
-﻿<div class="row">
+﻿@{
+    List<PortafolioEPIS.Models.Tbl_CargaAcademica> carga = new PortafolioEPIS.Models.Tbl_CargaAcademica().Listar();
+    List<PortafolioEPIS.Models.Tbl_PlanEstudio> plan = new PortafolioEPIS.Models.Tbl_PlanEstudio().Listar();
+    List<PortafolioEPIS.Models.Tbl_Docente> docente = new PortafolioEPIS.Models.Tbl_Docente().Listar();
+    List<PortafolioEPIS.Models.Tbl_PruebaEntrada> prueba = new PortafolioEPIS.Models.Tbl_PruebaEntrada().Listar();
+}
+@{ int d = 0;
+    int c = 0;
+    int p = 0;
+    int i = 0;}
+@foreach (var doc in docente)
+{ d++; }
+@foreach (var pl in plan)
+{ p++; }
+@foreach (var ca in carga)
+{ c++; }
+@foreach (var pr in prueba)
+{ i++; }
+<div class="row">
     <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
         <div class="dash-widget">
-            <span class="dash-widget-bg1"><i class="fa fa-stethoscope" aria-hidden="true"></i></span>
+            <span class="dash-widget-bg1"><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
             <div class="dash-widget-info text-right">
-                <h3>98</h3>
-                <span class="widget-title1">Doctors <i class="fa fa-check" aria-hidden="true"></i></span>
+                <h3>@p</h3>
+                <span class="widget-title1">Plan de Est.<i class="fa fa-check" aria-hidden="true"></i></span>
             </div>
         </div>
     </div>
     <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
         <div class="dash-widget">
-            <span class="dash-widget-bg2"><i class="fa fa-user-o"></i></span>
+            <span class="dash-widget-bg2"><i class="fa fa-folder-open"></i></span>
             <div class="dash-widget-info text-right">
-                <h3>1072</h3>
-                <span class="widget-title2">Patients <i class="fa fa-check" aria-hidden="true"></i></span>
+                <h3>@c</h3>
+                <span class="widget-title2">Carga Acad.<i class="fa fa-check" aria-hidden="true"></i></span>
             </div>
         </div>
     </div>
     <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
         <div class="dash-widget">
-            <span class="dash-widget-bg3"><i class="fa fa-user-md" aria-hidden="true"></i></span>
+            <span class="dash-widget-bg3"><i class="fa fa fa-user-o" aria-hidden="true"></i></span>
             <div class="dash-widget-info text-right">
-                <h3>72</h3>
-                <span class="widget-title3">Attend <i class="fa fa-check" aria-hidden="true"></i></span>
+                <h3>@d</h3>
+                <span class="widget-title3">Docentes <i class="fa fa-check" aria-hidden="true"></i></span>
             </div>
         </div>
     </div>
     <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
         <div class="dash-widget">
-            <span class="dash-widget-bg4"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
+            <span class="dash-widget-bg4"><i class="fa fa-print " aria-hidden="true"></i></span>
             <div class="dash-widget-info text-right">
-                <h3>618</h3>
-                <span class="widget-title4">Pending <i class="fa fa-check" aria-hidden="true"></i></span>
+                <h3>@i</h3>
+                <span class="widget-title4">Informes <i class="fa fa-check" aria-hidden="true"></i></span>
             </div>
         </div>
     </div>
 </div>
+
+<!--bienvenida-->
+<div class="card">    
+    <div class="card-body">
+        <img src="~/Imagen/fondo Portafoliov2.png" class="img-fluid" alt="Responsive image" />
+    </div>
+</div>
+
+<footer>
+    <p>Aplicación Web Portafolio EPIS <strong>2019-I</strong> - ©2019 Universidad Privada de Tacna</p>
+</footer>
 
