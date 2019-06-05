@@ -34,16 +34,17 @@ namespace PortafolioEPIS.Controllers.Informes
             return View();
         }
         //Action Guardar
-        public ActionResult Guardar(Tbl_PruebaEntrada objPruebaEntrada, int evaluados, int codigo, string estado)
+        public ActionResult Guardar(Tbl_PruebaEntrada objPruebaEntrada, int evaluados, int codigo, string estado, int idprueba)
         {
-            //if (ModelState.IsValid)
-            //{
+            
+                objPruebaEntrada.Codigo_PruebaEntrada = idprueba;
                 objPruebaEntrada.Codigo_DetalleCargaAcademica = codigo;
                 objPruebaEntrada.Evaluados_PruebaEntrada = evaluados;
                 objPruebaEntrada.Fecha_PruebaEntrada = DateTime.Now;
                 objPruebaEntrada.Estado_PruebaEntrada = estado;
                 objPruebaEntrada.Guardar();
-                return Redirect("~/PruebaEntrada/Agregar/"+codigo);
+                return Redirect("~/PruebaEntrada/Agregar/" + codigo);
+          
             //}
             //else
             //{
@@ -70,6 +71,7 @@ namespace PortafolioEPIS.Controllers.Informes
         // Accion Agregar
         public ActionResult Agregar(int id)
         {
+            ViewBag.prueba = objPruebaEntrada.Listar();
             return View(objDetalleCargaAcademica.Obtener(id));
         }
     }
