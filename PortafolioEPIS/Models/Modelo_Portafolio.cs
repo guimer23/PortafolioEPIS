@@ -36,11 +36,6 @@ namespace PortafolioEPIS.Models
                 .WithRequired(e => e.Tbl_CargaAcademica)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Tbl_CargaAcademica>()
-                .HasMany(e => e.Tbl_PruebaEntrada)
-                .WithRequired(e => e.Tbl_CargaAcademica)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<Tbl_CargoDocente>()
                 .Property(e => e.Nombre_CargoDocente)
                 .IsUnicode(false);
@@ -53,6 +48,11 @@ namespace PortafolioEPIS.Models
             modelBuilder.Entity<Tbl_ConocimientoHabilidad>()
                 .Property(e => e.Nombre_ConocimientoHabilidad)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Tbl_DetalleCargaAcademica>()
+                .HasMany(e => e.Tbl_PruebaEntrada)
+                .WithRequired(e => e.Tbl_DetalleCargaAcademica)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Tbl_DetallePlanEstudio>()
                 .Property(e => e.CodigoCurso_DetallePlanEstudio)
@@ -76,11 +76,6 @@ namespace PortafolioEPIS.Models
 
             modelBuilder.Entity<Tbl_DetallePlanEstudio>()
                 .HasMany(e => e.Tbl_DetalleCargaAcademica)
-                .WithRequired(e => e.Tbl_DetallePlanEstudio)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Tbl_DetallePlanEstudio>()
-                .HasMany(e => e.Tbl_PruebaEntrada)
                 .WithRequired(e => e.Tbl_DetallePlanEstudio)
                 .WillCascadeOnDelete(false);
 
@@ -133,11 +128,6 @@ namespace PortafolioEPIS.Models
                 .WithRequired(e => e.Tbl_Docente)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Tbl_Docente>()
-                .HasMany(e => e.Tbl_PruebaEntrada)
-                .WithRequired(e => e.Tbl_Docente)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<Tbl_MedidasCorrectivas>()
                 .Property(e => e.Nombre_MedidasCorrectivas)
                 .IsUnicode(false);
@@ -153,11 +143,6 @@ namespace PortafolioEPIS.Models
 
             modelBuilder.Entity<Tbl_PlanEstudio>()
                 .HasMany(e => e.Tbl_DetallePlanEstudio)
-                .WithRequired(e => e.Tbl_PlanEstudio)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Tbl_PlanEstudio>()
-                .HasMany(e => e.Tbl_PruebaEntrada)
                 .WithRequired(e => e.Tbl_PlanEstudio)
                 .WillCascadeOnDelete(false);
 
@@ -198,11 +183,6 @@ namespace PortafolioEPIS.Models
                 .WithRequired(e => e.Tbl_Seccion)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Tbl_Seccion>()
-                .HasMany(e => e.Tbl_PruebaEntrada)
-                .WithRequired(e => e.Tbl_Seccion)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<Tbl_Semestre>()
                 .Property(e => e.Nombre_Semestre)
                 .IsUnicode(false);
@@ -219,11 +199,6 @@ namespace PortafolioEPIS.Models
 
             modelBuilder.Entity<Tbl_Semestre>()
                 .HasMany(e => e.Tbl_PlanEstudio)
-                .WithRequired(e => e.Tbl_Semestre)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Tbl_Semestre>()
-                .HasMany(e => e.Tbl_PruebaEntrada)
                 .WithRequired(e => e.Tbl_Semestre)
                 .WillCascadeOnDelete(false);
         }
