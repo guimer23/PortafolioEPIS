@@ -48,7 +48,7 @@ namespace PortafolioEPIS.Models
             {
                 using (var db = new Modelo_Portafolio())
                 {
-                    objPruebaEntrada = db.Tbl_PruebaEntrada.Include("Tbl_DetallePlanEstudio").Include("Tbl_Docente").Include("Tbl_PlanEstudio").Include("Tbl_Seccion").Include("Tbl_Semestre").ToList();
+                    objPruebaEntrada = db.Tbl_PruebaEntrada.ToList();
                 }
             }
             catch (Exception ex)
