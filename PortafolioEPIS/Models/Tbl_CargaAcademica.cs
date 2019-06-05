@@ -41,11 +41,13 @@ namespace PortafolioEPIS.Models
         //Metodo Listar
         public List<Tbl_CargaAcademica> Listar()
         {
+
             var objCargaAcademica = new List<Tbl_CargaAcademica>();
             try
             {
                 using (var db = new Modelo_Portafolio())
                 {
+                    
                     objCargaAcademica = db.Tbl_CargaAcademica.Include("Tbl_Semestre").ToList();
                 }
             }

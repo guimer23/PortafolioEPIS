@@ -74,6 +74,32 @@ namespace PortafolioEPIS.Models
             return objDetalleCargaAcademica;
         }
 
+        //Metodo Listar 2 usado en el controlador detalle carga academica en la vista index 
+        
+        public List<Tbl_DetalleCargaAcademica> Listar2(int id)
+        {
+            var objDetalleCargaAcademica = new List<Tbl_DetalleCargaAcademica>();
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    objDetalleCargaAcademica = db.Tbl_DetalleCargaAcademica.Include("Tbl_CargaAcademica")
+                                                                            .Include("Tbl_PlanEstudio")
+                                                                            .Include("Tbl_Docente")
+                                                                            .Include("Tbl_Seccion")
+                                                                            .Include("Tbl_DetallePlanEstudio")
+                                                                            .Include("Tbl_Semestre")
+                                                                            .Where(x => x.Codigo_CargaAcademica == id)
+                                                                            .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objDetalleCargaAcademica;
+        }
+
         //Metodo Obtener
         public Tbl_DetalleCargaAcademica Obtener(int id)//retorna solo un objeto
         {

@@ -15,6 +15,7 @@ namespace PortafolioEPIS.Controllers
 
         public ActionResult Index()
         {
+            
             return View(objCargaAcademica.Listar());
         }
 
