@@ -25,8 +25,7 @@
                 <div class="col-md-12">
                     <div class="card-box">
 
-                        @using (Html.BeginForm("Guardar", "Docente", FormMethod.Post, new { id = "frm-docente", enctype = "multipart/form-data" }))
-                        {
+                      
                             <div class="row clearfix">
                                 <div class="col-md-12">
                                     <nav aria-label="breadcrumb">
@@ -36,10 +35,10 @@
                                     </nav>
                                 </div>
                             </div>
-                            
+
                             <div class="row clearfix">
                                 <div class="col-md-4">
-                                    <div class="form-group form-focus" >
+                                    <div class="form-group form-focus">
                                         <label class="focus-label">Codigo:</label>
                                         <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">
 
@@ -48,7 +47,7 @@
                                 <div class="col-md-8">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Asignatura:</label>
-                                        <input type="text" style="background:#ffffff" readonly  class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio">
+                                        <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio">
                                     </div>
                                 </div>
                             </div>
@@ -56,31 +55,31 @@
                                 <div class="col-md-2">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Sección:</label>
-                                        <input type="text" style="background:#ffffff" readonly  class="form-control floating" value="@Model.Tbl_Seccion.Nombre_Seccion">
+                                        <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Seccion.Nombre_Seccion">
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Ciclo:</label>
-                                        <input type="text" style="background:#ffffff" readonly  class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio">
+                                        <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio">
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Horas:</label>
-                                        <input type="text" style="background:#ffffff" readonly  class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio">
+                                        <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio">
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Créditos:</label>
-                                        <input type="text" style="background:#ffffff" readonly  class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio">
+                                        <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Tipo Curso:</label>
-                                        <input type="text" style="background:#ffffff" readonly  class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio">
+                                        <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio">
                                     </div>
                                 </div>
                             </div>
@@ -97,13 +96,13 @@
                                 <div class="col-md-4">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Codigo:</label>
-                                        <input type="text" style="background:#ffffff" readonly  class="form-control floating" value="@Model.Tbl_Docente.Codigo_Docenteepis">
+                                        <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Docente.Codigo_Docenteepis">
                                     </div>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Nombre:</label>
-                                        <input type="text" style="background:#ffffff" readonly  class="form-control floating" value="@Model.Tbl_Docente.Nombres_Docente @Model.Tbl_Docente.Apellidos_Docente">
+                                        <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Docente.Nombres_Docente @Model.Tbl_Docente.Apellidos_Docente">
                                     </div>
                                 </div>
                             </div>
@@ -111,13 +110,13 @@
                                 <div class="col-md-8">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Email:</label>
-                                        <input type="text" style="background:#ffffff" readonly  class="form-control floating" value="@Model.Tbl_Docente.Correo_Docente">
+                                        <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Docente.Correo_Docente">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Celular:</label>
-                                        <input type="text" style="background:#ffffff" readonly  class="form-control floating" value="@Model.Tbl_Docente.TelefonoCelular_Docente">
+                                        <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Docente.TelefonoCelular_Docente">
                                     </div>
                                 </div>
                             </div>
@@ -131,38 +130,40 @@
                                 </div>
                             </div>
                             <div class="row clearfix">
-                                <div class="col-md-6">
-                                    <div class="form-group form-focus">
-                                        <label class="focus-label">Matriculados:</label>
-                                        <input type="text" style="background:#ffffff" readonly  class="form-control floating" value="@Model.Matriculados_DetalleCargaAcademica">
+
+                                <form method="post" action="" id="evaluados ">
+                                    <div class="row clearfix js-sweetalert">
+
+                                        <div class="col-md-12">
+
+                                            
+
+                                            <label class="focus-label">Evaluados:<span class="text-danger">*</span></label>
+                                            <input type="text" name="evaluados" id="evaluados" class="form-control floating">
+
+
+                                        </div>
+
+
+                                        <button onclick="form1()" type="button" class="btn btn-raised btn-primary btn-round waves-effect m-l-20" data- type="success">Gravar</button>
 
                                     </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group form-focus">
-                                        <label class="focus-label">Evaluados:<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control floating" value="25">
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="form-group form-focus">
-                                        <div class="form-check form-check-inline">
-                                            <button class="btn btn-primary btn-rounded" style='width:100px; height:35px' type="submit"><i class="fa fa-check"></i> Agregar</button>
-                                        </div>
-                                    </div>
-                                </div>
+                                </form>
+                                <form>
+
+                                </form>
                             </div>
 
-                            
-                                {Html.RenderAction("Agregar", "ConocimientoHabilidad", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
+
+                            @{ Html.RenderAction("Agregar", "ConocimientoHabilidad", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
                                 <!--Listar tabla conocimientos habilidades-->
-                                {Html.RenderAction("Index", "ConocimientoHabilidad", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
+                            @{ Html.RenderAction("Index", "ConocimientoHabilidad", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
                                 <!--Listar tabla conocimientos habilidades-->
-                            
 
 
 
-                        }
+
+                        
 
 
                     </div>
@@ -175,10 +176,21 @@
         </div>
         <div class="tab-pane" id="bottom-tab3">
             Parte 3
-        </div>
+        </div>  
     </div>
 </div>
 
+
+        <script>
+
+                        var form1 = function () {
+                          
+                            var evaluados = document.getElementById("evaluados").value;
+                            var stado = "E";
+
+                            window.location.href = '@Url.Content("~/PruebaEntrada/Guardar/")' + "?evaluados=" + evaluados + "&estado=" + stado + "&codigo=" + @Model.Codigo_DetalleCargaAcademica;
+                        }
+        </script>
 
 
 

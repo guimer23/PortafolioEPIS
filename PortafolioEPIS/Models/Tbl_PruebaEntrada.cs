@@ -40,6 +40,7 @@ namespace PortafolioEPIS.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_MedidasCorrectivas> Tbl_MedidasCorrectivas { get; set; }
 
+
         //Metodo Listar
         public List<Tbl_PruebaEntrada> Listar()
         {
@@ -66,7 +67,7 @@ namespace PortafolioEPIS.Models
             {
                 using (var db = new Modelo_Portafolio())
                 {
-                    objPruebaEntrada = db.Tbl_PruebaEntrada.Include("Tbl_DetallePlanEstudio").Include("Tbl_Docente").Include("Tbl_PlanEstudio").Include("Tbl_Seccion").Include("Tbl_Semestre")
+                    objPruebaEntrada = db.Tbl_PruebaEntrada.Include("Tbl_DetalleCargaAcademica")
                                     .Where(x => x.Codigo_PruebaEntrada == id)
                                     .SingleOrDefault();
                 }
