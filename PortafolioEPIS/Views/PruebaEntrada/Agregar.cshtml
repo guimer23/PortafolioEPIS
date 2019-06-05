@@ -1,24 +1,23 @@
 ﻿@model PortafolioEPIS.Models.Tbl_DetalleCargaAcademica
 
 @{
-    
- }
+
+}
+
+
+
 
 <div class="row">
     <div class="col-sm-7 col-6">
         <h4 class="page-title">Informe Prueba de Entrada</h4>
     </div>
-    <div class="col-sm-5 col-6 text-right m-b-30">
-        <a href="~/Docente/Agregar" class="btn btn-primary btn-rounded"><i class="fa fa-edit"></i> Editar Perfil</a>
-    </div>
-
 </div>
 
 <div class="profile-tabs">
     <ul class="nav nav-tabs nav-tabs-bottom">
-        <li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">Carga Academica 2019-I</a></li>
-        <li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab">Carga Academica</a></li>
-        <li class="nav-item"><a class="nav-link" href="#bottom-tab3" data-toggle="tab">Mensajes</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">1. Datos Generales</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab">2. Conociminetos y Habilidades</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab3" data-toggle="tab">3. Medidas Correctivas</a></li>
     </ul>
     <div class="tab-content">
         <div class="tab-pane show active" id="about-cont">
@@ -37,18 +36,19 @@
                                     </nav>
                                 </div>
                             </div>
+                            
                             <div class="row clearfix">
                                 <div class="col-md-4">
-                                    <div class="form-group form-focus">
+                                    <div class="form-group form-focus" >
                                         <label class="focus-label">Codigo:</label>
-                                        <input type="text" class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio" disabled>
-                                        
+                                        <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">
+
                                     </div>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Asignatura:</label>
-                                        <input type="text" class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio" disabled>
+                                        <input type="text" style="background:#ffffff" readonly  class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio">
                                     </div>
                                 </div>
                             </div>
@@ -56,31 +56,31 @@
                                 <div class="col-md-2">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Sección:</label>
-                                        <input type="text" class="form-control floating" value="@Model.Tbl_Seccion.Nombre_Seccion" disabled>
+                                        <input type="text" style="background:#ffffff" readonly  class="form-control floating" value="@Model.Tbl_Seccion.Nombre_Seccion">
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Ciclo:</label>
-                                        <input type="text" class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio" disabled>
+                                        <input type="text" style="background:#ffffff" readonly  class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio">
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Horas:</label>
-                                        <input type="text" class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio" disabled>
+                                        <input type="text" style="background:#ffffff" readonly  class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio">
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Créditos:</label>
-                                        <input type="text" class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio" disabled>
+                                        <input type="text" style="background:#ffffff" readonly  class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Tipo Curso:</label>
-                                        <input type="text" class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio" disabled>
+                                        <input type="text" style="background:#ffffff" readonly  class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio">
                                     </div>
                                 </div>
                             </div>
@@ -97,13 +97,13 @@
                                 <div class="col-md-4">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Codigo:</label>
-                                        <input type="text" class="form-control floating" value="@Model.Tbl_Docente.Codigo_Docenteepis" disabled>
+                                        <input type="text" style="background:#ffffff" readonly  class="form-control floating" value="@Model.Tbl_Docente.Codigo_Docenteepis">
                                     </div>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Nombre:</label>
-                                        <input type="text" class="form-control floating" value="@Model.Tbl_Docente.Nombres_Docente @Model.Tbl_Docente.Apellidos_Docente"  disabled>
+                                        <input type="text" style="background:#ffffff" readonly  class="form-control floating" value="@Model.Tbl_Docente.Nombres_Docente @Model.Tbl_Docente.Apellidos_Docente">
                                     </div>
                                 </div>
                             </div>
@@ -111,13 +111,13 @@
                                 <div class="col-md-8">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Email:</label>
-                                        <input type="text" class="form-control floating" value="@Model.Tbl_Docente.Correo_Docente" disabled>
+                                        <input type="text" style="background:#ffffff" readonly  class="form-control floating" value="@Model.Tbl_Docente.Correo_Docente">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Celular:</label>
-                                        <input type="text" class="form-control floating" value="@Model.Tbl_Docente.TelefonoCelular_Docente" disabled>
+                                        <input type="text" style="background:#ffffff" readonly  class="form-control floating" value="@Model.Tbl_Docente.TelefonoCelular_Docente">
                                     </div>
                                 </div>
                             </div>
@@ -134,12 +134,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Matriculados:</label>
-                                        <input type="text" class="form-control floating" value="@Model.Matriculados_DetalleCargaAcademica" disabled>
+                                        <input type="text" style="background:#ffffff" readonly  class="form-control floating" value="@Model.Matriculados_DetalleCargaAcademica">
+
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group form-focus">
-                                        <label class="focus-label">Evaluados:</label>
+                                        <label class="focus-label">Evaluados:<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control floating" value="25">
                                     </div>
                                 </div>
@@ -159,7 +160,7 @@
                                 <!--Listar tabla conocimientos habilidades-->
                             *@
 
-                            
+
 
                         }
 

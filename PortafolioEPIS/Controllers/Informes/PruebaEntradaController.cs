@@ -24,6 +24,10 @@ namespace PortafolioEPIS.Controllers.Informes
         {
             return View();
         }
+        public ActionResult IndexAdmin()
+        {
+            return View();
+        }
         // Accion Agregar
         public ActionResult Agregar(int id)
         {
