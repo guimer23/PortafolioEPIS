@@ -1,5 +1,5 @@
 ﻿
-@{ 
+@{
     Layout = null;
 }
 <div class="row">
@@ -25,7 +25,14 @@
 
                 </thead>
                 <tbody>
-
+                    @{ int num = 0;
+                        int totald = 0;
+                        int totals = 0;
+                        int totalb = 0;
+                    }
+                        @foreach (var p in Model)
+                        {
+                            num = num + 1;
                     <tr>
                         <td>1</td>
                         <td>Conocimientos de base de datos</td>
@@ -45,28 +52,13 @@
                                 </div>
                             </div>
                         </td>
+                        @{totald = totald + p.Deficiente_ConocimientoHabilidad;}
+                        @{totals = totals + p.Suficiente_ConocimientoHabilidad;}
+                        @{totalb = totalb + p.Bueno_ConocimientoHabilidad;}
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Conocimientos de modelo E/R</td>
-                        <td class="text-center">14</td>
-                        <td class="text-center">56.00</td>
-                        <td class="text-center">11</td>
-                        <td class="text-center">44.00</td>
-                        <td class="text-center">0</td>
-                        <td class="text-center">0.00</td>
-                        <td class="text-center" bgcolor="#FF8168">100%</td>
-                        <td class="text-right">
-                            <div class="dropdown dropdown-action">
-                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                    <a class="dropdown-item" href="#" onclick="return confirm('¿Esta seguro que desea de Eliminar?');"><i class="fa fa-trash-o m-r-5"></i>  Eliminar</a>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
+                           
+                        }
+                    </tbody>
             </table>
         </div>
     </div>
@@ -83,42 +75,89 @@
     </div>
 </div>
 
-<div class="row clearfix">
-    <div class="col-md-12">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page">GRAFICO -  RESUMEN POR CONOCIMIENTOS Y HABILIDADES</li>
-            </ol>
-        </nav>
-    </div>
-</div>
-<div class="row">
-    <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-        <div class="card">
-            <div class="card-body">
-                <div class="chart-title">
-                    <h4>Patient Total</h4>
-                    <span class="float-right"><i class="fa fa-caret-up" aria-hidden="true"></i> 15% Higher than Last Month</span>
-                </div>
-                <canvas id="linegraph"></canvas>
-            </div>
+<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+
+<script type="text/javascript">
+    Highcharts.chart('container', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Test de Conocimiento habilidad 2019'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Conocimiento habilidad',
+            colorByPoint: true,
+            data: [{
+                name: 'Deficiente',
+                y: @totald,
+                sliced: true,
+                selected: true
+            }, {
+                name: 'Suficiente',
+                y: @totals
+            }, {
+                name: 'Bueno',
+                y: @totalb
+            }]
+        }]
+    });
+</script>
+@*<div class="row clearfix">
+        <div class="col-md-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">GRAFICO -  RESUMEN POR CONOCIMIENTOS Y HABILIDADES</li>
+                </ol>
+            </nav>
         </div>
     </div>
-    <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-        <div class="card">
-            <div class="card-body">
-                <div class="chart-title">
-                    <h4>Patients In</h4>
-                    <div class="float-right">
-                        <ul class="chat-user-total">
-                            <li><i class="fa fa-circle current-users" aria-hidden="true"></i>ICU</li>
-                            <li><i class="fa fa-circle old-users" aria-hidden="true"></i> OPD</li>
-                        </ul>
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="chart-title">
+                        <h4>Patient Total</h4>
+                        <span class="float-right"><i class="fa fa-caret-up" aria-hidden="true"></i> 15% Higher than Last Month</span>
                     </div>
+                    <canvas id="linegraph"></canvas>
                 </div>
-                <canvas id="bargraph"></canvas>
             </div>
         </div>
-    </div>
-</div>
+        <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="chart-title">
+                        <h4>Patients In</h4>
+                        <div class="float-right">
+                            <ul class="chat-user-total">
+                                <li><i class="fa fa-circle current-users" aria-hidden="true"></i>ICU</li>
+                                <li><i class="fa fa-circle old-users" aria-hidden="true"></i> OPD</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <canvas id="bargraph"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>*@
 
