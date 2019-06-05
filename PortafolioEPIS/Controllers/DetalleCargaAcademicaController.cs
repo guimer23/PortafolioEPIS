@@ -18,9 +18,9 @@ namespace PortafolioEPIS.Controllers
         private Tbl_DetallePlanEstudio objDetallePlanEstudio = new Tbl_DetallePlanEstudio();
         private Tbl_Semestre objSemestre = new Tbl_Semestre();
 
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-            return View(objDetalleCargaAcademica.Listar());
+            return View(objDetalleCargaAcademica.Listar2(id));
         }
 
         //Accion Visualizar
