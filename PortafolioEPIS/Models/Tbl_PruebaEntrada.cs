@@ -22,18 +22,6 @@ namespace PortafolioEPIS.Models
 
         public int Codigo_DetalleCargaAcademica { get; set; }
 
-        public int Codigo_PlanEstudio { get; set; }
-
-        public int Codigo_CargaAcademica { get; set; }
-
-        public int Codigo_Docente { get; set; }
-
-        public int Codigo_Seccion { get; set; }
-
-        public int Codigo_DetallePlanEstudio { get; set; }
-
-        public int Codigo_Semestre { get; set; }
-
         public int Evaluados_PruebaEntrada { get; set; }
 
         [Column(TypeName = "date")]
@@ -43,23 +31,13 @@ namespace PortafolioEPIS.Models
         [StringLength(1)]
         public string Estado_PruebaEntrada { get; set; }
 
-        public virtual Tbl_CargaAcademica Tbl_CargaAcademica { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_ConocimientoHabilidad> Tbl_ConocimientoHabilidad { get; set; }
 
-        public virtual Tbl_DetallePlanEstudio Tbl_DetallePlanEstudio { get; set; }
-
-        public virtual Tbl_Docente Tbl_Docente { get; set; }
+        public virtual Tbl_DetalleCargaAcademica Tbl_DetalleCargaAcademica { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_MedidasCorrectivas> Tbl_MedidasCorrectivas { get; set; }
-
-        public virtual Tbl_PlanEstudio Tbl_PlanEstudio { get; set; }
-
-        public virtual Tbl_Seccion Tbl_Seccion { get; set; }
-
-        public virtual Tbl_Semestre Tbl_Semestre { get; set; }
 
         //Metodo Listar
         public List<Tbl_PruebaEntrada> Listar()
