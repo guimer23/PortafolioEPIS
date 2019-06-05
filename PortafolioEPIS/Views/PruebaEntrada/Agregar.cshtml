@@ -1,6 +1,9 @@
 ﻿@model PortafolioEPIS.Models.Tbl_DetalleCargaAcademica
 
 @{
+    List<PortafolioEPIS.Models.Tbl_PruebaEntrada> prueba = ViewBag.Prueba;
+    int idpruebas = 0;
+        int  evaluados=0;
 
 }
 
@@ -129,30 +132,50 @@
                                     </nav>
                                 </div>
                             </div>
-                            <div class="row clearfix">
+                        <div class="row clearfix">
+                            <form method="post" action="" id="evaluados ">
+                                <div class="row clearfix js-sweetalert">
 
-                                <form method="post" action="" id="evaluados ">
-                                    <div class="row clearfix js-sweetalert">
+                                    <div class="col-md-12">
+                                     
+                                        @foreach (var p in prueba)
+                                        {
+                                            if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica)
+                                            {
+                                                idpruebas = p.Codigo_PruebaEntrada;
+                                                evaluados = p.Evaluados_PruebaEntrada;
 
-                                        <div class="col-md-12">
-
-                                            
-
+                                                
+                                            }
+                                        }
+                                        @if (idpruebas == 0)
+                                        {
+                                            <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
                                             <label class="focus-label">Evaluados:<span class="text-danger">*</span></label>
-                                            <input type="text" name="evaluados" id="evaluados" class="form-control floating">
+                                                <input type="text" name="evaluados" id="evaluados" class="form-control floating">
+                                        }
+                                        else
+                                        {
+                                            <input type="text" name="idprueba" id="idprueba" value="@idpruebas" class="form-control floating" hidden>
+                                            <label class="focus-label">Evaluados:<span class="text-danger">*</span></label>
+                                            <input type="text" name="evaluados" id="evaluados" value="@evaluados" class="form-control floating">
 
-
-                                        </div>
-
-
-                                        <button onclick="form1()" type="button" class="btn btn-raised btn-primary btn-round waves-effect m-l-20" data- type="success">Gravar</button>
-
+                                        }
+                                      
                                     </div>
-                                </form>
-                                <form>
 
-                                </form>
-                            </div>
+
+                                    <button onclick="form1()" type="button" class="btn btn-raised btn-primary btn-round waves-effect m-l-20" data- type="success">Gravar</button>
+
+                                </div>
+                            </form>
+
+
+                            <form></form>
+                        </div>
+
+
+
 
 
                             @{ Html.RenderAction("Agregar", "ConocimientoHabilidad", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
@@ -187,8 +210,9 @@
                           
                             var evaluados = document.getElementById("evaluados").value;
                             var stado = "E";
+                            var idprueba = document.getElementById("idprueba").value;
 
-                            window.location.href = '@Url.Content("~/PruebaEntrada/Guardar/")' + "?evaluados=" + evaluados + "&estado=" + stado + "&codigo=" + @Model.Codigo_DetalleCargaAcademica;
+                            window.location.href = '@Url.Content("~/PruebaEntrada/Guardar/")' + "?evaluados=" + evaluados + "&estado=" + stado + "&codigo=" + @Model.Codigo_DetalleCargaAcademica + "&idprueba=" + idprueba;
                         }
         </script>
 
