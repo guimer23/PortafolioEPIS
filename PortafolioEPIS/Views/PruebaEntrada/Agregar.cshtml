@@ -132,68 +132,129 @@
                                     </nav>
                                 </div>
                             </div>
-                        <div class="row clearfix">
-                            <form method="post" action="" id="evaluados ">
-                                <div class="row clearfix js-sweetalert">
+                            <div class="row clearfix">
+                                <div class="col-md-6">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Matriculados:</label>
+                                        <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Matriculados_DetalleCargaAcademica">
 
-                                    <div class="col-md-12">
-                                     
-                                        @foreach (var p in prueba)
-                                        {
-                                            if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica)
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group form-focus">
+                                        <form method="post" action="" id="evaluados ">
+
+
+
+
+                                            @foreach (var p in prueba)
                                             {
-                                                idpruebas = p.Codigo_PruebaEntrada;
-                                                evaluados = p.Evaluados_PruebaEntrada;
+                                                if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica)
+                                                {
+                                                    idpruebas = p.Codigo_PruebaEntrada;
+                                                    evaluados = p.Evaluados_PruebaEntrada;
 
-                                                
+
+                                                }
                                             }
-                                        }
-                                        @if (idpruebas == 0)
-                                        {
-                                            <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
-                                            <label class="focus-label">Evaluados:<span class="text-danger">*</span></label>
+                                            @if (idpruebas == 0)
+                                            {
+                                                <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
+                                                <label class="focus-label">Evaluados:<span class="text-danger">*</span></label>
                                                 <input type="text" name="evaluados" id="evaluados" class="form-control floating">
-                                        }
-                                        else
-                                        {
-                                            <input type="text" name="idprueba" id="idprueba" value="@idpruebas" class="form-control floating" hidden>
-                                            <label class="focus-label">Evaluados:<span class="text-danger">*</span></label>
-                                            <input type="text" name="evaluados" id="evaluados" value="@evaluados" class="form-control floating">
+                                            }
+                                            else
+                                            {
+                                                <input type="text" name="idprueba" id="idprueba" value="@idpruebas" class="form-control floating" hidden>
+                                                <label class="focus-label">Evaluados:<span class="text-danger">*</span></label>
+                                                <input type="text" name="evaluados" id="evaluados" value="@evaluados" class="form-control floating">
 
-                                        }
-                                      
+                                            }
+
+
+                                        </form>
+
+
+
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group form-focus">
+                                        <div class="form-check form-check-inline">
+                                            <button onclick="form1()" type="button" class="btn btn-raised btn-primary btn-round waves-effect m-l-20" data- type="success">Agregar</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-md-12">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb">
+                                                <li class="breadcrumb-item active" aria-current="page">CONOCIMIENTOS Y HABILIDADES</li>
+                                            </ol>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-md-6">
+                                        <div class="form-group form-focus">
+                                            <label class="focus-label">Nombre:</label>
+                                            <input type="text" class="form-control floating" value="Conocimientos de Base de datos">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group form-focus">
+                                            <label class="focus-label">Deficiente:</label>
+                                            <input type="text" class="form-control floating" value="5">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group form-focus">
+                                            <label class="focus-label">Suficiente:</label>
+                                            <input type="text" class="form-control floating" value="10">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group form-focus">
+                                            <label class="focus-label">Bueno:</label>
+                                            <input type="text" class="form-control floating" value="10">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="form-group row">
+                                                <div class="col-sm-8 col-9 text-left">
+                                                    <div class="form-check form-check-inline">
+                                                        <a href="~/ConocimientoHabilidad/Index" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'><i class="fa fa-close"></i>  Cancelar</a>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <button onclick="form1()" type="button" class="btn btn-primary btn-rounded" style='width:100px; height:35px' type="submit"><i class="fa fa-check"></i> Guardar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
-
-                                    <button onclick="form1()" type="button" class="btn btn-raised btn-primary btn-round waves-effect m-l-20" data- type="success">Gravar</button>
-
                                 </div>
-                            </form>
-
-
-                            <form></form>
-                        </div>
 
 
 
 
 
-                            @{ Html.RenderAction("Agregar", "ConocimientoHabilidad", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
-                                <!--Listar tabla conocimientos habilidades-->
-                            @{ Html.RenderAction("Index", "ConocimientoHabilidad", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
-                                <!--Listar tabla conocimientos habilidades-->
 
 
 
 
-                        
 
+                         
 
                     </div>
-
                 </div>
             </div>
-        </div>
         <div class="tab-pane" id="bottom-tab2">
             parte 2
         </div>
@@ -209,7 +270,7 @@
                         var form1 = function () {
                           
                             var evaluados = document.getElementById("evaluados").value;
-                            var stado = "E";
+                            var stado = "G";
                             var idprueba = document.getElementById("idprueba").value;
 
                             window.location.href = '@Url.Content("~/PruebaEntrada/Guardar/")' + "?evaluados=" + evaluados + "&estado=" + stado + "&codigo=" + @Model.Codigo_DetalleCargaAcademica + "&idprueba=" + idprueba;
