@@ -197,64 +197,68 @@
                                         </nav>
                                     </div>
                                 </div>
-                                <div class="row clearfix">
-                                    <div class="col-md-6">
-                                        <div class="form-group form-focus">
-                                            <label class="focus-label">Nombre:</label>
-                                            <input type="text" class="form-control floating" value="Conocimientos de Base de datos">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group form-focus">
-                                            <label class="focus-label">Deficiente:</label>
-                                            <input type="text" class="form-control floating" value="5">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group form-focus">
-                                            <label class="focus-label">Suficiente:</label>
-                                            <input type="text" class="form-control floating" value="10">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group form-focus">
-                                            <label class="focus-label">Bueno:</label>
-                                            <input type="text" class="form-control floating" value="10">
-                                        </div>
+                        @*fomr 2*@
+                        <form method="post" action="" id="evaluados ">
+
+                          
+                            <div class="row clearfix">
+                                <div class="col-md-6">
+                                    <div class="form-group form-focus">
+
+
+                                        <input type="text" name="idprueba" id="idprueba" value="@idpruebas" class="form-control floating" hidden>
+
+
+                                        <label class="focus-label">Nombre:<span class="text-danger">*</span></label>
+                                        <input type="text" name="nombre" id="nombre" class="form-control floating">
+
                                     </div>
                                 </div>
-                                <div class="row clearfix">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <div class="form-group row">
-                                                <div class="col-sm-8 col-9 text-left">
-                                                    <div class="form-check form-check-inline">
-                                                        <a href="~/ConocimientoHabilidad/Index" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'><i class="fa fa-close"></i>  Cancelar</a>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <button onclick="form1()" type="button" class="btn btn-primary btn-rounded" style='width:100px; height:35px' type="submit"><i class="fa fa-check"></i> Guardar</button>
-                                                    </div>
+                                <div class="col-md-2">
+                                    <div class="form-group form-focus">
+
+                                        <label class="focus-label">Deficiente:<span class="text-danger">*</span></label>
+                                        <input type="text" name="deficiente" id="deficiente" class="form-control floating">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Suficiente:<span class="text-danger">*</span></label>
+                                        <input type="text" name="suficiente" id="suficiente" class="form-control floating">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Bueno:<span class="text-danger">*</span></label>
+                                        <input type="text" name="bueno" id="bueno" class="form-control floating">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="form-group row">
+                                            <div class="col-sm-8 col-9 text-left">
+                                                <div class="form-check form-check-inline">
+                                                    <a href="~/ConocimientoHabilidad/Index" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'><i class="fa fa-close"></i>  Cancelar</a>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <button onclick="form2()" type="button" class="btn btn-raised btn-primary btn-round waves-effect m-l-20" data- type="success">Agregar</button>
+                                                 
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
 
+                            </div>
+                        </form>
 
-
-
-
-
-
-
-
-
-                         
-
-                    </div>
+                        @*fomr 2*@
+</div>
                 </div>
             </div>
+            @{Html.RenderAction("Index", "ConocimientoHabilidad", new { id1 = idpruebas }); }
         <div class="tab-pane" id="bottom-tab2">
             parte 2
         </div>
@@ -263,17 +267,31 @@
         </div>  
     </div>
 </div>
+    <label>@idpruebas</label>
 
 
         <script>
 
                         var form1 = function () {
-                          
+
                             var evaluados = document.getElementById("evaluados").value;
                             var stado = "G";
                             var idprueba = document.getElementById("idprueba").value;
 
                             window.location.href = '@Url.Content("~/PruebaEntrada/Guardar/")' + "?evaluados=" + evaluados + "&estado=" + stado + "&codigo=" + @Model.Codigo_DetalleCargaAcademica + "&idprueba=" + idprueba;
+            }
+
+
+             var form2 = function () {
+
+                 var nombre = document.getElementById("nombre").value;
+                 var deficiente = document.getElementById("deficiente").value;
+                 var suficiente = document.getElementById("suficiente").value;
+                 var bueno = document.getElementById("bueno").value;
+                 var idp = document.getElementById("idprueba").value;
+                
+
+                 window.location.href = '@Url.Content("~/ConocimientoHabilidad/Guardar/")' + "?nombre=" + nombre + "&deficiente=" + deficiente + "&suficiente=" + suficiente + "&idprueba=" + idp + "&bueno=" + bueno+ "&codigo=" + @Model.Codigo_DetalleCargaAcademica;
                         }
         </script>
 

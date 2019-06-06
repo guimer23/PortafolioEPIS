@@ -13,8 +13,9 @@ namespace PortafolioEPIS.Controllers.Informes
         private Tbl_ConocimientoHabilidad objConocimientoHabilidad = new Tbl_ConocimientoHabilidad();
         private Tbl_PruebaEntrada objPruebaEntrada = new Tbl_PruebaEntrada();
         // Accion Listar
-        public ActionResult Index()
+        public ActionResult Index(int id1)
         {
+            ViewBag.id1 = id1;
             return View(objConocimientoHabilidad.Listar());
         }
         // Accion Agregar
@@ -25,17 +26,18 @@ namespace PortafolioEPIS.Controllers.Informes
                : objConocimientoHabilidad.Obtener(id));
         }
 
-        public ActionResult Guardar(Tbl_ConocimientoHabilidad objConocimientoHabilidad)
+        public ActionResult Guardar(Tbl_ConocimientoHabilidad objConocimientoHabilidad, int idprueba, string nombre, int deficiente, int suficiente, int bueno, int codigo )
         {
-            if (ModelState.IsValid)
-            {
+           
+
+                objConocimientoHabilidad.Codigo_PruebaEntrada = idprueba;
+                objConocimientoHabilidad.Nombre_ConocimientoHabilidad = nombre;
+                objConocimientoHabilidad.Deficiente_ConocimientoHabilidad = deficiente;
+                objConocimientoHabilidad.Suficiente_ConocimientoHabilidad = suficiente;
+                objConocimientoHabilidad.Bueno_ConocimientoHabilidad = bueno;
                 objConocimientoHabilidad.Guardar();
-                return Redirect("~/ConocimientoHabilidad");
-            }
-            else
-            {
-                return View("~/Views/ConocimientoHabilidad/Agregar");
-            }
+                return Redirect("~/PruebaEntrada/Agregar/" + codigo);
+           
 
         }
         public ActionResult Eliminar(int id)
