@@ -86,7 +86,7 @@ namespace PortafolioEPIS.Models
             {
                 using (var db = new Modelo_Portafolio())
                 {
-                    objDocente = db.Tbl_Docente.Include("Tbl_Profesion").ToList();
+                    objDocente = db.Tbl_Docente.Include("Tbl_Profesion").Include("Tbl_CargoDocente").ToList();
 
                 }
             }
@@ -105,7 +105,7 @@ namespace PortafolioEPIS.Models
             {
                 using (var db = new Modelo_Portafolio())
                 {
-                    objDocente = db.Tbl_Docente.Include("Tbl_Profesion").ToList();
+                    objDocente = db.Tbl_Docente.Include("Tbl_Profesion").Include("Tbl_CargoDocente").ToList();
                 }
             }
             catch (Exception ex)
@@ -123,7 +123,7 @@ namespace PortafolioEPIS.Models
             {
                 using (var db = new Modelo_Portafolio())
                 {
-                    objDocente = db.Tbl_Docente.Include("Tbl_Profesion")
+                    objDocente = db.Tbl_Docente.Include("Tbl_Profesion").Include("Tbl_CargoDocente")
                                     .Where(x => x.Codigo_Docente == id)
                                     .SingleOrDefault();
                 }

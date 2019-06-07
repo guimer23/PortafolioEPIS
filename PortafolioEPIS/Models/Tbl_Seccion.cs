@@ -20,7 +20,7 @@ namespace PortafolioEPIS.Models
         [Key]
         public int Codigo_Seccion { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Debe ingresar un nombre")]
         [StringLength(10)]
         public string Nombre_Seccion { get; set; }
 
