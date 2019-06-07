@@ -771,6 +771,7 @@
     <Content Include="Views\ConocimientoHabilidad\Agregar.cshtml" />
     <Content Include="Views\MedidasCorrectivas\Index.cshtml" />
     <Content Include="Views\PruebaEntrada\IndexAdmin.cshtml" />
+    <Content Include="Views\DetallePlanEstudio\Agregar1.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
