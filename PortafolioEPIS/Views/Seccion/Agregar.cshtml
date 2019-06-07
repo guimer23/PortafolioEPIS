@@ -6,74 +6,22 @@
 </div>
 
 
-
-
-
-        <h1>Validación de formularios con Bootstrap 4</h1>
-        <form class="container" id="needs-validation" novalidate>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="validationCustom01">Nombre</label>
-                    <input type="text" class="form-control" id="validationCustom01" placeholder="Nombres" value="" required>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="validationCustom02">Apellidos</label>
-                    <input type="text" class="form-control" id="validationCustom02" placeholder="Apellidos" value="" required>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="validationCustom03">Ciudad</label>
-                    <input type="text" class="form-control" id="validationCustom03" placeholder="Ciudad" required>
-                    <div class="invalid-feedback">
-                        Ingresa datos
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="validationCustom04">Estado</label>
-                    <input type="text" class="form-control" id="validationCustom04" placeholder="Estado" required>
-                    <div class="invalid-feedback">
-                        Ingresa datos
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="validationCustom05">CP</label>
-                    <input type="text" class="form-control" id="validationCustom05" placeholder="CP" required>
-                    <div class="invalid-feedback">
-                        Ingresa datos
-                    </div>
-                </div>
-            </div>
-            <button class="btn btn-primary" type="submit">Submit form</button>
-        </form>
-        
-
-        
-
-        
-
-
-
-
-
-
-
-
-
 <div class="row">
     <div class="col-md-12">
         <div class="card-box">
             <h4 class="card-title">Información Sección</h4>
-            @using (Html.BeginForm("Guardar", "Seccion", FormMethod.Post, new { @id = "needs-validation"} ))
+            @using (Html.BeginForm("Guardar", "Seccion", FormMethod.Post, new { @id = "needs-validation", @novalidate = "novalidate" } ))
             {
                 @Html.HiddenFor(x => x.Codigo_Seccion)
-            <form class="container" id="needs-validation" novalidate>
+            
                 <div class="row clearfix">
                     <div class="col-md-12">
                         @Html.Label("Nombre")<span class="text-danger">*</span>
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.Nombre_Seccion, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(x => x.Nombre_Seccion, null, new { @class = "label label-danger" })
+                            @Html.TextBoxFor(x => x.Nombre_Seccion, new { @class = "form-control", id = "validationCustom01", required = "required" })
+                            <div class="invalid-feedback">
+                                Ingresa datos
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -104,7 +52,7 @@
                     </div>
                 </div>
 
-            </form>
+            
                 
             }
         </div>
