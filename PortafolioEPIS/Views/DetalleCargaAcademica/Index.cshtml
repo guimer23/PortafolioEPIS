@@ -1,11 +1,16 @@
 ﻿@model List<PortafolioEPIS.Models.Tbl_DetalleCargaAcademica>
+@{ int num = 0;
+    int id = 0;
+    string nombre_semestre =null;
+    PortafolioEPIS.Models.Tbl_CargaAcademica objCargaAcademica = ViewBag.Tbl_CargaAcademica_id;
+    }
 <div class="row">
     <div class="col-sm-4 col-3">
-        <h4 class="page-title">Detalle Carga Académica <strong>2019-I</strong></h4>
+        <h4 class="page-title">Detalle Carga Académica <strong>@objCargaAcademica.Tbl_Semestre.Nombre_Semestre</strong></h4>
     </div>
     <div class="col-sm-8 col-9 text-right m-b-20">
         <div class="form-check form-check-inline">
-            <a href="~/DetalleCargaAcademica/Agregar" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Nuevo Registro</a>
+            <a href="~/DetalleCargaAcademica/Agregar/?cargaAcademica=@objCargaAcademica.Codigo_CargaAcademica" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Nuevo Registro</a>
         </div>
     </div>
 </div>
@@ -46,11 +51,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @{ int num = 0;}
+                                           
                                             @foreach (var p in Model)
                                             {
 
+                                                nombre_semestre = p.Tbl_Semestre.Nombre_Semestre;
                                                 num = num + 1;
+                                                id = p.Codigo_Semestre;
                                                 <tr>
                                                     <td>@num</td>
                                                     <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
@@ -101,6 +108,7 @@
 
                                     }
                                 }
+                               
 
                                 <div class="card-box profile-header">
                                     <div class="row clearfix">
