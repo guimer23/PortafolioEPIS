@@ -11,23 +11,27 @@
     <div class="col-md-12">
         <div class="card-box">
             <h4 class="card-title">Información Semestre</h4>
-            @using (Html.BeginForm("Guardar", "Semestre", FormMethod.Post))
+            @using (Html.BeginForm("Guardar", "Semestre", FormMethod.Post, new { @id = "needs-validation", @novalidate = "novalidate" }))
             {
                 <div class="row clearfix">
                     <div class="col-md-6">
                         @Html.HiddenFor(x => x.Codigo_Semestre)
                         @Html.Label("Nombre")<span class="text-danger">*</span>
-                        
+
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.Nombre_Semestre, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(x => x.Nombre_Semestre, null, new { @class = "text-danger" })
+                            @Html.TextBoxFor(x => x.Nombre_Semestre, new { @class = "form-control", id = "validationCustom01", required = "required" })
+                            <div class="invalid-feedback">
+                                Ingresa semestre
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         @Html.Label("Año")<span class="text-danger">*</span>
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.Anio_Semestre, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(x => x.Anio_Semestre, null, new { @class = "text-danger" })
+                            @Html.TextBoxFor(x => x.Anio_Semestre, new { @class = "form-control", id = "validationCustom02", required = "required", minlength = "4", pattern = "[0-9]{4,4}" })
+                            <div class="invalid-feedback">
+                                Ingrese un año valido
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -62,3 +66,20 @@
         </div>
     </div>
 </div>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+
+        window.addEventListener('load', function () {
+            var form = document.getElementById('needs-validation');
+            form.addEventListener('submit', function (event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        }, false);
+    })();
+</script>

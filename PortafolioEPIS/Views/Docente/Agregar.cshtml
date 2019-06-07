@@ -17,59 +17,31 @@
     </div>
 </div>
 
-<html>
-<head>
-    <meta charset="utf-8">
-    <style type="text/css">
-        input {
-            margin: 10px;
-        }
-    </style>
-    @*<script>
-            function Valida(formulario) {     
-                /* validación del DNI */
-                var erdni=/(^([0-9]{8,8})|^)$/;
-                if (!(erdni.test(formulario.dni.value))) {
-                    alert('Contenido del dni no es un DNI válido.');
-                    return false;  }
-                
-                return true;
-            }
-    </script>*@
-</head>
-<body>
-    <form name="miFormulario" action="#">
-        
-              
-        DNI <input type="number" name="dni" required pattern="[0-9]{8,8}"><br>       
-        <input type="submit" value="Enviar" name="enviar">
-    </form>
-</body>
-</html>
-
-
-
 
 <div class="row">
     <div class="col-md-12">
         <div class="card-box">
             <h4 class="card-title">Información Docente</h4>
-            @using (Html.BeginForm("Guardar", "Docente", FormMethod.Post, new { id = "frm-docente", enctype = "multipart/form-data" }))
+            @using (Html.BeginForm("Guardar", "Docente", FormMethod.Post, new { @id = "needs-validation", @novalidate = "novalidate" }))
             {
                 @Html.HiddenFor(x => x.Codigo_Docente)
                 <div class="row clearfix">
                     <div class="col-md-6">
                         @Html.Label("Código")<span class="text-danger">*</span>
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.Codigo_Docenteepis, new { @class = "form-control"})
-                            @Html.ValidationMessageFor(x => x.Codigo_Docenteepis, null, new { @class = "label label-danger" })
+                            @Html.TextBoxFor(x => x.Codigo_Docenteepis, new { @class = "form-control", id = "validationCustom01", required = "required", minlength = "6", pattern = "[0-9]{6,6}" })
+                            <div class="invalid-feedback">
+                                Ingrese un Codigo de 6 digitos
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         @Html.Label("DNI")<span class="text-danger">*</span>
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.DNI_Docente, new { @class = "form-control"})
-                            @Html.ValidationMessageFor(x => x.DNI_Docente, null, new { @class = "label label-danger" })
+                            @Html.TextBoxFor(x => x.DNI_Docente, new { @class = "form-control", id = "validationCustom02", required = "required", minlength = "8", pattern = "[0-9]{8,8}"})
+                            <div class="invalid-feedback">
+                                Ingrese un DNI de 8 digitos
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -77,15 +49,19 @@
                     <div class="col-md-6">
                         @Html.Label("Nombres")<span class="text-danger">*</span>
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.Nombres_Docente, new { @class = "form-control"})
-                            @Html.ValidationMessageFor(x => x.Nombres_Docente, null, new { @class = "label label-danger" })
+                            @Html.TextBoxFor(x => x.Nombres_Docente, new { @class = "form-control", id = "validationCustom03", required = "required", pattern = "[A-Za-z]*{3,50}" })
+                            <div class="invalid-feedback">
+                                Ingrese Nombre
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         @Html.Label("Apellidos")<span class="text-danger">*</span>
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.Apellidos_Docente, new { @class = "form-control"})
-                            @Html.ValidationMessageFor(x => x.Apellidos_Docente, null, new { @class = "label label-danger" })
+                            @Html.TextBoxFor(x => x.Apellidos_Docente, new { @class = "form-control", id = "validationCustom04", required = "required", pattern = "[A-Za-z]*{3,100}" })
+                            <div class="invalid-feedback">
+                                Ingrese Apellido
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -100,21 +76,19 @@
                     <div class="col-md-4">
                         @Html.Label("Estado Civil")
                         <div class="form-group">
-                            <select name="EstadoCivil_Docente" class="form-control">
+                            <select name="EstadoCivil_Docente" class="form-control" id = "validationCustom05" required = "required">
                                 <option @(Model.EstadoCivil_Docente == "" ? "Selected" : "") value="">- Seleccionar -</option>
                                 <option @(Model.EstadoCivil_Docente == "Soltero" ? "Selected" : "") value="Soltero">Soltero</option>
                                 <option @(Model.EstadoCivil_Docente == "Casado" ? "Selected" : "") value="Casado">Casado</option>
                                 <option @(Model.EstadoCivil_Docente == "Divorciado" ? "Selected" : "") value="Divorciado">Divorciado</option>
-                            </select>
-                            @Html.ValidationMessageFor(x => x.EstadoCivil_Docente, null, new { @class = "label label-danger" })
+                            </select>                            
                         </div>
                     </div>
                     <div class="col-md-4">
                         @Html.Label("Fecha de Nacimiento")<span class="text-danger">*</span>
                         <div class="form-group">
                             <div class="cal-icon">
-                                @Html.TextBoxFor(x => x.FechaNac_Docente, new { @class = "form-control datetimepicker"})
-                                @Html.ValidationMessageFor(x => x.FechaNac_Docente, null, new { @class = "label label-danger" })
+                                @Html.TextBoxFor(x => x.FechaNac_Docente, new { @class = "form-control datetimepicker"})                                
                             </div>
                         </div>
                     </div>
@@ -123,33 +97,29 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             @Html.Label("Profesion:")<span class="text-danger">*</span>
-                            <select name="Codigo_Profesion" class="form-control">
+                            <select name="Codigo_Profesion" class="form-control" id = "validationCustom06" required = "required">
                                 <option @(Model.Codigo_Profesion.Equals("") ? "Selected" : "") value="">- Seleccione -</option>
 
                                 @foreach (var p in profesion)
                                 {
                                     <option @(Model.Codigo_Profesion.Equals(p.Codigo_Profesion) ? "Selected" : "") value="@p.Codigo_Profesion">@p.Nombre_Profesion</option>
                                 }
-                            </select>
-                            @Html.ValidationMessageFor(x => x.Codigo_Profesion, null, new { @class = "label label-danger" })
-
+                            </select>     
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             @Html.Label("Cargo:")<span class="text-danger">*</span>
-                            <select name="Codigo_CargoDocente" class="form-control">
+                            <select name="Codigo_CargoDocente" class="form-control" id = "validationCustom07" required = "required">
                                 <option value=""> - Seleccione -</option>
                                 @foreach (var p in cargodocente)
                                 {
                                     if (p.Estado_CargoDocente == true)
                                     {
-
                                         <option @(Model.Codigo_CargoDocente.Equals(p.Codigo_CargoDocente) ? "selected" : "") value="@p.Codigo_CargoDocente">@p.Nombre_CargoDocente</option>
                                     }
                                 }
-                            </select>
-                            @Html.ValidationMessageFor(x => x.Codigo_CargoDocente, null, new { @class = "label label-danger" })
+                            </select>                            
                         </div>
                     </div>
                 </div>
@@ -157,15 +127,17 @@
                     <div class="col-md-6">
                         @Html.Label("Dirección Actual")<span class="text-danger">*</span>
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.DireccionActual_Docente, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(x => x.DireccionActual_Docente, null, new { @class = "label label-danger" })
+                            @Html.TextBoxFor(x => x.DireccionActual_Docente, new { @class = "form-control", id = "validationCustom08", required = "required" })      
+                            <div class="invalid-feedback">
+                                Ingrese Direccion
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         @Html.Label("Dirección de Referencia")
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.DireccionReferencia_Docente, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(x => x.DireccionReferencia_Docente, null, new { @class = "label label-danger" })
+                           
                         </div>
                     </div>
                 </div>
@@ -173,22 +145,26 @@
                     <div class="col-md-4">
                         @Html.Label("Correo")<span class="text-danger">*</span>
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.Correo_Docente, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(x => x.Correo_Docente, null, new { @class = "label label-danger" })
+                            @Html.TextBoxFor(x => x.Correo_Docente, new { @class = "form-control", type = "email", id = "validationCustom09", required = "required" })
+                            <div class="invalid-feedback">
+                                Ingrese Correo (Ej: docente@upt.pe)
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         @Html.Label("Teléfono Fijo")
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.TelefonoFijo_Docente, new { @class = "form-control", pattern = "^[9|8|7|6]\\d{8}$" })
-                            @Html.ValidationMessageFor(x => x.TelefonoFijo_Docente, null, new { @class = "label label-danger" })
+                            @Html.TextBoxFor(x => x.TelefonoFijo_Docente, new { @class = "form-control" })
+                           
                         </div>
                     </div>
                     <div class="col-md-4">
                         @Html.Label("Teléfono Celular")<span class="text-danger">*</span>
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.TelefonoCelular_Docente, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(x => x.TelefonoCelular_Docente, null, new { @class = "label label-danger" })
+                            @Html.TextBoxFor(x => x.TelefonoCelular_Docente, new { @class = "form-control", id = "validationCustom10", required = "required", minlength = "9", pattern = "^[9]\\d{8}$" })
+                            <div class="invalid-feedback">
+                                Ingrese Numero Celular Valido
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -243,3 +219,20 @@
         </div>
     </div>
 </div>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+
+        window.addEventListener('load', function () {
+            var form = document.getElementById('needs-validation');
+            form.addEventListener('submit', function (event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        }, false);
+    })();
+</script>
