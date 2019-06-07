@@ -2,7 +2,7 @@
     List<PortafolioEPIS.Models.Tbl_CargaAcademica> carga = new PortafolioEPIS.Models.Tbl_CargaAcademica().Listar();
     List<PortafolioEPIS.Models.Tbl_PlanEstudio> plan = new PortafolioEPIS.Models.Tbl_PlanEstudio().Listar();
     List<PortafolioEPIS.Models.Tbl_Docente> docente = new PortafolioEPIS.Models.Tbl_Docente().Listar();
-    List<PortafolioEPIS.Models.Tbl_PruebaEntrada> prueba = new PortafolioEPIS.Models.Tbl_PruebaEntrada().Listar();
+    //List<PortafolioEPIS.Models.Tbl_PruebaEntrada> prueba = new PortafolioEPIS.Models.Tbl_PruebaEntrada().Listar();
 }
 @{ int d = 0;
     int c = 0;
@@ -14,8 +14,8 @@
 { p++; }
 @foreach (var ca in carga)
 { c++; }
-@foreach (var pr in prueba)
-{ i++; }
+@*@foreach (var pr in prueba)
+{ i++; }*@
 <div class="row">
     <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
         <div class="dash-widget">

@@ -8,7 +8,7 @@
             <h4 class="page-title">Perfil Docente</h4>
         </div>
         <div class="col-sm-5 col-6 text-right m-b-30">
-            <a href="~/Docente/Agregar" class="btn btn-primary btn-rounded"><i class="fa fa-edit"></i> Editar Perfil</a>
+            <a href="#" class="btn btn-primary btn-rounded"><i class="fa fa-edit"></i> Editar Perfil</a>
         </div>
 
     </div>
@@ -27,7 +27,11 @@
                             <div class="col-md-5">
                                 <div class="profile-info-left">
                                     <h3 class="user-name m-t-0 mb-0">@Model.Nombres_Docente @Model.Apellidos_Docente</h3>
-                                    <small class="text-muted">@Model.Tbl_Profesion.Nombre_Profesion
+                                    <small class="text-muted">
+                                        @Model.Tbl_Profesion.Nombre_Profesion 
+                                    </small>
+                                    <small class="text-muted">
+                                       ( @Model.Tbl_CargoDocente.Nombre_CargoDocente )
                                     </small>
                                     <div class="staff-id">@Model.DNI_Docente</div>
                                     <div class="staff-id">Correo : <a href="#">@Model.Correo_Docente</a></div>

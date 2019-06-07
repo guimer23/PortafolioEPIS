@@ -606,6 +606,7 @@
     <Content Include="assets\plugins\light-gallery\js\lightgallery-all.min.js" />
     <Content Include="assets\plugins\summernote\dist\summernote-bs4.css" />
     <Content Include="assets\plugins\summernote\dist\summernote-bs4.min.js" />
+    <Content Include="assets\Validaciones\bootstrap-validate.js" />
     <Content Include="Global.asax" />
     <Content Include="Imagen\fondo Portafolio.png" />
     <Content Include="Imagen\fondo Portafoliov2.png" />

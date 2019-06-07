@@ -16,6 +16,40 @@
         <h4 class="page-title">Agregar / Editar Docente</h4>
     </div>
 </div>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <style type="text/css">
+        input {
+            margin: 10px;
+        }
+    </style>
+    @*<script>
+            function Valida(formulario) {     
+                /* validación del DNI */
+                var erdni=/(^([0-9]{8,8})|^)$/;
+                if (!(erdni.test(formulario.dni.value))) {
+                    alert('Contenido del dni no es un DNI válido.');
+                    return false;  }
+                
+                return true;
+            }
+    </script>*@
+</head>
+<body>
+    <form name="miFormulario" action="#">
+        
+              
+        DNI <input type="number" name="dni" required pattern="[0-9]{8,8}"><br>       
+        <input type="submit" value="Enviar" name="enviar">
+    </form>
+</body>
+</html>
+
+
+
+
 <div class="row">
     <div class="col-md-12">
         <div class="card-box">
@@ -59,15 +93,15 @@
                     <div class="col-md-4">
                         @Html.Label("Sexo")<span class="text-danger">*</span>
                         <br />
-                        @Html.RadioButtonFor(x => x.Sexo_Docente, true, new { @checked = true }) Masculino  <label>&nbsp &nbsp</label>
-                        @Html.RadioButtonFor(x => x.Sexo_Docente, false) Femenino
+                        @Html.RadioButtonFor(x => x.Sexo_Docente, false, new { @checked = true }) Masculino  <label>&nbsp &nbsp</label>
+                        @Html.RadioButtonFor(x => x.Sexo_Docente, true) Femenino
 
                     </div>
                     <div class="col-md-4">
                         @Html.Label("Estado Civil")
                         <div class="form-group">
                             <select name="EstadoCivil_Docente" class="form-control">
-                                <option @(Model.EstadoCivil_Docente == "" ? "Selected" : "") value="">-Seleccionar-</option>
+                                <option @(Model.EstadoCivil_Docente == "" ? "Selected" : "") value="">- Seleccionar -</option>
                                 <option @(Model.EstadoCivil_Docente == "Soltero" ? "Selected" : "") value="Soltero">Soltero</option>
                                 <option @(Model.EstadoCivil_Docente == "Casado" ? "Selected" : "") value="Casado">Casado</option>
                                 <option @(Model.EstadoCivil_Docente == "Divorciado" ? "Selected" : "") value="Divorciado">Divorciado</option>
@@ -90,7 +124,7 @@
                         <div class="form-group">
                             @Html.Label("Profesion:")<span class="text-danger">*</span>
                             <select name="Codigo_Profesion" class="form-control">
-                                <option @(Model.Codigo_Profesion.Equals("") ? "Selected" : "") value="">--Seleccione--</option>
+                                <option @(Model.Codigo_Profesion.Equals("") ? "Selected" : "") value="">- Seleccione -</option>
 
                                 @foreach (var p in profesion)
                                 {
@@ -105,7 +139,7 @@
                         <div class="form-group">
                             @Html.Label("Cargo:")<span class="text-danger">*</span>
                             <select name="Codigo_CargoDocente" class="form-control">
-                                <option value=""> -- Seleccione --</option>
+                                <option value=""> - Seleccione -</option>
                                 @foreach (var p in cargodocente)
                                 {
                                     if (p.Estado_CargoDocente == true)
@@ -146,7 +180,7 @@
                     <div class="col-md-4">
                         @Html.Label("Teléfono Fijo")
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.TelefonoFijo_Docente, new { @class = "form-control" })
+                            @Html.TextBoxFor(x => x.TelefonoFijo_Docente, new { @class = "form-control", pattern = "^[9|8|7|6]\\d{8}$" })
                             @Html.ValidationMessageFor(x => x.TelefonoFijo_Docente, null, new { @class = "label label-danger" })
                         </div>
                     </div>
