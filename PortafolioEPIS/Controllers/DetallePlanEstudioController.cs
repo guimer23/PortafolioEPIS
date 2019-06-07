@@ -38,6 +38,14 @@ namespace PortafolioEPIS.Controllers
                : objDetallePlanEstudio.Obtener(id));
         }
 
+        public ActionResult Agregar1(int id = 0)
+        {
+            ViewBag.Tbl_PlanEstudio = objPlanEstudio.Listar();
+
+            return View(id == 0 ? new Tbl_DetallePlanEstudio()//Agregar un nuevo objeto
+               : objDetallePlanEstudio.Obtener(id));
+        }
+
         //Action Guardar
         public ActionResult Guardar(Tbl_DetallePlanEstudio objDetallePlanEstudio)
         {

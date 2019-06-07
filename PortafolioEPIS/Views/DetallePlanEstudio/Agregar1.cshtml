@@ -1,7 +1,5 @@
 ﻿@model PortafolioEPIS.Models.Tbl_DetallePlanEstudio
 @{
-    //PortafolioEPIS.Models.Tbl_PlanEstudio ObjPlan = ViewBag.Tbl_CargaAcademica_id;
-    PortafolioEPIS.Models.Tbl_PlanEstudio objPlanEstudio1 = ViewBag.Tbl_PlanEstudio_id;
     List<PortafolioEPIS.Models.Tbl_PlanEstudio> objPlanEstudio = ViewBag.Tbl_PlanEstudio;
     ViewBag.Title = "Agregar";
 }
@@ -10,7 +8,6 @@
         <h4 class="page-title">Agregar Detalle Plan de Estudio</h4>
     </div>
 </div>
-
 <div class="row">
     <div class="col-md-12">
         <div class="card-box">
@@ -23,17 +20,13 @@
                         @Html.Label("Plan de Estudio")
                         <div class="form-group">
                             <select name="Codigo_PlanEstudio" class="form-control">
-                                @if (objPlanEstudio1 != null)
+                                <option @(Model.Codigo_PlanEstudio.Equals("") ? "Selected" : "") value="">--Seleccione--</option>
+                                @foreach (var d in objPlanEstudio)
                                 {
-                                    <option @objPlanEstudio1.Codigo_PlanEstudio Selected value="@objPlanEstudio1.Codigo_PlanEstudio">@objPlanEstudio1.Nombre_PlanEstudio</option>
-                                }
-                                else
-                                {
-                                    <option @Model.Codigo_PlanEstudio Selected value="@Model.Codigo_PlanEstudio">@Model.Tbl_PlanEstudio.Nombre_PlanEstudio</option>
+                                    <option @(Model.Codigo_PlanEstudio.Equals(d.Codigo_PlanEstudio) ? "Selected" : "") value="@d.Codigo_PlanEstudio">@d.Nombre_PlanEstudio</option>
                                 }
                             </select>
                             @Html.ValidationMessageFor(x => x.Codigo_PlanEstudio, null, new { @class = "text-danger" })
-
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -137,7 +130,7 @@
                             <div class="form-group row">
                                 <div class="col-sm-8 col-9 text-left">
                                     <div class="form-check form-check-inline">
-                                        <a href="~/DetallePlanEstudio/Index/@objPlanEstudio1.Codigo_PlanEstudio" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'> Cancelar</a>
+                                        <a href="~/DetallePlanEstudio/Index" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'> Cancelar</a>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input type="submit" value="Guardar" class="btn btn btn-primary btn-rounded" style='width:100px; height:35px' />
@@ -146,7 +139,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             }
         </div>
