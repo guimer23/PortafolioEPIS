@@ -22,7 +22,7 @@
     <div class="col-md-12">
         <div class="card-box">
             <h4 class="card-title">Información Docente</h4>
-            @using (Html.BeginForm("Guardar", "Docente", FormMethod.Post, new { @id = "needs-validation", @novalidate = "novalidate" }))
+            @using (Html.BeginForm("Guardar", "Docente", FormMethod.Post, new { @id = "needs-validation", @novalidate = "novalidate", enctype = "multipart/form-data" }))
             {
                 @Html.HiddenFor(x => x.Codigo_Docente)
                 <div class="row clearfix">
@@ -180,7 +180,7 @@
                             }
                             else
                             {
-                                <img src="~/Imagen/user.jpg" height="70" width="70" />
+                                <img src="~/Imagen/@Model.Foto_Docente" height="70" width="70" />
                                 @Html.HiddenFor(x => x.Foto_Docente)
 
                             }
