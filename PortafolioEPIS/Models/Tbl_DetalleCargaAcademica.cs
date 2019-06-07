@@ -31,6 +31,7 @@ namespace PortafolioEPIS.Models
 
         public int Codigo_Semestre { get; set; }
 
+        [Range(0, 100, ErrorMessage ="Intordusca numeros")]
         public int Matriculados_DetalleCargaAcademica { get; set; }
 
         public bool Estado_DetalleCargaAcademica { get; set; }
