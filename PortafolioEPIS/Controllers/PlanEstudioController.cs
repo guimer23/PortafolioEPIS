@@ -11,6 +11,7 @@ namespace PortafolioEPIS.Controllers
     {
         private Tbl_PlanEstudio objPlanEstudio = new Tbl_PlanEstudio();
         private Tbl_Semestre objSemestre = new Tbl_Semestre();
+        private Tbl_DetallePlanEstudio objDetallePlanEstudio = new Tbl_DetallePlanEstudio();
 
         public ActionResult Index()
         {
@@ -21,6 +22,7 @@ namespace PortafolioEPIS.Controllers
 
         public ActionResult Ver(int id)
         {
+            ViewBag.detalleplanestudio = objDetallePlanEstudio.Listar();
             return View(objPlanEstudio.Obtener(id));
         }
 

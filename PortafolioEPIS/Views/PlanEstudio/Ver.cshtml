@@ -1,6 +1,11 @@
 ﻿@model PortafolioEPIS.Models.Tbl_PlanEstudio
 @{
     ViewBag.Title = "Ver";
+    List<PortafolioEPIS.Models.Tbl_DetallePlanEstudio> detalleplanestudio = ViewBag.DetallePlanEstudio;
+    int obligatorios = 0;
+    int electivos = 0;
+    int creditosobligatorios = 0;
+    int creditoselectivos = 0;
 }
 <div class="row">
     <div class="col-sm-7 col-6">
@@ -34,13 +39,34 @@
                                     <span class="title">Fecha Fin:</span>
                                     <span class="text">@Model.FechaFin_PlanEstudio</span>
                                 </li>
+                                @foreach (var p in detalleplanestudio)
+                                {
+                                    if (p.Codigo_PlanEstudio == Model.Codigo_PlanEstudio)
+                                    {
+                                        if(p.TipoCurso_DetallePlanEstudio=="Obligatorio")
+                                        {
+                                            creditosobligatorios = creditosobligatorios + p.TotalCreditos_DetallePlanEstudio;
+                                            obligatorios = obligatorios + 1;
+                                        }
+                                        if (p.TipoCurso_DetallePlanEstudio == "Electivo")
+                                        {
+                                            creditoselectivos = creditoselectivos + p.TotalCreditos_DetallePlanEstudio;
+                                            electivos = electivos + 1;
+                                        }
+
+
+
+
+                                    }
+                                }
+                              
                                 <li>
                                     <span class="title">Cursos Obligatorios:</span>
-                                    <span class="text">@Model.TotalCursosObligatorios_PlanEstudio</span>
+                                    <span class="text">@obligatorios</span>
                                 </li>
                                 <li>
                                     <span class="title">Cursos Electivos:</span>
-                                    <span class="text">@Model.TotalCursosElectivos_PlanEstudio</span>
+                                    <span class="text">@electivos</span>
                                 </li>
                             </ul>
                         </div>
@@ -49,11 +75,11 @@
                         <ul class="personal-info">
                             <li>
                                 <span class="title">Créditos Obligatorios:</span>
-                                <span class="text">@Model.TotalCreditosObligatorios_PlanEstudio</span>
+                                <span class="text">@creditosobligatorios</span>
                             </li>
                             <li>
                                 <span class="title">Créditos Electivos:</span>
-                                <span class="text">@Model.TotalCreditosElectivos_PlanEstudio</span>
+                                <span class="text">@creditoselectivos</span>
                             </li>
                             <li>
                                 <span class="title">Créditos Extra:</span>

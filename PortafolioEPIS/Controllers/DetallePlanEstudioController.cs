@@ -12,21 +12,26 @@ namespace PortafolioEPIS.Controllers
         private Tbl_DetallePlanEstudio objDetallePlanEstudio = new Tbl_DetallePlanEstudio();
         private Tbl_PlanEstudio objPlanEstudio = new Tbl_PlanEstudio();
 
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
+            ViewBag.id = id;
+            ViewBag.Tbl_PlanEstudio_id = objPlanEstudio.Obtener(id);
             return View(objDetallePlanEstudio.Listar());
         }
 
         //Accion Visualizar
 
         public ActionResult Ver(int id)
-        {
+
+        {            
             return View(objDetallePlanEstudio.Obtener(id));
         }
 
         // Accion Agregar
-        public ActionResult Agregar(int id = 0)
+        public ActionResult Agregar(int id = 0, int planestudio = 0)
         {
+            ViewBag.Tbl_PlanEstudio_id = objPlanEstudio.Obtener(planestudio);
+
             ViewBag.Tbl_PlanEstudio = objPlanEstudio.Listar();
 
             return View(id == 0 ? new Tbl_DetallePlanEstudio()//Agregar un nuevo objeto

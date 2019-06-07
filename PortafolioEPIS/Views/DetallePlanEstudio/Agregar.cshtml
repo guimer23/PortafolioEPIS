@@ -1,5 +1,7 @@
 ﻿@model PortafolioEPIS.Models.Tbl_DetallePlanEstudio
 @{
+    //PortafolioEPIS.Models.Tbl_PlanEstudio ObjPlan = ViewBag.Tbl_CargaAcademica_id;
+    PortafolioEPIS.Models.Tbl_PlanEstudio objPlanEstudio1 = ViewBag.Tbl_PlanEstudio_id;
     List<PortafolioEPIS.Models.Tbl_PlanEstudio> objPlanEstudio = ViewBag.Tbl_PlanEstudio;
     ViewBag.Title = "Agregar";
 }
@@ -21,11 +23,13 @@
                         @Html.Label("Plan de Estudio")
                         <div class="form-group">
                             <select name="Codigo_PlanEstudio" class="form-control">
-                                <option @(Model.Codigo_PlanEstudio.Equals("") ? "Selected" : "") value="">--Seleccione--</option>
-
-                                @foreach (var d in objPlanEstudio)
+                                @if (objPlanEstudio1 != null)
                                 {
-                                    <option @(Model.Codigo_PlanEstudio.Equals(d.Codigo_PlanEstudio) ? "Selected" : "") value="@d.Codigo_PlanEstudio">@d.Nombre_PlanEstudio</option>
+                                    <option @objPlanEstudio1.Codigo_PlanEstudio Selected value="@objPlanEstudio1.Codigo_PlanEstudio">@objPlanEstudio1.Nombre_PlanEstudio</option>
+                                }
+                                else
+                                {
+                                    <option @Model.Codigo_PlanEstudio Selected value="@Model.Codigo_PlanEstudio">@Model.Tbl_PlanEstudio.Nombre_PlanEstudio</option>
                                 }
                             </select>
                             @Html.ValidationMessageFor(x => x.Codigo_PlanEstudio, null, new { @class = "text-danger" })

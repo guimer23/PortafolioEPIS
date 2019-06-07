@@ -2,15 +2,16 @@
 
 @{
     ViewBag.Title = "Index";
+    PortafolioEPIS.Models.Tbl_PlanEstudio objPlanEstudio = ViewBag.Tbl_PlanEstudio_id;
 }
 
 <div class="row">
     <div class="col-sm-4 col-3">
-        <h4 class="page-title">Detalle Plan de Estudio <strong>2016-I</strong></h4>
+        <h4 class="page-title">Detalle <strong>@objPlanEstudio.Nombre_PlanEstudio</strong></h4>
     </div>
     <div class="col-sm-8 col-9 text-right m-b-20">
         <div class="form-check form-check-inline">
-            <a href="~/DetallePlanEstudio/Agregar/" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Nuevo Registro</a>
+            <a href="~/DetallePlanEstudio/Agregar/?planestudio=@objPlanEstudio.Codigo_PlanEstudio" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Nuevo Registro</a>
         </div>
     </div>
 </div>
@@ -58,6 +59,8 @@
                                             {
                                                 num0 = num0 + 1;
 
+                                                if (p.Codigo_PlanEstudio.Equals(Convert.ToInt32(ViewBag.id)))
+                                                {
                                                 <tr>
                                                     <td>@num0</td>
                                                     <td><a href="~/DetallePlanEstudio/Agregar/@p.Codigo_DetallePlanEstudio">@p.CodigoCurso_DetallePlanEstudio</td>
@@ -86,6 +89,7 @@
                                                         </div>
                                                     </td>
                                                 </tr>
+                                                }
                                             }
                                         </tbody>
                                     </table>
@@ -122,8 +126,9 @@
                                             @{ int num1 = 0;}
                                             @foreach (var p1 in Model)
                                             {
-
-                                                if (p1.Ciclo_DetallePlanEstudio == "I")
+                                                
+                                                
+                                                if (p1.Ciclo_DetallePlanEstudio == "I" && p1.Codigo_PlanEstudio.Equals(Convert.ToInt32(ViewBag.id)))
                                                 {
                                                     num1 = num1 + 1;
                                                     <tr>
@@ -154,7 +159,8 @@
                                                             </div>
                                                         </td>
                                                     </tr>
-                                                }
+                                                    }
+                                                
 
                                             }
                                         </tbody>
@@ -194,7 +200,7 @@
                                             @foreach (var p in Model)
                                             {
 
-                                                if (p.Ciclo_DetallePlanEstudio == "II")
+                                                if (p.Ciclo_DetallePlanEstudio == "II" && p.Codigo_PlanEstudio.Equals(Convert.ToInt32(ViewBag.id)))
                                                 {
                                                     num2 = num2 + 1;
                                                     <tr>
@@ -265,7 +271,7 @@
                                             @foreach (var p in Model)
                                             {
 
-                                                if (p.Ciclo_DetallePlanEstudio == "III")
+                                                if (p.Ciclo_DetallePlanEstudio == "III" && p.Codigo_PlanEstudio.Equals(Convert.ToInt32(ViewBag.id)))
                                                 {
                                                     num3 = num3 + 1;
                                                     <tr>
@@ -336,7 +342,7 @@
                                             @foreach (var p in Model)
                                             {
 
-                                                if (p.Ciclo_DetallePlanEstudio == "IV")
+                                                if (p.Ciclo_DetallePlanEstudio == "IV" && p.Codigo_PlanEstudio.Equals(Convert.ToInt32(ViewBag.id)))
                                                 {
                                                     num4 = num4 + 1;
                                                     <tr>
@@ -407,7 +413,7 @@
                                             @foreach (var p in Model)
                                             {
 
-                                                if (p.Ciclo_DetallePlanEstudio == "V")
+                                                if (p.Ciclo_DetallePlanEstudio == "V" && p.Codigo_PlanEstudio.Equals(Convert.ToInt32(ViewBag.id)))
                                                 {
                                                     num5 = num5 + 1;
                                                     <tr>
@@ -478,7 +484,7 @@
                                             @foreach (var p in Model)
                                             {
 
-                                                if (p.Ciclo_DetallePlanEstudio == "VI")
+                                                if (p.Ciclo_DetallePlanEstudio == "VI" && p.Codigo_PlanEstudio.Equals(Convert.ToInt32(ViewBag.id)))
                                                 {
                                                     num6 = num6 + 1;
                                                     <tr>
@@ -549,7 +555,7 @@
                                             @foreach (var p in Model)
                                             {
 
-                                                if (p.Ciclo_DetallePlanEstudio == "VII")
+                                                if (p.Ciclo_DetallePlanEstudio == "VII" && p.Codigo_PlanEstudio.Equals(Convert.ToInt32(ViewBag.id)))
                                                 {
                                                     num7 = num7 + 1;
                                                     <tr>
@@ -620,7 +626,7 @@
                                             @foreach (var p in Model)
                                             {
 
-                                                if (p.Ciclo_DetallePlanEstudio == "VIII")
+                                                if (p.Ciclo_DetallePlanEstudio == "VIII" && p.Codigo_PlanEstudio.Equals(Convert.ToInt32(ViewBag.id)))
                                                 {
                                                     num8 = num8 + 1;
                                                     <tr>
@@ -691,7 +697,7 @@
                                             @foreach (var p in Model)
                                             {
 
-                                                if (p.Ciclo_DetallePlanEstudio == "IX")
+                                                if (p.Ciclo_DetallePlanEstudio == "IX" && p.Codigo_PlanEstudio.Equals(Convert.ToInt32(ViewBag.id)))
                                                 {
                                                     num9 = num9 + 1;
                                                     <tr>
@@ -762,7 +768,7 @@
                                             @foreach (var p in Model)
                                             {
 
-                                                if (p.Ciclo_DetallePlanEstudio == "X")
+                                                if (p.Ciclo_DetallePlanEstudio == "X" && p.Codigo_PlanEstudio.Equals(Convert.ToInt32(ViewBag.id)))
                                                 {
                                                     num10 = num10 + 1;
                                                     <tr>
@@ -833,7 +839,7 @@
                                             @foreach (var p in Model)
                                             {
 
-                                                if (p.TipoCurso_DetallePlanEstudio == "Electivo")
+                                                if (p.TipoCurso_DetallePlanEstudio == "Electivo" && p.Codigo_PlanEstudio.Equals(Convert.ToInt32(ViewBag.id)))
                                                 {
                                                     num11 = num11 + 1;
                                                     <tr>
