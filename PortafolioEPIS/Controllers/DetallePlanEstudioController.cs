@@ -47,12 +47,13 @@ namespace PortafolioEPIS.Controllers
         }
 
         //Action Guardar
-        public ActionResult Guardar(Tbl_DetallePlanEstudio objDetallePlanEstudio)
+        public ActionResult Guardar(Tbl_DetallePlanEstudio objDetallePlanEstudio,int idguardar)
         {
+
             if (ModelState.IsValid)
             {
                 objDetallePlanEstudio.Guardar();
-                return Redirect("~/DetallePlanEstudio");
+                return Redirect("~/DetallePlanEstudio/Index/"+idguardar);
             }
             else
             {
