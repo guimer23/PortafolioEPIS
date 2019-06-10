@@ -621,6 +621,10 @@
     <Compile Include="Controllers\DocenteController.cs" />
     <Compile Include="Controllers\Informes\ConocimientoHabilidadController.cs" />
     <Compile Include="Controllers\Informes\MedidasCorrectivasController.cs" />
+    <Compile Include="Controllers\Informes\PortafolioController.cs" />
+    <Compile Include="Controllers\Informes\PortafolioU1Controller.cs" />
+    <Compile Include="Controllers\Informes\PortafolioU2Controller.cs" />
+    <Compile Include="Controllers\Informes\PortafolioU3Controller.cs" />
     <Compile Include="Controllers\Informes\PruebaEntradaController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
     <Compile Include="Controllers\Mantenimiento\CargoController.cs" />
@@ -772,6 +776,11 @@
     <Content Include="Views\MedidasCorrectivas\Index.cshtml" />
     <Content Include="Views\PruebaEntrada\IndexAdmin.cshtml" />
     <Content Include="Views\DetallePlanEstudio\Agregar1.cshtml" />
+    <Content Include="Views\Portafolio\Index.cshtml" />
+    <Content Include="Views\Portafolio\Agregar.cshtml" />
+    <Content Include="Views\PortafolioU1\Agregar.cshtml" />
+    <Content Include="Views\PortafolioU2\Agregar.cshtml" />
+    <Content Include="Views\PortafolioU3\Agregar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
