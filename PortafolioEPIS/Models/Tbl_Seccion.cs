@@ -5,7 +5,6 @@ namespace PortafolioEPIS.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-
     using System.Linq;
     using System.Data.Entity;
 
@@ -20,7 +19,7 @@ namespace PortafolioEPIS.Models
         [Key]
         public int Codigo_Seccion { get; set; }
 
-        [Required(ErrorMessage = "Debe ingresar un nombre")]
+        [Required]
         [StringLength(10)]
         public string Nombre_Seccion { get; set; }
 
@@ -28,7 +27,6 @@ namespace PortafolioEPIS.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_DetalleCargaAcademica> Tbl_DetalleCargaAcademica { get; set; }
-
 
         public List<Tbl_Seccion> Listar()//retorna una coleccion
         {

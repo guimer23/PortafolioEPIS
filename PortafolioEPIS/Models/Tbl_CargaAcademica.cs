@@ -47,7 +47,7 @@ namespace PortafolioEPIS.Models
             {
                 using (var db = new Modelo_Portafolio())
                 {
-                    
+
                     objCargaAcademica = db.Tbl_CargaAcademica.Include("Tbl_Semestre").ToList();
                 }
             }

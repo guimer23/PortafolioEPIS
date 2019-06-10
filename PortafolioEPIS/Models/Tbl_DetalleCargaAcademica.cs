@@ -13,6 +13,7 @@ namespace PortafolioEPIS.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tbl_DetalleCargaAcademica()
         {
+            Tbl_Portafolio = new HashSet<Tbl_Portafolio>();
             Tbl_PruebaEntrada = new HashSet<Tbl_PruebaEntrada>();
         }
 
@@ -31,7 +32,6 @@ namespace PortafolioEPIS.Models
 
         public int Codigo_Semestre { get; set; }
 
-        [Range(0, 100, ErrorMessage ="Intordusca numeros")]
         public int Matriculados_DetalleCargaAcademica { get; set; }
 
         public bool Estado_DetalleCargaAcademica { get; set; }
@@ -47,6 +47,9 @@ namespace PortafolioEPIS.Models
         public virtual Tbl_DetallePlanEstudio Tbl_DetallePlanEstudio { get; set; }
 
         public virtual Tbl_Semestre Tbl_Semestre { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_Portafolio> Tbl_Portafolio { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_PruebaEntrada> Tbl_PruebaEntrada { get; set; }
@@ -76,7 +79,7 @@ namespace PortafolioEPIS.Models
         }
 
         //Metodo Listar 2 usado en el controlador detalle carga academica en la vista index 
-        
+
         public List<Tbl_DetalleCargaAcademica> Listar2(int id)
         {
             var objDetalleCargaAcademica = new List<Tbl_DetalleCargaAcademica>();

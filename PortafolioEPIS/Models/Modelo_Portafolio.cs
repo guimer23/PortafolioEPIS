@@ -18,8 +18,10 @@ namespace PortafolioEPIS.Models
         public virtual DbSet<Tbl_DetalleCargaAcademica> Tbl_DetalleCargaAcademica { get; set; }
         public virtual DbSet<Tbl_DetallePlanEstudio> Tbl_DetallePlanEstudio { get; set; }
         public virtual DbSet<Tbl_Docente> Tbl_Docente { get; set; }
+        public virtual DbSet<Tbl_Material> Tbl_Material { get; set; }
         public virtual DbSet<Tbl_MedidasCorrectivas> Tbl_MedidasCorrectivas { get; set; }
         public virtual DbSet<Tbl_PlanEstudio> Tbl_PlanEstudio { get; set; }
+        public virtual DbSet<Tbl_Portafolio> Tbl_Portafolio { get; set; }
         public virtual DbSet<Tbl_Profesion> Tbl_Profesion { get; set; }
         public virtual DbSet<Tbl_PruebaEntrada> Tbl_PruebaEntrada { get; set; }
         public virtual DbSet<Tbl_Seccion> Tbl_Seccion { get; set; }
@@ -48,6 +50,11 @@ namespace PortafolioEPIS.Models
             modelBuilder.Entity<Tbl_ConocimientoHabilidad>()
                 .Property(e => e.Nombre_ConocimientoHabilidad)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Tbl_DetalleCargaAcademica>()
+                .HasMany(e => e.Tbl_Portafolio)
+                .WithRequired(e => e.Tbl_DetalleCargaAcademica)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Tbl_DetalleCargaAcademica>()
                 .HasMany(e => e.Tbl_PruebaEntrada)
@@ -128,8 +135,36 @@ namespace PortafolioEPIS.Models
                 .WithRequired(e => e.Tbl_Docente)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<Tbl_Material>()
+                .Property(e => e.Tipo_Material)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Tbl_Material>()
+                .Property(e => e.Nombre_Material)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Tbl_Material>()
+                .Property(e => e.Estado_Material)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Tbl_Material>()
+                .Property(e => e.Archivo_Material)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Tbl_Material>()
+                .Property(e => e.TipoArchivo_Material)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Tbl_Material>()
+                .Property(e => e.PesoArchivo_Material)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Tbl_Material>()
+                .Property(e => e.Descripcion_Material)
+                .IsUnicode(false);
+
             modelBuilder.Entity<Tbl_MedidasCorrectivas>()
-                .Property(e => e.Nombre_MedidasCorrectivas)
+                .Property(e => e.Medida7_MedidasCorrectivas)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Tbl_PlanEstudio>()
@@ -144,6 +179,20 @@ namespace PortafolioEPIS.Models
             modelBuilder.Entity<Tbl_PlanEstudio>()
                 .HasMany(e => e.Tbl_DetallePlanEstudio)
                 .WithRequired(e => e.Tbl_PlanEstudio)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Tbl_Portafolio>()
+                .Property(e => e.Unidad_Portafolio)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Tbl_Portafolio>()
+                .Property(e => e.Estado_Portafolio)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Tbl_Portafolio>()
+                .HasMany(e => e.Tbl_Material)
+                .WithRequired(e => e.Tbl_Portafolio)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Tbl_Profesion>()
