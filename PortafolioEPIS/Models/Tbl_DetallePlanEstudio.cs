@@ -55,5 +55,91 @@ namespace PortafolioEPIS.Models
         public virtual ICollection<Tbl_DetalleCargaAcademica> Tbl_DetalleCargaAcademica { get; set; }
 
         public virtual Tbl_PlanEstudio Tbl_PlanEstudio { get; set; }
+
+
+
+        //Metodo Listar
+        public List<Tbl_DetallePlanEstudio> Listar()
+        {
+            var objDetallePlanEstudio = new List<Tbl_DetallePlanEstudio>();
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    objDetallePlanEstudio = db.Tbl_DetallePlanEstudio.Include("Tbl_PlanEstudio").ToList();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return objDetallePlanEstudio;
+        }
+
+        //Metodo Obtener
+        public Tbl_DetallePlanEstudio Obtener(int id)//retorna solo un objeto
+        {
+            var objDetallePlanEstudio = new Tbl_DetallePlanEstudio();
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    objDetallePlanEstudio = db.Tbl_DetallePlanEstudio.Include("Tbl_PlanEstudio")
+                                    .Where(x => x.Codigo_DetallePlanEstudio == id)
+                                    .SingleOrDefault();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return objDetallePlanEstudio;
+        }
+
+        //Metodo Guardar
+
+        public void Guardar()
+        {
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+
+                    if (this.Codigo_DetallePlanEstudio > 0)
+                    {
+                        //si existe un valor mayor que cero es por que existe el registro
+                        db.Entry(this).State = EntityState.Modified;
+                    }
+                    else
+                    {
+                        ///no existe el registro lo graba (Nuevo)
+                        db.Entry(this).State = EntityState.Added;
+
+                    }
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        //Metodo Eliminar 
+        public void Eliminar()
+        {
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    db.Entry(this).State = System.Data.Entity.EntityState.Deleted;
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
