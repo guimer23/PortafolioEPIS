@@ -1,4 +1,15 @@
-﻿
+﻿@model PortafolioEPIS.Models.Tbl_DetalleCargaAcademica
+
+@{
+    List<PortafolioEPIS.Models.Tbl_Portafolio> prueba = ViewBag.Prueba;
+    int idpruebas = 0;
+    int retirados = 0;
+    int abandonos = 0;
+    int desaprobados = 0;
+
+}
+
+
 <div class="row">
     <div class="col-sm-7 col-6">
         <h4 class="page-title">Informe Portafolio <strong>Unidad I</strong></h4>
@@ -30,13 +41,13 @@
                             <div class="col-md-4">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Codigo:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="ING-101">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">
                                 </div>
                             </div>
                             <div class="col-md-8">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Asignatura:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="MATEMATICA I">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio">
                                 </div>
                             </div>
                         </div>
@@ -44,31 +55,31 @@
                             <div class="col-md-2">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Sección:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="A">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Seccion.Nombre_Seccion">
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Ciclo:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="I">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio">
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Horas:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="6">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio">
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Créditos:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="4">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Tipo Curso:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="Obligatorio">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio">
                                 </div>
                             </div>
                         </div>
@@ -85,13 +96,13 @@
                             <div class="col-md-4">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Codigo:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="201353">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Docente.Codigo_Docenteepis">
                                 </div>
                             </div>
                             <div class="col-md-8">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Nombre:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="Javier Alca">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Docente.Nombres_Docente @Model.Tbl_Docente.Apellidos_Docente">
                                 </div>
                             </div>
                         </div>
@@ -99,13 +110,13 @@
                             <div class="col-md-8">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Email:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="alca@hotmail.com">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Docente.Correo_Docente">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Celular:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="995686832">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Docente.TelefonoCelular_Docente">
                                 </div>
                             </div>
                         </div>
@@ -118,32 +129,68 @@
                                 </nav>
                             </div>
                         </div>
-                        <div class="row clearfix">
-                            <div class="col-md-3">
-                                <div class="form-group form-focus">
-                                    <label class="focus-label">Matriculados:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="30">
+                        
+                        
+                          
+                        <form method="post" action="" id="evaluados ">
+
+
+                            @foreach (var p in prueba)
+                            {
+                                if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica)
+                                {
+                                    idpruebas = p.Codigo_Portafolio;
+                                    retirados = Convert.ToInt32(p.Retirados_Portafolio);
+                                    abandonos = Convert.ToInt32(p.Abandono_Portafolio);
+                                    desaprobados = Convert.ToInt32(p.Aprobados_Portafolio);
+                                }
+                            }
+                            @if (idpruebas == 0)
+                            {
+                            <div class="row clearfix">
+                                <div class="col-md-3">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Matriculados:</label>
+                                        <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Matriculados_DetalleCargaAcademica">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group form-focus">
+                                        <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
+                                        <label class="focus-label">Retirados:<span class="text-danger">*</span></label>
+                                        <input type="text" name="retirados" id="retirados" class="form-control floating">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group form-focus">
+                                        <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
+                                        <label class="focus-label">Retirados:<span class="text-danger">*</span></label>
+                                        <input type="text" name="retirados" id="retirados" class="form-control floating">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group form-focus">
+                                        <label class="focus-label">Desaprobados:</label>
+                                        <input type="text" class="form-control floating" value="10">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <div class="form-group form-focus">
-                                    <label class="focus-label">Retirados:</label>
-                                    <input type="text"  class="form-control floating" value="3">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group form-focus">
-                                    <label class="focus-label">Abandonos:</label>
-                                    <input type="text"  class="form-control floating" value="2">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group form-focus">
-                                    <label class="focus-label">Desaprobados:</label>
-                                    <input type="text"  class="form-control floating" value="10">
-                                </div>
-                            </div>
-                        </div>
+
+                                    }
+                                    else
+                                    {
+                                    <input type="text" name="idprueba" id="idprueba" value="@idpruebas" class="form-control floating" hidden>
+                                    <label class="focus-label">Retirados:<span class="text-danger">*</span></label>
+                                    <input type="text" name="retirados" id="retirados" value="@retirados" class="form-control floating">
+
+                                    }
+
+
+                            </form>
+                       
+                       
+                     
                         <div class="row clearfix">
                             <div class="col-md-12">
                                 <div class="text-center">
@@ -294,7 +341,7 @@
                             <div class="col-sm-9 col-9">
                                 <p>Material que el docente prepara y entrega a los estudiantes durante la ejecucion de los cursos</p>
                             </div>
-                            <div class="col-sm-3 col-3 text-right m-b-20">                                
+                            <div class="col-sm-3 col-3 text-right m-b-20">
                                 <div class="form-check form-check-inline">
                                     <!-- Botón en HTML (lanza el modal en Bootstrap) -->
                                     <a href="#victorModal" role="button" class="btn btn-primary btn-rounded float-right" data-toggle="modal"><i class="fa fa-plus"></i> Nuevo Registro</a>
@@ -343,7 +390,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row clearfix">                                            
+                                        <div class="row clearfix">
                                             <div class="col-md-12">
                                                 @Html.Label("Cantidad")
                                                 <div class="form-group">
@@ -401,7 +448,7 @@
                                                 <div class="dropdown-menu dropdown-menu-right">
                                                     <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
                                                     <a class="dropdown-item" href="#"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                                    <a class="dropdown-item" href="#"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>                                                    
+                                                    <a class="dropdown-item" href="#"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
                                                 </div>
                                             </div>
                                         </td>
