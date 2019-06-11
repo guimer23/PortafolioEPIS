@@ -129,15 +129,15 @@
                                 </nav>
                             </div>
                         </div>
-                        
-                        
-                          
+
+
+
                         <form method="post" action="" id="evaluados ">
 
 
                             @foreach (var p in prueba)
                             {
-                                if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica)
+                                if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica && p.Unidad_Portafolio=="UI")
                                 {
                                     idpruebas = p.Codigo_Portafolio;
                                     retirados = Convert.ToInt32(p.Retirados_Portafolio);
@@ -147,61 +147,102 @@
                             }
                             @if (idpruebas == 0)
                             {
+                                <div class="row clearfix">
+                                    <div class="col-md-3">
+                                        <div class="form-group form-focus">
+                                            <label class="focus-label">Matriculados:</label>
+                                            <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Matriculados_DetalleCargaAcademica">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group form-focus">
+                                            <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
+                                            <label class="focus-label">Retirados:<span class="text-danger">*</span></label>
+                                            <input type="text" name="retirados" id="retirados" class="form-control floating">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group form-focus">
+                                            <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
+                                            <label class="focus-label">Abandonos:<span class="text-danger">*</span></label>
+                                            <input type="text" name="abandonos" id="abandonos" class="form-control floating">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group form-focus">
+                                            <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
+                                            <label class="focus-label">Aprobados:<span class="text-danger">*</span></label>
+                                            <input type="text" name="aprobados" id="aprobados" class="form-control floating">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            }
+                            else
+                            {
+                                <div class="row clearfix">
+                                    <div class="col-md-3">
+                                        <div class="form-group form-focus">
+                                            <label class="focus-label">Matriculados:</label>
+                                            <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Matriculados_DetalleCargaAcademica">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group form-focus">
+                                            <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
+                                            <label class="focus-label">Retirados:<span class="text-danger">*</span></label>
+                                            <input type="text" name="retirados" id="retirados" value="@retirados" class="form-control floating">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group form-focus">
+                                            <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
+                                            <label class="focus-label">Abandonos:<span class="text-danger">*</span></label>
+                                            <input type="text" name="abandonos" id="abandonos" value="@abandonos" class="form-control floating">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group form-focus">
+                                            <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
+                                            <label class="focus-label">Aprobados:<span class="text-danger">*</span></label>
+                                            <input type="text" name="aprobados" id="aprobados" value="@desaprobados" class="form-control floating">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            }
+
                             <div class="row clearfix">
-                                <div class="col-md-3">
-                                    <div class="form-group form-focus">
-                                        <label class="focus-label">Matriculados:</label>
-                                        <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Matriculados_DetalleCargaAcademica">
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group form-focus">
-                                        <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
-                                        <label class="focus-label">Retirados:<span class="text-danger">*</span></label>
-                                        <input type="text" name="retirados" id="retirados" class="form-control floating">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <div class="form-group form-focus">
-                                        <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
-                                        <label class="focus-label">Retirados:<span class="text-danger">*</span></label>
-                                        <input type="text" name="retirados" id="retirados" class="form-control floating">
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group form-focus">
-                                        <label class="focus-label">Desaprobados:</label>
-                                        <input type="text" class="form-control floating" value="10">
+                                <div class="col-md-12">
+                                    <div class="text-center">
+                                        @*<button onclick="form1()" type="button" class="btn btn-raised btn-primary btn-round waves-effect m-l-20" data-type="success">Agregar</button>*@
+                                        <button onclick="form1()" type="button" class="btn btn-primary btn-rounded" style='width:150px; height:35px' data-type="success"></i> Actualizar</button>
                                     </div>
                                 </div>
                             </div>
+                        </form>
 
-                                    }
-                                    else
-                                    {
-                                    <input type="text" name="idprueba" id="idprueba" value="@idpruebas" class="form-control floating" hidden>
-                                    <label class="focus-label">Retirados:<span class="text-danger">*</span></label>
-                                    <input type="text" name="retirados" id="retirados" value="@retirados" class="form-control floating">
-
-                                    }
-
-
-                            </form>
-                       
-                       
-                     
-                        <div class="row clearfix">
-                            <div class="col-md-12">
-                                <div class="text-center">
-                                    <button class="btn btn-primary btn-rounded" style='width:150px; height:35px' type="submit"><i class="fa fa-refresh"></i> Actualizar</button>
-                                </div>
-                            </div>
-                        </div>
+                        @*Envio de datos aprobados , abandonos ,retirados*@
+                        <script>
+                            var form1 = function () {
+                              
+                                var idprueba = document.getElementById("idprueba").value;
+                                var retirados = document.getElementById("retirados").value;
+                                var abandonos = document.getElementById("abandonos").value;
+                                var aprobados = document.getElementById("aprobados").value;
+                                var unidad = "UI";
+                                var stado = "G";
+                                window.location.href = '@Url.Content("~/PortafolioU1/Guardar/")' + "?idprueba=" + idprueba + "&retirados=" + retirados + "&abandonos=" + abandonos + "&aprobados=" + aprobados + "&codigo=" + @Model.Codigo_DetalleCargaAcademica + "&estado=" + stado + "&unidad=" + unidad;
+                            }
+                            </script>
                     </div>
                 </div>
             </div>
         </div>
+
+
         <div class="tab-pane" id="bottom-tab2">
             <div class="row">
                 <div class="col-md-12">
