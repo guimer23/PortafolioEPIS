@@ -390,77 +390,95 @@
                             </div>
                         </div>
 
-                        <!-- Modal / Ventana / Overlay en HTML -->
-                        <div id="victorModal" class="modal fade">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">Material Docente</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row clearfix">
-                                            <div class="col-md-12">
-                                                @Html.Label("Material")
-                                                <div class="form-group">
-                                                    <select class="form-control">
-                                                        <option>- Seleccionar -</option>
-                                                        <option>Sílabo formato UPT (Impreso y Digital)</option>
-                                                        <option>Sílabo formato ICACIT (Impreso y Digital)</option>
-                                                        <option>Curriculum Vitae formato ICACIT</option>
-                                                        <option>Material del Curso (Texto, Diapositivas)</option>
-                                                        <option>Guías de laboratorio y talleres</option>
-                                                        <option>Enunciado y resolución de exámenes</option>
-                                                        <option>Enunciado de las practicas o casos practicos</option>
-                                                        <option>Registro de Asistencia</option>
-                                                        <option>Registro de Notas</option>
-                                                        <option>Fichas de evaluaciones (Rúbricas)</option>
-                                                    </select>
+                        <form method="post" action="" id="evaluados ">
+                            <!-- Modal / Ventana / Overlay en HTML -->
+                            <div id="victorModal" class="modal fade">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Material Docente</h4>
+                                            
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row clearfix">
+                                                <div class="col-md-12">
+                                                    @Html.Label("Material")
+                                                    <div class="form-group">
+                                                        
+                                                        <select class="form-control" id="materiald" name="materiald">
+                                                            <option>- Seleccionar -</option>
+                                                            <option>Sílabo formato UPT (Impreso y Digital)</option>
+                                                            <option>Sílabo formato ICACIT (Impreso y Digital)</option>
+                                                            <option>Curriculum Vitae formato ICACIT</option>
+                                                            <option>Material del Curso (Texto, Diapositivas)</option>
+                                                            <option>Guías de laboratorio y talleres</option>
+                                                            <option>Enunciado y resolución de exámenes</option>
+                                                            <option>Enunciado de las practicas o casos practicos</option>
+                                                            <option>Registro de Asistencia</option>
+                                                            <option>Registro de Notas</option>
+                                                            <option>Fichas de evaluaciones (Rúbricas)</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row clearfix">
-                                            <div class="col-md-12">
-                                                @Html.Label("Tipo Entrega")
-                                                <div class="form-group">
-                                                    <select class="form-control">
-                                                        <option>- Seleccionar -</option>
-                                                        <option>Digital</option>
-                                                        <option>Impreso</option>
-                                                        <option>Digital y Impreso</option>
-                                                    </select>
+                                            <div class="row clearfix">
+                                                <div class="col-md-12">
+                                                    @Html.Label("Tipo Entrega")
+                                                    <div class="form-group">
+                                                        <select class="form-control"  id="tipod" name="tipod">
+                                                            <option>- Seleccionar -</option>
+                                                            <option>Digital</option>
+                                                            <option>Impreso</option>
+                                                            <option>Digital y Impreso</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row clearfix">
-                                            <div class="col-md-12">
-                                                @Html.Label("Cantidad")
-                                                <div class="form-group">
-                                                    <input type="number" class="form-control">
+                                            <div class="row clearfix">
+                                                <div class="col-md-12">
+                                                    @Html.Label("Cantidad")
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" id="cantidad" name="cantidad">
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row clearfix">
-                                            <div class="col-md-12">
-                                                @Html.Label("Evidencia")
-                                                <div class="form-group">
-                                                    <div class="profile-upload">
-                                                        <div class="upload-input">
-                                                            <input type="file" class="form-control">
+                                            <div class="row clearfix">
+                                                <div class="col-md-12">
+                                                    @Html.Label("Evidencia")
+                                                    <div class="form-group">
+                                                        <div class="profile-upload">
+                                                            <div class="upload-input">
+                                                                <input type="file" class="form-control" id="evidenciad" name="evidencid">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
+
                                         </div>
-
-
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                        <button type="button" class="btn btn-primary">Guardar</button>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                            <button onclick="form2()" type="button" class="btn btn-primary"  data-type="success">Guardar</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
+
+                        <script>
+                            var form2 = function () {
+                                var idprueba = @idpruebas;
+                                var combo1 = document.getElementById("materiald");
+                                var seleccion1 = combo1.options[combo1.selectedIndex].text;
+                                var combo2 = document.getElementById("tipod");
+                                var seleccion2 = combo2.options[combo2.selectedIndex].text;
+                                var evidenciad = document.getElementById("evidenciad").value;
+                                var cantidad = document.getElementById("cantidad").value;
+                                alert(seleccion1 + "\n" + seleccion2 + "\n" + evidenciad + "\n" + cantidad + "\n" + idprueba)
+                                //window.location.href = '@Url.Content("~/PortafolioU1/Guardar/")' + "?idprueba=" + idprueba ;
+                            }
+                        </script>
 
 
                         <div class="table-responsive">
