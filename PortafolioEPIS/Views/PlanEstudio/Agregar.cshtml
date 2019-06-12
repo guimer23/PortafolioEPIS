@@ -19,24 +19,21 @@
                     <div class="col-md-4">
                         @Html.Label("Semestre")
                         <select name="Codigo_Semestre" class="form-control">
-                            <option value=""> -- Seleccione --</option>
+                            <option value=""> - Seleccione -</option>
                             @foreach (var e in objSemestre)
                             {
                                 if (e.Estado_Semestre == true)
                                 {
-
                                     <option @(Model.Codigo_Semestre.Equals(e.Codigo_Semestre) ? "selected" : "") value="@e.Codigo_Semestre">@e.Nombre_Semestre</option>
                                 }
                             }
-                        </select>
-                        @Html.ValidationMessageFor(x => x.Codigo_Semestre, null, new { @class = "label label-danger" })
+                        </select>                        
 
                     </div>
                     <div class="col-md-8">
                         @Html.Label("Nombre Plan de Estudio")
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.Nombre_PlanEstudio, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(x => x.Nombre_PlanEstudio, null, new { @class = "label label-danger" })
+                            @Html.TextBoxFor(x => x.Nombre_PlanEstudio, new { @class = "form-control" })                           
                         </div>
                     </div>
                 </div>
@@ -45,19 +42,13 @@
                     <div class="col-md-6">
                         @Html.Label("Fecha Inicio")
                         <div class="form-group">
-                            <div class="cal-icon">
-                                @Html.TextBoxFor(x => x.FechaInicio_PlanEstudio, new { @class = "form-control datetimepicker", @placeholder = "Ingrese Fecha" })
-                                @Html.ValidationMessageFor(x => x.FechaInicio_PlanEstudio, null, new { @class = "label label-danger" })
-                            </div>
+                            @Html.TextBoxFor(x => x.FechaInicio_PlanEstudio, "{0:yyyy/MM/dd}")                            
                         </div>
                     </div>
                     <div class="col-md-6">
                         @Html.Label("Fecha Fin")
                         <div class="form-group">
-                            <div class="cal-icon">
-                                @Html.TextBoxFor(x => x.FechaFin_PlanEstudio, new { @class = "form-control datetimepicker", @placeholder = "Ingrese Fecha" })
-                                @Html.ValidationMessageFor(x => x.FechaFin_PlanEstudio, null, new { @class = "label label-danger" })
-                            </div>
+                            @Html.TextBoxFor(x => x.FechaFin_PlanEstudio, new { @class = "form-control", Type = "date" })
                         </div>
                     </div>
                 </div>
@@ -67,15 +58,13 @@
                     <div class="col-md-6">
                         @Html.Label("Total Créditos Extracurriculares")
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.TotalCreditosExtracurriculares_PlanEstudio, new { @class = "form-control", @placeholder = "Ingrese la cantidad" })
-                            @Html.ValidationMessageFor(x => x.TotalCreditosExtracurriculares_PlanEstudio, null, new { @class = "label label-danger" })
+                            @Html.TextBoxFor(x => x.TotalCreditosExtracurriculares_PlanEstudio, new { @class = "form-control" })                            
                         </div>
                     </div>
                     <div class="col-md-6">
                         @Html.Label("Total Créditos Práticas")
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.TotalCreditosPracticas_PlanEstudio, new { @class = "form-control", @placeholder = "Ingrese la cantidad" })
-                            @Html.ValidationMessageFor(x => x.TotalCreditosPracticas_PlanEstudio, null, new { @class = "label label-danger" })
+                            @Html.TextBoxFor(x => x.TotalCreditosPracticas_PlanEstudio, new { @class = "form-control" })                            
                         </div>
                     </div>
                 </div>
