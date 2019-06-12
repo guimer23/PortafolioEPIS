@@ -80,6 +80,7 @@ namespace PortafolioEPIS.Models
             return objTbl_Portafolio;
         }
 
+       
         //metodo guardar
         public void Guardar()//retorna solo un objeto
         {

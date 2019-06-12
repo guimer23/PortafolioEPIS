@@ -2,6 +2,8 @@
 
 @{
     List<PortafolioEPIS.Models.Tbl_Portafolio> prueba = ViewBag.Prueba;
+    List<PortafolioEPIS.Models.Tbl_Material> listaMaterial = ViewBag.ListarEvidencia;
+    PortafolioEPIS.Models.Tbl_Material ObjObtenerEvidencia = ViewBag.ObtenerEvidencia;
     int idpruebas = 0;
     int retirados = 0;
     int abandonos = 0;
@@ -470,9 +472,16 @@
                                 </div>
                             </div>
                         </div>
+@using (Html.BeginForm("Evidencia", "PortafolioU1", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
 
-                        <form method="post" action="" id="evaluados ">
                             <!-- Modal / Ventana / Overlay en HTML -->
+                            <input type="text" name="Codigo_Portafolio" value="@idpruebas"  hidden/>
+    
+        <input type="text" name="Codigo_detalle_carga" value="@Model.Codigo_DetalleCargaAcademica" hidden />
+
+                            <input type="text" name="Tipo_Material" value="DOCENTE" hidden />
+
                             <div id="victorModal" class="modal fade">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -485,20 +494,20 @@
                                                 <div class="col-md-12">
                                                     @Html.Label("Material")
                                                     <div class="form-group">
-                                                        
-                                                        <select class="form-control" id="materiald" name="materiald">
-                                                            <option>- Seleccionar -</option>
-                                                            <option>Sílabo formato UPT (Impreso y Digital)</option>
-                                                            <option>Sílabo formato ICACIT (Impreso y Digital)</option>
-                                                            <option>Curriculum Vitae formato ICACIT</option>
-                                                            <option>Material del Curso (Texto, Diapositivas)</option>
-                                                            <option>Guías de laboratorio y talleres</option>
-                                                            <option>Enunciado y resolución de exámenes</option>
-                                                            <option>Enunciado de las practicas o casos practicos</option>
-                                                            <option>Registro de Asistencia</option>
-                                                            <option>Registro de Notas</option>
-                                                            <option>Fichas de evaluaciones (Rúbricas)</option>
-                                                        </select>
+                                                            <select class="form-control" id="Nombre_Material" name="Nombre_Material">
+                                                                <option  value="">- Seleccionar -</option>
+                                                                <option  value="1">Sílabo formato UPT (Impreso y Digital)</option>
+                                                                <option  value="2">Sílabo formato ICACIT (Impreso y Digital)</option>
+                                                                <option  value="3">Curriculum Vitae formato ICACIT</option>
+                                                                <option  value="4">Material del Curso (Texto, Diapositivas)</option>
+                                                                <option  value="5">Guías de laboratorio y talleres</option>
+                                                                <option  value="6">Enunciado y resolución de exámenes</option>
+                                                                <option  value="7">Enunciado de las practicas o casos practicos</option>
+                                                                <option  value="8">Registro de Asistencia</option>
+                                                                <option  value="9">Registro de Notas</option>
+                                                                <option  value="10">Fichas de evaluaciones (Rúbricas)</option>
+                                                            </select>
+                                                           @* @(ObjObtenerEvidencia.Nombre_Material == "3" ? "Selected" : "")*@
                                                     </div>
                                                 </div>
                                             </div>
@@ -506,11 +515,11 @@
                                                 <div class="col-md-12">
                                                     @Html.Label("Tipo Entrega")
                                                     <div class="form-group">
-                                                        <select class="form-control"  id="tipod" name="tipod">
-                                                            <option>- Seleccionar -</option>
-                                                            <option>Digital</option>
-                                                            <option>Impreso</option>
-                                                            <option>Digital y Impreso</option>
+                                                        <select class="form-control" id="Estado_Material" name="Estado_Material">
+                                                            <option  value="">- Seleccionar -</option>
+                                                            <option  value="digital">Digital</option>
+                                                            <option  value="impreso">Impreso</option>
+                                                            <option  value="digitalimpreso">Digital y Impreso</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -519,7 +528,8 @@
                                                 <div class="col-md-12">
                                                     @Html.Label("Cantidad")
                                                     <div class="form-group">
-                                                        <input type="number" class="form-control" id="cantidad" name="cantidad">
+                                                        
+                                                        <input type="number" class="form-control" id="Cantidad_Material" name="Cantidad_Material">
                                                     </div>
                                                 </div>
                                             </div>
@@ -529,23 +539,37 @@
                                                     <div class="form-group">
                                                         <div class="profile-upload">
                                                             <div class="upload-input">
-                                                                <input type="file" class="form-control" id="evidenciad" name="evidencid">
+                                                                <input type="file" class="form-control" id="archivo" name="archivo">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row clearfix">
+                                                <div class="col-md-12">
+                                                    @Html.Label("Descripcion Archivo")
+                                                    <div class="form-group">
+                                                        <div class="profile-upload">
+                                                            <div class="upload-input">
+                                                                <input type="text" class="form-control" id="Descripcion_Material" name="Descripcion_Material">
+
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
 
-
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                             <button onclick="form2()" type="button" class="btn btn-primary"  data-type="success">Guardar</button>
+                                            <button class="btn btn-primary btn-rounded" style='width:100px; height:35px' type="submit"><i class="fa fa-check"></i> Guardar new</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </form>
+}
 
                         <script>
                             var form2 = function () {
@@ -563,6 +587,7 @@
 
 
                         <div class="table-responsive">
+
                             <table id="example" class="table table-hover">
                                 <thead>
                                     <tr>
@@ -575,24 +600,27 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Sílabo formato UPT (Impreso y Digital)</td>
-                                        <td>Impreso y Digital</td>
-                                        <td>25</td>
-                                        <td>Silabo 2019-I.pdf</td>
-                                        <td class="text-right">
-                                            <div class="dropdown dropdown-action">
-                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                    <a class="dropdown-item" href="#"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                                    <a class="dropdown-item" href="#"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                    @foreach (var list in listaMaterial)
+                                    {
+                                        <tr>
+                                            <td>1</td>
+                                            <td>@list.Nombre_Material @*Sílabo formato UPT (Impreso y Digital)*@</td>
+                                            <td>@list.Estado_Material</td>
+                                            <td>@list.Cantidad_Material</td>
+                                            <td>@list.Archivo_Material</td>
+                                            <td class="text-right">
+                                                <div class="dropdown dropdown-action">
+                                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                        <a class="dropdown-item" href="#"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                        <a class="dropdown-item" href="#"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
+                                    }
+                                  
 
                                 </tbody>
                             </table>
