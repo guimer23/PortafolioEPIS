@@ -1,4 +1,7 @@
-﻿<div class="row clearfix">
+﻿@model PortafolioEPIS.Models.Tbl_MedidasCorrectivas
+    @{ List<PortafolioEPIS.Models.Tbl_MedidasCorrectivas> ListaMedidasCorrectivas = ViewBag.ListaTbl_MedidasCorrectivas;
+        }
+<div class="row clearfix">
     <div class="col-md-12">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -8,38 +11,55 @@
     </div>
 </div>
 <p>Medidas correctivas que ha tomado en los casos de grado <span class="custom-badge status-red">Deficiente</span> Seleccione las acciones realizadas: </p>
+
+
+
+       @using (Html.BeginForm("Guardar", "MedidasCorrectivas", FormMethod.Post, new { id = "frm-MedidasCorrectivas" }))
+        {
+            <input type="text" value="@ViewBag.IdPruebaEntrada" name="Codigo_PruebaEntrada" id="Codigo_PruebaEntrada" hidden />
+            <input type="text" value="@ViewBag.IdDetalleCargaAcademica" name="IdDetalleCargaAcademica" hidden />
+            @Html.HiddenFor(x => x.Codigo_MedidasCorrectivas)
 <div class="row clearfix">
+
+   
     <div class="col-md-6">
         <div class="checkbox">
             <label>
-                <input type="checkbox" name="checkbox"> 1. Repaso en horas de clase
+                @Html.CheckBoxFor(x => x.Medida1_MedidasCorrectivas) 1. Repaso en horas de clase
+               
+            </label>
+          
+        </div>
+        <div class="checkbox">
+            <label>
+               
+                @Html.CheckBoxFor(x => x.Medida2_MedidasCorrectivas) 2. Repaso con horas adicionales de clase
             </label>
         </div>
         <div class="checkbox">
             <label>
-                <input type="checkbox" name="checkbox"> 2. Repaso con horas adicionales de clase
-            </label>
-        </div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" name="checkbox"> 3. Ejercicios propuestos para resolver en casa
+              
+                @Html.CheckBoxFor(x => x.Medida3_MedidasCorrectivas)  3. Ejercicios propuestos para resolver en casa
             </label>
         </div>
     </div>
     <div class="col-md-6">
         <div class="checkbox">
             <label>
-                <input type="checkbox" name="checkbox"> 4. Entrega de material de repaso
+                @Html.CheckBoxFor(x => x.Medida4_MedidasCorrectivas) 4. Entrega de material de repaso
+               
             </label>
         </div>
         <div class="checkbox">
             <label>
-                <input type="checkbox" name="checkbox"> 5. Recomendacion de bibliografia
+               
+                @Html.CheckBoxFor(x => x.Medida5_MedidasCorrectivas) 5. Recomendacion de bibliografia
             </label>
         </div>
         <div class="checkbox">
             <label>
-                <input type="checkbox" name="checkbox"> 6. Otros(Detalle en la descripcion)
+                 
+                @Html.CheckBoxFor(x => x.Medida6_MedidasCorrectivas)6. Otros(Detalle en la descripcion)
             </label>
         </div>
     </div>
@@ -49,8 +69,12 @@
         <div class="form-group">
             <label>Describa otras medidas correctivas y/o recomendaciones</label>
             <div class="form-group">
-                <textarea rows="3" cols="5" class="form-control" placeholder="Escriba aquí"></textarea>
+                @Html.TextAreaFor(x => x.Medida7_MedidasCorrectivas, new { @class = "form-control", @placeholder = "Escriba aquí", @rows = "3", @cols = "5" })
+                
             </div>
         </div>
     </div>
 </div>
+<button class="btn btn-primary btn-rounded" style='width:100px; height:35px' type="submit"><i class="fa fa-check"></i> Guardar</button>
+
+}

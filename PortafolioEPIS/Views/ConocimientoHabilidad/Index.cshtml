@@ -24,46 +24,54 @@
                     </tr>
 
                 </thead>
-               
+
                 <tbody>
                     @{ int num = 0;
                         int totald = 0;
                         int totals = 0;
                         int totalb = 0;
+                        double porcentaje = 100;
+                        double deficiente = 0;
+                        double suficiente = 0;
+                        double bueno = 0;
                     }
-                        @foreach (var p in Model)
-                        {
-                           
-                            if (p.Codigo_PruebaEntrada == Convert.ToInt32(ViewBag.id1)) 
-                            {
-                                num = num + 1;
-                                <tr>
-                                    <td>@num</td>
-                                    <td>@p.Nombre_ConocimientoHabilidad</td>
-                                    <td class="text-center">@p.Deficiente_ConocimientoHabilidad</td>
-                                    <td class="text-center">20.00</td>
-                                    <td class="text-center">@p.Suficiente_ConocimientoHabilidad</td>
-                                    <td class="text-center">40.00</td>
-                                    <td class="text-center">@p.Bueno_ConocimientoHabilidad</td>
-                                    <td class="text-center">40.00</td>
-                                    <td class="text-center" bgcolor="#43FF52">100%</td>
-                                    <td class="text-right">
-                                        <div class="dropdown dropdown-action">
-                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                                <a class="dropdown-item" href="#" onclick="return confirm('¿Esta seguro que desea de Eliminar?');"><i class="fa fa-trash-o m-r-5"></i>  Eliminar</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    @{totald = totald + p.Deficiente_ConocimientoHabilidad;}
-                                    @{totals = totals + p.Suficiente_ConocimientoHabilidad;}
-                                    @{totalb = totalb + p.Bueno_ConocimientoHabilidad;}
-                                </tr>
-                                            }
+                    @foreach (var p in Model)
+                    {
 
-                                        }
-                    </tbody>
+                        if (p.Codigo_PruebaEntrada == Convert.ToInt32(ViewBag.id1))
+                        {
+                            num = num + 1;
+                            deficiente = ((p.Deficiente_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada);
+                            suficiente = ((p.Suficiente_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada);
+                            bueno = ((p.Bueno_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada);
+                            <tr>
+                                <td>@num</td>
+                                <td>@p.Nombre_ConocimientoHabilidad</td>
+                                <td class="text-center">@p.Deficiente_ConocimientoHabilidad</td>
+                                <td class="text-center">@deficiente</td>
+                                <td class="text-center">@p.Suficiente_ConocimientoHabilidad</td>
+                                <td class="text-center">@suficiente</td>
+                                <td class="text-center">@p.Bueno_ConocimientoHabilidad</td>
+                                <td class="text-center">@bueno</td>
+                                <td class="text-center" bgcolor="#43FF52">@(deficiente + suficiente + bueno)</td>
+                                <td class="text-right">
+                                    <div class="dropdown dropdown-action">
+                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="#"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                            <a class="dropdown-item" href="#" onclick="return confirm('¿Esta seguro que desea de Eliminar?');"><i class="fa fa-trash-o m-r-5"></i>  Eliminar</a>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                @{totald = totald + p.Deficiente_ConocimientoHabilidad;}
+                                @{totals = totals + p.Suficiente_ConocimientoHabilidad;}
+                                @{totalb = totalb + p.Bueno_ConocimientoHabilidad;}
+                            </tr>
+                        }
+
+                    }
+                </tbody>
             </table>
         </div>
     </div>
@@ -80,89 +88,146 @@
     </div>
 </div>
 
-<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+<div class="row clearfix">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">GRAFICO -  RESUMEN POR CONOCIMIENTOS Y HABILIDADES</li>
+            </ol>
+        </nav>
+        <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 
-<script type="text/javascript">
-    Highcharts.chart('container', {
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false,
-            type: 'pie'
-        },
-        title: {
-            text: 'Test de Conocimiento habilidad 2019'
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                    style: {
-                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                    }
+        <script type="text/javascript">
+        Highcharts.chart('container', {
+            chart: {
+                type: 'pie'
+            },
+            title: {
+                text: 'Porcentaje Total Conocimiento Habilidad'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    },
+                    showInLegend: true
                 }
-            }
-        },
-        series: [{
-            name: 'Conocimiento habilidad',
-            colorByPoint: true,
-            data: [{
-                name: 'Deficiente',
-                y: @totald,
-                sliced: true,
-                selected: true
-            }, {
-                name: 'Suficiente',
-                y: @totals
-            }, {
-                name: 'Bueno',
-                y: @totalb
-            }]
-        }]
-    });
-</script>
-@*<div class="row clearfix">
-        <div class="col-md-12">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">GRAFICO -  RESUMEN POR CONOCIMIENTOS Y HABILIDADES</li>
-                </ol>
-            </nav>
-        </div>
+            },
+            series: [{
+                name: 'Conocimiento habilidad',
+                colorByPoint: true,
+                data: [{
+                    name: 'Deficiente',
+                    color: '#FF0000',
+                    y: @totald,
+
+                }, {
+                    name: 'Suficiente',
+                    color: '#FFC000',
+                    y: @totals,
+
+                }, {
+                    name: 'Bueno',
+                    color: '#00B0F0',
+                    y: @totalb,
+                }]
+                }]
+             });
+        </script>
     </div>
-    <div class="row">
-        <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-            <div class="card">
-                <div class="card-body">
-                    <div class="chart-title">
-                        <h4>Patient Total</h4>
-                        <span class="float-right"><i class="fa fa-caret-up" aria-hidden="true"></i> 15% Higher than Last Month</span>
-                    </div>
-                    <canvas id="linegraph"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-            <div class="card">
-                <div class="card-body">
-                    <div class="chart-title">
-                        <h4>Patients In</h4>
-                        <div class="float-right">
-                            <ul class="chat-user-total">
-                                <li><i class="fa fa-circle current-users" aria-hidden="true"></i>ICU</li>
-                                <li><i class="fa fa-circle old-users" aria-hidden="true"></i> OPD</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <canvas id="bargraph"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>*@
+</div>
+
+<div class="row clearfix">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">GRAFICO -  RESUMEN POR CONOCIMIENTOS Y HABILIDADES</li>
+            </ol>
+        </nav>
+
+        <div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+        <script type="text/javascript">
+        Highcharts.chart('container2', {
+            title: {
+                text: 'Conocimiento Habilidad'
+            },
+            xAxis: {
+                categories: ['Criterio 1', 'Criterio 2', 'Criterio 3']
+            },
+            labels: {
+                items: [{
+                    html: 'Porcentaje Total',
+                    style: {
+                        left: '50px',
+                        top: '18px',
+                        color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+                    }
+                }]
+            },
+            series: [{
+                type: 'column',
+                name: 'Deficiente',
+                data: [@deficiente,@deficiente,@deficiente]
+            }, {
+                type: 'column',
+                name: 'Suficiente',
+                data: [@suficiente,@suficiente,@suficiente]
+            }, {
+                type: 'column',
+                name: 'Bueno',
+                data: [@bueno,@bueno,@bueno]
+            },  {
+                type: 'pie',
+                    name: 'Total porcentaje de conocimiento habilidad',
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true,
+                                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                                style: {
+                                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                }
+                            }
+                        }
+                    },
+                data: [{
+                    name: 'Deficiente',
+                    y: @totald,
+                    color: Highcharts.getOptions().colors[0] // Jane's color
+                }, {
+                    name: 'Suficiente',
+                    y: @totals,
+                    color: Highcharts.getOptions().colors[1] // John's color
+                }, {
+                    name: 'Bueno',
+                    y: @totalb,
+                    color: Highcharts.getOptions().colors[2] // Joe's color
+                }],
+                center: [100, 80],
+                size: 100,
+                showInLegend: false,
+                dataLabels: {
+                    enabled: false
+                }
+            }]
+        });
+        </script>
+    </div>
+</div>
+
 
