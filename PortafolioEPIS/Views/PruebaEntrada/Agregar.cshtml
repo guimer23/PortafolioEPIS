@@ -3,7 +3,7 @@
 @{
     List<PortafolioEPIS.Models.Tbl_PruebaEntrada> prueba = ViewBag.Prueba;
     int idpruebas = 0;
-    int  evaluados=0;
+    int evaluados = 0;
 
 }
 
@@ -186,115 +186,126 @@
 
                         </div>
 
-                       
+
                     </div>
                 </div>
             </div>
-        
-        </div>
-        <div class="tab-pane" id="bottom-tab2">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card-box">                        
-                        <div class="row clearfix">
-                            <div class="col-md-12">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item active" aria-current="page">CONOCIMIENTOS Y HABILIDADES</li>
-                                    </ol>
-                                </nav>
-                            </div>
-                        </div>
-                        @*fomr 2*@
-                        <form method="post" action="" id="evaluados ">
-                            <div class="row clearfix">
-                                <div class="col-md-6">
-                                    <div class="form-group form-focus">
-                                        <input type="text" name="idprueba" id="idprueba" value="@idpruebas" class="form-control floating" hidden>                                        
-                                        <label class="focus-label">Nombre:<span class="text-danger">*</span></label>
-                                        <input type="text" name="nombre" id="nombre" class="form-control floating">
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="form-group form-focus">
-                                        <label class="focus-label">Deficiente:<span class="text-danger">*</span></label>
-                                        <input type="text" name="deficiente" id="deficiente" class="form-control floating">
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="form-group form-focus">
-                                        <label class="focus-label">Suficiente:<span class="text-danger">*</span></label>
-                                        <input type="text" name="suficiente" id="suficiente" class="form-control floating">
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="form-group form-focus">
-                                        <label class="focus-label">Bueno:<span class="text-danger">*</span></label>
-                                        <input type="text" name="bueno" id="bueno" class="form-control floating">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row clearfix">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <div class="form-group row">
-                                            <div class="col-sm-8 col-9 text-left">
-                                                <div class="form-check form-check-inline">
-                                                    <a href="~/ConocimientoHabilidad/Index" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'><i class="fa fa-close"></i>  Cancelar</a>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <button onclick="form2()" type="button" class="btn btn-raised btn-primary btn-round waves-effect m-l-20" data-type="success">Agregar</button>
 
+        </div>
+        @if (idpruebas > 0)
+        {
+            <div class="tab-pane" id="bottom-tab2">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-box">
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item active" aria-current="page">CONOCIMIENTOS Y HABILIDADES</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                            @*fomr 2*@
+                            <form method="post" action="" id="evaluados ">
+                                <div class="row clearfix">
+                                    <div class="col-md-6">
+                                        <div class="form-group form-focus">
+                                            <input type="text" name="idprueba" id="idprueba" value="@idpruebas" class="form-control floating" hidden>
+                                            <label class="focus-label">Nombre:<span class="text-danger">*</span></label>
+                                            <input type="text" name="nombre" id="nombre" class="form-control floating">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group form-focus">
+                                            <label class="focus-label">Deficiente:<span class="text-danger">*</span></label>
+                                            <input type="text" name="deficiente" id="deficiente" class="form-control floating">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group form-focus">
+                                            <label class="focus-label">Suficiente:<span class="text-danger">*</span></label>
+                                            <input type="text" name="suficiente" id="suficiente" class="form-control floating">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group form-focus">
+                                            <label class="focus-label">Bueno:<span class="text-danger">*</span></label>
+                                            <input type="text" name="bueno" id="bueno" class="form-control floating">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="form-group row">
+                                                <div class="col-sm-8 col-9 text-left">
+                                                    <div class="form-check form-check-inline">
+                                                        <a href="~/ConocimientoHabilidad/Index" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'><i class="fa fa-close"></i>  Cancelar</a>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <button onclick="form2()" type="button" class="btn btn-raised btn-primary btn-round waves-effect m-l-20" data-type="success">Agregar</button>
+
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
+                            </form>
 
-                            </div>
-                        </form>
 
-                        @*fomr 2*@
-                        @{Html.RenderAction("Index", "ConocimientoHabilidad", new { id1 = idpruebas }); }
-                        <label>@idpruebas</label>
-                        <script>
-                            var form1 = function () {
-                                var evaluados = document.getElementById("evaluados").value;
-                                var stado = "G";
-                                var idprueba = document.getElementById("idprueba").value;
-                                window.location.href = '@Url.Content("~/PruebaEntrada/Guardar/")' + "?evaluados=" + evaluados + "&estado=" + stado + "&codigo=" + @Model.Codigo_DetalleCargaAcademica + "&idprueba=" + idprueba;
-                            }
-                            var form2 = function () {
-                                var nombre = document.getElementById("nombre").value;
-                                var deficiente = document.getElementById("deficiente").value;
-                                var suficiente = document.getElementById("suficiente").value;
-                                var bueno = document.getElementById("bueno").value;
-                                var idp = document.getElementById("idprueba").value;
-                                window.location.href = '@Url.Content("~/ConocimientoHabilidad/Guardar/")' + "?nombre=" + nombre + "&deficiente=" + deficiente + "&suficiente=" + suficiente + "&idprueba=" + idp + "&bueno=" + bueno+ "&codigo=" + @Model.Codigo_DetalleCargaAcademica;
-                            }
-                        </script>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="tab-pane" id="bottom-tab3">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card-box">
-                        <div class="row clearfix">
-                            <div class="col-md-12">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item active" aria-current="page">MEDIDAS CORRECTIVAS</li>
-                                    </ol>
-                                </nav>
-                            </div>
+                            @*fomr 2*@
+
+                            @{Html.RenderAction("Index", "ConocimientoHabilidad", new { id1 = idpruebas }); }
+                            <label>@idpruebas</label>
+
                         </div>
-                        <!--CONTENIDO 3-->
-                        @{Html.RenderAction("Index", "MedidasCorrectivas", new { id1 = idpruebas, id2=Model.Codigo_DetalleCargaAcademica }); }
                     </div>
                 </div>
             </div>
-        </div>
-    </div>    
+            <div class="tab-pane" id="bottom-tab3">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-box">
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item active" aria-current="page">MEDIDAS CORRECTIVAS</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                            <!--CONTENIDO 3-->
+                            @{Html.RenderAction("Index", "MedidasCorrectivas", new { id1 = idpruebas, id2 = Model.Codigo_DetalleCargaAcademica }); }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+            else
+            {
+                
+            }
+    </div>
+
 </div>
+<script>
+    var form1 = function () {
+        var evaluados = document.getElementById("evaluados").value;
+        var stado = "G";
+        var idprueba = document.getElementById("idprueba").value;
+        window.location.href = '@Url.Content("~/PruebaEntrada/Guardar/")' + "?evaluados=" + evaluados + "&estado=" + stado + "&codigo=" + @Model.Codigo_DetalleCargaAcademica + "&idprueba=" + idprueba;
+    }
+    var form2 = function () {
+        var nombre = document.getElementById("nombre").value;
+        var deficiente = document.getElementById("deficiente").value;
+        var suficiente = document.getElementById("suficiente").value;
+        var bueno = document.getElementById("bueno").value;
+        var idp = document.getElementById("idprueba").value;
+        window.location.href = '@Url.Content("~/ConocimientoHabilidad/Guardar/")' + "?nombre=" + nombre + "&deficiente=" + deficiente + "&suficiente=" + suficiente + "&idprueba=" + idp + "&bueno=" + bueno+ "&codigo=" + @Model.Codigo_DetalleCargaAcademica;
+    }
+</script>
