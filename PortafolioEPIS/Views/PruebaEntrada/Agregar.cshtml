@@ -7,9 +7,6 @@
 
 }
 
-
-
-
 <div class="row">
     <div class="col-sm-7 col-6">
         <h4 class="page-title">Informe Prueba de Entrada</h4>
@@ -23,6 +20,7 @@
         <li class="nav-item"><a class="nav-link" href="#bottom-tab3" data-toggle="tab">3. Medidas Correctivas</a></li>
     </ul>
     <div class="tab-content">
+        <!--Pestaña 1. Datos Generales-->
         <div class="tab-pane show active" id="about-cont">
             <div class="row">
                 <div class="col-md-12">
@@ -36,13 +34,11 @@
                                 </nav>
                             </div>
                         </div>
-
                         <div class="row clearfix">
                             <div class="col-md-4">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Codigo:</label>
                                     <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">
-
                                 </div>
                             </div>
                             <div class="col-md-8">
@@ -130,70 +126,66 @@
                                 </nav>
                             </div>
                         </div>
-                        <div class="row clearfix">
-                            <div class="col-md-6">
-                                <div class="form-group form-focus">
-                                    <label class="focus-label">Matriculados:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Matriculados_DetalleCargaAcademica">
-
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group form-focus">
-                                    <form method="post" action="" id="evaluados ">
-
-
-
-
-                                        @foreach (var p in prueba)
-                                        {
-                                            if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica)
-                                            {
-                                                idpruebas = p.Codigo_PruebaEntrada;
-                                                evaluados = p.Evaluados_PruebaEntrada;
-
-
-                                            }
-                                        }
-                                        @if (idpruebas == 0)
-                                        {
+                        <form method="post" action="" id="evaluados ">
+                            @foreach (var p in prueba)
+                            {
+                                if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica)
+                                {
+                                    idpruebas = p.Codigo_PruebaEntrada;
+                                    evaluados = p.Evaluados_PruebaEntrada;
+                                }
+                            }
+                            @if (idpruebas == 0)
+                            {
+                                <div class="row clearfix">
+                                    <div class="col-md-6">
+                                        <div class="form-group form-focus">
+                                            <label class="focus-label">Matriculados:</label>
+                                            <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Matriculados_DetalleCargaAcademica">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group form-focus">
                                             <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
                                             <label class="focus-label">Evaluados:<span class="text-danger">*</span></label>
                                             <input type="text" name="evaluados" id="evaluados" class="form-control floating">
-                                        }
-                                        else
-                                        {
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="row clearfix">
+                                    <div class="col-md-6">
+                                        <div class="form-group form-focus">
+                                            <label class="focus-label">Matriculados:</label>
+                                            <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Matriculados_DetalleCargaAcademica">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group form-focus">
                                             <input type="text" name="idprueba" id="idprueba" value="@idpruebas" class="form-control floating" hidden>
                                             <label class="focus-label">Evaluados:<span class="text-danger">*</span></label>
                                             <input type="text" name="evaluados" id="evaluados" value="@evaluados" class="form-control floating">
-
-                                        }
-
-
-                                    </form>
-
-
-
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group form-focus">
-                                    <div class="form-check form-check-inline">
-                                        <button onclick="form1()" type="button" class="btn btn-raised btn-primary btn-round waves-effect m-l-20" data-type="success">Agregar</button>
+                            }
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <div class="text-center">
+                                        <button onclick="form1()" type="button" class="btn btn-primary btn-rounded" style='width:150px; height:35px' data-type="success"><i class="fa fa-refresh"></i> Actualizar</button>
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
-
-
+                        </form>
                     </div>
                 </div>
             </div>
-
         </div>
         @if (idpruebas > 0)
         {
+            <!--Pestaña 2. Conocimientos y Habilidades-->
             <div class="tab-pane" id="bottom-tab2">
                 <div class="row">
                     <div class="col-md-12">
@@ -207,7 +199,6 @@
                                     </nav>
                                 </div>
                             </div>
-                            @*fomr 2*@
                             <form method="post" action="" id="evaluados ">
                                 <div class="row clearfix">
                                     <div class="col-md-6">
@@ -240,24 +231,16 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <div class="form-group row">
-                                                <div class="col-sm-8 col-9 text-left">
+                                                <div class="col-sm-8 col-9 text-left">                                                    
                                                     <div class="form-check form-check-inline">
-                                                        <a href="~/ConocimientoHabilidad/Index" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'><i class="fa fa-close"></i>  Cancelar</a>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <button onclick="form2()" type="button" class="btn btn-raised btn-primary btn-round waves-effect m-l-20" data-type="success">Agregar</button>
-
+                                                        <button onclick="form2()" type="button" class="btn btn btn-primary btn-rounded" data-type="success" style='width:100px; height:35px'><i class="fa fa-check"></i>  Agregar</button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </form>
-
-
-                            @*fomr 2*@
 
                             @{Html.RenderAction("Index", "ConocimientoHabilidad", new { id1 = idpruebas }); }
                             <label>@idpruebas</label>
@@ -266,6 +249,7 @@
                     </div>
                 </div>
             </div>
+            <!--Pestaña 3. Datos Medidas Correctivas-->
             <div class="tab-pane" id="bottom-tab3">
                 <div class="row">
                     <div class="col-md-12">
@@ -285,13 +269,12 @@
                     </div>
                 </div>
             </div>
-            }
-            else
-            {
-                
-            }
+        }
+        else
+        {
+            <!--mensaje de alerta-->
+        }
     </div>
-
 </div>
 <script>
     var form1 = function () {
