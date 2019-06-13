@@ -58,5 +58,8 @@ namespace PortafolioEPIS.Controllers.Mantenimiento
             objCargo.Eliminar();
             return Redirect("~/Cargo");
         }
+
+        //PDF
+
     }
 }
