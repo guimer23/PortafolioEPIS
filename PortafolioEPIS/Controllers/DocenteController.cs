@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using PortafolioEPIS.Models;
 using System.Data.Entity;
 using System.IO;
+using Microsoft.Reporting.WebForms;
 
 namespace PortafolioEPIS.Controllers
 {
@@ -16,6 +17,8 @@ namespace PortafolioEPIS.Controllers
         private Tbl_Profesion objProfesion = new Tbl_Profesion();
         private Tbl_CargoDocente objCargoDocente = new Tbl_CargoDocente();
         private Tbl_DetalleCargaAcademica objDetalleCargaAcademica = new Tbl_DetalleCargaAcademica();
+
+        Modelo_Portafolio db = new Modelo_Portafolio();
 
         // Accion Listar
         public ActionResult Index()
@@ -98,5 +101,48 @@ namespace PortafolioEPIS.Controllers
             objDocente.Eliminar();
             return Redirect("~/Docente");
         }
+
+        //PDF
+
+        public ActionResult Reports(string ReportType)
+        {
+            LocalReport localreport = new LocalReport();
+            localreport.ReportPath = Server.MapPath("~/Reports/ReporteDocentes.rdlc");
+
+            ReportDataSource reportDataSource = new ReportDataSource();
+            reportDataSource.Name = "CargoDocenteDataSet1";
+            reportDataSource.Value = db.Tbl_Docente.ToList();
+            localreport.DataSources.Add(reportDataSource);
+            string reportType = ReportType;
+            string mimeType;
+            string encoding;
+            string fileNameExtension;
+
+            if (reportType == "Excel")
+            {
+                fileNameExtension = "xlsx";
+            }
+            else if (reportType == "Word")
+            {
+                fileNameExtension = "docx";
+            }
+            else if (reportType == "PDF")
+            {
+                fileNameExtension = "pdf";
+            }
+            else
+            {
+                fileNameExtension = "jpg";
+            }
+
+            string[] streams;
+            Warning[] warnings;
+            byte[] renderedByte;
+            renderedByte = localreport.Render(reportType, "", out mimeType, out encoding, out fileNameExtension
+                , out streams, out warnings);
+            Response.AddHeader("content-disposition", "attachment;filename= Cargo_Docentes." + fileNameExtension);
+            return File(renderedByte, fileNameExtension);
+        }
+
     }
 }
