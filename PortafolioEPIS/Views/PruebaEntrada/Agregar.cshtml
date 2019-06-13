@@ -190,6 +190,94 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card-box">
+                            <!--CONTENIDO DE NUEVO DISEÑO DE Conocimientos y Habilidades    EMPIEZA AQUI-->
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item active" aria-current="page">CONOCIMINETOS Y HABILIDADES</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-9 col-9">
+                                    <p>Nota: La cantidad de estudiantes evaluados debe coincidir con el total</p>
+                                </div>
+                                <div class="col-sm-3 col-3 text-right m-b-20">
+                                    <div class="form-check form-check-inline">
+                                        <!-- Botón en HTML (lanza el modal en Bootstrap) -->
+                                        <a href="#ConocimientoModal" role="button" class="btn btn-primary btn-rounded float-right" data-toggle="modal"><i class="fa fa-plus"></i> Nuevo Registro</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal / Ventana / Overlay en HTML -->
+                            <div id="ConocimientoModal" class="modal fade">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Conocimiento o Habilidad</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row clearfix">
+                                                <div class="col-md-12">
+                                                    @Html.Label("Nombre")
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row clearfix">
+                                                <div class="col-md-12">
+                                                    @Html.Label("Deficiente")
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row clearfix">
+                                                <div class="col-md-12">
+                                                    @Html.Label("Suficiente")
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row clearfix">
+                                                <div class="col-md-12">
+                                                    @Html.Label("Bueno")
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                            <button type="button" class="btn btn-primary">Guardar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                            
+                            <!--CONTENIDO DE NUEVO DISEÑO DE Conocimientos y Habilidades    TERMINA AQUI-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                             <div class="row clearfix">
                                 <div class="col-md-12">
                                     <nav aria-label="breadcrumb">
@@ -231,7 +319,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <div class="form-group row">
-                                                <div class="col-sm-8 col-9 text-left">                                                    
+                                                <div class="col-sm-8 col-9 text-left">
                                                     <div class="form-check form-check-inline">
                                                         <button onclick="form2()" type="button" class="btn btn btn-primary btn-rounded" data-type="success" style='width:100px; height:35px'><i class="fa fa-check"></i>  Agregar</button>
                                                     </div>
