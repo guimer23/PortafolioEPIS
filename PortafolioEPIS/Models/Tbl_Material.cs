@@ -131,25 +131,25 @@ namespace PortafolioEPIS.Models
 
         }
 
-        //obtener evidencia id
-        public Tbl_Material ObtenerEvidencia(int id)//retorna solo un objeto
-        {
-            var objTbl_Material = new Tbl_Material();
-            try
-            {
-                using (var db = new Modelo_Portafolio())
-                {
-                    objTbl_Material = db.Tbl_Material
-                        .Where(x => x.Codigo_Portafolio == id)
-                        .SingleOrDefault();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            return objTbl_Material;
-        }
+        ////obtener evidencia id
+        //public Tbl_Material ObtenerEvidencia(int id)//retorna solo un objeto
+        //{
+        //    var objTbl_Material = new Tbl_Material();
+        //    try
+        //    {
+        //        using (var db = new Modelo_Portafolio())
+        //        {
+        //            objTbl_Material = db.Tbl_Material
+        //                .Where(x => x.Codigo_Portafolio == id)
+        //                .SingleOrDefault();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw;
+        //    }
+        //    return objTbl_Material;
+        //}
 
     }
 }

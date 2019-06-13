@@ -45,7 +45,7 @@ namespace PortafolioEPIS.Controllers.Informes
             }
             
 
-            ViewBag.ObtenerEvidencia = objMaterial.ObtenerEvidencia(id);//esto es en el caso de s¿que se agregue modificar
+           // ViewBag.ObtenerEvidencia = objMaterial.ObtenerEvidencia(id);//esto es en el caso de s¿que se agregue modificar
             return View(objDetalleCargaAcademica.Obtener(id));
         }
 
