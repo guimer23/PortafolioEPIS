@@ -13,6 +13,7 @@
             <h4 class="card-title">Información Semestre</h4>
             @using (Html.BeginForm("Guardar", "Semestre", FormMethod.Post, new { @id = "needs-validation", @novalidate = "novalidate" }))
             {
+            <div class="js-sweetalert">
                 <div class="row clearfix">
                     <div class="col-md-6">
                         @Html.HiddenFor(x => x.Codigo_Semestre)
@@ -55,13 +56,15 @@
                                         <a href="~/Semestre/Index" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'><i class="fa fa-close"></i>  Cancelar</a>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <button class="btn btn-primary btn-rounded" style='width:100px; height:35px' type="submit"><i class="fa fa-check"></i> Guardar</button>                                        
+                                        <button class="btn btn-primary btn-rounded" style='width:100px; height:35px' type="submit" data-type="success"><i class="fa fa-check"></i> Guardar</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+                
             }
         </div>
     </div>

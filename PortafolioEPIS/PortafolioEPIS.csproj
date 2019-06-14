@@ -597,6 +597,10 @@
     <Content Include="assets\js\popper.min.js" />
     <Content Include="assets\js\select2.min.js" />
     <Content Include="assets\js\tagsinput.js" />
+    <Content Include="assets\js\ui\notifications.js" />
+    <Content Include="assets\js\ui\range-sliders.js" />
+    <Content Include="assets\js\ui\sortable-nestable.js" />
+    <Content Include="assets\js\ui\sweetalert.js" />
     <Content Include="assets\plugins\light-gallery\css\lightgallery.min.css" />
     <Content Include="assets\plugins\light-gallery\fonts\lgd641.svg" />
     <Content Include="assets\plugins\light-gallery\img\loading.gif" />
@@ -606,6 +610,8 @@
     <Content Include="assets\plugins\light-gallery\js\lightgallery-all.min.js" />
     <Content Include="assets\plugins\summernote\dist\summernote-bs4.css" />
     <Content Include="assets\plugins\summernote\dist\summernote-bs4.min.js" />
+    <Content Include="assets\plugins\sweetalert\sweetalert.css" />
+    <Content Include="assets\plugins\sweetalert\sweetalert.min.js" />
     <Content Include="assets\Validaciones\bootstrap-validate.js" />
     <Content Include="Global.asax" />
     <Content Include="Imagen\fondo Portafolio.png" />
