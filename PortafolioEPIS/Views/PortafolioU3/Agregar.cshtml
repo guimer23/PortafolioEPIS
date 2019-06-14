@@ -1,7 +1,850 @@
-﻿
+﻿@model PortafolioEPIS.Models.Tbl_DetalleCargaAcademica
+
 @{
-    ViewBag.Title = "Agregar";
+    List<PortafolioEPIS.Models.Tbl_Portafolio> prueba = ViewBag.Prueba;
+    List<PortafolioEPIS.Models.Tbl_Material> listaMaterial = ViewBag.ListarEvidencia;
+    PortafolioEPIS.Models.Tbl_Material ObjObtenerEvidencia = ViewBag.ObtenerEvidencia;
+    int idpruebas = 0;
+    int retirados = 0;
+    int abandonos = 0;
+    int desaprobados = 0;
+    int asisten = 0;
+    int aprobados = 0;
+    string unidadPotafolio = "";
+
 }
 
-<h2>Agregar</h2>
+
+<div class="row">
+    <div class="col-sm-7 col-6">
+        <h4 class="page-title">Informe Portafolio <strong>Unidad III</strong></h4>
+    </div>
+</div>
+
+<div class="profile-tabs">
+    <ul class="nav nav-tabs nav-tabs-bottom">
+        <li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">1. Datos Generales</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab">2. Graficos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab3" data-toggle="tab">3. Material Docente</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab4" data-toggle="tab">4. Material Estudiante</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane show active" id="about-cont">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page">INFORMACION DE CURSO</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-md-4">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label">Codigo:</label>
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label">Asignatura:</label>
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-md-2">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label">Sección:</label>
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Seccion.Nombre_Seccion">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label">Ciclo:</label>
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label">Horas:</label>
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label">Créditos:</label>
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label">Tipo Curso:</label>
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page">DATOS DOCENTE</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-md-4">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label">Codigo:</label>
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Docente.Codigo_Docenteepis">
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label">Nombre:</label>
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Docente.Nombres_Docente @Model.Tbl_Docente.Apellidos_Docente">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-md-8">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label">Email:</label>
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Docente.Correo_Docente">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label">Celular:</label>
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Docente.TelefonoCelular_Docente">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page">NUMERO DE ESTUDIANTES</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                        <form method="post" action="" id="evaluados ">
+                            @foreach (var p in prueba)
+                            {
+                                if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica && p.Unidad_Portafolio == "UIII")
+                                {
+                                    idpruebas = p.Codigo_Portafolio;
+                                    retirados = Convert.ToInt32(p.Retirados_Portafolio);
+                                    abandonos = Convert.ToInt32(p.Abandono_Portafolio);
+                                    aprobados = Convert.ToInt32(p.Aprobados_Portafolio);
+                                    //unidadPotafolio = p.Unidad_Portafolio;
+                                }
+                            }
+                            @if (idpruebas == 0)
+                            {
+                                <div class="row clearfix">
+                                    <div class="col-md-3">
+                                        <div class="form-group form-focus">
+                                            <label class="focus-label">Matriculados:</label>
+                                            <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Matriculados_DetalleCargaAcademica">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group form-focus">
+                                            <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
+                                            <label class="focus-label">Retirados:<span class="text-danger">*</span></label>
+                                            <input type="text" name="retirados" id="retirados" class="form-control floating">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group form-focus">
+                                            <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
+                                            <label class="focus-label">Abandonos:<span class="text-danger">*</span></label>
+                                            <input type="text" name="abandonos" id="abandonos" class="form-control floating">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group form-focus">
+                                            <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
+                                            <label class="focus-label">Aprobados:<span class="text-danger">*</span></label>
+                                            <input type="text" name="aprobados" id="aprobados" class="form-control floating">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            }
+                            else
+                            {
+                                <div class="row clearfix">
+                                    <div class="col-md-3">
+                                        <div class="form-group form-focus">
+                                            <label class="focus-label">Matriculados:</label>
+                                            <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Matriculados_DetalleCargaAcademica">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group form-focus">
+                                            <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
+                                            <label class="focus-label">Retirados:<span class="text-danger">*</span></label>
+                                            <input type="text" name="retirados" id="retirados" value="@retirados" class="form-control floating">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group form-focus">
+                                            <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
+                                            <label class="focus-label">Abandonos:<span class="text-danger">*</span></label>
+                                            <input type="text" name="abandonos" id="abandonos" value="@abandonos" class="form-control floating">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group form-focus">
+                                            <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
+                                            <label class="focus-label">Aprobados:<span class="text-danger">*</span></label>
+                                            <input type="text" name="aprobados" id="aprobados" value="@aprobados" class="form-control floating">
+                                        </div>
+                                    </div>
+                                </div>
+                                {
+                                    asisten = @Model.Matriculados_DetalleCargaAcademica - retirados - abandonos;
+                                    desaprobados = asisten - aprobados;
+                                }
+                            }
+
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <div class="text-center">
+                                        @*<button onclick="form1()" type="button" class="btn btn-raised btn-primary btn-round waves-effect m-l-20" data-type="success">Agregar</button>*@
+                                        <button onclick="form1()" type="button" class="btn btn-primary btn-rounded" style='width:150px; height:35px' data-type="success"><i class="fa fa-refresh"></i> Actualizar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        @*Envio de datos aprobados , abandonos ,retirados*@
+                        <script>
+                            var form1 = function () {
+
+                                var idprueba = document.getElementById("idprueba").value;
+                                var retirados = document.getElementById("retirados").value;
+                                var abandonos = document.getElementById("abandonos").value;
+                                var aprobados = document.getElementById("aprobados").value;
+                                var unidad = "UIII";
+                                var stado = "G";
+                                window.location.href = '@Url.Content("~/PortafolioU3/Guardar/")' + "?idprueba=" + idprueba + "&retirados=" + retirados + "&abandonos=" + abandonos + "&aprobados=" + aprobados + "&codigo=" + @Model.Codigo_DetalleCargaAcademica + "&estado=" + stado + "&unidad=" + unidad;
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="tab-pane" id="bottom-tab2">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page">GRAFICO 1 : ASISTENCIA DE ESTUDIANTES</li>
+                                    </ol>
+                                </nav>
+                                <div id="container" style="width: 450px; height: 400px; margin: 0 auto"></div>
+                                <script type="text/javascript">
+                                    Highcharts.chart('container', {
+                                        chart: {
+                                            type: 'column'
+                                        },
+                                        title: {
+                                            text: 'Estudiantes'
+                                        },
+                                        xAxis: {
+                                            type: 'category'
+                                        },
+                                        yAxis: {
+                                            title: {
+                                                text: 'Total de Estudiantes del Curso'
+                                            }
+
+                                        },
+                                        legend: {
+                                            enabled: false
+                                        },
+                                        ooltip: {
+                                            headerFormat: '<b>{point.x}</b><br/>',
+                                            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                                        }, plotOptions: {
+                                            column: {
+                                                stacking: 'normal',
+                                                dataLabels: {
+                                                    enabled: true,
+                                                }
+                                            }
+                                        },
+
+                                        series: [
+                                            {
+                                                name: "Estudiantes",
+                                                colorByPoint: true,
+                                                data: [
+                                                    {
+                                                        name: 'Matriculados',
+                                                        color: '#ED7D31',
+                                                        y: @Model.Matriculados_DetalleCargaAcademica,
+
+                                                    },
+                                                    {
+                                                        name: 'Asisten',
+                                                        color: '#009EFB',
+                                                        y: @asisten,
+
+                                                    },
+                                                ]
+                                            }
+                                        ]
+                                    });
+                                </script>
+                            </div>
+                        </div>
+
+
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page">GRAFICO 2 : SITUACIÓN GENERAL DE ESTUDIANTES</li>
+                                    </ol>
+                                </nav>
+                                <div id="container2" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto">
+                                    <script type="text/javascript">
+                                        Highcharts.chart('container2', {
+                                            chart: {
+
+                                                type: 'pie'
+                                            },
+                                            title: {
+                                                text: 'Situacion General'
+                                            },
+                                            tooltip: {
+                                                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                            },
+                                            plotOptions: {
+                                                pie: {
+                                                    allowPointSelect: true,
+                                                    cursor: 'pointer',
+                                                    dataLabels: {
+                                                        enabled: true,
+                                                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                                                    }
+                                                    , showInLegend: true
+                                                }
+
+                                            },
+                                            series: [{
+                                                name: 'Situacion',
+                                                data: [{
+                                                    name: 'Aprobados',
+                                                    color: '#00B0F0',
+                                                    y:@aprobados,
+                                                },
+                                                {
+                                                    name: 'Desaprobados',
+                                                    color: '#FF0000',
+                                                    y:@desaprobados,
+                                                }, {
+                                                    name: 'Retirados',
+                                                    color: '#FFC000',
+                                                    y: @retirados,
+                                                }, {
+                                                    name: 'Abandono',
+                                                    color: '#767171',
+                                                    y: @abandonos,
+                                                }],
+                                            }]
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page">GRAFICO 3 : RENDIMIENTO DE ESTUDIANTES</li>
+                                    </ol>
+                                </nav>
+                                <div id="container3" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+                                <script type="text/javascript">
+                                    Highcharts.chart('container3', {
+                                        chart: {
+                                            type: 'bar'
+                                        },
+                                        title: {
+                                            text: 'Rendimiento'
+                                        },
+                                        xAxis: {
+                                            categories: ['Porcentaje']
+                                        },
+                                        yAxis: {
+                                            min: 0,
+                                            title: {
+                                                text: 'Rendimiento'
+                                            }
+                                        },
+                                        legend: {
+                                            reversed: true
+                                        },
+                                        tooltip: {
+                                            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                        },
+                                        plotOptions: {
+                                            series:
+                                            {
+                                                stacking: 'normal',
+                                                dataLabels: {
+                                                    cursor: 'pointer',
+                                                    format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
+                                                    enabled: true,
+                                                    filter: {
+                                                        property: 'percentage',
+                                                        operator: '>',
+                                                        value: 2
+                                                    },
+                                                }
+                                            }
+                                        },
+                                        series: [{
+                                            name: 'Aprobados',
+                                            color: '#00B0F0',
+                                            data: [@aprobados]
+                                        },
+                                        {
+                                            name: 'Desaprobados',
+                                            color: '#FF0000',
+                                            data: [@desaprobados]
+                                        }]
+                                    });
+                                </script>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="bottom-tab3">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page">MATERIAL QUE EL DOCENTE PREPARA Y ENTREGA A LOS ESTUDIANTES</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-9 col-9">
+                                <p>Material que el docente prepara y entrega a los estudiantes durante la ejecucion de los cursos</p>
+                            </div>
+                            <div class="col-sm-3 col-3 text-right m-b-20">
+                                <div class="form-check form-check-inline">
+                                    <!-- Botón en HTML (lanza el modal en Bootstrap) -->
+                                    <a href="#victorModal" role="button" class="btn btn-primary btn-rounded float-right" data-toggle="modal"><i class="fa fa-plus"></i> Nuevo Registro</a>
+                                </div>
+                            </div>
+                        </div>
+                        @using (Html.BeginForm("Evidencia", "PortafolioU3", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+
+                            <!-- Modal / Ventana / Overlay en HTML -->
+                            <input type="text" name="Codigo_Portafolio" value="@idpruebas" hidden />
+
+                            <input type="text" name="Codigo_detalle_carga" value="@Model.Codigo_DetalleCargaAcademica" hidden />
+
+                            <input type="text" name="Tipo_Material" value="DOCENTEUIII" hidden />
+
+                            <div id="victorModal" class="modal fade">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Material Docente</h4>
+
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row clearfix">
+                                                <div class="col-md-12">
+                                                    @Html.Label("Material")
+                                                    <div class="form-group">
+                                                        <select class="form-control" id="Nombre_Material" name="Nombre_Material">
+                                                            <option value="">- Seleccionar -</option>
+                                                            <option>Sílabo formato UPT (Impreso y Digital)</option>
+                                                            <option>Sílabo formato ICACIT (Impreso y Digital)</option>
+                                                            <option>Curriculum Vitae formato ICACIT</option>
+                                                            <option>Material del Curso (Texto, Diapositivas)</option>
+                                                            <option>Guías de laboratorio y talleres</option>
+                                                            <option>Enunciado y resolución de exámenes</option>
+                                                            <option>Enunciado de las practicas o casos practicos</option>
+                                                            <option>Registro de Asistencia</option>
+                                                            <option>Registro de Notas</option>
+                                                            <option>Fichas de evaluaciones (Rúbricas)</option>
+                                                        </select>
+                                                        @* @(ObjObtenerEvidencia.Nombre_Material == "3" ? "Selected" : "")*@
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row clearfix">
+                                                <div class="col-md-12">
+                                                    @Html.Label("Tipo Entrega")
+                                                    <div class="form-group">
+                                                        <select class="form-control" id="Estado_Material" name="Estado_Material">
+                                                            <option value="">- Seleccionar -</option>
+                                                            <option>Digital</option>
+                                                            <option>Impreso</option>
+                                                            <option>Digital y Impreso</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row clearfix">
+                                                <div class="col-md-12">
+                                                    @Html.Label("Cantidad")
+                                                    <div class="form-group">
+
+                                                        <input type="number" class="form-control" id="Cantidad_Material" name="Cantidad_Material">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row clearfix">
+                                                <div class="col-md-12">
+                                                    @Html.Label("Evidencia")
+                                                    <div class="form-group">
+                                                        <div class="profile-upload">
+                                                            <div class="upload-input">
+                                                                <input type="file" class="form-control" id="archivo" name="archivo" onchange="return validarExt()">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row clearfix">
+                                                <div class="col-md-12">
+                                                    @Html.Label("Descripcion Archivo")
+                                                    <div class="form-group">
+                                                        <div class="profile-upload">
+                                                            <div class="upload-input">
+                                                                <input type="text" class="form-control" id="Descripcion_Material" name="Descripcion_Material">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                            @*<button onclick="form2()" type="button" class="btn btn-primary" data-type="success">Guardar</button>*@
+                                            <button class="btn btn-primary btn-rounded" style='width:100px; height:35px' type="submit"><i class="fa fa-check"></i> Guardar new</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        @* <script>
+                                var form2 = function () {
+                                    var idprueba = @idpruebas;
+                                    var combo1 = document.getElementById("materiald");
+                                    var seleccion1 = combo1.options[combo1.selectedIndex].text;
+                                    var combo2 = document.getElementById("tipod");
+                                    var seleccion2 = combo2.options[combo2.selectedIndex].text;
+                                    var evidenciad = document.getElementById("evidenciad").value;
+                                    var cantidad = document.getElementById("cantidad").value;
+                                    alert(seleccion1 + "\n" + seleccion2 + "\n" + evidenciad + "\n" + cantidad + "\n" + idprueba)
+                                    //window.location.href = '@Url.Content("~/PortafolioU1/Guardar/")' + "?idprueba=" + idprueba ;
+                                }
+                            </script>*@
+
+
+                        <div class="table-responsive">
+
+                            <table id="example" class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Material Docente Entregado</th>
+                                        <th>Tipo Entraga</th>
+                                        <th>Cantidad</th>
+                                        <th>Evidencia</th>
+                                        <th class="text-right">Accción</th>
+                                    </tr>
+                                </thead>
+                                @{int con = 0; }
+                                <tbody>
+                                    @foreach (var list in listaMaterial)
+                                    {
+                                        if (list.Tipo_Material == "DOCENTEUIII" && list.Codigo_Portafolio == idpruebas)
+                                        {
+                                            con = con + 1;
+                                            <tr>
+                                                <td>@con</td>
+                                                <td>@list.Nombre_Material @*Sílabo formato UPT (Impreso y Digital)*@</td>
+                                                <td>@list.Estado_Material</td>
+                                                <td>@list.Cantidad_Material</td>
+                                                <td>@list.Archivo_Material</td>
+                                                <td class="text-right">
+                                                    <div class="dropdown dropdown-action">
+                                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                            <a class="dropdown-item" href="#"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                            <a class="dropdown-item" href="#"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="bottom-tab4">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page">MATERIAL GENERADO POR EL ESTUDIANTE</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-9 col-9">
+                                <p>Material generado por el estudiante en el transcurso del semestre</p>
+                            </div>
+                            <div class="col-sm-3 col-3 text-right m-b-20">
+                                <div class="form-check form-check-inline">
+                                    <!-- Botón en HTML (lanza el modal en Bootstrap) -->
+                                    <a href="#ModalEstudiante" role="button" class="btn btn-primary btn-rounded float-right" data-toggle="modal"><i class="fa fa-plus"></i> Nuevo Registro</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal / Ventana / Overlay en HTML -->
+                        @using (Html.BeginForm("Evidencia1", "PortafolioU3", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <input type="text" name="Codigo_Portafolio" value="@idpruebas" hidden />
+
+                            <input type="text" name="Codigo_detalle_carga" value="@Model.Codigo_DetalleCargaAcademica" hidden />
+
+                            <input type="text" name="Tipo_Material" value="ESTUDIANTEUIII" hidden />
+
+                            <div id="ModalEstudiante" class="modal fade">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Material Estudiante</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row clearfix">
+                                                <div class="col-md-12">
+                                                    @Html.Label("Material")
+                                                    <div class="form-group">
+                                                        <select class="form-control" name="Nombre_Material" id="Nombre_Material">
+                                                            <option>- Seleccionar -</option>
+                                                            <option>Copias de cuadernos o apuntes de clases (opcional)</option>
+                                                            <option>Original de exámenes de unidad, ordenado por notas de mayor a menor</option>
+                                                            <option>Original de evaluaciones practicas (pruebas)</option>
+                                                            <option>Original de informes de laboratorios</option>
+                                                            <option>Trabajos encargado (investigación, tareas, asignaciones)</option>
+                                                            <option>Trabajos y/o proyectos finales del curso</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row clearfix">
+                                                <div class="col-md-12">
+                                                    @Html.Label("Tipo Entrega")
+                                                    <div class="form-group">
+                                                        <select class="form-control" name="Estado_Material" id="Estado_Material">
+                                                            <option>- Seleccionar -</option>
+                                                            <option>Digital</option>
+                                                            <option>Impreso</option>
+                                                            <option>Digital y Impreso</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row clearfix">
+                                                <div class="col-md-12">
+                                                    @Html.Label("Cantidad")
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" name="Cantidad_Material" id="Cantidad_Material">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row clearfix">
+                                                <div class="col-md-12">
+                                                    @Html.Label("Evidencia")
+                                                    <div class="form-group">
+                                                        <div class="profile-upload">
+                                                            <div class="upload-input">
+                                                                <input type="file" class="form-control" id="archivo1" name="archivo1" onchange="return validarExt1()">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row clearfix">
+                                                <div class="col-md-12">
+                                                    @Html.Label("Descripcion Archivo")
+                                                    <div class="form-group">
+                                                        <div class="profile-upload">
+                                                            <div class="upload-input">
+                                                                <input type="text" class="form-control" id="Descripcion_Material" name="Descripcion_Material">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                            @*<button onclick="form3()" id="btn-send" type="button" class="btn btn-primary">Guardar</button>*@
+                                            <button class="btn btn-primary btn-rounded" style='width:100px; height:35px' type="submit"><i class="fa fa-check"></i> Guardar new</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        @*<script>
+                                    var form3 = function () {
+                                        var idprueba = @idpruebas;
+                                        var combo1 = document.getElementById("materiale");
+                                        var seleccion1 = combo1.options[combo1.selectedIndex].text;
+                                        var combo2 = document.getElementById("tipoe");
+                                        var seleccion2 = combo2.options[combo2.selectedIndex].text;
+                                        var evidenciad = document.getElementById("evidenciae").value;
+                                        var cantidad = document.getElementById("cantidae").value;
+                                        var descripcion = document.getElementById("descripcione").value;
+                                        //imagen
+
+                                        //alert(seleccion1 + "\n" + seleccion2 + "\n" + evidenciad + "\n" + cantidad + "\n" + idprueba + "\n" +descripcion)
+                                        window.location.href = '@Url.Content("~/PortafolioU1/Guardar1/")' + "?idprueba=" + idprueba + "&material=" + seleccion1 + "&tipo=" + seleccion2 + "&evidencia=" + evidenciad + "&cantidad=" + cantidad + "&descripcion=" + descripcion + "&codigo=" + @Model.Codigo_DetalleCargaAcademica;
+                                    }
+                            </script>*@
+
+
+
+                        <div class="table-responsive">
+                            <table id="example2" class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Material Docente Entregado</th>
+                                        <th>Tipo Entraga</th>
+                                        <th>Cantidad</th>
+                                        <th>Evidencia</th>
+                                        <th class="text-right">Accción</th>
+                                    </tr>
+                                </thead>
+                                @{ int con1 = 0;}
+                                <tbody>
+                                    @foreach (var list1 in listaMaterial)
+                                    {
+                                        if (list1.Tipo_Material == "ESTUDIANTEUIII" && list1.Codigo_Portafolio == idpruebas)
+                                        {
+                                            con1 = con1 + 1;
+                                            <tr>
+                                                <td>@con1</td>
+                                                <td>@list1.Nombre_Material</td>
+                                                <td>@list1.Estado_Material</td>
+                                                <td>@list1.Cantidad_Material</td>
+                                                <td>@list1.Archivo_Material</td>
+                                                <td class="text-right">
+                                                    <div class="dropdown dropdown-action">
+                                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                            <a class="dropdown-item" href="#"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                            <a class="dropdown-item" href="#"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    function validarExt() {
+        var archivoInput = document.getElementById('archivo');
+        var archivoRuta = archivoInput.value;
+        var extPermitidas = /(.pdf)$/i;
+        if (!extPermitidas.exec(archivoRuta)) {
+            alert('Asegurese de haber seleccionado un PDF');
+            archivoInput.value = '';
+            return false;
+        }
+
+
+    }
+
+    function validarExt1() {
+        var archivoInput = document.getElementById('archivo1');
+        var archivoRuta = archivoInput.value;
+        var extPermitidas = /(.pdf)$/i;
+
+
+        if (!extPermitidas.exec(archivoRuta)) {
+            alert('Asegurese de haber seleccionado un PDF');
+            archivoInput.value = '';
+            return false;
+        }
+
+
+
+    }
+</script>
 
