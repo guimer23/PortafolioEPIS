@@ -50,6 +50,18 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.WebForms.10.0.40219.1\lib\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -608,6 +620,28 @@
     <Content Include="assets\plugins\summernote\dist\summernote-bs4.min.js" />
     <Content Include="assets\Validaciones\bootstrap-validate.js" />
     <Content Include="Global.asax" />
+    <Content Include="Imagen\docente1.jpg" />
+    <Content Include="Imagen\docente10.jpg" />
+    <Content Include="Imagen\docente11.jpg" />
+    <Content Include="Imagen\docente15.jpg" />
+    <Content Include="Imagen\docente16.jpg" />
+    <Content Include="Imagen\docente17.jpg" />
+    <Content Include="Imagen\docente18.jpg" />
+    <Content Include="Imagen\docente19.jpg" />
+    <Content Include="Imagen\docente2.jpg" />
+    <Content Include="Imagen\docente20.jpg" />
+    <Content Include="Imagen\docente21.jpg" />
+    <Content Include="Imagen\docente22.jpg" />
+    <Content Include="Imagen\docente23.jpg" />
+    <Content Include="Imagen\docente24.jpg" />
+    <Content Include="Imagen\docente25.jpg" />
+    <Content Include="Imagen\docente26.jpg" />
+    <Content Include="Imagen\docente28.jpg" />
+    <Content Include="Imagen\docente30.jpg" />
+    <Content Include="Imagen\docente4.jpg" />
+    <Content Include="Imagen\docente5.jpg" />
+    <Content Include="Imagen\docente8.jpg" />
+    <Content Include="Imagen\docente9.jpg" />
     <Content Include="Imagen\fondo Portafolio.png" />
     <Content Include="Imagen\fondo Portafoliov2.png" />
     <Content Include="Imagen\img.png" />
@@ -650,6 +684,11 @@
     <Compile Include="Models\Tbl_PruebaEntrada.cs" />
     <Compile Include="Models\Tbl_Seccion.cs" />
     <Compile Include="Models\Tbl_Semestre.cs" />
+    <Compile Include="Portafolio_dbDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Portafolio_dbDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -783,6 +822,17 @@
     <Content Include="Views\PortafolioU1\Agregar.cshtml" />
     <Content Include="Views\PortafolioU2\Agregar.cshtml" />
     <Content Include="Views\PortafolioU3\Agregar.cshtml" />
+    <Content Include="Portafolio_dbDataSet2.xsc">
+      <DependentUpon>Portafolio_dbDataSet2.xsd</DependentUpon>
+    </Content>
+    <None Include="Portafolio_dbDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Portafolio_dbDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Portafolio_dbDataSet2.xss">
+      <DependentUpon>Portafolio_dbDataSet2.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -792,6 +842,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\ReporteDocentes.rdlc" />
+    <EmbeddedResource Include="Reports\ReportePruebaEntrada2019I.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

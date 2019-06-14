@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="table-responsive">
-            <table class="table table-striped custom-table example" id="example">
+            <table  class="table table-hover">
                 <thead>
                     <tr>
                         <th rowspan="2">#</th>
@@ -30,6 +30,26 @@
                         int totald = 0;
                         int totals = 0;
                         int totalb = 0;
+                        string nombre = "";
+                        int d = 0;
+                        int s = 0;
+                        int b = 0;
+                        string nombre1 = "";
+                        int d1 = 0;
+                        int s1 = 0;
+                        int b1 = 0;
+                        string nombre2 = "";
+                        int d2 = 0;
+                        int s2 = 0;
+                        int b2 = 0;
+                        string nombre3 = "";
+                        int d3 = 0;
+                        int s3 = 0;
+                        int b3 = 0;
+                        string nombre4 = "";
+                        int d4 = 0;
+                        int s4 = 0;
+                        int b4 = 0;
                         double porcentaje = 100;
                         double deficiente = 0;
                         double suficiente = 0;
@@ -44,30 +64,69 @@
                             deficiente = ((p.Deficiente_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada);
                             suficiente = ((p.Suficiente_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada);
                             bueno = ((p.Bueno_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada);
-                            <tr>
-                                <td>@num</td>
-                                <td>@p.Nombre_ConocimientoHabilidad</td>
-                                <td class="text-center">@p.Deficiente_ConocimientoHabilidad</td>
-                                <td class="text-center">@deficiente</td>
-                                <td class="text-center">@p.Suficiente_ConocimientoHabilidad</td>
-                                <td class="text-center">@suficiente</td>
-                                <td class="text-center">@p.Bueno_ConocimientoHabilidad</td>
-                                <td class="text-center">@bueno</td>
-                                <td class="text-center" bgcolor="#43FF52">@(deficiente + suficiente + bueno)</td>
-                                <td class="text-right">
-                                    <div class="dropdown dropdown-action">
-                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                            <a class="dropdown-item" href="#" onclick="return confirm('¿Esta seguro que desea de Eliminar?');"><i class="fa fa-trash-o m-r-5"></i>  Eliminar</a>
-                                        </div>
-                                    </div>
-                                </td>
+                    <tr>
+                        <td>@num</td>
+                        <td>@p.Nombre_ConocimientoHabilidad</td>
+                        <td class="text-center">@p.Deficiente_ConocimientoHabilidad</td>
+                        <td class="text-center">@deficiente</td>
+                        <td class="text-center">@p.Suficiente_ConocimientoHabilidad</td>
+                        <td class="text-center">@suficiente</td>
+                        <td class="text-center">@p.Bueno_ConocimientoHabilidad</td>
+                        <td class="text-center">@bueno</td>
+                        <td class="text-center" bgcolor="#43FF52">@(deficiente + suficiente + bueno)</td>
+                        <td class="text-right">
+                            <div class="dropdown dropdown-action">
+                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="#"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                    <a class="dropdown-item" href="#" onclick="return confirm('¿Esta seguro que desea de Eliminar?');"><i class="fa fa-trash-o m-r-5"></i>  Eliminar</a>
+                                </div>
+                            </div>
+                        </td>
 
-                                @{totald = totald + p.Deficiente_ConocimientoHabilidad;}
-                                @{totals = totals + p.Suficiente_ConocimientoHabilidad;}
-                                @{totalb = totalb + p.Bueno_ConocimientoHabilidad;}
-                            </tr>
+                        @{totald = totald + p.Deficiente_ConocimientoHabilidad;}
+                        @{totals = totals + p.Suficiente_ConocimientoHabilidad;}
+                        @{totalb = totalb + p.Bueno_ConocimientoHabilidad;}
+                        @{if (num == 1)
+                            {
+                                d = p.Deficiente_ConocimientoHabilidad;
+                                s = p.Suficiente_ConocimientoHabilidad;
+                                b = p.Bueno_ConocimientoHabilidad;
+                                nombre = p.Nombre_ConocimientoHabilidad;
+                            }
+                            else if (num == 2)
+                            {
+                                d1 = p.Deficiente_ConocimientoHabilidad;
+                                s1 = p.Suficiente_ConocimientoHabilidad;
+                                b1 = p.Bueno_ConocimientoHabilidad;
+                                nombre1 = p.Nombre_ConocimientoHabilidad;
+                            }
+
+                            else if (num == 3)
+                            {
+                                d2 = p.Deficiente_ConocimientoHabilidad;
+                                s2 = p.Suficiente_ConocimientoHabilidad;
+                                b2 = p.Bueno_ConocimientoHabilidad;
+                                nombre2 = p.Nombre_ConocimientoHabilidad;
+                            }
+
+                            else if (num == 4)
+                            {
+                                d3 = p.Deficiente_ConocimientoHabilidad;
+                                s3 = p.Suficiente_ConocimientoHabilidad;
+                                b3 = p.Bueno_ConocimientoHabilidad;
+                                nombre3 = p.Nombre_ConocimientoHabilidad;
+                            }
+
+                            else
+                            {
+                                d4 = p.Deficiente_ConocimientoHabilidad;
+                                s4 = p.Suficiente_ConocimientoHabilidad;
+                                b4 = p.Bueno_ConocimientoHabilidad;
+                                nombre4 = p.Nombre_ConocimientoHabilidad;
+                            }
+                        }
+                        </tr>
                         }
 
                     }
@@ -153,80 +212,62 @@
                 <li class="breadcrumb-item active" aria-current="page">GRAFICO -  RESUMEN POR CONOCIMIENTOS Y HABILIDADES</li>
             </ol>
         </nav>
-
-        <div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-
+        <div id="container2" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
         <script type="text/javascript">
-        Highcharts.chart('container2', {
-            title: {
-                text: 'Conocimiento Habilidad'
-            },
-            xAxis: {
-                categories: ['Criterio 1', 'Criterio 2', 'Criterio 3']
-            },
-            labels: {
-                items: [{
-                    html: 'Porcentaje Total',
-                    style: {
-                        left: '50px',
-                        top: '18px',
-                        color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
-                    }
-                }]
-            },
-            series: [{
-                type: 'column',
-                name: 'Deficiente',
-                data: [@deficiente,@deficiente,@deficiente]
-            }, {
-                type: 'column',
-                name: 'Suficiente',
-                data: [@suficiente,@suficiente,@suficiente]
-            }, {
-                type: 'column',
-                name: 'Bueno',
-                data: [@bueno,@bueno,@bueno]
-            },  {
-                type: 'pie',
-                    name: 'Total porcentaje de conocimiento habilidad',
-                    tooltip: {
-                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+
+                Highcharts.chart('container2', {
+                    chart: {
+                        type: 'bar'
                     },
+                    title: {
+                        text: 'Conocimiento Habilidad'
+                    },
+                    xAxis: {
+
+                        categories: ['@nombre','@nombre1','@nombre2','@nombre3','@nombre4']
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: 'Rendimiento'
+                        }
+                    },
+                    legend: {
+                        reversed: true
+                    },
+
                     plotOptions: {
-                        pie: {
-                            allowPointSelect: true,
-                            cursor: 'pointer',
+                        series:
+                        {
+                            stacking: 'normal',
                             dataLabels: {
+                                cursor: 'pointer',
                                 enabled: true,
-                                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                                style: {
-                                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                                }
+
                             }
                         }
                     },
-                data: [{
-                    name: 'Deficiente',
-                    y: @totald,
-                    color: Highcharts.getOptions().colors[0] // Jane's color
-                }, {
-                    name: 'Suficiente',
-                    y: @totals,
-                    color: Highcharts.getOptions().colors[1] // John's color
-                }, {
-                    name: 'Bueno',
-                    y: @totalb,
-                    color: Highcharts.getOptions().colors[2] // Joe's color
-                }],
-                center: [100, 80],
-                size: 100,
-                showInLegend: false,
-                dataLabels: {
-                    enabled: false
-                }
-            }]
-        });
+                    series: [{
+                        name: 'Bueno',
+                        color: '#00B0F0',
+                        data: [@b,@b1,@b2,@b3,@b4]
+                    },
+                    {
+                        name: 'Suficiente',
+                        color: '#FFC000',
+                        data: [@s,@s1,@s2,@b3,@b4]
+                    }
+                        ,
+                    {
+                        name: 'Deficiente',
+                        color: '#FF0000',
+                        data: [@d,@d1,@d2,@d3,@d4]
+                    }]
+
+                });
+
         </script>
+
     </div>
 </div>
 
