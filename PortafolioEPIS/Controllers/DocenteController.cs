@@ -102,7 +102,7 @@ namespace PortafolioEPIS.Controllers
             return Redirect("~/Docente");
         }
 
-        //PDF
+        //Generar Reportes PDF
 
         public ActionResult Reports(string ReportType)
         {
