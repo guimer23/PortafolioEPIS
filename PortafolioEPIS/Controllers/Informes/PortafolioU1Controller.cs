@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PortafolioEPIS.Models;
+using System.IO;
 
 namespace PortafolioEPIS.Controllers.Informes
 {
@@ -57,8 +58,26 @@ namespace PortafolioEPIS.Controllers.Informes
 
                 archivo.SaveAs(Server.MapPath("~/Imagen/" + archivo.FileName));
                 objEvidencia.Archivo_Material = archivo.FileName;
+                objEvidencia.TipoArchivo_Material = Path.GetExtension(archivo.FileName);
+                objEvidencia.PesoArchivo_Material = Convert.ToString(Math.Round((Convert.ToDecimal(archivo.ContentLength) / (1024 * 1024)), 2)) + " Mb";
             }
             
+            objEvidencia.Guardar();
+            return Redirect("~/PortafolioU1/Agregar/" + Codigo_detalle_carga);
+        }
+
+        [HttpPost]
+        public ActionResult Evidencia1(Tbl_Material objEvidencia, HttpPostedFileBase archivo1, int Codigo_detalle_carga)
+        {
+            if (archivo1 != null)
+            {
+
+                archivo1.SaveAs(Server.MapPath("~/Imagen/" + archivo1.FileName));
+                objEvidencia.Archivo_Material = archivo1.FileName;
+                objEvidencia.TipoArchivo_Material= Path.GetExtension(archivo1.FileName);
+                objEvidencia.PesoArchivo_Material= Convert.ToString(Math.Round((Convert.ToDecimal(archivo1.ContentLength) / (1024 * 1024)), 2)) + " Mb";
+            }
+
             objEvidencia.Guardar();
             return Redirect("~/PortafolioU1/Agregar/" + Codigo_detalle_carga);
         }
@@ -83,6 +102,45 @@ namespace PortafolioEPIS.Controllers.Informes
             //    return View("~/Views/PruebaEntrada/Agregar.cshtml");
             //}
 
+        }
+
+        public ActionResult Guardar1(Tbl_Material objmaterial, int idprueba, string material, string tipo, string evidencia, int cantidad, string descripcion,int codigo)
+        {
+
+           
+            objmaterial.Codigo_Portafolio = idprueba;
+            objmaterial.Nombre_Material = material;
+            objmaterial.Estado_Material = tipo;
+            //objmaterial.Archivo_Material = evidencia;
+            objmaterial.Cantidad_Material = cantidad;
+            objmaterial.Descripcion_Material = descripcion;
+            objmaterial.Tipo_Material = "ESTUDIANTE";
+       
+            objmaterial.Guardar();
+            return Redirect("~/PortafolioU1/Agregar/" + codigo);
+        }
+
+        [HttpPost]
+        public ActionResult CargarImagen(Tbl_Material objmaterial,HttpPostedFileBase evidenciae)
+        {
+            if (ModelState.IsValid)
+            {
+
+                if (evidenciae != null)
+                {
+                    string archivo = (evidenciae.FileName).ToLower();
+
+                    evidenciae.SaveAs(Server.MapPath("~/Imagen/" + evidenciae.FileName));
+                    objmaterial.Archivo_Material = evidenciae.FileName;
+                }
+
+                objmaterial.Guardar();
+                return Redirect("~/PortafolioU1/Agregar/" );
+            }
+            else
+            {
+                return View("~/Views/Docente/Agregar.cshtml");
+            }
         }
     }
 }
