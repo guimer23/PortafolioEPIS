@@ -212,10 +212,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                {
-                                    asisten = @Model.Matriculados_DetalleCargaAcademica - retirados - abandonos;
-                                    desaprobados = asisten - aprobados;
-                                }
+
+                            }
+                            @{
+                            asisten = @Model.Matriculados_DetalleCargaAcademica - retirados - abandonos;
+                            desaprobados = asisten - aprobados;
                             }
 
                             <div class="row clearfix">
