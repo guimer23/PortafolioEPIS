@@ -164,9 +164,33 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group form-focus">
+
                                             <input type="text" name="idprueba" id="idprueba" value="@idpruebas" class="form-control floating" hidden>
+                                            @*<script type="text/javascript">
+            function Habilitar() {
+                var eva;
+                eva = document.getElementById("evaluados").value;
+                if (eva === "") {
+
+                    evaluados.disabled = false;
+
+                }
+                else {
+                    evaluados.disabled = true;
+                }
+            }
+        </script>*@
                                             <label class="focus-label">Evaluados:<span class="text-danger">*</span></label>
-                                            <input type="text" name="evaluados" id="evaluados" value="@evaluados" class="form-control floating">
+                                            @if (evaluados ==0)
+                                            {
+                                                <input type="text" name="evaluados" id="evaluados" value="@evaluados"  class="form-control floating">
+                                            }
+                                            else
+                                            {
+                                                <input readonly class="form-control floating" type="text" name="evaluados" id="evaluados" value="@evaluados" >
+                                            }
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -273,7 +297,7 @@
         }
         else
         {
-            <!--mensaje de alerta-->
+            
         }
     </div>
 </div>
@@ -292,4 +316,5 @@
         var idp = document.getElementById("idprueba").value;
         window.location.href = '@Url.Content("~/ConocimientoHabilidad/Guardar/")' + "?nombre=" + nombre + "&deficiente=" + deficiente + "&suficiente=" + suficiente + "&idprueba=" + idp + "&bueno=" + bueno+ "&codigo=" + @Model.Codigo_DetalleCargaAcademica;
     }
+
 </script>

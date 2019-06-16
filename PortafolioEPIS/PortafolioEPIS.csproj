@@ -839,6 +839,8 @@
     <Content Include="Portafolio_dbDataSet2.xss">
       <DependentUpon>Portafolio_dbDataSet2.xsd</DependentUpon>
     </Content>
+    <Content Include="Views\Docente\VistaPruebaEntrada.cshtml" />
+    <Content Include="Views\Docente\VistaPortafolioU.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

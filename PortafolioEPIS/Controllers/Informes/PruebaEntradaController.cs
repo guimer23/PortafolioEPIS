@@ -53,6 +53,28 @@ namespace PortafolioEPIS.Controllers.Informes
 
         }
 
+        public ActionResult GuardarEstado(Tbl_PruebaEntrada objPruebaEntrada, int id=0,int codigodetalle=0,int evaluados=0,string estado=null,int iddocente=0)
+        {
+
+           
+                
+                objPruebaEntrada.Estado_PruebaEntrada = estado;
+           
+           
+
+            objPruebaEntrada.Codigo_PruebaEntrada = id;
+            objPruebaEntrada.Codigo_DetalleCargaAcademica = codigodetalle;
+            objPruebaEntrada.Evaluados_PruebaEntrada = evaluados;
+            objPruebaEntrada.Fecha_PruebaEntrada = DateTime.Now;
+            objPruebaEntrada.Guardar();
+
+            return Redirect("~/Docente/Ver/" + iddocente);
+
+        }
+
+    
+
+
         //Action Eliminar
 
         public ActionResult Eliminar(int id)

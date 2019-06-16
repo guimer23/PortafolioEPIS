@@ -157,7 +157,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group form-focus">
-                                            <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
+                                            <input type="text" name="idprueba" id="idprueba" value="@idpruebas" class="form-control floating" hidden>
                                             <label class="focus-label">Retirados:<span class="text-danger">*</span></label>
                                             <input type="text" name="retirados" id="retirados" class="form-control floating">
                                         </div>
@@ -165,14 +165,14 @@
 
                                     <div class="col-md-3">
                                         <div class="form-group form-focus">
-                                            <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
+                                            
                                             <label class="focus-label">Abandonos:<span class="text-danger">*</span></label>
                                             <input type="text" name="abandonos" id="abandonos" class="form-control floating">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group form-focus">
-                                            <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
+                                           
                                             <label class="focus-label">Aprobados:<span class="text-danger">*</span></label>
                                             <input type="text" name="aprobados" id="aprobados" class="form-control floating">
                                         </div>
@@ -212,10 +212,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                {
-                                    asisten = @Model.Matriculados_DetalleCargaAcademica - retirados - abandonos;
-                                    desaprobados = asisten - aprobados;
-                                }
+
+                            }
+                            @{
+                            asisten = @Model.Matriculados_DetalleCargaAcademica - retirados - abandonos;
+                            desaprobados = asisten - aprobados;
                             }
 
                             <div class="row clearfix">

@@ -88,6 +88,7 @@ namespace PortafolioEPIS.Models
 
                     if (this.Codigo_PruebaEntrada > 0)
                     {
+                        
                         //si existe un valor mayor que cero es por que existe el registro
                         db.Entry(this).State = EntityState.Modified;
                     }
