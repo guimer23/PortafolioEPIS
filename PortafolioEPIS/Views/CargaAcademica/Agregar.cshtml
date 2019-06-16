@@ -12,30 +12,33 @@
     <div class="col-md-12">
         <div class="card-box">
             <h4 class="card-title">Información de Carga Académica</h4>
-            @using (Html.BeginForm("Guardar", "CargaAcademica", FormMethod.Post, new { id = "frm-CargaAcademica" }))
+            @using (Html.BeginForm("Guardar", "CargaAcademica", FormMethod.Post, new { id = "needs-validation", @novalidate = "novalidate" }))
             {
                 @Html.HiddenFor(x => x.Codigo_CargaAcademica)
                 <div class="row clearfix">
                     <div class="col-md-4">
                         @Html.Label("Semestre")
-                        <select name="Codigo_Semestre" class="form-control">
-                            <option value=""> -- Seleccione --</option>
+                        <select name="Codigo_Semestre" class="form-control"  id="validationCustom01" required="required">
+                            <option value=""> - Seleccione -</option>
                             @foreach (var e in objSemestre)
                             {
                                 if (e.Estado_Semestre == true)
                                 {
-
                                     <option @(Model.Codigo_Semestre.Equals(e.Codigo_Semestre) ? "selected" : "") value="@e.Codigo_Semestre">@e.Nombre_Semestre</option>
                                 }
                             }
                         </select>
-                        @Html.ValidationMessageFor(x => x.Codigo_Semestre, null, new { @class = "label label-danger" })
+                        <div class="invalid-feedback">
+                            Seleccionar Semestre
+                        </div>
                     </div>
                     <div class="col-md-8">
                         @Html.Label("Nombre")
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.Nombre_CargaAcademica, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(x => x.Nombre_CargaAcademica, null, new { @class = "label label-danger" })
+                            @Html.TextBoxFor(x => x.Nombre_CargaAcademica, new { @class = "form-control", id = "validationCustom02", required = "required" })
+                            <div class="invalid-feedback">
+                                Ingrese Nombre
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -44,18 +47,22 @@
                     <div class="col-md-4">
                         @Html.Label("Fecha Inicio")
                         <div class="form-group">
-                            <div class="cal-icon">
-                                @Html.TextBoxFor(x => x.FechaInicio_CargaAcademica, new { @class = "form-control datetimepicker", @placeholder = "Ingrese Fecha" })
-                                @Html.ValidationMessageFor(x => x.FechaInicio_CargaAcademica, null, new { @class = "label label-danger" })
+                            <div>
+                                @Html.TextBoxFor(x => x.FechaInicio_CargaAcademica, new { @class = "form-control", @Type="date", id = "validationCustom03", required = "required" })
+                                <div class="invalid-feedback">
+                                    Seleccione Fecha Inicio
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         @Html.Label("Fecha Fin")
                         <div class="form-group">
-                            <div class="cal-icon">
-                                @Html.TextBoxFor(x => x.FechaFin_CargaAcademica, new { @class = "form-control datetimepicker", @placeholder = "Ingrese Fecha" })
-                                @Html.ValidationMessageFor(x => x.FechaFin_CargaAcademica, null, new { @class = "label label-danger" })
+                            <div>
+                                @Html.TextBoxFor(x => x.FechaFin_CargaAcademica, new { @class = "form-control", @Type = "date", id = "validationCustom04", required = "required" })
+                                <div class="invalid-feedback">
+                                    Seleccione Fecha Fin
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -74,11 +81,11 @@
                             <div class="form-group row">
                                 <div class="col-sm-8 col-9 text-left">
                                     <div class="form-check form-check-inline">
-                                        <a href="~/CargaAcademica/Index" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'> Cancelar</a>
+                                        <a href="~/CargaAcademica/Index" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'><i class="fa fa-close"></i>  Cancelar</a>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input type="submit" value="Guardar" class="btn btn btn-primary btn-rounded" style='width:100px; height:35px' />
-                                    </div>
+                                        <button class="btn btn-primary btn-rounded" style='width:100px; height:35px' type="submit"><i class="fa fa-check"></i> Guardar</button>
+                                    </div>                                    
                                 </div>
                             </div>
                         </div>
@@ -89,3 +96,21 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+
+        window.addEventListener('load', function () {
+            var form = document.getElementById('needs-validation');
+            form.addEventListener('submit', function (event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        }, false);
+    })();
+</script>
