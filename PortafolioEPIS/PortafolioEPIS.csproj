@@ -667,6 +667,7 @@
     <Compile Include="Controllers\DetallePlanEstudioController.cs" />
     <Compile Include="Controllers\DocenteController.cs" />
     <Compile Include="Controllers\Informes\ConocimientoHabilidadController.cs" />
+    <Compile Include="Controllers\Informes\InformeFinalController.cs" />
     <Compile Include="Controllers\Informes\MedidasCorrectivasController.cs" />
     <Compile Include="Controllers\Informes\PortafolioController.cs" />
     <Compile Include="Controllers\Informes\PortafolioU1Controller.cs" />
@@ -850,6 +851,7 @@
     <Content Include="Views\Docente\VistaPruebaEntrada.cshtml" />
     <Content Include="Views\Docente\VistaPortafolioU.cshtml" />
     <Content Include="Views\Docente\ListaPDFDocente.cshtml" />
+    <Content Include="Views\InformeFinal\Agregar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
