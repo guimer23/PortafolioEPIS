@@ -168,19 +168,19 @@
 
                                             <input type="text" name="idprueba" id="idprueba" value="@idpruebas" class="form-control floating" hidden>
                                             @*<script type="text/javascript">
-            function Habilitar() {
-                var eva;
-                eva = document.getElementById("evaluados").value;
-                if (eva === "") {
+                                                function Habilitar() {
+                                                    var eva;
+                                                    eva = document.getElementById("evaluados").value;
+                                                    if (eva === "") {
 
-                    evaluados.disabled = false;
+                                                        evaluados.disabled = false;
 
-                }
-                else {
-                    evaluados.disabled = true;
-                }
-            }
-        </script>*@
+                                                    }
+                                                    else {
+                                                        evaluados.disabled = true;
+                                                    }
+                                                }
+                                            </script>*@
                                             <label class="focus-label">Evaluados:<span class="text-danger">*</span></label>
                                             @if (evaluados ==0)
                                             {
@@ -188,7 +188,7 @@
                                             }
                                             else
                                             {
-                                                <input readonly class="form-control floating" type="text" name="evaluados" id="evaluados" value="@evaluados" >
+                                                <input style="background:#ffffff" readonly class="form-control floating" type="text" name="evaluados" id="evaluados" value="@evaluados" >
                                             }
 
 
