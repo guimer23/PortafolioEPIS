@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PortafolioEPIS.Models;
+using Rotativa;
 
 namespace PortafolioEPIS.Controllers.Informes
 {
@@ -95,6 +96,19 @@ namespace PortafolioEPIS.Controllers.Informes
         {
             ViewBag.prueba = objPruebaEntrada.Listar();
             return View(objDetalleCargaAcademica.Obtener(id));
+        }
+
+
+        //parte guimer PDF
+
+        // Metodo para Imprimir PDF Docente
+        public ActionResult ListaPDFPruebaEntrada()
+        {
+            return View(objPruebaEntrada.Listar());
+        }
+        public ActionResult ExportaAPDF()
+        {
+            return new ActionAsPdf("Agregar");
         }
     }
 }

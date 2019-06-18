@@ -1,0 +1,136 @@
+﻿@model List<PortafolioEPIS.Models.Tbl_Docente>
+@using PortafolioEPIS.Models
+@{
+    Layout = null;
+}
+
+
+
+
+<meta name="viewport" content="width=device-width" />
+<title>ListaPDFDocente</title>
+<link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="~/assets/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="~/assets/css/style.css">
+
+
+
+<h2 class="text-center">LISTADO DE DOCENTES - EPIS</h2>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card-box">
+            <div class="table-responsive">
+                <table id="example" class="table table-hover">
+
+                    <tr>
+                        <td><strong>#</strong></td>
+                        <td><strong>Codigo</strong></td>
+                        <td><strong>Nombres y Apellidos</strong></td>
+                        <td><strong>Correo</strong></td>
+                        <td><strong>Celular</strong></td>
+                    </tr>
+
+                    <tbody>
+                        @{ int num = 0;}
+                        @foreach (var s in Model)
+                        {
+                            num = num + 1;
+                            <tr>
+                                <td>@num</td>
+                                <td>@(s.Codigo_Docenteepis)</td>
+                                <td>@(s.Nombres_Docente + " " + s.Apellidos_Docente) </td>
+                                <td>@(s.Correo_Docente)</td>
+                                <td>@(s.TelefonoCelular_Docente)</td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+<!--Resumen general de Semestre-->
+<br />
+@{
+    int cantActivos = 0, cantInactivos = 0, cantHombres = 0, cantMujeres = 0;
+    foreach (var s in Model)
+    {
+        if (s.Estado_Docente.Equals(true))
+        {
+            cantActivos++;
+        }
+        else
+        {
+            cantInactivos++;
+        }
+        if (s.Sexo_Docente.Equals(true))
+        {
+            cantHombres++;
+        }
+        else
+        {
+            cantMujeres++;
+        }
+    }
+}
+
+<div class="card-box profile-header">
+    <div class="row clearfix">
+        <div class="col-md-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">RESUMEN - CANTIDAD DE REGISTROS</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="profile-view">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="profile-info-left">
+                            <ul class="personal-info">
+                                <li>
+                                    <span class="title">Docentes Hombres:</span>
+                                    <span class="text">@cantHombres</span>
+                                </li>
+                                <li>
+                                    <span class="title">Docentes Mujeres:</span>
+                                    <span class="text">@cantMujeres</span>
+                                </li>
+                                <li>
+                                    <span class="title">Total Docentes:</span>
+                                    <span class="text">@(cantMujeres + cantHombres)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="personal-info">
+                            <li>
+                                <span class="title">Docentes Activos:</span>
+                                <span class="text">@cantActivos</span>
+                            </li>
+                            <li>
+                                <span class="title">Docentes Inactivos:</span>
+                                <span class="text">@cantInactivos</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
