@@ -146,86 +146,95 @@
                                         <th class="text-center">Porcentaje</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Porcentaje de cumplimiento del sílabo</td>
-                                        <td><input type="text" class="form-control text-center" value="80"></td>
-                                        <td class="text-center">80%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Practicas calificada realizadas</td>
-                                        <td><input type="text" class="form-control text-center" value="6"></td>
-                                        <td class="text-center">100%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Experiencias de laboratorio realizadas</td>
-                                        <td><input type="text" class="form-control text-center" value="5"></td>
-                                        <td class="text-center">100%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Proyectos y/o trabajos de realizados</td>
-                                        <td><input type="text" class="form-control text-center" value="3"></td>
-                                        <td class="text-center">100%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Estudiantes Matriculados</td>
-                                        <td><input type="text" readonly class="form-control text-center" value="30"></td>
-                                        <td class="text-center">100%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>Estudiantes con retiro</td>
-                                        <td><input type="text" class="form-control text-center" value="2"></td>
-                                        <td class="text-center">6.7%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Estudiantes en abandono</td>
-                                        <td><input type="text" class="form-control text-center" value="3"></td>
-                                        <td class="text-center">10%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>8</td>
-                                        <td>Estudiantes que asisten</td>
-                                        <td><input type="text" readonly class="form-control text-center" value="25"></td>
-                                        <td class="text-center">83.3%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>9</td>
-                                        <td>Estudiantes Aprobados</td>
-                                        <td><input type="text" class="form-control text-center" value="15"></td>
-                                        <td class="text-center">50%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>10</td>
-                                        <td>Estudiantes Desaprobados</td>
-                                        <td><input type="text" readonly class="form-control text-center" value="10"></td>
-                                        <td class="text-center">33.3%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>11</td>
-                                        <td>Nota final mas alta</td>
-                                        <td><input type="text" class="form-control text-center" value="18"></td>
-                                        <td class="text-center"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>12</td>
-                                        <td>Nota final promedio</td>
-                                        <td><input type="text" class="form-control text-center" value="14"></td>
-                                        <td class="text-center"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>13</td>
-                                        <td>Nota final mas baja</td>
-                                        <td><input type="text" class="form-control text-center" value="10"></td>
-                                        <td class="text-center"></td>
-                                    </tr>
-                                </tbody>
+                                @using (Html.BeginForm("Evidencia", "PortafolioU1", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+
+                                    <!-- Modal / Ventana / Overlay en HTML -->
+                                    <td><input type="text" name="Codigo_Portafolio" value="@idpruebas" hidden /></td>
+                                    <td><input type="text" name="Codigo_detalle_carga" value="@Model.Codigo_DetalleCargaAcademica" hidden /></td>
+
+                                    <tbody>
+                                        <tr>
+
+                                            <td>1</td>
+                                            <td>Porcentaje de cumplimiento del sílabo</td>
+                                            <td><input type="text" name="PorcentajeSilabo_InformeFinal" id="PorcentajeSilabo_InformeFinal" class="form-control text-center" value="80"></td>
+                                            <td class="text-center">80%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Practicas calificada realizadas</td>
+                                            <td><input type="text" class="form-control text-center" value="6"></td>
+                                            <td class="text-center">100%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Experiencias de laboratorio realizadas</td>
+                                            <td><input type="text" class="form-control text-center" value="5"></td>
+                                            <td class="text-center">100%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Proyectos y/o trabajos de realizados</td>
+                                            <td><input type="text" class="form-control text-center" value="3"></td>
+                                            <td class="text-center">100%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>Estudiantes Matriculados</td>
+                                            <td><input type="text" readonly class="form-control text-center" value="30"></td>
+                                            <td class="text-center">100%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>Estudiantes con retiro</td>
+                                            <td><input type="text" class="form-control text-center" value="2"></td>
+                                            <td class="text-center">6.7%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>Estudiantes en abandono</td>
+                                            <td><input type="text" class="form-control text-center" value="3"></td>
+                                            <td class="text-center">10%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>Estudiantes que asisten</td>
+                                            <td><input type="text" readonly class="form-control text-center" value="25"></td>
+                                            <td class="text-center">83.3%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>Estudiantes Aprobados</td>
+                                            <td><input type="text" class="form-control text-center" value="15"></td>
+                                            <td class="text-center">50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>Estudiantes Desaprobados</td>
+                                            <td><input type="text" readonly class="form-control text-center" value="10"></td>
+                                            <td class="text-center">33.3%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>11</td>
+                                            <td>Nota final mas alta</td>
+                                            <td><input type="text" class="form-control text-center" value="18"></td>
+                                            <td class="text-center"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>Nota final promedio</td>
+                                            <td><input type="text" class="form-control text-center" value="14"></td>
+                                            <td class="text-center"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>13</td>
+                                            <td>Nota final mas baja</td>
+                                            <td><input type="text" class="form-control text-center" value="10"></td>
+                                            <td class="text-center"></td>
+                                        </tr>
+                                    </tbody>
+                                }
                             </table>
                         </div>
 
