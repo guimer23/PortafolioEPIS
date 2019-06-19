@@ -45,8 +45,34 @@ namespace PortafolioEPIS.Controllers.Informes
             // ViewBag.ObtenerEvidencia = objMaterial.ObtenerEvidencia(id);//esto es en el caso de s¿que se agregue modificar
             return View(objDetalleCargaAcademica.Obtener(id));
         }
+        // s @Model.Codigo_DetalleCargaAcademica + "&estado=" + stado + "&prorealizados=" + prorealizados + "&matriculados=" + matriculados + "&estretiro=" + estretiro + "&estabandono=" + estabandono + "&estasistentes=" + estasistentes + "&estaprobados=" + estaprobados + "&estdesaprobados=" + estdesaprobados + "&notaalta=" + notaalta + "&notapromedio=" + notapromedio + "&notabaja=" + notabaja;
 
-        public ActionResult Ver(int id)
+        public ActionResult Guardar1(Tbl_InformeFinal objInformeFinal, int idprueba, int psilabo, int prarealizadas, int elaboratorio, int codigo, string estado, int prorealizados, int matriculados, int estretiro, int estabandono, int estasistentes, int estaprobados, int estdesaprobados, int notaalta, int notapromedio, int notabaja)
+        {
+
+            objInformeFinal.Codigo_Portafolio = idprueba;
+            objInformeFinal.Codigo_DetalleCargaAcademica = codigo;
+            objInformeFinal.PorcentajeSilabo_InformeFinal = psilabo;
+            objInformeFinal.PracticasCalificadas_InformeFinal = prarealizadas;
+            objInformeFinal.LaboratoriosRealizados_InformeFinal = elaboratorio;
+            objInformeFinal.TrabajosRealizados_InformeFinal = prorealizados;
+            objInformeFinal.Codigo_Portafolio = 1;
+            objInformeFinal.EstudiantesMatriculados_InformeFinal = matriculados;
+            objInformeFinal.EstudiantesRetiro_InformeFinal = estretiro;
+            objInformeFinal.EstudiantesAbandono_InformeFinal = estabandono;
+            objInformeFinal.EstudiantesAsisten_InformeFinal = estasistentes;
+            objInformeFinal.EstudiantesAprobados_InformeFinal = estaprobados;
+            objInformeFinal.EstudiantesDesaprobados_InformeFinal = estdesaprobados;
+            objInformeFinal.NotaAlta_InformeFinal = notaalta;
+            objInformeFinal.NotaPromedio_InformeFinal =notapromedio;
+            objInformeFinal.NotaBaja_InformeFinal = notabaja;
+            objInformeFinal.Fecha_InformeFinal= DateTime.Now;
+            objInformeFinal.Estado_InformeFinal = estado;
+            objInformeFinal.Guardar();
+            return Redirect("~/InformeFinal/Agregar/" + codigo);
+        }
+
+            public ActionResult Ver(int id)
         {
             return View(objInformeFinal.Obtener(id));
         }
