@@ -1,4 +1,13 @@
-﻿
+﻿@model PortafolioEPIS.Models.Tbl_DetalleCargaAcademica
+
+@{
+    List<PortafolioEPIS.Models.Tbl_InformeFinal> prueba = ViewBag.Prueba;
+    List<PortafolioEPIS.Models.Tbl_Observaciones> ListarInformeFinal = ViewBag.ListarInformeFinal;
+    int idpruebas = 0;
+
+
+
+}
 <div class="row">
     <div class="col-sm-7 col-6">
         <h4 class="page-title">Informe Final </h4>
@@ -30,13 +39,13 @@
                             <div class="col-md-4">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Codigo:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="ING-101">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">
                                 </div>
                             </div>
                             <div class="col-md-8">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Asignatura:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="MATEMATICA I">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio">
                                 </div>
                             </div>
                         </div>
@@ -44,31 +53,31 @@
                             <div class="col-md-2">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Sección:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="A">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Seccion.Nombre_Seccion">
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Ciclo:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="I">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio">
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Horas:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="6">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio">
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Créditos:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="4">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Tipo Curso:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="Obligatorio">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio">
                                 </div>
                             </div>
                         </div>
@@ -85,13 +94,13 @@
                             <div class="col-md-4">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Codigo:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="201353">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Docente.Codigo_Docenteepis">
                                 </div>
                             </div>
                             <div class="col-md-8">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Nombre:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="Javier Alca">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Docente.Nombres_Docente @Model.Tbl_Docente.Apellidos_Docente">
                                 </div>
                             </div>
                         </div>
@@ -99,16 +108,24 @@
                             <div class="col-md-8">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Email:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="alca@hotmail.com">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Docente.Correo_Docente">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Celular:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="995686832">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Docente.TelefonoCelular_Docente">
                                 </div>
                             </div>
                         </div>
+                        @foreach (var p in prueba)
+                        {
+                            if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica )
+                            {
+                                idpruebas = p.Codigo_Portafolio;
+                          
+                            }
+                        }
                         <div class="row clearfix">
                             <div class="col-md-12">
                                 <nav aria-label="breadcrumb">
@@ -117,7 +134,7 @@
                                     </ol>
                                 </nav>
                             </div>
-                        </div>  
+                        </div>
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
@@ -125,7 +142,7 @@
                                         <th>#</th>
                                         <th>Item</th>
                                         <th class="text-center">Cantidad</th>
-                                        <th class="text-center">Porcentaje</th>                                        
+                                        <th class="text-center">Porcentaje</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -418,11 +435,11 @@
                                                 </div>
                                             </div>
 
-                                            
+
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>                                        
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                         <button class="btn btn-primary btn-rounded" style='width:100px; height:35px' type="submit"><i class="fa fa-check"></i> Guardar</button>
                                     </div>
                                 </div>
@@ -438,13 +455,13 @@
                                         <th rowspan="2">Capacidades del curso</th>
                                         <th class="text-center" colspan="5">Nivel Alcanzado</th>
                                         <th rowspan="2" class="text-right">Accción</th>
-                                    </tr>                                    
+                                    </tr>
                                     <tr>
                                         <th class="text-center">Nada</th>
                                         <th class="text-center">Poco</th>
                                         <th class="text-center">Aceptable</th>
                                         <th class="text-center">Bien</th>
-                                        <th class="text-center">Muy Bien</th>                                        
+                                        <th class="text-center">Muy Bien</th>
                                     </tr>
                                 </thead>
                                 <tbody>

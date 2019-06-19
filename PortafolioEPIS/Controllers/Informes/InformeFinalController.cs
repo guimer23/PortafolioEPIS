@@ -11,15 +11,39 @@ namespace PortafolioEPIS.Controllers.Informes
     {
 
         Tbl_InformeFinal objInformeFinal = new Tbl_InformeFinal();
+        private Tbl_DetalleCargaAcademica objDetalleCargaAcademica = new Tbl_DetalleCargaAcademica();
+        Tbl_Observaciones objObservaciones = new Tbl_Observaciones();
         // GET: InformeFinal
         public ActionResult Index()
         {
             return View();
         }
         // Metodo Agregar
-        public ActionResult Agregar()
+        public ActionResult Agregar(int id)
         {
-            return View();
+            ViewBag.prueba = objInformeFinal.Listar();
+            List<Tbl_InformeFinal> listInformeFinal = objInformeFinal.Listar();
+            int foerach = 0;
+
+
+            foreach (var listaInforme in listInformeFinal)
+            {
+                if (listaInforme.Codigo_DetalleCargaAcademica == id)
+                {
+                    ViewBag.ListarObservaciones = objObservaciones.Listar(listaInforme.Codigo_InformeFinal); //obtener la lista deevidencias de un  portafolio
+                    foerach++;
+                }
+
+            }
+
+            if (foerach == 0)
+            {
+                ViewBag.ListarInformeFinal = objObservaciones.Listar(0); //obtener la lista deevidencias de un  portafolio
+            }
+
+
+            // ViewBag.ObtenerEvidencia = objMaterial.ObtenerEvidencia(id);//esto es en el caso de s¿que se agregue modificar
+            return View(objDetalleCargaAcademica.Obtener(id));
         }
 
         public ActionResult Ver(int id)
