@@ -7,6 +7,7 @@ using PortafolioEPIS.Models;
 using System.Data.Entity;
 using System.IO;
 using Microsoft.Reporting.WebForms;
+using Rotativa;
 
 namespace PortafolioEPIS.Controllers
 {
@@ -158,6 +159,21 @@ namespace PortafolioEPIS.Controllers
             Response.AddHeader("content-disposition", "attachment;filename= Cargo_Docentes." + fileNameExtension);
             return File(renderedByte, fileNameExtension);
         }
+
+
+        //parte guimer PDF
+
+        // Metodo para Imprimir PDF Docente
+        public ActionResult ListaPDFDocente()
+        {
+            return View(objDocente.Listar());
+        }
+        public ActionResult ExportaAPDF()
+        {
+            return new ActionAsPdf("ListaPDFDocente");
+        }
+
+        
 
     }
 }

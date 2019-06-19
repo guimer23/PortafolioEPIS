@@ -4,19 +4,22 @@
         ViewBag.Title = "Index";
     }
 
-    <div class="row">
-        <div class="col-sm-4 col-3">
-            <h4 class="page-title">Lista de Docentes</h4>
+<div class="row">
+    <div class="col-sm-4 col-3">
+        <h4 class="page-title">Lista de Docentes</h4>
+    </div>
+    <a href="~/Docente/ExportaAPDF" target="_blank" class="btn btn-danger">
+        <i class="fa fa-file-pdf-o"></i> <span class="hidden-xs hidden-sm">Descargar en PDF</span>
+    </a>
+    <div class="col-sm-8 col-9 text-right m-b-20">
+        <div class="form-check form-check-inline">
+            <a href="~/Docente/Index2" class="btn btn btn-outline-primary btn-rounded"><i class="fa fa-table"></i> Cambiar Vista</a>
         </div>
-        <div class="col-sm-8 col-9 text-right m-b-20">
-            <div class="form-check form-check-inline">
-                <a href="~/Docente/Index2" class="btn btn btn-outline-primary btn-rounded"><i class="fa fa-table"></i> Cambiar Vista</a>
-            </div>
-            <div class="form-check form-check-inline">
-                <a href="~/Docente/Agregar" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Nuevo Registro</a>
-            </div>
+        <div class="form-check form-check-inline">
+            <a href="~/Docente/Agregar" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Nuevo Registro</a>
         </div>
     </div>
+</div>
     
     <div class="row">
         <div class="col-md-12">
