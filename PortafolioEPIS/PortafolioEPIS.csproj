@@ -858,6 +858,7 @@
     <Content Include="Views\Docente\ListaPDFDocente.cshtml" />
     <Content Include="Views\InformeFinal\Agregar.cshtml" />
     <Content Include="Views\Error\ErrorPage.cshtml" />
+    <Content Include="Views\InformeFinal\AgregarObservaciones.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
