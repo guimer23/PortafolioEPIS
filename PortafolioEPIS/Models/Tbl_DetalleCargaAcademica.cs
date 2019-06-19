@@ -58,5 +58,126 @@ namespace PortafolioEPIS.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_PruebaEntrada> Tbl_PruebaEntrada { get; set; }
+
+        //Metodo Listar
+        public List<Tbl_DetalleCargaAcademica> Listar()
+        {
+            var objDetalleCargaAcademica = new List<Tbl_DetalleCargaAcademica>();
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    objDetalleCargaAcademica = db.Tbl_DetalleCargaAcademica.Include("Tbl_CargaAcademica")
+                                                                            .Include("Tbl_PlanEstudio")
+                                                                            .Include("Tbl_Docente")
+                                                                            .Include("Tbl_Seccion")
+                                                                            .Include("Tbl_DetallePlanEstudio")
+                                                                            .Include("Tbl_Semestre")
+                                                                            .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objDetalleCargaAcademica;
+        }
+
+        //Metodo Listar 2 usado en el controlador detalle carga academica en la vista index 
+
+        public List<Tbl_DetalleCargaAcademica> Listar2(int id)
+        {
+            var objDetalleCargaAcademica = new List<Tbl_DetalleCargaAcademica>();
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    objDetalleCargaAcademica = db.Tbl_DetalleCargaAcademica.Include("Tbl_CargaAcademica")
+                                                                            .Include("Tbl_PlanEstudio")
+                                                                            .Include("Tbl_Docente")
+                                                                            .Include("Tbl_Seccion")
+                                                                            .Include("Tbl_DetallePlanEstudio")
+                                                                            .Include("Tbl_Semestre")
+                                                                            .Where(x => x.Codigo_CargaAcademica == id)
+                                                                            .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objDetalleCargaAcademica;
+        }
+
+        //Metodo Obtener
+        public Tbl_DetalleCargaAcademica Obtener(int id)//retorna solo un objeto
+        {
+            var objCargaAcademica = new Tbl_DetalleCargaAcademica();
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    objCargaAcademica = db.Tbl_DetalleCargaAcademica.Include("Tbl_CargaAcademica")
+                                                                            .Include("Tbl_PlanEstudio")
+                                                                            .Include("Tbl_Docente")
+                                                                            .Include("Tbl_Seccion")
+                                                                            .Include("Tbl_DetallePlanEstudio")
+                                                                            .Include("Tbl_Semestre")
+                                    .Where(x => x.Codigo_DetalleCargaAcademica == id)
+                                    .SingleOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objCargaAcademica;
+        }
+
+        //Metodo Guardar
+
+        public void Guardar()
+        {
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+
+                    if (this.Codigo_DetalleCargaAcademica > 0)
+                    {
+                        //si existe un valor mayor que cero es por que existe el registro
+                        db.Entry(this).State = EntityState.Modified;
+                    }
+                    else
+                    {
+                        ///no existe el registro lo graba (Nuevo)
+                        db.Entry(this).State = EntityState.Added;
+
+                    }
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        //metodo Eliminar 
+        public void Eliminar()
+        {
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    db.Entry(this).State = System.Data.Entity.EntityState.Deleted;
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }
