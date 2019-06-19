@@ -1,4 +1,13 @@
-﻿
+﻿@model PortafolioEPIS.Models.Tbl_DetalleCargaAcademica
+
+@{
+    List<PortafolioEPIS.Models.Tbl_InformeFinal> prueba = ViewBag.Prueba;
+    List<PortafolioEPIS.Models.Tbl_Observaciones> ListarInformeFinal = ViewBag.ListarInformeFinal;
+    int idpruebas = 0;
+
+
+
+}
 <div class="row">
     <div class="col-sm-7 col-6">
         <h4 class="page-title">Informe Final </h4>
@@ -17,6 +26,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card-box">
+
                         <div class="row clearfix">
                             <div class="col-md-12">
                                 <nav aria-label="breadcrumb">
@@ -30,13 +40,13 @@
                             <div class="col-md-4">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Codigo:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="ING-101">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">
                                 </div>
                             </div>
                             <div class="col-md-8">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Asignatura:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="MATEMATICA I">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio">
                                 </div>
                             </div>
                         </div>
@@ -44,31 +54,31 @@
                             <div class="col-md-2">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Sección:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="A">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Seccion.Nombre_Seccion">
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Ciclo:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="I">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio">
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Horas:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="6">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio">
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Créditos:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="4">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Tipo Curso:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="Obligatorio">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio">
                                 </div>
                             </div>
                         </div>
@@ -85,13 +95,13 @@
                             <div class="col-md-4">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Codigo:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="201353">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Docente.Codigo_Docenteepis">
                                 </div>
                             </div>
                             <div class="col-md-8">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Nombre:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="Javier Alca">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Docente.Nombres_Docente @Model.Tbl_Docente.Apellidos_Docente">
                                 </div>
                             </div>
                         </div>
@@ -99,16 +109,24 @@
                             <div class="col-md-8">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Email:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="alca@hotmail.com">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Docente.Correo_Docente">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Celular:</label>
-                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="995686832">
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Docente.TelefonoCelular_Docente">
                                 </div>
                             </div>
                         </div>
+                        @foreach (var p in prueba)
+                        {
+                            if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica )
+                            {
+                                idpruebas = p.Codigo_Portafolio;
+                          
+                            }
+                        }
                         <div class="row clearfix">
                             <div class="col-md-12">
                                 <nav aria-label="breadcrumb">
@@ -117,7 +135,7 @@
                                     </ol>
                                 </nav>
                             </div>
-                        </div>  
+                        </div>
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
@@ -125,89 +143,98 @@
                                         <th>#</th>
                                         <th>Item</th>
                                         <th class="text-center">Cantidad</th>
-                                        <th class="text-center">Porcentaje</th>                                        
+                                        <th class="text-center">Porcentaje</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Porcentaje de cumplimiento del sílabo</td>
-                                        <td><input type="text" class="form-control text-center" value="80"></td>
-                                        <td class="text-center">80%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Practicas calificada realizadas</td>
-                                        <td><input type="text" class="form-control text-center" value="6"></td>
-                                        <td class="text-center">100%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Experiencias de laboratorio realizadas</td>
-                                        <td><input type="text" class="form-control text-center" value="5"></td>
-                                        <td class="text-center">100%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Proyectos y/o trabajos de realizados</td>
-                                        <td><input type="text" class="form-control text-center" value="3"></td>
-                                        <td class="text-center">100%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Estudiantes Matriculados</td>
-                                        <td><input type="text" readonly class="form-control text-center" value="30"></td>
-                                        <td class="text-center">100%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>Estudiantes con retiro</td>
-                                        <td><input type="text" class="form-control text-center" value="2"></td>
-                                        <td class="text-center">6.7%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Estudiantes en abandono</td>
-                                        <td><input type="text" class="form-control text-center" value="3"></td>
-                                        <td class="text-center">10%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>8</td>
-                                        <td>Estudiantes que asisten</td>
-                                        <td><input type="text" readonly class="form-control text-center" value="25"></td>
-                                        <td class="text-center">83.3%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>9</td>
-                                        <td>Estudiantes Aprobados</td>
-                                        <td><input type="text" class="form-control text-center" value="15"></td>
-                                        <td class="text-center">50%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>10</td>
-                                        <td>Estudiantes Desaprobados</td>
-                                        <td><input type="text" readonly class="form-control text-center" value="10"></td>
-                                        <td class="text-center">33.3%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>11</td>
-                                        <td>Nota final mas alta</td>
-                                        <td><input type="text" class="form-control text-center" value="18"></td>
-                                        <td class="text-center"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>12</td>
-                                        <td>Nota final promedio</td>
-                                        <td><input type="text" class="form-control text-center" value="14"></td>
-                                        <td class="text-center"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>13</td>
-                                        <td>Nota final mas baja</td>
-                                        <td><input type="text" class="form-control text-center" value="10"></td>
-                                        <td class="text-center"></td>
-                                    </tr>
-                                </tbody>
+                                @using (Html.BeginForm("Evidencia", "PortafolioU1", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+
+                                    <!-- Modal / Ventana / Overlay en HTML -->
+                                    <td><input type="text" name="Codigo_Portafolio" value="@idpruebas" hidden /></td>
+                                    <td><input type="text" name="Codigo_detalle_carga" value="@Model.Codigo_DetalleCargaAcademica" hidden /></td>
+
+                                    <tbody>
+                                        <tr>
+
+                                            <td>1</td>
+                                            <td>Porcentaje de cumplimiento del sílabo</td>
+                                            <td><input type="text" name="PorcentajeSilabo_InformeFinal" id="PorcentajeSilabo_InformeFinal" class="form-control text-center" value="80"></td>
+                                            <td class="text-center">80%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Practicas calificada realizadas</td>
+                                            <td><input type="text" class="form-control text-center" value="6"></td>
+                                            <td class="text-center">100%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Experiencias de laboratorio realizadas</td>
+                                            <td><input type="text" class="form-control text-center" value="5"></td>
+                                            <td class="text-center">100%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Proyectos y/o trabajos de realizados</td>
+                                            <td><input type="text" class="form-control text-center" value="3"></td>
+                                            <td class="text-center">100%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>Estudiantes Matriculados</td>
+                                            <td><input type="text" readonly class="form-control text-center" value="30"></td>
+                                            <td class="text-center">100%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>Estudiantes con retiro</td>
+                                            <td><input type="text" class="form-control text-center" value="2"></td>
+                                            <td class="text-center">6.7%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>Estudiantes en abandono</td>
+                                            <td><input type="text" class="form-control text-center" value="3"></td>
+                                            <td class="text-center">10%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>Estudiantes que asisten</td>
+                                            <td><input type="text" readonly class="form-control text-center" value="25"></td>
+                                            <td class="text-center">83.3%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>Estudiantes Aprobados</td>
+                                            <td><input type="text" class="form-control text-center" value="15"></td>
+                                            <td class="text-center">50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>Estudiantes Desaprobados</td>
+                                            <td><input type="text" readonly class="form-control text-center" value="10"></td>
+                                            <td class="text-center">33.3%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>11</td>
+                                            <td>Nota final mas alta</td>
+                                            <td><input type="text" class="form-control text-center" value="18"></td>
+                                            <td class="text-center"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>Nota final promedio</td>
+                                            <td><input type="text" class="form-control text-center" value="14"></td>
+                                            <td class="text-center"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>13</td>
+                                            <td>Nota final mas baja</td>
+                                            <td><input type="text" class="form-control text-center" value="10"></td>
+                                            <td class="text-center"></td>
+                                        </tr>
+                                    </tbody>
+                                }
                             </table>
                         </div>
 
@@ -234,75 +261,126 @@
                                         <li class="breadcrumb-item active" aria-current="page">GRAFICO 1 : ASISTENCIA DE ESTUDIANTES</li>
                                     </ol>
                                 </nav>
+                                <div id="container" style="width: 450px; height: 400px; margin: 0 auto"></div>
+                                <script type="text/javascript">
+                                    Highcharts.chart('container', {
+                                        chart: {
+                                            type: 'column'
+                                        },
+                                        title: {
+                                            text: 'Estudiantes'
+                                        },
+                                        xAxis: {
+                                            type: 'category'
+                                        },
+                                        yAxis: {
+                                            title: {
+                                                text: 'Total de Estudiantes del Curso'
+                                            }
+
+                                        },
+                                        legend: {
+                                            enabled: false
+                                        },
+                                        ooltip: {
+                                            headerFormat: '<b>{point.x}</b><br/>',
+                                            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                                        }, plotOptions: {
+                                            column: {
+                                                stacking: 'normal',
+                                                dataLabels: {
+                                                    enabled: true,
+                                                }
+                                            }
+                                        },
+
+                                        series: [
+                                            {
+                                                name: "Estudiantes",
+                                                colorByPoint: true,
+                                                data: [
+                                                    {
+                                                        name: 'Matriculados',
+                                                        color: '#ED7D31',
+                                                        y: @*@Model.Matriculados_DetalleCargaAcademica*@30,
+
+                                                    },
+                                                    {
+                                                        name: 'Asisten',
+                                                        color: '#009EFB',
+                                                        y: @*@asisten*@25,
+
+                                                    },
+                                                ]
+                                            }
+                                        ]
+                                    });
+                                </script>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="chart-title">
-                                            <h4>Patient Total</h4>
-                                            <span class="float-right"><i class="fa fa-caret-up" aria-hidden="true"></i> 15% Higher than Last Month</span>
-                                        </div>
-                                        <canvas id="linegraph"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="chart-title">
-                                            <h4>Patients In</h4>
-                                            <div class="float-right">
-                                                <ul class="chat-user-total">
-                                                    <li><i class="fa fa-circle current-users" aria-hidden="true"></i>ICU</li>
-                                                    <li><i class="fa fa-circle old-users" aria-hidden="true"></i> OPD</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <canvas id="bargraph"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+
                         <div class="row clearfix">
                             <div class="col-md-12">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item active" aria-current="page">GRAFICO 2 : RESUMEN GENERAL DE ESTUDIANTES</li>
+                                        <li class="breadcrumb-item active" aria-current="page">GRAFICO 2 : SITUACIÓN GENERAL DE ESTUDIANTES</li>
                                     </ol>
                                 </nav>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="chart-title">
-                                            <h4>Patient Total</h4>
-                                            <span class="float-right"><i class="fa fa-caret-up" aria-hidden="true"></i> 15% Higher than Last Month</span>
-                                        </div>
-                                        <canvas id="linegraph"></canvas>
-                                    </div>
+                                <div id="container2" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto">
+                                    <script type="text/javascript">
+                                        Highcharts.chart('container2', {
+                                            chart: {
+
+                                                type: 'pie'
+                                            },
+                                            title: {
+                                                text: 'Situacion General'
+                                            },
+                                            tooltip: {
+                                                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                            },
+                                            plotOptions: {
+                                                pie: {
+                                                    allowPointSelect: true,
+                                                    cursor: 'pointer',
+                                                    dataLabels: {
+                                                        enabled: true,
+                                                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                                                    }
+                                                    , showInLegend: true
+                                                }
+
+                                            },
+                                            series: [{
+                                                name: 'Situacion',
+                                                data: [{
+                                                    name: 'Aprobados',
+                                                    color: '#00B0F0',
+                                                    y:@*@aprobados*@20,
+                                                },
+                                                {
+                                                    name: 'Desaprobados',
+                                                    color: '#FF0000',
+                                                    y:@*@desaprobados*@5,
+                                                }, {
+                                                    name: 'Retirados',
+                                                    color: '#FFC000',
+                                                    y: @*@retirados*@4,
+                                                }, {
+                                                    name: 'Abandono',
+                                                    color: '#767171',
+                                                    y: @*@abandonos*@1,
+                                                }],
+                                            }]
+                                        });
+                                    </script>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="chart-title">
-                                            <h4>Patients In</h4>
-                                            <div class="float-right">
-                                                <ul class="chat-user-total">
-                                                    <li><i class="fa fa-circle current-users" aria-hidden="true"></i>ICU</li>
-                                                    <li><i class="fa fa-circle old-users" aria-hidden="true"></i> OPD</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <canvas id="bargraph"></canvas>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
+
+
+
                         <div class="row clearfix">
                             <div class="col-md-12">
                                 <nav aria-label="breadcrumb">
@@ -310,35 +388,58 @@
                                         <li class="breadcrumb-item active" aria-current="page">GRAFICO 3 : RENDIMIENTO DE ESTUDIANTES</li>
                                     </ol>
                                 </nav>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="chart-title">
-                                            <h4>Patient Total</h4>
-                                            <span class="float-right"><i class="fa fa-caret-up" aria-hidden="true"></i> 15% Higher than Last Month</span>
-                                        </div>
-                                        <canvas id="linegraph"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="chart-title">
-                                            <h4>Patients In</h4>
-                                            <div class="float-right">
-                                                <ul class="chat-user-total">
-                                                    <li><i class="fa fa-circle current-users" aria-hidden="true"></i>ICU</li>
-                                                    <li><i class="fa fa-circle old-users" aria-hidden="true"></i> OPD</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <canvas id="bargraph"></canvas>
-                                    </div>
-                                </div>
+                                <div id="container3" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+                                <script type="text/javascript">
+                                    Highcharts.chart('container3', {
+                                        chart: {
+                                            type: 'bar'
+                                        },
+                                        title: {
+                                            text: 'Rendimiento'
+                                        },
+                                        xAxis: {
+                                            categories: ['Porcentaje']
+                                        },
+                                        yAxis: {
+                                            min: 0,
+                                            title: {
+                                                text: 'Rendimiento'
+                                            }
+                                        },
+                                        legend: {
+                                            reversed: true
+                                        },
+                                        tooltip: {
+                                            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                        },
+                                        plotOptions: {
+                                            series:
+                                            {
+                                                stacking: 'normal',
+                                                dataLabels: {
+                                                    cursor: 'pointer',
+                                                    format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
+                                                    enabled: true,
+                                                    filter: {
+                                                        property: 'percentage',
+                                                        operator: '>',
+                                                        value: 2
+                                                    },
+                                                }
+                                            }
+                                        },
+                                        series: [{
+                                            name: 'Aprobados',
+                                            color: '#00B0F0',
+                                            data: [@*@aprobados*@20]
+                                        },
+                                        {
+                                            name: 'Desaprobados',
+                                            color: '#FF0000',
+                                            data: [@*@desaprobados*@5]
+                                        }]
+                                    });
+                                </script>
                             </div>
                         </div>
                     </div>
@@ -418,11 +519,11 @@
                                                 </div>
                                             </div>
 
-                                            
+
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>                                        
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                         <button class="btn btn-primary btn-rounded" style='width:100px; height:35px' type="submit"><i class="fa fa-check"></i> Guardar</button>
                                     </div>
                                 </div>
@@ -438,13 +539,13 @@
                                         <th rowspan="2">Capacidades del curso</th>
                                         <th class="text-center" colspan="5">Nivel Alcanzado</th>
                                         <th rowspan="2" class="text-right">Accción</th>
-                                    </tr>                                    
+                                    </tr>
                                     <tr>
                                         <th class="text-center">Nada</th>
                                         <th class="text-center">Poco</th>
                                         <th class="text-center">Aceptable</th>
                                         <th class="text-center">Bien</th>
-                                        <th class="text-center">Muy Bien</th>                                        
+                                        <th class="text-center">Muy Bien</th>
                                     </tr>
                                 </thead>
                                 <tbody>
