@@ -23,6 +23,7 @@ namespace PortafolioEPIS.Controllers.Informes
         // Accion Listar
         public ActionResult Index()
         {
+
             return View(objPruebaEntrada.Listar());
         }
 
