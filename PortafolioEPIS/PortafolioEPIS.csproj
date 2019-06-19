@@ -616,6 +616,8 @@
     <Content Include="assets\js\ui\range-sliders.js" />
     <Content Include="assets\js\ui\sortable-nestable.js" />
     <Content Include="assets\js\ui\sweetalert.js" />
+    <Content Include="assets\Login\docente.png" />
+    <Content Include="assets\Login\login.css" />
     <Content Include="assets\plugins\light-gallery\css\lightgallery.min.css" />
     <Content Include="assets\plugins\light-gallery\fonts\lgd641.svg" />
     <Content Include="assets\plugins\light-gallery\img\loading.gif" />
@@ -666,7 +668,6 @@
     <Compile Include="Controllers\DetalleCargaAcademicaController.cs" />
     <Compile Include="Controllers\DetallePlanEstudioController.cs" />
     <Compile Include="Controllers\DocenteController.cs" />
-    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\Informes\ConocimientoHabilidadController.cs" />
     <Compile Include="Controllers\Informes\InformeFinalController.cs" />
     <Compile Include="Controllers\Informes\MedidasCorrectivasController.cs" />
@@ -676,6 +677,7 @@
     <Compile Include="Controllers\Informes\PortafolioU3Controller.cs" />
     <Compile Include="Controllers\Informes\PruebaEntradaController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\Mantenimiento\CargoController.cs" />
     <Compile Include="Controllers\Mantenimiento\ProfesionController.cs" />
     <Compile Include="Controllers\Mantenimiento\SeccionController.cs" />
@@ -685,24 +687,20 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Modelo_Portafolio.cs" />
-    <Compile Include="Models\Tbl_CapacidadesCurso.cs" />
     <Compile Include="Models\Tbl_CargaAcademica.cs" />
     <Compile Include="Models\Tbl_CargoDocente.cs" />
     <Compile Include="Models\Tbl_ConocimientoHabilidad.cs" />
     <Compile Include="Models\Tbl_DetalleCargaAcademica.cs" />
     <Compile Include="Models\Tbl_DetallePlanEstudio.cs" />
     <Compile Include="Models\Tbl_Docente.cs" />
-    <Compile Include="Models\Tbl_InformeFinal.cs" />
     <Compile Include="Models\Tbl_Material.cs" />
     <Compile Include="Models\Tbl_MedidasCorrectivas.cs" />
-    <Compile Include="Models\Tbl_Observaciones.cs" />
     <Compile Include="Models\Tbl_PlanEstudio.cs" />
     <Compile Include="Models\Tbl_Portafolio.cs" />
     <Compile Include="Models\Tbl_Profesion.cs" />
     <Compile Include="Models\Tbl_PruebaEntrada.cs" />
     <Compile Include="Models\Tbl_Seccion.cs" />
     <Compile Include="Models\Tbl_Semestre.cs" />
-    <Compile Include="Models\Tbl_Usuario.cs" />
     <Compile Include="Portafolio_dbDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -857,7 +855,7 @@
     <Content Include="Views\Docente\VistaPortafolioU.cshtml" />
     <Content Include="Views\Docente\ListaPDFDocente.cshtml" />
     <Content Include="Views\InformeFinal\Agregar.cshtml" />
-    <Content Include="Views\Error\ErrorPage.cshtml" />
+    <Content Include="Views\Login\IngresoSistema.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -869,6 +867,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reports\ReporteDocentes.rdlc" />
     <EmbeddedResource Include="Reports\ReportePruebaEntrada2019I.rdlc" />
   </ItemGroup>
   <PropertyGroup>

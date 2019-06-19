@@ -26,6 +26,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card-box">
+
                         <div class="row clearfix">
                             <div class="col-md-12">
                                 <nav aria-label="breadcrumb">
@@ -260,75 +261,126 @@
                                         <li class="breadcrumb-item active" aria-current="page">GRAFICO 1 : ASISTENCIA DE ESTUDIANTES</li>
                                     </ol>
                                 </nav>
+                                <div id="container" style="width: 450px; height: 400px; margin: 0 auto"></div>
+                                <script type="text/javascript">
+                                    Highcharts.chart('container', {
+                                        chart: {
+                                            type: 'column'
+                                        },
+                                        title: {
+                                            text: 'Estudiantes'
+                                        },
+                                        xAxis: {
+                                            type: 'category'
+                                        },
+                                        yAxis: {
+                                            title: {
+                                                text: 'Total de Estudiantes del Curso'
+                                            }
+
+                                        },
+                                        legend: {
+                                            enabled: false
+                                        },
+                                        ooltip: {
+                                            headerFormat: '<b>{point.x}</b><br/>',
+                                            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                                        }, plotOptions: {
+                                            column: {
+                                                stacking: 'normal',
+                                                dataLabels: {
+                                                    enabled: true,
+                                                }
+                                            }
+                                        },
+
+                                        series: [
+                                            {
+                                                name: "Estudiantes",
+                                                colorByPoint: true,
+                                                data: [
+                                                    {
+                                                        name: 'Matriculados',
+                                                        color: '#ED7D31',
+                                                        y: @*@Model.Matriculados_DetalleCargaAcademica*@30,
+
+                                                    },
+                                                    {
+                                                        name: 'Asisten',
+                                                        color: '#009EFB',
+                                                        y: @*@asisten*@25,
+
+                                                    },
+                                                ]
+                                            }
+                                        ]
+                                    });
+                                </script>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="chart-title">
-                                            <h4>Patient Total</h4>
-                                            <span class="float-right"><i class="fa fa-caret-up" aria-hidden="true"></i> 15% Higher than Last Month</span>
-                                        </div>
-                                        <canvas id="linegraph"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="chart-title">
-                                            <h4>Patients In</h4>
-                                            <div class="float-right">
-                                                <ul class="chat-user-total">
-                                                    <li><i class="fa fa-circle current-users" aria-hidden="true"></i>ICU</li>
-                                                    <li><i class="fa fa-circle old-users" aria-hidden="true"></i> OPD</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <canvas id="bargraph"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+
                         <div class="row clearfix">
                             <div class="col-md-12">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item active" aria-current="page">GRAFICO 2 : RESUMEN GENERAL DE ESTUDIANTES</li>
+                                        <li class="breadcrumb-item active" aria-current="page">GRAFICO 2 : SITUACIÓN GENERAL DE ESTUDIANTES</li>
                                     </ol>
                                 </nav>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="chart-title">
-                                            <h4>Patient Total</h4>
-                                            <span class="float-right"><i class="fa fa-caret-up" aria-hidden="true"></i> 15% Higher than Last Month</span>
-                                        </div>
-                                        <canvas id="linegraph"></canvas>
-                                    </div>
+                                <div id="container2" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto">
+                                    <script type="text/javascript">
+                                        Highcharts.chart('container2', {
+                                            chart: {
+
+                                                type: 'pie'
+                                            },
+                                            title: {
+                                                text: 'Situacion General'
+                                            },
+                                            tooltip: {
+                                                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                            },
+                                            plotOptions: {
+                                                pie: {
+                                                    allowPointSelect: true,
+                                                    cursor: 'pointer',
+                                                    dataLabels: {
+                                                        enabled: true,
+                                                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                                                    }
+                                                    , showInLegend: true
+                                                }
+
+                                            },
+                                            series: [{
+                                                name: 'Situacion',
+                                                data: [{
+                                                    name: 'Aprobados',
+                                                    color: '#00B0F0',
+                                                    y:@*@aprobados*@20,
+                                                },
+                                                {
+                                                    name: 'Desaprobados',
+                                                    color: '#FF0000',
+                                                    y:@*@desaprobados*@5,
+                                                }, {
+                                                    name: 'Retirados',
+                                                    color: '#FFC000',
+                                                    y: @*@retirados*@4,
+                                                }, {
+                                                    name: 'Abandono',
+                                                    color: '#767171',
+                                                    y: @*@abandonos*@1,
+                                                }],
+                                            }]
+                                        });
+                                    </script>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="chart-title">
-                                            <h4>Patients In</h4>
-                                            <div class="float-right">
-                                                <ul class="chat-user-total">
-                                                    <li><i class="fa fa-circle current-users" aria-hidden="true"></i>ICU</li>
-                                                    <li><i class="fa fa-circle old-users" aria-hidden="true"></i> OPD</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <canvas id="bargraph"></canvas>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
+
+
+
                         <div class="row clearfix">
                             <div class="col-md-12">
                                 <nav aria-label="breadcrumb">
@@ -336,35 +388,58 @@
                                         <li class="breadcrumb-item active" aria-current="page">GRAFICO 3 : RENDIMIENTO DE ESTUDIANTES</li>
                                     </ol>
                                 </nav>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="chart-title">
-                                            <h4>Patient Total</h4>
-                                            <span class="float-right"><i class="fa fa-caret-up" aria-hidden="true"></i> 15% Higher than Last Month</span>
-                                        </div>
-                                        <canvas id="linegraph"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="chart-title">
-                                            <h4>Patients In</h4>
-                                            <div class="float-right">
-                                                <ul class="chat-user-total">
-                                                    <li><i class="fa fa-circle current-users" aria-hidden="true"></i>ICU</li>
-                                                    <li><i class="fa fa-circle old-users" aria-hidden="true"></i> OPD</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <canvas id="bargraph"></canvas>
-                                    </div>
-                                </div>
+                                <div id="container3" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+                                <script type="text/javascript">
+                                    Highcharts.chart('container3', {
+                                        chart: {
+                                            type: 'bar'
+                                        },
+                                        title: {
+                                            text: 'Rendimiento'
+                                        },
+                                        xAxis: {
+                                            categories: ['Porcentaje']
+                                        },
+                                        yAxis: {
+                                            min: 0,
+                                            title: {
+                                                text: 'Rendimiento'
+                                            }
+                                        },
+                                        legend: {
+                                            reversed: true
+                                        },
+                                        tooltip: {
+                                            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                        },
+                                        plotOptions: {
+                                            series:
+                                            {
+                                                stacking: 'normal',
+                                                dataLabels: {
+                                                    cursor: 'pointer',
+                                                    format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
+                                                    enabled: true,
+                                                    filter: {
+                                                        property: 'percentage',
+                                                        operator: '>',
+                                                        value: 2
+                                                    },
+                                                }
+                                            }
+                                        },
+                                        series: [{
+                                            name: 'Aprobados',
+                                            color: '#00B0F0',
+                                            data: [@*@aprobados*@20]
+                                        },
+                                        {
+                                            name: 'Desaprobados',
+                                            color: '#FF0000',
+                                            data: [@*@desaprobados*@5]
+                                        }]
+                                    });
+                                </script>
                             </div>
                         </div>
                     </div>

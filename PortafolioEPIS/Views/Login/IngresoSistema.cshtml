@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>IngresoSistema</title>
+    <link href="~/assets/Login/login.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+            <h2 style="color:black"> Ingreso al Sistema </h2>
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <img src="~/assets/Login/docente.png" id="icon" alt="User Icon" />
+            </div>
+
+            <!-- Login Form -->
+            <form action="~/Inicio/Index">                
+                <input type="text"  class="fadeIn second" name="login" placeholder="Usuario">
+                <input type="password"  class="fadeIn third" name="login" placeholder="Contraseña">
+                <input type="submit" class="fadeIn fourth" value="INGRESAR">
+            </form>
+
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+                <a href="#">PORTAFOLIO DOCENTE</a>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
