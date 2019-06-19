@@ -66,5 +66,92 @@ namespace PortafolioEPIS.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_Observaciones> Tbl_Observaciones { get; set; }
+
+        //metodo listar
+        public List<Tbl_InformeFinal> Listar()//Retorna una coleccion de registros
+        {
+            var objCargo = new List<Tbl_InformeFinal>();
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    objCargo = db.Tbl_InformeFinal.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objCargo;
+        }
+
+        //metodo obtener
+        public Tbl_InformeFinal Obtener(int id)//retorna solo un objeto
+        {
+            var objCargo = new Tbl_InformeFinal();
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    objCargo = db.Tbl_InformeFinal
+                        .Where(x => x.Codigo_InformeFinal == id)
+                        .SingleOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objCargo;
+        }
+
+        //metodo guardar
+        public void Guardar()//retorna solo un objeto
+        {
+
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    if (this.Codigo_InformeFinal > 0)
+                    {
+                        //si existe un valor mayor a 0 es porque existe un registro
+                        db.Entry(this).State = EntityState.Modified;
+
+                    }
+                    else
+                    {
+                        //si no existe registro graba(nuevo registro)
+                        db.Entry(this).State = EntityState.Added;
+
+                    }
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+        }
+
+        //metodo Eliminar
+        public void Eliminar()
+        {
+
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    db.Entry(this).State = EntityState.Deleted;
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+        }
     }
 }
