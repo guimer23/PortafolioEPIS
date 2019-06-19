@@ -6,7 +6,6 @@ namespace PortafolioEPIS.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-
     using System.Linq;
     using System.Data.Entity;
 
@@ -36,7 +35,7 @@ namespace PortafolioEPIS.Models
 
         public bool ExamenesVirtuales_Observaciones { get; set; }
 
-        public bool? Slideshow_Observaciones { get; set; }
+        public bool Slideshow_Observaciones { get; set; }
 
         [StringLength(250)]
         public string Administrativas_Observaciones { get; set; }
@@ -55,64 +54,61 @@ namespace PortafolioEPIS.Models
 
         public virtual Tbl_InformeFinal Tbl_InformeFinal { get; set; }
 
-
-        //Metodo Listar
-        public List<Tbl_Observaciones> Listar(int id)
+        //metodo listar
+        public List<Tbl_Observaciones> Listar()//Retorna una coleccion de registros
         {
-            var objobservaciones = new List<Tbl_Observaciones>();
+            var objCargo = new List<Tbl_Observaciones>();
             try
             {
                 using (var db = new Modelo_Portafolio())
                 {
-                    objobservaciones = db.Tbl_Observaciones.Include("Tbl_InformeFinal").ToList();
+                    objCargo = db.Tbl_Observaciones.ToList();
                 }
             }
             catch (Exception ex)
             {
                 throw;
             }
-            return objobservaciones;
+            return objCargo;
         }
 
-  
-
-        //Metodo Obtener
+        //metodo obtener
         public Tbl_Observaciones Obtener(int id)//retorna solo un objeto
         {
-            var objObservaciones = new Tbl_Observaciones();
+            var objCargo = new Tbl_Observaciones();
             try
             {
                 using (var db = new Modelo_Portafolio())
                 {
-                    objObservaciones = db.Tbl_Observaciones.Include("Tbl_InformeFinal")
-                                    .Where(x => x.Codigo_Observaciones == id)
-                                    .SingleOrDefault();
+                    objCargo = db.Tbl_Observaciones
+                        .Where(x => x.Codigo_InformeFinal == id)
+                        .SingleOrDefault();
                 }
             }
             catch (Exception ex)
             {
                 throw;
             }
-            return objObservaciones;
+            return objCargo;
         }
 
-        //Metodo Guardar
-
-        public void Guardar()
+        //metodo guardar
+        public void Guardar()//retorna solo un objeto
         {
+
             try
             {
                 using (var db = new Modelo_Portafolio())
                 {
-
                     if (this.Codigo_Observaciones > 0)
                     {
-                        //si existe un valor mayor que cero es por que existe el registro
+                        //si existe un valor mayor a 0 es porque existe un registro
                         db.Entry(this).State = EntityState.Modified;
+
                     }
                     else
                     {
-                        ///no existe el registro lo graba (Nuevo)
+                        //si no existe registro graba(nuevo registro)
                         db.Entry(this).State = EntityState.Added;
 
                     }
@@ -123,16 +119,18 @@ namespace PortafolioEPIS.Models
             {
                 throw;
             }
+
         }
 
-        //metodo Eliminar 
+        //metodo Eliminar
         public void Eliminar()
         {
+
             try
             {
                 using (var db = new Modelo_Portafolio())
                 {
-                    db.Entry(this).State = System.Data.Entity.EntityState.Deleted;
+                    db.Entry(this).State = EntityState.Deleted;
                     db.SaveChanges();
                 }
             }
@@ -140,6 +138,7 @@ namespace PortafolioEPIS.Models
             {
                 throw;
             }
+
         }
     }
 }

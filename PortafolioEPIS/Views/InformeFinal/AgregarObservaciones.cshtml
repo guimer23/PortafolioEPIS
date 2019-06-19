@@ -1,0 +1,158 @@
+﻿@model PortafolioEPIS.Models.Tbl_Observaciones
+@{
+    Layout = null;
+}
+@using (Html.BeginForm("GuardarObservaciones", "InformeFinal", FormMethod.Post, new { id = "frm-InformeFinal" }))
+{
+
+
+@Html.HiddenFor(x => x.Codigo_Observaciones)
+<input type="text" name="Codigo_InformeFinal" value="10" hidden />
+
+
+
+<div class="row clearfix">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label><strong>1. De los estudiantes. </strong>Nivel académico, conocimientos previos, interés en el curso, estilos de aprendizaje</label>
+            <div class="form-group">
+                @Html.TextAreaFor(x=>x.Estudiantes_Observaciones, new { @class = "form-control", @placeholder = "Escriba aquí", @rows = "3", @cols = "5" })
+           
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label><strong>2. Asistencia y puntualidad de los estudiantes. </strong></label>
+            <div class="form-group">
+              
+                @Html.TextAreaFor(x => x.AsistenciaPuntualidad_Observaciones, new { @class = "form-control", @placeholder = "Escriba aquí", @rows = "3", @cols = "5" })
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label><strong>3. Del sílabo.  </strong>Qué temas del sílabo no se han completado? Considera todos los temas adecuados? Qué temas requieren más tiempo de dedicación? </label>
+            <div class="form-group">
+                
+                @Html.TextAreaFor(x => x.Silabo_Observaciones, new { @class = "form-control", @placeholder = "Escriba aquí", @rows = "3", @cols = "5" })
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label><strong>4.  Uso del Aula Virtual. </strong> Información colocada, uso de foros, chat  y cantidad de visitas estudiantiles.</label>
+            <div class="form-group row">
+                <div class="col-md-4">
+                    <div class="checkbox">
+                        <label>
+                            
+                            @Html.CheckBoxFor(x => x.MaterialCurso_Observaciones) Material del curso
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            
+                            @Html.CheckBoxFor(x => x.Foros_Observaciones) Foros
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="checkbox">
+                        <label>
+                      
+                            @Html.CheckBoxFor(x => x.Cuestionarios_Observaciones) Cuestionarios
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            
+                            @Html.CheckBoxFor(x => x.ExamenesVirtuales_Observaciones) Examenes virtuales
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="checkbox">
+                        <label>
+                           
+                            @Html.CheckBoxFor(x => x.TareasEncargadas_Observaciones) Tareas Encargadas
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                         
+                            @Html.CheckBoxFor(x => x.Slideshow_Observaciones) Slideshow
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label><strong>5.  Administrativas. </strong>Disponibilidad de recursos en aulas y laboratorios.</label>
+            <div class="form-group">
+                @Html.TextAreaFor(x => x.Administrativas_Observaciones, new { @class = "form-control", @placeholder = "Escriba aquí", @rows = "3", @cols = "5" })
+               
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label><strong>6. Sílabo por competencias. </strong>Qué actividades realizó usted para la evaluación del cumplimiento de las competencias  de su curso,  por los estudiantes? Podría presentar una propuesta de evaluación de las competencias de su curso?</label>
+            <div class="form-group">
+                @Html.TextAreaFor(x => x.SilaboCompetencias_Observaciones, new { @class = "form-control", @placeholder = "Escriba aquí", @rows = "3", @cols = "5" })
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label><strong>7. Mejora continua. </strong>Qué actividades de mejora continua ha realizado en el curso en este ciclo y cuales propone para el siguiente, para mejorar el rendimiento académico del estudiante. </label>
+            <div class="form-group">
+                @Html.TextAreaFor(x => x.MejoraContinua_Observaciones, new { @class = "form-control", @placeholder = "Escriba aquí", @rows = "3", @cols = "5" })
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label><strong>8. Actualización docente.</strong>Ha seguido usted algún curso de actualización profesional o docente en los últimos dos años. Indique tema del curso y duración. </label>
+            <div class="form-group">
+                @Html.TextAreaFor(x => x.ActualizacionDocente_Observaciones, new { @class = "form-control", @placeholder = "Escriba aquí", @rows = "3", @cols = "5" })
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label><strong>9. Comentarios y Recomendaciones.</strong> Serán útiles para mejorar el Plan de Estudios y los servicios que brindan la Escuela, la Facultad y la Universidad</label>
+            <div class="form-group">
+                @Html.TextAreaFor(x => x.ComentariosRecomendaciones_Observaciones, new { @class = "form-control", @placeholder = "Escriba aquí", @rows = "3", @cols = "5" })
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-md-12">
+        <div class="text-center">
+            <button class="btn btn-primary btn-rounded" style='width:150px; height:35px' type="submit"><i class="fa fa-refresh"></i> Actualizar</button>
+
+
+        </div>
+    </div>
+</div>
+}
