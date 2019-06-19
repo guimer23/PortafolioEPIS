@@ -5,6 +5,7 @@ namespace PortafolioEPIS.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+
     using System.Linq;
     using System.Data.Entity;
 
@@ -14,6 +15,7 @@ namespace PortafolioEPIS.Models
         public Tbl_Docente()
         {
             Tbl_DetalleCargaAcademica = new HashSet<Tbl_DetalleCargaAcademica>();
+            Tbl_Usuario = new HashSet<Tbl_Usuario>();
         }
 
         [Key]
@@ -77,6 +79,10 @@ namespace PortafolioEPIS.Models
 
         public virtual Tbl_Profesion Tbl_Profesion { get; set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_Usuario> Tbl_Usuario { get; set; }
+
+        
 
         public List<Tbl_Docente> Listar2()//retorna una coleccion
         {

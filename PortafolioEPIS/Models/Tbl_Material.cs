@@ -5,6 +5,7 @@ namespace PortafolioEPIS.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+
     using System.Linq;
     using System.Data.Entity;
 
@@ -39,7 +40,6 @@ namespace PortafolioEPIS.Models
         public string Descripcion_Material { get; set; }
 
         public virtual Tbl_Portafolio Tbl_Portafolio { get; set; }
-
 
 
         //metodo listar

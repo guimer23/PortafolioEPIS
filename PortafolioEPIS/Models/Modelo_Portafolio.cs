@@ -12,23 +12,35 @@ namespace PortafolioEPIS.Models
         {
         }
 
+        public virtual DbSet<Tbl_CapacidadesCurso> Tbl_CapacidadesCurso { get; set; }
         public virtual DbSet<Tbl_CargaAcademica> Tbl_CargaAcademica { get; set; }
         public virtual DbSet<Tbl_CargoDocente> Tbl_CargoDocente { get; set; }
         public virtual DbSet<Tbl_ConocimientoHabilidad> Tbl_ConocimientoHabilidad { get; set; }
         public virtual DbSet<Tbl_DetalleCargaAcademica> Tbl_DetalleCargaAcademica { get; set; }
         public virtual DbSet<Tbl_DetallePlanEstudio> Tbl_DetallePlanEstudio { get; set; }
         public virtual DbSet<Tbl_Docente> Tbl_Docente { get; set; }
+        public virtual DbSet<Tbl_InformeFinal> Tbl_InformeFinal { get; set; }
         public virtual DbSet<Tbl_Material> Tbl_Material { get; set; }
         public virtual DbSet<Tbl_MedidasCorrectivas> Tbl_MedidasCorrectivas { get; set; }
+        public virtual DbSet<Tbl_Observaciones> Tbl_Observaciones { get; set; }
         public virtual DbSet<Tbl_PlanEstudio> Tbl_PlanEstudio { get; set; }
         public virtual DbSet<Tbl_Portafolio> Tbl_Portafolio { get; set; }
         public virtual DbSet<Tbl_Profesion> Tbl_Profesion { get; set; }
         public virtual DbSet<Tbl_PruebaEntrada> Tbl_PruebaEntrada { get; set; }
         public virtual DbSet<Tbl_Seccion> Tbl_Seccion { get; set; }
         public virtual DbSet<Tbl_Semestre> Tbl_Semestre { get; set; }
+        public virtual DbSet<Tbl_Usuario> Tbl_Usuario { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Tbl_CapacidadesCurso>()
+                .Property(e => e.Descripcion_CapacidadesCurso)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Tbl_CapacidadesCurso>()
+                .Property(e => e.Motivo_CapacidadesCurso)
+                .IsUnicode(false);
+
             modelBuilder.Entity<Tbl_CargaAcademica>()
                 .Property(e => e.Nombre_CargaAcademica)
                 .IsUnicode(false);
@@ -50,6 +62,11 @@ namespace PortafolioEPIS.Models
             modelBuilder.Entity<Tbl_ConocimientoHabilidad>()
                 .Property(e => e.Nombre_ConocimientoHabilidad)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Tbl_DetalleCargaAcademica>()
+                .HasMany(e => e.Tbl_InformeFinal)
+                .WithRequired(e => e.Tbl_DetalleCargaAcademica)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Tbl_DetalleCargaAcademica>()
                 .HasMany(e => e.Tbl_Portafolio)
@@ -135,6 +152,26 @@ namespace PortafolioEPIS.Models
                 .WithRequired(e => e.Tbl_Docente)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<Tbl_Docente>()
+                .HasMany(e => e.Tbl_Usuario)
+                .WithRequired(e => e.Tbl_Docente)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Tbl_InformeFinal>()
+                .Property(e => e.Estado_InformeFinal)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Tbl_InformeFinal>()
+                .HasMany(e => e.Tbl_CapacidadesCurso)
+                .WithRequired(e => e.Tbl_InformeFinal)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Tbl_InformeFinal>()
+                .HasMany(e => e.Tbl_Observaciones)
+                .WithRequired(e => e.Tbl_InformeFinal)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Tbl_Material>()
                 .Property(e => e.Tipo_Material)
                 .IsUnicode(false);
@@ -167,6 +204,38 @@ namespace PortafolioEPIS.Models
                 .Property(e => e.Medida7_MedidasCorrectivas)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<Tbl_Observaciones>()
+                .Property(e => e.Estudiantes_Observaciones)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Tbl_Observaciones>()
+                .Property(e => e.AsistenciaPuntualidad_Observaciones)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Tbl_Observaciones>()
+                .Property(e => e.Silabo_Observaciones)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Tbl_Observaciones>()
+                .Property(e => e.Administrativas_Observaciones)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Tbl_Observaciones>()
+                .Property(e => e.SilaboCompetencias_Observaciones)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Tbl_Observaciones>()
+                .Property(e => e.MejoraContinua_Observaciones)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Tbl_Observaciones>()
+                .Property(e => e.ActualizacionDocente_Observaciones)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Tbl_Observaciones>()
+                .Property(e => e.ComentariosRecomendaciones_Observaciones)
+                .IsUnicode(false);
+
             modelBuilder.Entity<Tbl_PlanEstudio>()
                 .Property(e => e.Nombre_PlanEstudio)
                 .IsUnicode(false);
@@ -189,6 +258,11 @@ namespace PortafolioEPIS.Models
                 .Property(e => e.Estado_Portafolio)
                 .IsFixedLength()
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Tbl_Portafolio>()
+                .HasMany(e => e.Tbl_InformeFinal)
+                .WithRequired(e => e.Tbl_Portafolio)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Tbl_Portafolio>()
                 .HasMany(e => e.Tbl_Material)
@@ -250,6 +324,14 @@ namespace PortafolioEPIS.Models
                 .HasMany(e => e.Tbl_PlanEstudio)
                 .WithRequired(e => e.Tbl_Semestre)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Tbl_Usuario>()
+                .Property(e => e.Nombre_Usuario)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Tbl_Usuario>()
+                .Property(e => e.Password_Usuario)
+                .IsUnicode(false);
         }
     }
 }

@@ -9,65 +9,82 @@ namespace PortafolioEPIS.Models
     using System.Linq;
     using System.Data.Entity;
 
-    public partial class Tbl_PruebaEntrada
+    public partial class Tbl_Observaciones
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tbl_PruebaEntrada()
-        {
-            Tbl_ConocimientoHabilidad = new HashSet<Tbl_ConocimientoHabilidad>();
-            Tbl_MedidasCorrectivas = new HashSet<Tbl_MedidasCorrectivas>();
-        }
-
         [Key]
-        public int Codigo_PruebaEntrada { get; set; }
+        public int Codigo_Observaciones { get; set; }
 
-        public int Codigo_DetalleCargaAcademica { get; set; }
+        public int Codigo_InformeFinal { get; set; }
 
-        public int Evaluados_PruebaEntrada { get; set; }
+        [StringLength(250)]
+        public string Estudiantes_Observaciones { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime Fecha_PruebaEntrada { get; set; }
+        [StringLength(250)]
+        public string AsistenciaPuntualidad_Observaciones { get; set; }
 
-        [Required]
-        [StringLength(1)]
-        public string Estado_PruebaEntrada { get; set; }
+        [StringLength(250)]
+        public string Silabo_Observaciones { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tbl_ConocimientoHabilidad> Tbl_ConocimientoHabilidad { get; set; }
+        public bool MaterialCurso_Observaciones { get; set; }
 
-        public virtual Tbl_DetalleCargaAcademica Tbl_DetalleCargaAcademica { get; set; }
+        public bool Cuestionarios_Observaciones { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tbl_MedidasCorrectivas> Tbl_MedidasCorrectivas { get; set; }
+        public bool TareasEncargadas_Observaciones { get; set; }
+
+        public bool Foros_Observaciones { get; set; }
+
+        public bool ExamenesVirtuales_Observaciones { get; set; }
+
+        public bool? Slideshow_Observaciones { get; set; }
+
+        [StringLength(250)]
+        public string Administrativas_Observaciones { get; set; }
+
+        [StringLength(250)]
+        public string SilaboCompetencias_Observaciones { get; set; }
+
+        [StringLength(250)]
+        public string MejoraContinua_Observaciones { get; set; }
+
+        [StringLength(250)]
+        public string ActualizacionDocente_Observaciones { get; set; }
+
+        [StringLength(250)]
+        public string ComentariosRecomendaciones_Observaciones { get; set; }
+
+        public virtual Tbl_InformeFinal Tbl_InformeFinal { get; set; }
+
 
         //Metodo Listar
-        public List<Tbl_PruebaEntrada> Listar()
+        public List<Tbl_Observaciones> Listar(int id)
         {
-            var objPruebaEntrada = new List<Tbl_PruebaEntrada>();
+            var objobservaciones = new List<Tbl_Observaciones>();
             try
             {
                 using (var db = new Modelo_Portafolio())
                 {
-                    objPruebaEntrada = db.Tbl_PruebaEntrada.ToList();
+                    objobservaciones = db.Tbl_Observaciones.Include("Tbl_InformeFinal").ToList();
                 }
             }
             catch (Exception ex)
             {
                 throw;
             }
-            return objPruebaEntrada;
+            return objobservaciones;
         }
 
+  
+
         //Metodo Obtener
-        public Tbl_PruebaEntrada Obtener(int id)//retorna solo un objeto
+        public Tbl_Observaciones Obtener(int id)//retorna solo un objeto
         {
-            var objPruebaEntrada = new Tbl_PruebaEntrada();
+            var objObservaciones = new Tbl_Observaciones();
             try
             {
                 using (var db = new Modelo_Portafolio())
                 {
-                    objPruebaEntrada = db.Tbl_PruebaEntrada.Include("Tbl_DetalleCargaAcademica")
-                                    .Where(x => x.Codigo_PruebaEntrada == id)
+                    objObservaciones = db.Tbl_Observaciones.Include("Tbl_InformeFinal")
+                                    .Where(x => x.Codigo_Observaciones == id)
                                     .SingleOrDefault();
                 }
             }
@@ -75,7 +92,7 @@ namespace PortafolioEPIS.Models
             {
                 throw;
             }
-            return objPruebaEntrada;
+            return objObservaciones;
         }
 
         //Metodo Guardar
@@ -87,9 +104,8 @@ namespace PortafolioEPIS.Models
                 using (var db = new Modelo_Portafolio())
                 {
 
-                    if (this.Codigo_PruebaEntrada > 0)
+                    if (this.Codigo_Observaciones > 0)
                     {
-
                         //si existe un valor mayor que cero es por que existe el registro
                         db.Entry(this).State = EntityState.Modified;
                     }

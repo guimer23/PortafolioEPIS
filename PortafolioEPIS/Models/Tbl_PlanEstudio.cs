@@ -5,6 +5,7 @@ namespace PortafolioEPIS.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+
     using System.Linq;
     using System.Data.Entity;
 
@@ -27,13 +28,9 @@ namespace PortafolioEPIS.Models
         public string Nombre_PlanEstudio { get; set; }
 
         [Column(TypeName = "date")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyy/MM/dd}", ApplyFormatInEditMode = true)]
         public DateTime FechaInicio_PlanEstudio { get; set; }
 
         [Column(TypeName = "date")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyy/MM/dd}", ApplyFormatInEditMode = true)]
         public DateTime FechaFin_PlanEstudio { get; set; }
 
         public int? TotalCursosObligatorios_PlanEstudio { get; set; }

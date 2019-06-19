@@ -5,6 +5,7 @@ namespace PortafolioEPIS.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+
     using System.Linq;
     using System.Data.Entity;
 
@@ -13,6 +14,7 @@ namespace PortafolioEPIS.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tbl_Portafolio()
         {
+            Tbl_InformeFinal = new HashSet<Tbl_InformeFinal>();
             Tbl_Material = new HashSet<Tbl_Material>();
         }
 
@@ -39,8 +41,10 @@ namespace PortafolioEPIS.Models
         public virtual Tbl_DetalleCargaAcademica Tbl_DetalleCargaAcademica { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tbl_Material> Tbl_Material { get; set; }
+        public virtual ICollection<Tbl_InformeFinal> Tbl_InformeFinal { get; set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_Material> Tbl_Material { get; set; }
 
         //metodo listar
         public List<Tbl_Portafolio> Listar()//Retorna una coleccion de registros
@@ -80,7 +84,7 @@ namespace PortafolioEPIS.Models
             return objTbl_Portafolio;
         }
 
-       
+
         //metodo guardar
         public void Guardar()//retorna solo un objeto
         {

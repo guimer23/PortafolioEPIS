@@ -5,6 +5,7 @@ namespace PortafolioEPIS.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+
     using System.Linq;
     using System.Data.Entity;
 
@@ -13,6 +14,7 @@ namespace PortafolioEPIS.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tbl_DetalleCargaAcademica()
         {
+            Tbl_InformeFinal = new HashSet<Tbl_InformeFinal>();
             Tbl_Portafolio = new HashSet<Tbl_Portafolio>();
             Tbl_PruebaEntrada = new HashSet<Tbl_PruebaEntrada>();
         }
@@ -47,6 +49,9 @@ namespace PortafolioEPIS.Models
         public virtual Tbl_DetallePlanEstudio Tbl_DetallePlanEstudio { get; set; }
 
         public virtual Tbl_Semestre Tbl_Semestre { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_InformeFinal> Tbl_InformeFinal { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_Portafolio> Tbl_Portafolio { get; set; }

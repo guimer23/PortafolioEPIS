@@ -9,36 +9,73 @@ namespace PortafolioEPIS.Models
     using System.Linq;
     using System.Data.Entity;
 
-    public partial class Tbl_CargoDocente
+    public partial class Tbl_InformeFinal
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tbl_CargoDocente()
+        public Tbl_InformeFinal()
         {
-            Tbl_Docente = new HashSet<Tbl_Docente>();
+            Tbl_CapacidadesCurso = new HashSet<Tbl_CapacidadesCurso>();
+            Tbl_Observaciones = new HashSet<Tbl_Observaciones>();
         }
 
         [Key]
-        public int Codigo_CargoDocente { get; set; }
+        public int Codigo_InformeFinal { get; set; }
 
-        [Required]
-        [StringLength(30)]
-        public string Nombre_CargoDocente { get; set; }
+        public int Codigo_DetalleCargaAcademica { get; set; }
 
-        public bool Estado_CargoDocente { get; set; }
+        public int? PorcentajeSilabo_InformeFinal { get; set; }
+
+        public int? PracticasCalificadas_InformeFinal { get; set; }
+
+        public int? LaboratoriosRealizados_InformeFinal { get; set; }
+
+        public int? TrabajosRealizados_InformeFinal { get; set; }
+
+        public int Codigo_Portafolio { get; set; }
+
+        public int? EstudiantesMatriculados_InformeFinal { get; set; }
+
+        public int? EstudiantesRetiro_InformeFinal { get; set; }
+
+        public int? EstudiantesAbandono_InformeFinal { get; set; }
+
+        public int? EstudiantesAsisten_InformeFinal { get; set; }
+
+        public int? EstudiantesAprobados_InformeFinal { get; set; }
+
+        public int? EstudiantesDesaprobados_InformeFinal { get; set; }
+
+        public int? NotaAlta_InformeFinal { get; set; }
+
+        public int? NotaPromedio_InformeFinal { get; set; }
+
+        public int? NotaBaja_InformeFinal { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? Fecha_InformeFinal { get; set; }
+
+        [StringLength(1)]
+        public string Estado_InformeFinal { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tbl_Docente> Tbl_Docente { get; set; }
+        public virtual ICollection<Tbl_CapacidadesCurso> Tbl_CapacidadesCurso { get; set; }
 
+        public virtual Tbl_DetalleCargaAcademica Tbl_DetalleCargaAcademica { get; set; }
+
+        public virtual Tbl_Portafolio Tbl_Portafolio { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_Observaciones> Tbl_Observaciones { get; set; }
 
         //metodo listar
-        public List<Tbl_CargoDocente> Listar()//Retorna una coleccion de registros
+        public List<Tbl_InformeFinal> Listar()//Retorna una coleccion de registros
         {
-            var objCargo = new List<Tbl_CargoDocente>();
+            var objCargo = new List<Tbl_InformeFinal>();
             try
             {
                 using (var db = new Modelo_Portafolio())
                 {
-                    objCargo = db.Tbl_CargoDocente.ToList();
+                    objCargo = db.Tbl_InformeFinal.ToList();
                 }
             }
             catch (Exception ex)
@@ -49,15 +86,15 @@ namespace PortafolioEPIS.Models
         }
 
         //metodo obtener
-        public Tbl_CargoDocente Obtener(int id)//retorna solo un objeto
+        public Tbl_InformeFinal Obtener(int id)//retorna solo un objeto
         {
-            var objCargo = new Tbl_CargoDocente();
+            var objCargo = new Tbl_InformeFinal();
             try
             {
                 using (var db = new Modelo_Portafolio())
                 {
-                    objCargo = db.Tbl_CargoDocente
-                        .Where(x => x.Codigo_CargoDocente == id)
+                    objCargo = db.Tbl_InformeFinal
+                        .Where(x => x.Codigo_InformeFinal == id)
                         .SingleOrDefault();
                 }
             }
@@ -76,7 +113,7 @@ namespace PortafolioEPIS.Models
             {
                 using (var db = new Modelo_Portafolio())
                 {
-                    if (this.Codigo_CargoDocente > 0)
+                    if (this.Codigo_InformeFinal > 0)
                     {
                         //si existe un valor mayor a 0 es porque existe un registro
                         db.Entry(this).State = EntityState.Modified;
