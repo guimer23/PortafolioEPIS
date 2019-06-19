@@ -16,17 +16,17 @@ namespace PortafolioEPIS.Models
 
         public int Codigo_PruebaEntrada { get; set; }
 
-        public bool? Medida1_MedidasCorrectivas { get; set; }
+        public bool Medida1_MedidasCorrectivas { get; set; }
 
-        public bool? Medida2_MedidasCorrectivas { get; set; }
+        public bool Medida2_MedidasCorrectivas { get; set; }
 
-        public bool? Medida3_MedidasCorrectivas { get; set; }
+        public bool Medida3_MedidasCorrectivas { get; set; }
 
-        public bool? Medida4_MedidasCorrectivas { get; set; }
+        public bool Medida4_MedidasCorrectivas { get; set; }
 
-        public bool? Medida5_MedidasCorrectivas { get; set; }
+        public bool Medida5_MedidasCorrectivas { get; set; }
 
-        public bool? Medida6_MedidasCorrectivas { get; set; }
+        public bool Medida6_MedidasCorrectivas { get; set; }
 
         [StringLength(250)]
         public string Medida7_MedidasCorrectivas { get; set; }
