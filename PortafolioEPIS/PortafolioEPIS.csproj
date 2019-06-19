@@ -687,25 +687,24 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Modelo_Portafolio.cs" />
+    <Compile Include="Models\Tbl_CapacidadesCurso.cs" />
     <Compile Include="Models\Tbl_CargaAcademica.cs" />
     <Compile Include="Models\Tbl_CargoDocente.cs" />
     <Compile Include="Models\Tbl_ConocimientoHabilidad.cs" />
     <Compile Include="Models\Tbl_DetalleCargaAcademica.cs" />
     <Compile Include="Models\Tbl_DetallePlanEstudio.cs" />
     <Compile Include="Models\Tbl_Docente.cs" />
+    <Compile Include="Models\Tbl_InformeFinal.cs" />
     <Compile Include="Models\Tbl_Material.cs" />
     <Compile Include="Models\Tbl_MedidasCorrectivas.cs" />
+    <Compile Include="Models\Tbl_Observaciones.cs" />
     <Compile Include="Models\Tbl_PlanEstudio.cs" />
     <Compile Include="Models\Tbl_Portafolio.cs" />
     <Compile Include="Models\Tbl_Profesion.cs" />
     <Compile Include="Models\Tbl_PruebaEntrada.cs" />
     <Compile Include="Models\Tbl_Seccion.cs" />
     <Compile Include="Models\Tbl_Semestre.cs" />
-    <Compile Include="Portafolio_dbDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Portafolio_dbDataSet2.xsd</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Tbl_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -840,22 +839,12 @@
     <Content Include="Views\PortafolioU1\Agregar.cshtml" />
     <Content Include="Views\PortafolioU2\Agregar.cshtml" />
     <Content Include="Views\PortafolioU3\Agregar.cshtml" />
-    <Content Include="Portafolio_dbDataSet2.xsc">
-      <DependentUpon>Portafolio_dbDataSet2.xsd</DependentUpon>
-    </Content>
-    <None Include="Portafolio_dbDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Portafolio_dbDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="Portafolio_dbDataSet2.xss">
-      <DependentUpon>Portafolio_dbDataSet2.xsd</DependentUpon>
-    </Content>
     <Content Include="Views\Docente\VistaPruebaEntrada.cshtml" />
     <Content Include="Views\Docente\VistaPortafolioU.cshtml" />
     <Content Include="Views\Docente\ListaPDFDocente.cshtml" />
     <Content Include="Views\InformeFinal\Agregar.cshtml" />
     <Content Include="Views\Login\IngresoSistema.cshtml" />
+    <Content Include="Views\Error\ErrorPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -865,10 +854,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Reports\ReporteDocentes.rdlc" />
-    <EmbeddedResource Include="Reports\ReportePruebaEntrada2019I.rdlc" />
+    <Folder Include="Reports\" />
+    <Folder Include="Views\Home\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
