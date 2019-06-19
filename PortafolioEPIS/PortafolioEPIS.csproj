@@ -616,6 +616,8 @@
     <Content Include="assets\js\ui\range-sliders.js" />
     <Content Include="assets\js\ui\sortable-nestable.js" />
     <Content Include="assets\js\ui\sweetalert.js" />
+    <Content Include="assets\Login\docente.png" />
+    <Content Include="assets\Login\login.css" />
     <Content Include="assets\plugins\light-gallery\css\lightgallery.min.css" />
     <Content Include="assets\plugins\light-gallery\fonts\lgd641.svg" />
     <Content Include="assets\plugins\light-gallery\img\loading.gif" />
@@ -675,6 +677,7 @@
     <Compile Include="Controllers\Informes\PortafolioU3Controller.cs" />
     <Compile Include="Controllers\Informes\PruebaEntradaController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\Mantenimiento\CargoController.cs" />
     <Compile Include="Controllers\Mantenimiento\ProfesionController.cs" />
     <Compile Include="Controllers\Mantenimiento\SeccionController.cs" />
@@ -852,6 +855,7 @@
     <Content Include="Views\Docente\VistaPortafolioU.cshtml" />
     <Content Include="Views\Docente\ListaPDFDocente.cshtml" />
     <Content Include="Views\InformeFinal\Agregar.cshtml" />
+    <Content Include="Views\Login\IngresoSistema.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
