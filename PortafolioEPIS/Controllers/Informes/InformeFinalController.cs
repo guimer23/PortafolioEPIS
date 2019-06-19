@@ -42,11 +42,11 @@ namespace PortafolioEPIS.Controllers.Informes
             if (ModelState.IsValid)
             {
                 objInformeFinal.Guardar();
-                return Redirect("~/CargaAcademica");
+                return Redirect("~/InformeFinal");
             }
             else
             {
-                return View("~/Views/CargaAcademica/Agregar.cshtml");
+                return View("~/Views/InformeFinal/Agregar.cshtml");
             }
 
         }
@@ -57,7 +57,7 @@ namespace PortafolioEPIS.Controllers.Informes
         {
             objInformeFinal.Codigo_InformeFinal = id;
             objInformeFinal.Eliminar();
-            return Redirect("~/CargaAcademica");
+            return Redirect("~/InformeFinal");
         }
     }
 }
