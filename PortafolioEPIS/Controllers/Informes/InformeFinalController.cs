@@ -27,14 +27,8 @@ namespace PortafolioEPIS.Controllers.Informes
             return View(objInformeFinal.Obtener(id));
         }
 
-        // Accion Agregar
-        public ActionResult Agregar(int id = 0)
-        {
-            ViewBag.Tbl_Semestre = objInformeFinal.Listar();
-
-            return View(id == 0 ? new Tbl_InformeFinal()//Agregar un nuevo objeto
-               : objInformeFinal.Obtener(id));
-        }
+ 
+     
 
         //Action Guardar
         public ActionResult Guardar(Tbl_InformeFinal objInformeFinal)
