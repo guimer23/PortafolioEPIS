@@ -3,6 +3,7 @@
 @{
     List<PortafolioEPIS.Models.Tbl_InformeFinal> prueba = ViewBag.Prueba;
     List<PortafolioEPIS.Models.Tbl_Observaciones> ListarInformeFinal = ViewBag.ListarInformeFinal;
+    List<PortafolioEPIS.Models.Tbl_CapacidadesCurso> CapacidadesCurso = ViewBag.CapacidadesCurso;
     int idpruebas = 0;
 
 
@@ -481,7 +482,9 @@
                                             <div class="col-md-12">
                                                 @Html.Label("Nombre:")
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control">
+
+                                                    @*<input type="text" name="idprueba" id="idprueba" value="@idpruebas" class="form-control floating" hidden*@>
+                                                    <input type="text" name="idcapacidadcurso" value="" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
