@@ -867,7 +867,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reports\ReporteDocentes.rdlc" />
     <EmbeddedResource Include="Reports\ReportePruebaEntrada2019I.rdlc" />
   </ItemGroup>
   <PropertyGroup>
