@@ -2,9 +2,34 @@
 
 @{
     List<PortafolioEPIS.Models.Tbl_InformeFinal> prueba = ViewBag.Prueba;
+    List<PortafolioEPIS.Models.Tbl_Portafolio> portafolio = ViewBag.Portafolio;
     List<PortafolioEPIS.Models.Tbl_Observaciones> ListarInformeFinal = ViewBag.ListarInformeFinal;
     List<PortafolioEPIS.Models.Tbl_CapacidadesCurso> CapacidadesCurso = ViewBag.CapacidadesCurso;
     int idpruebas = 0;
+    int codigoportafolio = 0;
+
+    ///tabla portafolio
+    int retirados = 0;
+    int abandonos = 0;
+    int aprobados = 0;
+    //tabla informefinal
+    int detallecarga = 0;
+    int porcentajesilabo = 0;
+    int practicascalificadas = 0;
+    int laboratoriosrealizados = 0;
+    int trabajosrealizados = 0;
+    int codigoportafo = 0;
+    int estudiantesmatriculados = 0;
+    int estudiantesretiro = 0;
+    int estudiantesabandono = 0;
+    int estudiantesasisten = 0;
+    int estudiantesaprobados = 0;
+    int estudiantesdesaprobados = 0;
+    int notamasalta = 0;
+    int notapromedio = 0;
+    int notamasbaja = 0;
+
+
 
 
 
@@ -124,10 +149,43 @@
                         {
                             if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica)
                             {
+
+
                                 idpruebas = p.Codigo_InformeFinal;
+                                detallecarga = p.Codigo_DetalleCargaAcademica;
+                                porcentajesilabo = Convert.ToInt32(p.PorcentajeSilabo_InformeFinal);
+                                practicascalificadas = Convert.ToInt32(p.PracticasCalificadas_InformeFinal);
+                                laboratoriosrealizados = Convert.ToInt32(p.LaboratoriosRealizados_InformeFinal);
+                                trabajosrealizados = Convert.ToInt32(p.TrabajosRealizados_InformeFinal);
+                                codigoportafo = p.Codigo_Portafolio;
+                                estudiantesmatriculados = Convert.ToInt32(p.EstudiantesMatriculados_InformeFinal);
+                                estudiantesretiro = Convert.ToInt32(p.EstudiantesRetiro_InformeFinal);
+                                estudiantesabandono = Convert.ToInt32(p.EstudiantesAbandono_InformeFinal);
+                                estudiantesasisten = Convert.ToInt32(p.EstudiantesAsisten_InformeFinal);
+                                estudiantesaprobados = Convert.ToInt32(p.EstudiantesAprobados_InformeFinal);
+                                estudiantesdesaprobados = Convert.ToInt32(p.EstudiantesDesaprobados_InformeFinal);
+                                notamasalta = Convert.ToInt32(p.NotaAlta_InformeFinal);
+                                notapromedio = Convert.ToInt32(p.NotaPromedio_InformeFinal);
+                                notamasbaja = Convert.ToInt32(p.NotaBaja_InformeFinal);
+
 
                             }
                         }
+
+                        @foreach (var y in portafolio)
+                        {
+                            if (y.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica)
+                            {
+                                codigoportafolio = y.Codigo_Portafolio;
+                                retirados = retirados + Convert.ToInt32(y.Retirados_Portafolio);
+                                abandonos = abandonos + Convert.ToInt32(y.Abandono_Portafolio);
+                                abandonos = abandonos + Convert.ToInt32(y.Abandono_Portafolio);
+
+
+                            }
+                        }
+                        <label>@retirados</label>
+                        <label>@abandonos</label>
                         <div class="row clearfix">
                             <div class="col-md-12">
                                 <nav aria-label="breadcrumb">
@@ -144,7 +202,7 @@
                             <div class="table-responsive">
 
 
-                                <form method="post" action="" id="evaluados ">
+                                <form method="post" action="" id="evaluados" name="calculadora">
                                     <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
 
                                     <table class="table table-hover">
@@ -190,25 +248,25 @@
                                             <tr>
                                                 <td>5</td>
                                                 <td>Estudiantes Matriculados</td>
-                                                <td><input type="text" name="matriculados" id="matriculados"  readonly class="form-control text-center" value="@Model.Matriculados_DetalleCargaAcademica"></td>
+                                                <td><input type="text" name="matriculados" id="matriculados" readonly class="form-control text-center" value="@Model.Matriculados_DetalleCargaAcademica"></td>
                                                 <td class="text-center">100%</td>
                                             </tr>
                                             <tr>
                                                 <td>6</td>
                                                 <td>Estudiantes con retiro</td>
-                                                <td><input type="text" name="estudiantesretiro" id="estudiantesretiro" class="form-control text-center"></td>
+                                                <td><input type="text" onKeyUp="Suma()" name="estudiantesretiro" id="estudiantesretiro" class="form-control text-center"></td>
                                                 <td class="text-center">6.7%</td>
                                             </tr>
                                             <tr>
                                                 <td>7</td>
                                                 <td>Estudiantes en abandono</td>
-                                                <td><input type="text" name="estudiantesabandono" id="estudiantesabandono" class="form-control text-center"></td>
+                                                <td><input type="text" onKeyUp="Suma()" name="estudiantesabandono" id="estudiantesabandono" class="form-control text-center"></td>
                                                 <td class="text-center">10%</td>
                                             </tr>
                                             <tr>
                                                 <td>8</td>
                                                 <td>Estudiantes que asisten</td>
-                                                <td><input type="text" name="estudiantesasistentes" id="estudiantesasistentes" readonly class="form-control text-center" value="25"></td>
+                                                <td><input type="text" name="estudiantesasistentes" id="estudiantesasistentes" readonly class="form-control text-center" value="30"></td>
                                                 <td class="text-center">83.3%</td>
                                             </tr>
                                             <tr>
@@ -220,7 +278,7 @@
                                             <tr>
                                                 <td>10</td>
                                                 <td>Estudiantes Desaprobados</td>
-                                                <td><input type="text" name="estudiantesdesaprobados" id="estudiantesdesaprobados" readonly class="form-control text-center" value="10"></td>
+                                                <td><input type="text" name="estudiantesdesaprobados" id="estudiantesdesaprobados" readonly class="form-control text-center" value="0"></td>
                                                 <td class="text-center">33.3%</td>
                                             </tr>
                                             <tr>
@@ -262,7 +320,7 @@
                         {
                             <input type="text" name="idprueba" id="idprueba" value="@idpruebas" class="form-control floating" hidden>
                             <div class="table-responsive">
-                                <form method="post" action="" id="evaluados ">
+                                <form method="post" action="" id="evaluados" name="calculadora">
                                     <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
 
                                     <table class="table table-hover">
@@ -284,25 +342,25 @@
 
                                                 <td>1</td>
                                                 <td>Porcentaje de cumplimiento del sílabo</td>
-                                                <td><input type="text" name="porcentajesilabo" id="porcentajesilabo" class="form-control text-center" value="80"></td>
+                                                <td><input type="text" name="porcentajesilabo" id="porcentajesilabo" class="form-control text-center" value="@porcentajesilabo"></td>
                                                 <td class="text-center">80%</td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
                                                 <td>Practicas calificada realizadas</td>
-                                                <td><input type="text" name="practicasrealizadas" id="practicasrealizadas" class="form-control text-center" value="6"></td>
+                                                <td><input type="text" name="practicasrealizadas" id="practicasrealizadas" class="form-control text-center" value="@practicascalificadas"></td>
                                                 <td class="text-center">100%</td>
                                             </tr>
                                             <tr>
                                                 <td>3</td>
                                                 <td>Experiencias de laboratorio realizadas</td>
-                                                <td><input type="text" name="experienciaslaboratorio" id="experienciaslaboratorio" class="form-control text-center" value="5"></td>
+                                                <td><input type="text" name="experienciaslaboratorio" id="experienciaslaboratorio" class="form-control text-center" value="@laboratoriosrealizados"></td>
                                                 <td class="text-center">100%</td>
                                             </tr>
                                             <tr>
                                                 <td>4</td>
                                                 <td>Proyectos y/o trabajos de realizados</td>
-                                                <td><input type="text" name="proyectosrealizados" id="proyectosrealizados" class="form-control text-center" value="3"></td>
+                                                <td><input type="text" name="proyectosrealizados" id="proyectosrealizados" class="form-control text-center" value="@trabajosrealizados"></td>
                                                 <td class="text-center">100%</td>
                                             </tr>
                                             <tr>
@@ -314,49 +372,49 @@
                                             <tr>
                                                 <td>6</td>
                                                 <td>Estudiantes con retiro</td>
-                                                <td><input type="text" name="estudiantesretiro" id="estudiantesretiro" class="form-control text-center" value="2"></td>
+                                                <td><input type="text" onKeyUp="Suma()" name="estudiantesretiro" id="estudiantesretiro" class="form-control text-center" value="@estudiantesretiro"></td>
                                                 <td class="text-center">6.7%</td>
                                             </tr>
                                             <tr>
                                                 <td>7</td>
                                                 <td>Estudiantes en abandono</td>
-                                                <td><input type="text" name="estudiantesabandono" id="estudiantesabandono" class="form-control text-center" value="3"></td>
+                                                <td><input type="text" onKeyUp="Suma()" name="estudiantesabandono" id="estudiantesabandono" class="form-control text-center" value="@estudiantesabandono"></td>
                                                 <td class="text-center">10%</td>
                                             </tr>
                                             <tr>
                                                 <td>8</td>
                                                 <td>Estudiantes que asisten</td>
-                                                <td><input type="text" name="estudiantesasistentes" id="estudiantesasistentes" readonly class="form-control text-center" value="25"></td>
+                                                <td><input type="text" onKeyUp="calaprobados()" name="estudiantesasistentes" id="estudiantesasistentes" readonly class="form-control text-center" value="@estudiantesasisten"></td>
                                                 <td class="text-center">83.3%</td>
                                             </tr>
                                             <tr>
                                                 <td>9</td>
                                                 <td>Estudiantes Aprobados</td>
-                                                <td><input type="text" name="estudiantesaprobados" id="estudiantesaprobados" class="form-control text-center" value="15"></td>
+                                                <td><input type="text"  onKeyUp="calaprobados()"  name="estudiantesaprobados" id="estudiantesaprobados" class="form-control text-center" value="@estudiantesaprobados"></td>
                                                 <td class="text-center">50%</td>
                                             </tr>
                                             <tr>
                                                 <td>10</td>
                                                 <td>Estudiantes Desaprobados</td>
-                                                <td><input type="text" name="estudiantesdesaprobados" id="estudiantesdesaprobados" readonly class="form-control text-center" value="10"></td>
+                                                <td><input type="text" name="estudiantesdesaprobados" id="estudiantesdesaprobados" readonly class="form-control text-center" value="@estudiantesdesaprobados"></td>
                                                 <td class="text-center">33.3%</td>
                                             </tr>
                                             <tr>
                                                 <td>11</td>
                                                 <td>Nota final mas alta</td>
-                                                <td><input type="text" name="notamasalta" id="notamasalta" class="form-control text-center" value="18"></td>
+                                                <td><input type="text" name="notamasalta" id="notamasalta" class="form-control text-center" value="@notamasalta"></td>
                                                 <td class="text-center"></td>
                                             </tr>
                                             <tr>
                                                 <td>12</td>
                                                 <td>Nota final promedio</td>
-                                                <td><input type="text" name="notapromedio" id="notapromedio" class="form-control text-center" value="14"></td>
+                                                <td><input type="text" name="notapromedio" id="notapromedio" class="form-control text-center" value="@notapromedio"></td>
                                                 <td class="text-center"></td>
                                             </tr>
                                             <tr>
                                                 <td>13</td>
                                                 <td>Nota final mas baja</td>
-                                                <td><input type="text" name="notamasbaja" id="notamasbaja" class="form-control text-center" value="10"></td>
+                                                <td><input type="text" name="notamasbaja" id="notamasbaja" class="form-control text-center" value="@notamasbaja"></td>
                                                 <td class="text-center"></td>
                                             </tr>
                                         </tbody>
@@ -374,6 +432,36 @@
                                 </div>
                             </div>
                         }
+                        <script>
+                            //Función que realiza la suma
+                            function Suma() {
+                                var ingreso1 = document.calculadora.estudiantesabandono.value;
+                                var ingreso2 = document.calculadora.estudiantesretiro.value;
+                                var ingreso3 = document.calculadora.matriculados.value;
+                                try {
+                                    //Calculamos el número escrito:
+                                    ingreso1 = (isNaN(parseInt(ingreso1))) ? 0 : parseInt(ingreso1);
+                                    ingreso2 = (isNaN(parseInt(ingreso2))) ? 0 : parseInt(ingreso2);
+                                    document.calculadora.estudiantesasistentes.value = ingreso3-(ingreso1 + ingreso2);
+                                }
+                                //Si se produce un error no hacemos nada
+                                catch (e) { }
+                            }
+                            function calaprobados() {
+                                var estaprobados = document.calculadora.estudiantesaprobados.value;
+                                var estasistentes = document.calculadora.estudiantesasistentes.value;
+                                try {
+                                    estaprobados = (isNaN(parseInt(estaprobados))) ? 0 : parseInt(estaprobados);
+                                    estasistentes = (isNaN(parseInt(estasistentes))) ? 0 : parseInt(estasistentes);
+                                    document.calculadora.estudiantesdesaprobados.value = estasistentes - estaprobados;
+                                }
+                                catch (e) { }
+
+                            }
+                        </script>
+
+
+                      
 
                         <script>
                             var form1 = function () {
@@ -382,7 +470,7 @@
                                 var psilabo = document.getElementById("porcentajesilabo").value;
                                 var prarealizadas = document.getElementById("practicasrealizadas").value;
                                 var elaboratorio = document.getElementById("experienciaslaboratorio").value;
-                                var prorealizados = document.getElementById("proyectosrealizados").value;                                
+                                var prorealizados = document.getElementById("proyectosrealizados").value;
                                 var matriculados = document.getElementById("matriculados").value;
                                 var estretiro= document.getElementById("estudiantesretiro").value;
                                 var estabandono = document.getElementById("estudiantesabandono").value;
@@ -779,8 +867,10 @@
                                 </nav>
                             </div>
                         </div>
-                       @* @{Html.RenderAction("AgregarObservaciones", "InformeFinal", new { id1 = 0 }); }*@
+                        @* @{Html.RenderAction("AgregarObservaciones", "InformeFinal", new { id1 = 0 }); }*@
                         @{Html.RenderAction("AgregarObservaciones", "InformeFinal"); }
+
+
 
 
 
@@ -791,5 +881,7 @@
         </div>
     </div>
 </div>
+
+
 
 

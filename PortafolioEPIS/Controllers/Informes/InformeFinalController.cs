@@ -11,8 +11,9 @@ namespace PortafolioEPIS.Controllers.Informes
     {
         private Tbl_Observaciones objObservaciones = new Tbl_Observaciones();
 
-        Tbl_InformeFinal objInformeFinal = new Tbl_InformeFinal();
+        private Tbl_InformeFinal objInformeFinal = new Tbl_InformeFinal();
         private Tbl_DetalleCargaAcademica objDetalleCargaAcademica = new Tbl_DetalleCargaAcademica();
+        private Tbl_Portafolio objportafolio = new Tbl_Portafolio();
         //Tbl_Observaciones objObservaciones = new Tbl_Observaciones();
         // GET: InformeFinal
         public ActionResult Index()
@@ -23,6 +24,7 @@ namespace PortafolioEPIS.Controllers.Informes
         public ActionResult Agregar(int id)
         {
             ViewBag.prueba = objInformeFinal.Listar();
+            ViewBag.portafolio = objportafolio.Listar();
             List<Tbl_InformeFinal> listInformeFinal = objInformeFinal.Listar();
             int foerach = 0;
 
@@ -51,7 +53,7 @@ namespace PortafolioEPIS.Controllers.Informes
         public ActionResult Guardar1(Tbl_InformeFinal objInformeFinal, int idprueba, int psilabo, int prarealizadas, int elaboratorio, int codigo, string estado, int prorealizados, int matriculados, int estretiro, int estabandono, int estasistentes, int estaprobados, int estdesaprobados, int notaalta, int notapromedio, int notabaja)
         {
 
-            objInformeFinal.Codigo_Portafolio = idprueba;
+            objInformeFinal.Codigo_InformeFinal = idprueba;
             objInformeFinal.Codigo_DetalleCargaAcademica = codigo;
             objInformeFinal.PorcentajeSilabo_InformeFinal = psilabo;
             objInformeFinal.PracticasCalificadas_InformeFinal = prarealizadas;
