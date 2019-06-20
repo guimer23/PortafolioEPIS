@@ -72,6 +72,22 @@ namespace PortafolioEPIS.Models
             return objCargo;
         }
 
+        public List<Tbl_Observaciones> Listar1(int id)//Retorna una coleccion de registros
+        {
+            var objCargo = new List<Tbl_Observaciones>();
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    objCargo = db.Tbl_Observaciones.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objCargo;
+        }
         //metodo obtener
         public Tbl_Observaciones Obtener(int id)//retorna solo un objeto
         {

@@ -13,7 +13,7 @@ namespace PortafolioEPIS.Controllers.Informes
 
         Tbl_InformeFinal objInformeFinal = new Tbl_InformeFinal();
         private Tbl_DetalleCargaAcademica objDetalleCargaAcademica = new Tbl_DetalleCargaAcademica();
-        Tbl_Observaciones objObservaciones = new Tbl_Observaciones();
+        //Tbl_Observaciones objObservaciones = new Tbl_Observaciones();
         // GET: InformeFinal
         public ActionResult Index()
         {
@@ -31,7 +31,7 @@ namespace PortafolioEPIS.Controllers.Informes
             {
                 if (listaInforme.Codigo_DetalleCargaAcademica == id)
                 {
-                    ViewBag.ListarObservaciones = objObservaciones.Listar(listaInforme.Codigo_InformeFinal); //obtener la lista deevidencias de un  portafolio
+                    ViewBag.ListarObservaciones = objObservaciones.Listar1(listaInforme.Codigo_InformeFinal); //obtener la lista deevidencias de un  portafolio
                     foerach++;
                 }
 
@@ -39,7 +39,7 @@ namespace PortafolioEPIS.Controllers.Informes
 
             if (foerach == 0)
             {
-                ViewBag.ListarInformeFinal = objObservaciones.Listar(0); //obtener la lista deevidencias de un  portafolio
+                ViewBag.ListarInformeFinal = objObservaciones.Listar1(0); //obtener la lista deevidencias de un  portafolio
             }
 
 
