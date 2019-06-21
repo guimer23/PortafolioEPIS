@@ -6,6 +6,9 @@ namespace PortafolioEPIS.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    using System.Linq;
+    using System.Data.Entity;
+
     public partial class Tbl_Portafolio
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -38,5 +41,92 @@ namespace PortafolioEPIS.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_Material> Tbl_Material { get; set; }
+        //metodo listar
+        public List<Tbl_Portafolio> Listar()//Retorna una coleccion de registros
+        {
+            var objTbl_Portafolio = new List<Tbl_Portafolio>();
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    objTbl_Portafolio = db.Tbl_Portafolio.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objTbl_Portafolio;
+        }
+
+        //metodo obtener
+        public Tbl_Portafolio Obtener(int id)//retorna solo un objeto
+        {
+            var objTbl_Portafolio = new Tbl_Portafolio();
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    objTbl_Portafolio = db.Tbl_Portafolio
+                        .Where(x => x.Codigo_Portafolio == id)
+                        .SingleOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objTbl_Portafolio;
+        }
+
+
+        //metodo guardar
+        public void Guardar()//retorna solo un objeto
+        {
+
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    if (this.Codigo_Portafolio > 0)
+                    {
+                        //si existe un valor mayor a 0 es porque existe un registro
+                        db.Entry(this).State = EntityState.Modified;
+
+                    }
+                    else
+                    {
+                        //si no existe registro graba(nuevo registro)
+                        db.Entry(this).State = EntityState.Added;
+
+                    }
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+        }
+
+        //metodo Eliminar
+        public void Eliminar()
+        {
+
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    db.Entry(this).State = EntityState.Deleted;
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+        }
     }
 }
