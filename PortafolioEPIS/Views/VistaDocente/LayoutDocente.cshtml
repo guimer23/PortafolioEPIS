@@ -1,0 +1,468 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" type="image/x-icon" href="~/assets/img/favicon.ico">
+    <title>Portafolio EPIS - Docentes</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/style.css">
+
+    <!--Datatables-->
+    <link href="~/assets/DataTables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+    <!--Estilos de combobox y campo de fecha nacimiento-->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap-datetimepicker.min.css">
+
+    <!--HighCharts-->
+    <link href="~/assets/HighCharts/css/highcharts.css" rel="stylesheet" />
+    <script src="~/assets/HighCharts/highcharts.js"></script>
+    <script src="~/assets/HighCharts/modules/exporting.js"></script>
+
+</head>
+<body>
+    <div class="main-wrapper">
+        <div class="header">
+            <div class="header-left">
+                <a href="index-2.html" class="logo">
+                    <img src="~/assets/img/logo_portafolioEPIS.png" width="35" height="35" alt=""> <span>Portafolio EPIS</span>
+                </a>
+            </div>
+            <a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+            <ul class="nav user-menu float-right">
+                <li class="nav-item dropdown has-arrow">
+                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
+                        <span class="user-img">
+                            <img class="rounded-circle" src="~/assets/img/user.jpg" width="24" alt="Admin">
+                            <span class="status online"></span>
+                        </span>
+                        <span>Administrador</span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Mi Prefil</a>
+                        <a class="dropdown-item" href="#">Editar Perfil</a>
+                        <a class="dropdown-item" href="#">Configurar</a>
+                        <a class="dropdown-item" href="~/Login/IngresoSistema">Salir</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="dropdown mobile-user-menu float-right">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#">Mi Prefil</a>
+                    <a class="dropdown-item" href="#">Editar Perfil</a>
+                    <a class="dropdown-item" href="#">Configurar</a>
+                    <a class="dropdown-item" href="~/Login/IngresoSistema">Salir</a>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+                <div id="sidebar-menu" class="sidebar-menu">
+                    <ul>
+                        <li class="menu-title">Principal</li>
+                        <li class="active">
+                            <a href="~/Inicio/Index"><i class="fa fa-dashboard"></i> <span>Inicio</span></a>
+                        </li>
+                        <li>
+                            <a href="~/PlanEstudio/Index"><i class="fa fa-book"></i> <span>Mi Perfil</span> <span class="badge badge-pill bg-primary float-right">0</span></a>
+                        </li>
+                        <li>
+                            <a href="~/CargaAcademica/Index"><i class="fa fa-cube"></i> <span>Carga Académica</span> <span class="badge badge-pill bg-primary float-right">0</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrapper">
+            <div class="content">
+                
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-overlay" data-reff=""></div>
+    <script src="~/assets/js/jquery-3.2.1.min.js"></script>
+    <script src="~/assets/js/popper.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/jquery.slimscroll.js"></script>
+    <script src="~/assets/js/Chart.bundle.js"></script>
+    <script src="~/assets/js/chart.js"></script>
+    <script src="~/assets/js/app.js"></script>
+
+
+
+
+
+
+    @* JS para combobox y campo de fecha nacimiento *@
+    <script src="~/assets/js/select2.min.js"></script>
+    <script src="~/assets/js/moment.min.js"></script>
+    <script src="~/assets/js/bootstrap-datetimepicker.min.js"></script>
+
+    <!--Datatables-->
+    <script src="~/assets/DataTables/jquery.dataTables.min.js"></script>
+    <script src="~/assets/DataTables/dataTables.bootstrap4.min.js"></script>
+
+    <!--Alertas-->
+    <script src="~/assets/plugins/sweetalert/sweetalert.min.js"></script> <!-- SweetAlert Plugin Js -->
+    <script src="~/assets/js/ui/sweetalert.js"></script>
+
+    <!--HighCharts-->
+    <script src="~/assets/HighCharts/highcharts.js"></script>
+    <script src="~/assets/HighCharts/highcharts-3d.js"></script>
+    <script src="~/assets/HighCharts/highcharts-more.js"></script>
+    <script src="~/assets/HighCharts/modules/exporting.js"></script>
+    <script src="~/assets/HighCharts/modules/export-data.js"></script>
+    <script src="~/assets/HighCharts/modules/accessibility.js"></script>
+    <script src="~/assets/HighCharts/modules/pattern-fill.js"></script>
+    <script src="~/assets/HighCharts/modules/drilldown.js"></script>
+    <script src="~/assets/HighCharts/modules/offline-exporting.js"></script>
+
+    <script>
+        $(function (e) {
+            $('#example').DataTable({
+                "aLengthMenu": [[5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "Todos"]],
+                "bDestroy": true,
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningun dato disponible en esta tabla",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "?ltimo",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    }
+                }
+            });
+        });</script>
+    <script>
+        $(function (e) {
+            $('#example2').DataTable({
+                "aLengthMenu": [[5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "Todos"]],
+                "bDestroy": true,
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningun dato disponible en esta tabla",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "?ltimo",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    }
+                }
+            });
+        });</script>
+    <script>
+        $(function (e) {
+            $('#example3').DataTable({
+                "aLengthMenu": [[5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "Todos"]],
+                "bDestroy": true,
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningun dato disponible en esta tabla",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "?ltimo",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    }
+                }
+            });
+        });</script>
+    <script>
+        $(function (e) {
+            $('#example4').DataTable({
+                "aLengthMenu": [[5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "Todos"]],
+                "bDestroy": true,
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningun dato disponible en esta tabla",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "?ltimo",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    }
+                }
+            });
+        });</script>
+    <script>
+        $(function (e) {
+            $('#example5').DataTable({
+                "aLengthMenu": [[5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "Todos"]],
+                "bDestroy": true,
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningun dato disponible en esta tabla",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "?ltimo",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    }
+                }
+            });
+        });</script>
+    <script>
+        $(function (e) {
+            $('#example6').DataTable({
+                "aLengthMenu": [[5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "Todos"]],
+                "bDestroy": true,
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningun dato disponible en esta tabla",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "?ltimo",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    }
+                }
+            });
+        });</script>
+    <script>
+        $(function (e) {
+            $('#example7').DataTable({
+                "aLengthMenu": [[5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "Todos"]],
+                "bDestroy": true,
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningun dato disponible en esta tabla",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "?ltimo",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    }
+                }
+            });
+        });</script>
+    <script>
+        $(function (e) {
+            $('#example8').DataTable({
+                "aLengthMenu": [[5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "Todos"]],
+                "bDestroy": true,
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningun dato disponible en esta tabla",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "?ltimo",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    }
+                }
+            });
+        });</script>
+    <script>
+        $(function (e) {
+            $('#example9').DataTable({
+                "aLengthMenu": [[5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "Todos"]],
+                "bDestroy": true,
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningun dato disponible en esta tabla",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "?ltimo",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    }
+                }
+            });
+        });</script>
+    <script>
+        $(function (e) {
+            $('#example10').DataTable({
+                "aLengthMenu": [[5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "Todos"]],
+                "bDestroy": true,
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningun dato disponible en esta tabla",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "?ltimo",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    }
+                }
+            });
+        });</script>
+    <script>
+        $(function (e) {
+            $('#example11').DataTable({
+                "aLengthMenu": [[5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "Todos"]],
+                "bDestroy": true,
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningun dato disponible en esta tabla",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "?ltimo",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    }
+                }
+            });
+        });</script>
+</body>
+</html>
