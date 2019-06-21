@@ -153,6 +153,13 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row clearfix">
+                                    <div class="col-md-12">
+                                        <div class="text-center">
+                                            <button onclick="form1()" type="button" class="btn btn-primary btn-rounded" style='width:150px; height:35px' data-type="success"><i class="fa fa-refresh"></i> Actualizar</button>
+                                        </div>
+                                    </div>
+                                </div>
                             }
                             else
                             {
@@ -168,27 +175,27 @@
 
                                             <input type="text" name="idprueba" id="idprueba" value="@idpruebas" class="form-control floating" hidden>
                                             @*<script type="text/javascript">
-                                                function Habilitar() {
-                                                    var eva;
-                                                    eva = document.getElementById("evaluados").value;
-                                                    if (eva === "") {
+                            function Habilitar() {
+                                var eva;
+                                eva = document.getElementById("evaluados").value;
+                                if (eva === "") {
 
-                                                        evaluados.disabled = false;
+                                    evaluados.disabled = false;
 
-                                                    }
-                                                    else {
-                                                        evaluados.disabled = true;
-                                                    }
-                                                }
-                                            </script>*@
+                                }
+                                else {
+                                    evaluados.disabled = true;
+                                }
+                            }
+                        </script>*@
                                             <label class="focus-label">Evaluados:<span class="text-danger">*</span></label>
-                                            @if (evaluados ==0)
+                                            @if (evaluados == 0)
                                             {
-                                                <input type="text" name="evaluados" id="evaluados" value="@evaluados"  class="form-control floating">
+                                                <input type="text" name="evaluados" id="evaluados" value="@evaluados" class="form-control floating">
                                             }
                                             else
                                             {
-                                                <input style="background:#ffffff" readonly class="form-control floating" type="text" name="evaluados" id="evaluados" value="@evaluados" >
+                                                <input style="background:#ffffff" readonly class="form-control floating" type="text" name="evaluados" id="evaluados" value="@evaluados">
                                             }
 
 
@@ -196,13 +203,7 @@
                                     </div>
                                 </div>
                             }
-                            <div class="row clearfix">
-                                <div class="col-md-12">
-                                    <div class="text-center">
-                                        <button onclick="form1()" type="button" class="btn btn-primary btn-rounded" style='width:150px; height:35px' data-type="success"><i class="fa fa-refresh"></i> Actualizar</button>
-                                    </div>
-                                </div>
-                            </div>
+
                         </form>
                     </div>
                 </div>
