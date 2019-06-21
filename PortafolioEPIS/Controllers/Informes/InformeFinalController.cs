@@ -77,14 +77,14 @@ namespace PortafolioEPIS.Controllers.Informes
         {
             return View(objInformeFinal.Obtener(id));
         }
-        public ActionResult AgregarObservaciones(int codigoFinal = 10, int id2 =0)
+        public ActionResult AgregarObservaciones(int idInformeFinal = 0, int id2 =0)
         {
-            //ViewBag.IdPruebaEntrada = id1;
+            ViewBag.idInformeFinal = idInformeFinal;
             //ViewBag.IdDetalleCargaAcademica = id2;
 
             //ViewBag.ListaTbl_MedidasCorrectivas = objlistaMedidasCorrectivas.Listar();
             return View(              
-                objObservaciones.Obtener(codigoFinal)
+                objObservaciones.Obtener(idInformeFinal)
                 );
         }
 
