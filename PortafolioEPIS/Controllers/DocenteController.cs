@@ -20,6 +20,7 @@ namespace PortafolioEPIS.Controllers
         private Tbl_DetalleCargaAcademica objDetalleCargaAcademica = new Tbl_DetalleCargaAcademica();
         private Tbl_PruebaEntrada objpruebaentrada = new Tbl_PruebaEntrada();
         private Tbl_Portafolio objportafolio = new Tbl_Portafolio();
+        private Tbl_InformeFinal objInformeFinal = new Tbl_InformeFinal();
 
         Modelo_Portafolio db = new Modelo_Portafolio();
 
@@ -53,6 +54,14 @@ namespace PortafolioEPIS.Controllers
             ViewBag.prueba = objportafolio.Listar();
             return View(objDetalleCargaAcademica.Listar());
         }
+
+        public ActionResult VistaInformeFinal(int id)
+        {
+            ViewBag.id = id;
+            ViewBag.prueba = objInformeFinal.Listar();
+            return View(objDetalleCargaAcademica.Listar());
+        }
+
         public ActionResult VistaCursosTabla(int id)
         {
             ViewBag.id = id;
