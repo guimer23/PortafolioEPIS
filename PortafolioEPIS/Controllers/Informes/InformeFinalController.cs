@@ -161,7 +161,7 @@ namespace PortafolioEPIS.Controllers.Informes
         }
         public ActionResult EliminarCapacidadCurso(int id, int idPruebaDoc)
         {
-            objCapacidadesCurso.Codigo_InformeFinal = id;
+            objCapacidadesCurso.Codigo_CapacidadesCurso = id;
             objCapacidadesCurso.Eliminar();
             return Redirect("~/InformeFinal/Agregar/" + idPruebaDoc);
         }
