@@ -1,0 +1,32 @@
+﻿@model PortafolioEPIS.Models.Tbl_Motivo
+@{
+    ViewBag.Title = "AgregarMotivo";
+    Layout = null;
+}
+
+@using (Html.BeginForm("GuardarMotivo", "InformeFinal", FormMethod.Post, new { id = "frm-GuardarMotivo" }))
+{
+    <input type="text" value="@ViewBag.idPruebaDoc" name="idPruebaDoc" hidden  />
+    <input type="text" value="@ViewBag.idInformeFinal" name="Codigo_InformeFinal" hidden  />
+    <input type="text" value="@ViewBag.sumador" name="sumador" hidden />
+   @Html.HiddenFor(x => x.Codigo_Motivo)
+    <br /><br />
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label><strong>Cuál cree que ha sido el motivo por el cual los estuiantes no alcanzaron el logro de capacidades</strong></label>
+                    <div class="form-group">
+                        @Html.TextAreaFor(x => x.Descripcion_Motivo, new { @class = "form-control", rows = "3", cols = "5", placeholder = "Escriba Aquí" })
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <div class="text-center">
+                    <button class="btn btn-primary btn-rounded" style='width:150px; height:35px' type="submit"><i class="fa fa-refresh"></i> Actualizar</button>
+                </div>
+            </div>
+        </div>
+}

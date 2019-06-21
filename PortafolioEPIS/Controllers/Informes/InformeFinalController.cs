@@ -10,6 +10,7 @@ namespace PortafolioEPIS.Controllers.Informes
     public class InformeFinalController : Controller
     {
         private Tbl_Observaciones objObservaciones = new Tbl_Observaciones();
+        private Tbl_Motivo objMotivo = new Tbl_Motivo();
         private Tbl_CapacidadesCurso objCapacidadesCurso = new Tbl_CapacidadesCurso();
 
         private Tbl_InformeFinal objInformeFinal = new Tbl_InformeFinal();
@@ -116,9 +117,31 @@ namespace PortafolioEPIS.Controllers.Informes
 
         }
 
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+        //Action Guardar
+        public ActionResult GuardarMotivo(Tbl_Motivo objmotivoGuardar, int idPruebaDoc)
+        {
+
+            objmotivoGuardar.Guardar();
+            return Redirect("~/InformeFinal/Agregar/" + idPruebaDoc);
+        }
+
+        public ActionResult AgregarMotivo(int idInformeFinal = 0, int idPruebaDoc = 0)
+        {
+            ViewBag.idInformeFinal = idInformeFinal;
+            ViewBag.idPruebaDoc = idPruebaDoc;
+
+            //ViewBag.ListaTbl_MedidasCorrectivas = objlistaMedidasCorrectivas.Listar();
+            return View(
+                objMotivo.Obtener(idInformeFinal)
+                );
+        }
+        ///////////////////////////////////////////////////////////////////////
         public ActionResult ListarCapacidadCurso(int idInformeFinal = 0, int idPruebaDoc = 0)
         {
             ViewBag.idPruebaDoc = idPruebaDoc;
+            ViewBag.idInformeFinal = idInformeFinal;
+
             return View(objCapacidadesCurso.Listar(idInformeFinal));
         }
 
@@ -132,6 +155,8 @@ namespace PortafolioEPIS.Controllers.Informes
                 objCapacidadesCurso.ObtenerCapacidades(0)
                 );
         }
+
+
         //Action Guardar
         public ActionResult GuardarCapacidadCurso(Tbl_CapacidadesCurso ObjCapacidadesCurso, int idPruebaDoc, int radio)
         {

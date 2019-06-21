@@ -1,49 +1,61 @@
 ﻿@model List<PortafolioEPIS.Models.Tbl_CapacidadesCurso>
 @{
-    ViewBag.Title = "ListarCapacidadCurso";
+   
     Layout = null;
+    int validacion = 0;
 }
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th rowspan="2">Capacidades del curso</th>
+                <th class="text-center" colspan="5">Nivel Alcanzado</th>
+                <th rowspan="2" class="text-right">Accción</th>
+            </tr>
+            <tr>
+                <th class="text-center">Nada</th>
+                <th class="text-center">Poco</th>
+                <th class="text-center">Aceptable</th>
+                <th class="text-center">Bien</th>
+                <th class="text-center">Muy Bien</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int conteo = 0;}
+            @foreach (var s in Model)
+            {
+                if(s.Nada_CapacidadesCurso > 0 || s.Poco_CapacidadesCurso > 0)
+                {
+                    validacion++;
+                }
+                conteo = conteo + 1;
+                <tr>
+                    <td>@conteo</td>
+                    <td>@s.Descripcion_CapacidadesCurso</td>
+                    <td class="text-center">@(s.Nada_CapacidadesCurso == 1 ? "X" : "")</td>
+                    <td class="text-center">@(s.Poco_CapacidadesCurso == 1 ? "X" : "")</td>
+                    <td class="text-center">@(s.Aceptable_CapacidadesCurso == 1 ? "X" : "")</td>
+                    <td class="text-center">@(s.Bien_CapacidadesCurso == 1 ? "X" : "")</td>
+                    <td class="text-center">@(s.MuyBien_CapacidadesCurso == 1 ? "X" : "")</td>
+                    <td class="text-right">
+                        <div class="dropdown dropdown-action">
+                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="~/InformeFinal/EliminarCapacidadCurso/?id=@s.Codigo_CapacidadesCurso&idPruebaDoc=@ViewBag.idPruebaDoc" onclick="return confirm('¿Esta Seguro de Eliminar.........?');"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
 
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th rowspan="2">#</th>
-            <th rowspan="2">Capacidades del curso</th>
-            <th class="text-center" colspan="5">Nivel Alcanzado</th>
-            <th rowspan="2" class="text-right">Accción</th>
-        </tr>
-        <tr>
-            <th class="text-center">Nada</th>
-            <th class="text-center">Poco</th>
-            <th class="text-center">Aceptable</th>
-            <th class="text-center">Bien</th>
-            <th class="text-center">Muy Bien</th>
-        </tr>
-    </thead>
-    <tbody>
-        @{ int conteo = 0;}
-@foreach (var s in Model)
-{
-    conteo = conteo + 1;
-        <tr>
-            <td>@conteo</td>
-            <td>@s.Descripcion_CapacidadesCurso</td>
-            <td class="text-center">@(s.Nada_CapacidadesCurso == 1 ? "X":"")</td>
-            <td class="text-center">@(s.Poco_CapacidadesCurso == 1 ? "X" : "")</td>
-            <td class="text-center">@(s.Aceptable_CapacidadesCurso == 1 ? "X" : "")</td>
-            <td class="text-center">@(s.Bien_CapacidadesCurso == 1 ? "X" : "")</td>
-            <td class="text-center">@(s.MuyBien_CapacidadesCurso == 1 ? "X" : "")</td>
-            <td class="text-right">
-                <div class="dropdown dropdown-action">
-                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="~/InformeFinal/EliminarCapacidadCurso/?id=@s.Codigo_CapacidadesCurso&idPruebaDoc=@ViewBag.idPruebaDoc" onclick="return confirm('¿Esta Seguro de Eliminar.........?');"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
-                        
-                    </div>
-                </div>
-            </td>
-        </tr>
-}
-    
-    </tbody>
-</table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+    @if (validacion > 0)
+    {
+        {Html.RenderAction("AgregarMotivo", "InformeFinal", new { idInformeFinal = ViewBag.idInformeFinal, idPruebaDoc = ViewBag.idPruebaDoc }); }
+
+            }

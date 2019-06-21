@@ -727,28 +727,11 @@
                         </div>
 
 
-                        <div class="table-responsive">
+                        
                             @{Html.RenderAction("ListarCapacidadCurso", "InformeFinal", new { idInformeFinal = idpruebas, idPruebaDoc = Model.Tbl_Docente.Codigo_Docente }); }
                             
-                        </div>
-                        <br /><br />
-                        <div class="row clearfix">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label><strong>Cuál cree que ha sido el motivo por el cual los estuiantes no alcanzaron el logro de capacidades</strong></label>
-                                    <div class="form-group">
-                                        <textarea class="form-control" rows="3" cols="5" placeholder="Escriba Aquí"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row clearfix">
-                            <div class="col-md-12">
-                                <div class="text-center">
-                                    <button class="btn btn-primary btn-rounded" style='width:150px; height:35px' type="submit"><i class="fa fa-refresh"></i> Actualizar</button>
-                                </div>
-                            </div>
-                        </div>
+                       
+                        
                     </div>
                 </div>
             </div>
