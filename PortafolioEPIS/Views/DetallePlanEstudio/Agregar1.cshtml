@@ -1,5 +1,6 @@
 ﻿@model PortafolioEPIS.Models.Tbl_DetallePlanEstudio
 @{
+    
     List<PortafolioEPIS.Models.Tbl_PlanEstudio> objPlanEstudio = ViewBag.Tbl_PlanEstudio;
     ViewBag.Title = "Agregar";
 }
@@ -45,28 +46,28 @@
                     </div>
                 </div>
                 <div class="row clearfix">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         @Html.Label("Horas Teóricas")
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.HorasTeoricas_DetallePlanEstudio, new { @class = "form-control", @placeholder = "Ingrese total hora teorica" })
                             @Html.ValidationMessageFor(x => x.HorasTeoricas_DetallePlanEstudio, null, new { @class = "label label-danger" })
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         @Html.Label("Horas Prácticas")
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.HorasPracticas_DetallePlanEstudio, new { @class = "form-control", @placeholder = "Ingrese total hora practica" })
                             @Html.ValidationMessageFor(x => x.HorasPracticas_DetallePlanEstudio, null, new { @class = "label label-danger" })
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         @Html.Label("Total Horas")
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.TotalHoras_DetallePlanEstudio, new { @class = "form-control", @placeholder = "Ingrese total Horas" })
                             @Html.ValidationMessageFor(x => x.TotalHoras_DetallePlanEstudio, null, new { @class = "label label-danger" })
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         @Html.Label("Créditos")
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.TotalCreditos_DetallePlanEstudio, new { @class = "form-control", @placeholder = "Ingrese total credito" })
@@ -130,10 +131,10 @@
                             <div class="form-group row">
                                 <div class="col-sm-8 col-9 text-left">
                                     <div class="form-check form-check-inline">
-                                        <a href="~/DetallePlanEstudio/Index" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'> Cancelar</a>
+                                        <a href="~/DetallePlanEstudio/Index/@Model.Codigo_PlanEstudio" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'><i class="fa fa-close"></i>  Cancelar</a>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input type="submit" value="Guardar" class="btn btn btn-primary btn-rounded" style='width:100px; height:35px' />
+                                        <button class="btn btn-primary btn-rounded" style='width:100px; height:35px' type="submit"><i class="fa fa-check"></i> Guardar</button>
                                     </div>
                                 </div>
                             </div>
