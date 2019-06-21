@@ -132,19 +132,19 @@ namespace PortafolioEPIS.Controllers.Informes
             switch (radio)
             {
                 case 1:
-                    objCapacidadesCurso.Nada_CapacidadesCurso = 1;
+                    ObjCapacidadesCurso.Nada_CapacidadesCurso = 1;
                     break;
                 case 2:
-                    objCapacidadesCurso.Poco_CapacidadesCurso = 1;
+                    ObjCapacidadesCurso.Poco_CapacidadesCurso = 1;
                     break;
                 case 3:
-                    objCapacidadesCurso.Aceptable_CapacidadesCurso = 1;
+                    ObjCapacidadesCurso.Aceptable_CapacidadesCurso = 1;
                     break;
                 case 4:
-                    objCapacidadesCurso.Bien_CapacidadesCurso = 1;
+                    ObjCapacidadesCurso.Bien_CapacidadesCurso = 1;
                     break;
                 case 5:
-                    objCapacidadesCurso.MuyBien_CapacidadesCurso = 1;
+                    ObjCapacidadesCurso.MuyBien_CapacidadesCurso = 1;
                     break;
                
             }
