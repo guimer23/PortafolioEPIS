@@ -40,8 +40,8 @@
                                 <td>@num</td>
                                 <td>@p.Tbl_Semestre.Nombre_Semestre</td>
                                 <td><a href="~/DetallePlanEstudio/Index/@p.Codigo_PlanEstudio">@p.Nombre_PlanEstudio</a></td>
-                                <td>@p.FechaInicio_PlanEstudio</td>
-                                <td>@p.FechaFin_PlanEstudio</td>
+                                <td>@p.FechaInicio_PlanEstudio.ToString("dd/MM/yyyy")</td>
+                                <td>@p.FechaFin_PlanEstudio.ToString("dd/MM/yyyy")</td>
                                 @if (p.Estado_PlanEstudio == true)
                                 {
                                     <td><span class="custom-badge status-green">Activo</span></td>
