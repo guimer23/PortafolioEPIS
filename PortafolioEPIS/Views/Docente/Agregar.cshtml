@@ -87,10 +87,12 @@
                     <div class="col-md-4">
                         @Html.Label("Fecha de Nacimiento")<span class="text-danger">*</span>
                         <div class="form-group">
-                            <div class="cal-icon">
-                                @Html.TextBoxFor(x => x.FechaNac_Docente, new { @class = "form-control datetimepicker"})                                
+                            @Html.EditorFor(x => x.FechaNac_Docente, new { htmlAttributes = new { @class = "form-control date", id = "validationCustom03", required = "required" } })
+                            <div class="invalid-feedback">
+                                Seleccionar Fecha de Nacimiento
                             </div>
                         </div>
+                        
                     </div>
                 </div>
                 <div class="row clearfix">

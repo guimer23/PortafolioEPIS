@@ -11,10 +11,7 @@
             <a href="#" class="btn btn-primary btn-rounded"><i class="fa fa-edit"></i> Editar Perfil</a>
         </div>
 
-    </div>
-    <a href="~/PruebaEntrada/ExportaAPDF" target="_blank" class="btn btn-danger">
-        <i class="fa fa-file-pdf-o"></i> <span class="hidden-xs hidden-sm">Descargar en PDF</span>
-    </a>
+    </div>    
     <div class="card-box profile-header">
         <div class="row">
             <div class="col-md-12">
@@ -62,14 +59,14 @@
                                     </li>
                                     <li>
                                         <span class="title">Fecha Nacimiento:</span>
-                                        <span class="text">@Model.FechaNac_Docente</span>
+                                        <span class="text">@DateTime.Parse((Model.FechaNac_Docente).ToString()).ToShortDateString()</span>
                                     </li>
                                     <li>
-                                        <span class="title">Dirección Actual:</span>
+                                        <span class="title">Direccion Actual:</span>
                                         <span class="text">@Model.DireccionActual_Docente</span>
                                     </li>
                                     <li>
-                                        <span class="title">Dirección Ref.:</span>
+                                        <span class="title">Direccion Ref.:</span>
                                         <span class="text">@Model.DireccionReferencia_Docente</span>
                                     </li>
                                     <li>
