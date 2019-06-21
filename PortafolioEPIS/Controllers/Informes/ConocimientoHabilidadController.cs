@@ -40,11 +40,11 @@ namespace PortafolioEPIS.Controllers.Informes
            
 
         }
-        public ActionResult Eliminar(int id)
+        public ActionResult Eliminar(int id=0,int cid=0)
         {
             objConocimientoHabilidad.Codigo_ConocimientoHabilidad = id;
             objConocimientoHabilidad.Eliminar();
-            return Redirect("~/ConocimientoHabilidad");
+            return Redirect("~/PruebaEntrada/Agregar/" + cid);
 
         }
     }
