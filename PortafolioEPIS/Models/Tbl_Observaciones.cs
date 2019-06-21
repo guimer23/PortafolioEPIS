@@ -26,17 +26,17 @@ namespace PortafolioEPIS.Models
         [StringLength(250)]
         public string Silabo_Observaciones { get; set; }
 
-        public bool? MaterialCurso_Observaciones { get; set; }
+        public bool MaterialCurso_Observaciones { get; set; }
 
-        public bool? Cuestionarios_Observaciones { get; set; }
+        public bool Cuestionarios_Observaciones { get; set; }
 
-        public bool? TareasEncargadas_Observaciones { get; set; }
+        public bool TareasEncargadas_Observaciones { get; set; }
 
-        public bool? Foros_Observaciones { get; set; }
+        public bool Foros_Observaciones { get; set; }
 
-        public bool? ExamenesVirtuales_Observaciones { get; set; }
+        public bool ExamenesVirtuales_Observaciones { get; set; }
 
-        public bool? Slideshow_Observaciones { get; set; }
+        public bool Slideshow_Observaciones { get; set; }
 
         [StringLength(250)]
         public string Administrativas_Observaciones { get; set; }
