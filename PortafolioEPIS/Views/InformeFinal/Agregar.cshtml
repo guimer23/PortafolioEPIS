@@ -719,58 +719,9 @@
                                     <div class="modal-header">
                                         <h4 class="modal-title">Capacidad del Curso</h4>
                                     </div>
-                                    <div class="modal-body">
-                                        <div class="row clearfix">
-                                            <div class="col-md-12">
-                                                @Html.Label("Nombre:")
-                                                <div class="form-group">
 
-                                                    @*<input type="text" name="idprueba" id="idprueba" value="@idpruebas" class="form-control floating" hidden*@>
-                                                    <input type="text" name="idcapacidadcurso" value="" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row clearfix">
-                                            <div class="col-md-12">
-                                                <strong>@Html.Label("Nivel Alcanzado:")</strong>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" name="radio"> Nada
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" name="radio"> Poco
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" name="radio"> Aceptable
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" name="radio"> Bien
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" name="radio"> Muy Bien
-                                                    </label>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                        <button class="btn btn-primary btn-rounded" style='width:100px; height:35px' type="submit"><i class="fa fa-check"></i> Guardar</button>
-                                    </div>
+                                    @{Html.RenderAction("AgregarCapacidadCurso", "InformeFinal", new { idInformeFinal = idpruebas, idPruebaDoc = Model.Tbl_Docente.Codigo_Docente }); }
+                                   
                                 </div>
                             </div>
                         </div>
