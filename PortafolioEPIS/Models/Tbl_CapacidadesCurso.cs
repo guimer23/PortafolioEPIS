@@ -6,6 +6,9 @@ namespace PortafolioEPIS.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    using System.Linq;
+    using System.Data.Entity;
+
     public partial class Tbl_CapacidadesCurso
     {
         [Key]
@@ -30,5 +33,7 @@ namespace PortafolioEPIS.Models
         public string Motivo_CapacidadesCurso { get; set; }
 
         public virtual Tbl_InformeFinal Tbl_InformeFinal { get; set; }
+
+
     }
 }
