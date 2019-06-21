@@ -692,25 +692,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Modelo_Portafolio.cs" />
-    <Compile Include="Models\Tbl_CapacidadesCurso.cs" />
-    <Compile Include="Models\Tbl_CargaAcademica.cs" />
-    <Compile Include="Models\Tbl_CargoDocente.cs" />
-    <Compile Include="Models\Tbl_ConocimientoHabilidad.cs" />
-    <Compile Include="Models\Tbl_DetalleCargaAcademica.cs" />
-    <Compile Include="Models\Tbl_DetallePlanEstudio.cs" />
-    <Compile Include="Models\Tbl_Docente.cs" />
-    <Compile Include="Models\Tbl_InformeFinal.cs" />
-    <Compile Include="Models\Tbl_Material.cs" />
-    <Compile Include="Models\Tbl_MedidasCorrectivas.cs" />
-    <Compile Include="Models\Tbl_Observaciones.cs" />
-    <Compile Include="Models\Tbl_PlanEstudio.cs" />
-    <Compile Include="Models\Tbl_Portafolio.cs" />
-    <Compile Include="Models\Tbl_Profesion.cs" />
-    <Compile Include="Models\Tbl_PruebaEntrada.cs" />
-    <Compile Include="Models\Tbl_Seccion.cs" />
-    <Compile Include="Models\Tbl_Semestre.cs" />
-    <Compile Include="Models\Tbl_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -863,6 +844,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
     <Folder Include="Reports\" />
   </ItemGroup>
   <PropertyGroup>
