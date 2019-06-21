@@ -857,6 +857,7 @@
     <Content Include="Views\InformeFinal\AgregarObservaciones.cshtml" />
     <Content Include="Views\Docente\VistaInformeFinal.cshtml" />
     <Content Include="Views\InformeFinal\AgregarCapacidadCurso.cshtml" />
+    <Content Include="Views\InformeFinal\ListarCapacidadCurso.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

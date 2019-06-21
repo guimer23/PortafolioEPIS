@@ -116,6 +116,11 @@ namespace PortafolioEPIS.Controllers.Informes
 
         }
 
+        public ActionResult ListarCapacidadCurso(int idInformeFinal = 0)
+        {
+            return View(objCapacidadesCurso.Listar(idInformeFinal));
+        }
+
         public ActionResult AgregarCapacidadCurso(int idInformeFinal=0,  int idPruebaDoc = 0)
         {
             ViewBag.idInformeFinal = idInformeFinal;
@@ -153,7 +158,12 @@ namespace PortafolioEPIS.Controllers.Informes
             ObjCapacidadesCurso.Guardar();
             return Redirect("~/InformeFinal/Agregar/" + idPruebaDoc);
         }
-
+        public ActionResult EliminarCapacidadCurso(int id, int idPruebaDoc)
+        {
+            objCapacidadesCurso.Codigo_InformeFinal = id;
+            objCapacidadesCurso.Eliminar();
+            return Redirect("~/InformeFinal/Agregar/" + idPruebaDoc);
+        }
 
         //Action Eliminar
 
