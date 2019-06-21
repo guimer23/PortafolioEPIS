@@ -20,6 +20,8 @@ namespace PortafolioEPIS.Controllers.Informes
         private Tbl_Seccion objSeccion = new Tbl_Seccion();
         private Tbl_DetallePlanEstudio objDetallePlanEstudio = new Tbl_DetallePlanEstudio();
         private Tbl_Semestre objSemestre = new Tbl_Semestre();
+        private Tbl_CargaAcademica objCargaAcademica = new Tbl_CargaAcademica();
+        private Tbl_Portafolio objPortafolio = new Tbl_Portafolio();
         // Accion Listar
         public ActionResult Index()
         {
@@ -33,8 +35,17 @@ namespace PortafolioEPIS.Controllers.Informes
         }
         public ActionResult IndexAdmin()
         {
-            return View();
+            return View(objCargaAcademica.Listar());
         }
+
+
+        public ActionResult IndexLista(int id=0)
+        {
+            ViewBag.id = id;
+            ViewBag.prueba = objPruebaEntrada.Listar();
+            return View(objDetalleCargaAcademica.Listar());
+        }
+
         //Action Guardar
         public ActionResult Guardar(Tbl_PruebaEntrada objPruebaEntrada, int evaluados, int codigo, string estado, int idprueba)
         {
