@@ -184,8 +184,7 @@
 
                             }
                         }
-                        <label>@retirados</label>
-                        <label>@abandonos</label>
+                       
                         <div class="row clearfix">
                             <div class="col-md-12">
                                 <nav aria-label="breadcrumb">
@@ -254,25 +253,25 @@
                                             <tr>
                                                 <td>6</td>
                                                 <td>Estudiantes con retiro</td>
-                                                <td><input type="text" onKeyUp="Suma()" name="estudiantesretiro" id="estudiantesretiro" class="form-control text-center"></td>
+                                                <td><input type="text" onKeyUp="Suma()" name="estudiantesretiro" id="estudiantesretiro" class="form-control text-center" value="@retirados"></td>
                                                 <td class="text-center">6.7%</td>
                                             </tr>
                                             <tr>
                                                 <td>7</td>
                                                 <td>Estudiantes en abandono</td>
-                                                <td><input type="text" onKeyUp="Suma()" name="estudiantesabandono" id="estudiantesabandono" class="form-control text-center"></td>
+                                                <td><input type="text" onKeyUp="Suma()" name="estudiantesabandono" id="estudiantesabandono" class="form-control text-center" value="@abandonos"></td>
                                                 <td class="text-center">10%</td>
                                             </tr>
                                             <tr>
                                                 <td>8</td>
                                                 <td>Estudiantes que asisten</td>
-                                                <td><input type="text" name="estudiantesasistentes" id="estudiantesasistentes" readonly class="form-control text-center" value="30"></td>
+                                                <td><input type="text" onKeyUp="calaprobados()"  name="estudiantesasistentes" id="estudiantesasistentes" readonly class="form-control text-center" value="30"></td>
                                                 <td class="text-center">83.3%</td>
                                             </tr>
                                             <tr>
                                                 <td>9</td>
                                                 <td>Estudiantes Aprobados</td>
-                                                <td><input type="text" name="estudiantesaprobados" id="estudiantesaprobados" class="form-control text-center"></td>
+                                                <td><input type="text" onKeyUp="calaprobados()"  name="estudiantesaprobados" id="estudiantesaprobados" class="form-control text-center"></td>
                                                 <td class="text-center">50%</td>
                                             </tr>
                                             <tr>
