@@ -59,7 +59,7 @@ namespace PortafolioEPIS.Controllers.Informes
             objInformeFinal.PracticasCalificadas_InformeFinal = prarealizadas;
             objInformeFinal.LaboratoriosRealizados_InformeFinal = elaboratorio;
             objInformeFinal.TrabajosRealizados_InformeFinal = prorealizados;
-            objInformeFinal.Codigo_Portafolio = 1;
+            
             objInformeFinal.EstudiantesMatriculados_InformeFinal = matriculados;
             objInformeFinal.EstudiantesRetiro_InformeFinal = estretiro;
             objInformeFinal.EstudiantesAbandono_InformeFinal = estabandono;
