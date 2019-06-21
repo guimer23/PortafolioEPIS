@@ -60,6 +60,30 @@ namespace PortafolioEPIS.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_PruebaEntrada> Tbl_PruebaEntrada { get; set; }
 
+        //Metodo Listar
+        public List<Tbl_DetalleCargaAcademica> Listar()
+        {
+            var objDetalleCargaAcademica = new List<Tbl_DetalleCargaAcademica>();
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    objDetalleCargaAcademica = db.Tbl_DetalleCargaAcademica.Include("Tbl_CargaAcademica")
+                                                                            .Include("Tbl_PlanEstudio")
+                                                                            .Include("Tbl_Docente")
+                                                                            .Include("Tbl_Seccion")
+                                                                            .Include("Tbl_DetallePlanEstudio")
+                                                                            .Include("Tbl_Semestre")
+                                                                            .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objDetalleCargaAcademica;
+        }
+
         //Metodo Listar 2 usado en el controlador detalle carga academica en la vista index 
 
         public List<Tbl_DetalleCargaAcademica> Listar2(int id)
