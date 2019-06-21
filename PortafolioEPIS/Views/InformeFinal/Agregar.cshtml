@@ -867,7 +867,7 @@
                             </div>
                         </div>
                         @* @{Html.RenderAction("AgregarObservaciones", "InformeFinal", new { id1 = 0 }); }*@
-                        @{Html.RenderAction("AgregarObservaciones", "InformeFinal"); }
+                        @{Html.RenderAction("AgregarObservaciones", "InformeFinal", new { idInformeFinal = idpruebas, idPruebaDoc = Model.Tbl_Docente.Codigo_Docente }); }
 
 
 

@@ -79,10 +79,10 @@ namespace PortafolioEPIS.Controllers.Informes
         {
             return View(objInformeFinal.Obtener(id));
         }
-        public ActionResult AgregarObservaciones(int idInformeFinal = 0, int id2 =0)
+        public ActionResult AgregarObservaciones(int idInformeFinal = 0, int idPruebaDoc = 0)
         {
             ViewBag.idInformeFinal = idInformeFinal;
-            //ViewBag.IdDetalleCargaAcademica = id2;
+            ViewBag.idPruebaDoc = idPruebaDoc;
 
             //ViewBag.ListaTbl_MedidasCorrectivas = objlistaMedidasCorrectivas.Listar();
             return View(              
@@ -91,18 +91,10 @@ namespace PortafolioEPIS.Controllers.Informes
         }
 
         //Action Guardar
-        public ActionResult GuardarObservaciones(Tbl_Observaciones ObjObservaciones)
+        public ActionResult GuardarObservaciones(Tbl_Observaciones ObjObservaciones, int idPruebaDoc)
         {
-            if (ModelState.IsValid)
-            {
                 ObjObservaciones.Guardar();
-                return Redirect("~/InformeFinal/Agregar");
-            }
-            else
-            {
-                return View("~/Views/InformeFinal/Agregar.cshtml");
-            }
-
+                return Redirect("~/InformeFinal/Agregar/"+ idPruebaDoc);
         }
 
 
