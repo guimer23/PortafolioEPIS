@@ -1,12 +1,11 @@
-﻿@{ 
-    List<PortafolioEPIS.Models.Tbl_CargaAcademica> carga = new PortafolioEPIS.Models.Tbl_CargaAcademica().Listar();
-    List<PortafolioEPIS.Models.Tbl_PlanEstudio> plan = new PortafolioEPIS.Models.Tbl_PlanEstudio().Listar();
-    List<PortafolioEPIS.Models.Tbl_Docente> docente = new PortafolioEPIS.Models.Tbl_Docente().Listar();
+﻿@{
+    Layout = null;
 }
-   
+
+
 <!DOCTYPE html>
 <html>
-<head>    
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <link rel="shortcut icon" type="image/x-icon" href="~/assets/img/favicon.ico">
@@ -66,17 +65,6 @@
                 </div>
             </div>
         </div>
-        @{ int a = 0;
-            int c = 0;
-            int p = 0;}
-        @foreach (var doc in docente)
-        { a++; }
-        @foreach (var pl in plan)
-        { p++; }
-        @foreach (var ca in carga)
-        { c++; }
-
-
         <div class="sidebar" id="sidebar">
             <div class="sidebar-inner slimscroll">
                 <div id="sidebar-menu" class="sidebar-menu">
@@ -86,37 +74,10 @@
                             <a href="~/Inicio/Index"><i class="fa fa-dashboard"></i> <span>Inicio</span></a>
                         </li>
                         <li>
-                            <a href="~/PlanEstudio/Index"><i class="fa fa-book"></i> <span>Plan de Estudio</span> <span class="badge badge-pill bg-primary float-right">@p</span></a>
+                            <a href="~/PlanEstudio/Index"><i class="fa fa-book"></i> <span>Mi Perfil</span> <span class="badge badge-pill bg-primary float-right">0</span></a>
                         </li>
                         <li>
-                            <a href="~/CargaAcademica/Index"><i class="fa fa-cube"></i> <span>Carga Académica</span> <span class="badge badge-pill bg-primary float-right">@c</span></a>
-                        </li>
-
-
-
-                        <li>
-
-                            <a href="~/Docente/Index2"><i class="fa fa-user"></i> <span>Docentes</span> <span class="badge badge-pill bg-primary float-right">@a</span></a>
-                        </li>
-                        <li class="submenu">
-                            <a href="#"><i class="fa fa-cog"></i> <span> Mantenimiento </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="~/Semestre/Index">Semestre</a></li>
-                                <li><a href="~/Seccion/Index">Sección</a></li>
-                                <li><a href="~/Cargo/Index">Cargo</a></li>
-                                <li><a href="~/Profesion/Index">Profesión</a></li>
-                                <li><a href="#">Usuario</a></li>
-                            </ul>
-                        </li>
-                        <li class="menu-title">Informes</li>
-                        <li>
-                            <a href="~/PruebaEntrada/IndexAdmin"><i class="fa fa-check-square-o"></i> <span>Prueba de Entrada</span> <span class="badge badge-pill bg-primary float-right">0</span></a>
-                        </li>
-                        <li>
-                            <a href="~/PruebaEntrada/IndexAdmin"><i class="fa fa-check-square-o"></i> <span>Informe Portafolio</span> <span class="badge badge-pill bg-primary float-right">0</span></a>
-                        </li>
-                        <li>
-                            <a href="~/PruebaEntrada/IndexAdmin"><i class="fa fa-check-square-o"></i> <span>Informe Final</span> <span class="badge badge-pill bg-primary float-right">0</span></a>
+                            <a href="~/CargaAcademica/Index"><i class="fa fa-cube"></i> <span>Carga Académica</span> <span class="badge badge-pill bg-primary float-right">0</span></a>
                         </li>
                     </ul>
                 </div>
@@ -124,7 +85,178 @@
         </div>
         <div class="page-wrapper">
             <div class="content">
-                @RenderBody()
+
+                <div class="row">
+                    <div class="col-sm-7 col-6">
+                        <h4 class="page-title">Perfil Docente</h4>
+                    </div>
+                    <div class="col-sm-5 col-6 text-right m-b-30">
+                        <a href="#" class="btn btn-primary btn-rounded"><i class="fa fa-edit"></i> Editar Perfil</a>
+                    </div>
+
+                </div>
+                <div class="card-box profile-header">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="profile-view">
+                                <div class="profile-img-wrap">
+                                    <div class="profile-img">
+                                        <a href="#"><img class="avatar" src="~/Imagen/docente1.jpg" alt=""></a>
+                                        @*<a href="#"><img class="avatar" src="~/Imagen/@Model.Foto_Docente" alt=""></a>*@
+                                    </div>
+                                </div>
+                                <div class="profile-basic">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="profile-info-left">
+                                                <h3 class="user-name m-t-0 mb-0">Nombres y Apellidos</h3>
+                                                @*<h3 class="user-name m-t-0 mb-0">@Model.Nombres_Docente @Model.Apellidos_Docente</h3>*@
+                                                <small class="text-muted">
+                                                    Profesion
+                                                    @*@Model.Tbl_Profesion.Nombre_Profesion*@
+                                                </small>
+                                                <small class="text-muted">
+                                                    ( Cargo )
+                                                    @*( @Model.Tbl_CargoDocente.Nombre_CargoDocente )*@
+                                                </small>
+                                                <div class="staff-id">DNI</div>
+                                                <div class="staff-id">Correo : <a href="#">Correo</a></div>
+                                                <div class="staff-id">Celular : <a href="#">Celular</a></div>
+                                                <div class="staff-id">Tel. Fijo : <a href="#">Telefono</a></div>
+                                                <div class="staff-msg"><a href="#" class="btn btn-primary">Escribir Mensaje</a></div>
+
+                                                @*<div class="staff-id">@Model.DNI_Docente</div>
+                                                    <div class="staff-id">Correo : <a href="#">@Model.Correo_Docente</a></div>
+                                                    <div class="staff-id">Celular : <a href="#">@Model.TelefonoCelular_Docente</a></div>
+                                                    <div class="staff-id">Tel. Fijo : <a href="#">@Model.TelefonoFijo_Docente</a></div>
+                                                    <div class="staff-msg"><a href="#" class="btn btn-primary">Escribir Mensaje</a></div>*@
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <ul class="personal-info">
+                                                <li>
+                                                    <span class="title">Sexo:</span>
+                                                    @*@if (Model.Sexo_Docente == true)
+                                                        {
+                                                            <span class="text">Masculino</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="text">Femenino</span>
+                                                        }*@
+
+                                                </li>
+                                                <li>
+                                                    <span class="title">Estado Civil:</span>
+                                                    <span class="text">Estado Civil</span>
+                                                    @*<span class="text">@Model.EstadoCivil_Docente</span>*@
+                                                </li>
+                                                <li>
+                                                    <span class="title">Fecha Nacimiento:</span>
+                                                    <span class="text">Fecha Nacimiento</span>
+                                                    @*<span class="text">@DateTime.Parse((Model.FechaNac_Docente).ToString()).ToShortDateString()</span>*@
+                                                </li>
+                                                <li>
+                                                    <span class="title">Direccion Actual:</span>
+                                                    <span class="text">Direccion Actual</span>
+                                                    @*<span class="text">@Model.DireccionActual_Docente</span>*@
+                                                </li>
+                                                <li>
+                                                    <span class="title">Direccion Ref.:</span>
+                                                    <span class="text">Direccion referencia</span>
+                                                    @*<span class="text">@Model.DireccionReferencia_Docente</span>*@
+                                                </li>
+                                                <li>
+                                                    <span class="title">Estado:</span>
+                                                    @*@if (Model.Estado_Docente == true)
+                                                        {
+                                                            <span class="text">Activo</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="text">Inactivo</span>
+                                                        }*@
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-tabs">
+                    <ul class="nav nav-tabs nav-tabs-bottom">
+                        <li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">Carga Academica 2019-I</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab">Informe de Prueba de Entrada</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#bottom-tab3" data-toggle="tab">Informe Portafolio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#bottom-tab4" data-toggle="tab">Informe Final</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane show active" id="about-cont">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card-box">
+
+
+
+                                        @*@{Html.RenderAction("VistaCursosTabla", "Docente", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }*@
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="bottom-tab2">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card-box">
+                                        <!--Informe Prueba de Entrada-->
+                                        <div class="table-responsive">
+                                            @*@{Html.RenderAction("VistaPruebaEntrada", "Docente", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }*@
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="bottom-tab3">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card-box">
+                                        <!--Informe de portafolio por Unidad-->
+                                        <div class="table-responsive">
+                                            @*@{Html.RenderAction("VistaPortafolioU", "Docente", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }*@
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="bottom-tab4">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card-box">
+                                        <!--Informe de Informe Final-->
+                                        <div class="table-responsive">
+                                            @*@{Html.RenderAction("VistaInformeFinal", "Docente", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }*@
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -509,3 +641,9 @@
         });</script>
 </body>
 </html>
+
+
+
+
+
+
