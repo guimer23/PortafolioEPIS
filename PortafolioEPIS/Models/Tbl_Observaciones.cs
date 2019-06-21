@@ -6,6 +6,10 @@ namespace PortafolioEPIS.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    using System.Linq;
+    using System.Data.Entity;
+
+
     public partial class Tbl_Observaciones
     {
         [Key]
@@ -50,5 +54,108 @@ namespace PortafolioEPIS.Models
         public string ComentariosRecomendaciones_Observaciones { get; set; }
 
         public virtual Tbl_InformeFinal Tbl_InformeFinal { get; set; }
+
+        //metodo listar
+        public List<Tbl_Observaciones> Listar()//Retorna una coleccion de registros
+        {
+            var objCargo = new List<Tbl_Observaciones>();
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    objCargo = db.Tbl_Observaciones.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objCargo;
+        }
+
+        public List<Tbl_Observaciones> Listar1(int id)//Retorna una coleccion de registros
+        {
+            var objCargo = new List<Tbl_Observaciones>();
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    objCargo = db.Tbl_Observaciones.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objCargo;
+        }
+        //metodo obtener
+        public Tbl_Observaciones Obtener(int id)//retorna solo un objeto
+        {
+            var objCargo = new Tbl_Observaciones();
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    objCargo = db.Tbl_Observaciones
+                        .Where(x => x.Codigo_InformeFinal == id)
+                        .SingleOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objCargo;
+        }
+
+        //metodo guardar
+        public void Guardar()//retorna solo un objeto
+        {
+
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    if (this.Codigo_Observaciones > 0)
+                    {
+                        //si existe un valor mayor a 0 es porque existe un registro
+                        db.Entry(this).State = EntityState.Modified;
+
+                    }
+                    else
+                    {
+                        //si no existe registro graba(nuevo registro)
+                        db.Entry(this).State = EntityState.Added;
+
+                    }
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+        }
+
+        //metodo Eliminar
+        public void Eliminar()
+        {
+
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    db.Entry(this).State = EntityState.Deleted;
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+        }
     }
 }
