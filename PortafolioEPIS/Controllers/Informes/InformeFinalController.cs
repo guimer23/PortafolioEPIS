@@ -10,6 +10,7 @@ namespace PortafolioEPIS.Controllers.Informes
     public class InformeFinalController : Controller
     {
         private Tbl_Observaciones objObservaciones = new Tbl_Observaciones();
+        private Tbl_CapacidadesCurso objCapacidadesCurso = new Tbl_CapacidadesCurso();
 
         private Tbl_InformeFinal objInformeFinal = new Tbl_InformeFinal();
         private Tbl_DetalleCargaAcademica objDetalleCargaAcademica = new Tbl_DetalleCargaAcademica();
@@ -90,6 +91,8 @@ namespace PortafolioEPIS.Controllers.Informes
                 );
         }
 
+
+
         //Action Guardar
         public ActionResult GuardarObservaciones(Tbl_Observaciones ObjObservaciones, int idPruebaDoc)
         {
@@ -112,6 +115,45 @@ namespace PortafolioEPIS.Controllers.Informes
             }
 
         }
+
+        public ActionResult AgregarCapacidadCurso(int idInformeFinal=0,  int idPruebaDoc = 0)
+        {
+            ViewBag.idInformeFinal = idInformeFinal;
+            ViewBag.idPruebaDoc = idPruebaDoc;
+
+            //ViewBag.ListaTbl_MedidasCorrectivas = objlistaMedidasCorrectivas.Listar();
+            return View(
+                objCapacidadesCurso.ObtenerCapacidades(0)
+                );
+        }
+        //Action Guardar
+        public ActionResult GuardarCapacidadCurso(Tbl_CapacidadesCurso ObjCapacidadesCurso, int idPruebaDoc, int radio)
+        {
+            switch (radio)
+            {
+                case 1:
+                    objCapacidadesCurso.Nada_CapacidadesCurso = 1;
+                    break;
+                case 2:
+                    objCapacidadesCurso.Poco_CapacidadesCurso = 1;
+                    break;
+                case 3:
+                    objCapacidadesCurso.Aceptable_CapacidadesCurso = 1;
+                    break;
+                case 4:
+                    objCapacidadesCurso.Bien_CapacidadesCurso = 1;
+                    break;
+                case 5:
+                    objCapacidadesCurso.MuyBien_CapacidadesCurso = 1;
+                    break;
+               
+            }
+
+
+            ObjCapacidadesCurso.Guardar();
+            return Redirect("~/InformeFinal/Agregar/" + idPruebaDoc);
+        }
+
 
         //Action Eliminar
 

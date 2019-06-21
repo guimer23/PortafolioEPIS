@@ -5,10 +5,10 @@
     PortafolioEPIS.Models.Tbl_CargaAcademica objCargaAcademica = ViewBag.Tbl_CargaAcademica_id;
     }
 <div class="row">
-    <div class="col-sm-4 col-3">
+    <div class="col-sm-8 col-9">
         <h4 class="page-title">Detalle Carga Académica <strong>@objCargaAcademica.Tbl_Semestre.Nombre_Semestre</strong></h4>
     </div>
-    <div class="col-sm-8 col-9 text-right m-b-20">
+    <div class="col-sm-4 col-3 text-right m-b-20">
         <div class="form-check form-check-inline">
             <a href="~/DetalleCargaAcademica/Agregar/?cargaAcademica=@objCargaAcademica.Codigo_CargaAcademica" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Nuevo Registro</a>
         </div>

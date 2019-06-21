@@ -33,17 +33,17 @@
                                 </li>
                                 <li>
                                     <span class="title">Fecha Inicio:</span>
-                                    <span class="text">@Model.FechaInicio_PlanEstudio</span>
+                                    <span class="text">@DateTime.Parse((Model.FechaInicio_PlanEstudio).ToString()).ToShortDateString()</span>
                                 </li>
                                 <li>
                                     <span class="title">Fecha Fin:</span>
-                                    <span class="text">@Model.FechaFin_PlanEstudio</span>
+                                    <span class="text">@DateTime.Parse((Model.FechaFin_PlanEstudio).ToString()).ToShortDateString()</span>
                                 </li>
                                 @foreach (var p in detalleplanestudio)
                                 {
                                     if (p.Codigo_PlanEstudio == Model.Codigo_PlanEstudio)
                                     {
-                                        if(p.TipoCurso_DetallePlanEstudio=="Obligatorio")
+                                        if (p.TipoCurso_DetallePlanEstudio == "Obligatorio")
                                         {
                                             creditosobligatorios = creditosobligatorios + p.TotalCreditos_DetallePlanEstudio;
                                             obligatorios = obligatorios + 1;
@@ -53,13 +53,8 @@
                                             creditoselectivos = creditoselectivos + p.TotalCreditos_DetallePlanEstudio;
                                             electivos = electivos + 1;
                                         }
-
-
-
-
                                     }
                                 }
-                              
                                 <li>
                                     <span class="title">Cursos Obligatorios:</span>
                                     <span class="text">@obligatorios</span>
@@ -89,7 +84,6 @@
                                 <span class="title">Créditos Práticas:</span>
                                 <span class="text">@Model.TotalCreditosPracticas_PlanEstudio</span>
                             </li>
-
                             <li>
                                 <span class="title">Estado:</span>
                                 @if (Model.Estado_PlanEstudio == true)
@@ -101,11 +95,9 @@
                                     <span class="text">Inactivo</span>
                                 }
                             </li>
-
                         </ul>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

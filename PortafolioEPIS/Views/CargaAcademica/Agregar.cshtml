@@ -44,28 +44,24 @@
                 </div>
 
                 <div class="row clearfix">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         @Html.Label("Fecha Inicio")
                         <div class="form-group">
-                            <div>
-                                @Html.TextBoxFor(x => x.FechaInicio_CargaAcademica, new { @class = "form-control", @Type="date", id = "validationCustom03", required = "required" })
-                                <div class="invalid-feedback">
-                                    Seleccione Fecha Inicio
-                                </div>
+                            @Html.EditorFor(x => x.FechaInicio_CargaAcademica, new { htmlAttributes = new { @class = "form-control date", id = "validationCustom03", required = "required" } })
+                            <div class="invalid-feedback">
+                                Seleccionar Fecha Inicio
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         @Html.Label("Fecha Fin")
                         <div class="form-group">
-                            <div>
-                                @Html.TextBoxFor(x => x.FechaFin_CargaAcademica, new { @class = "form-control", @Type = "date", id = "validationCustom04", required = "required" })
-                                <div class="invalid-feedback">
-                                    Seleccione Fecha Fin
-                                </div>
+                            @Html.EditorFor(x => x.FechaFin_CargaAcademica, new { htmlAttributes = new { @class = "form-control", id = "validationCustom04", required = "required" } })
+                            <div class="invalid-feedback">
+                                Seleccionar Fecha Fin
                             </div>
                         </div>
-                    </div>
+                    </div>                    
                 </div>
                 <div class="row clearfix">
                     <div class="col-md-12">

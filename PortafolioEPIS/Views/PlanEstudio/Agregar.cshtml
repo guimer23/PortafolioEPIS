@@ -3,11 +3,13 @@
     List<PortafolioEPIS.Models.Tbl_Semestre> objSemestre = ViewBag.Tbl_Semestre;
     ViewBag.Title = "Agregar";
 }
+
 <div class="row">
     <div class="col-sm-12">
         <h4 class="page-title">Agregar / Editar Plan de Estudio</h4>
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-12">
         <div class="card-box">
@@ -19,7 +21,7 @@
                     <div class="col-md-4">
                         @Html.Label("Semestre")
                         <select name="Codigo_Semestre" class="form-control" id="validationCustom01" required="required">
-                            
+
                             @foreach (var e in objSemestre)
                             {
                                 if (e.Estado_Semestre == true)
@@ -39,32 +41,29 @@
                             <div class="invalid-feedback">
                                 Ingrese un Nombre de Plan de Estudios
                             </div>
-                        </div>                        
+                        </div>
                     </div>
                 </div>
-
                 <div class="row clearfix">
                     <div class="col-md-6">
                         @Html.Label("Fecha Inicio")
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.FechaInicio_PlanEstudio, new { @class = "form-control", Type = "date", id = "validationCustom03", required = "required" })
+                            @Html.EditorFor(x => x.FechaInicio_PlanEstudio, new { htmlAttributes = new { @class = "form-control date", id = "validationCustom03", required = "required" } })
                             <div class="invalid-feedback">
                                 Seleccionar Fecha Inicio
                             </div>
-                        </div>                        
+                        </div>
                     </div>
                     <div class="col-md-6">
                         @Html.Label("Fecha Fin")
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.FechaFin_PlanEstudio, new { @class = "form-control", Type = "date", id = "validationCustom04", required = "required" })
+                            @Html.EditorFor(x => x.FechaFin_PlanEstudio, new { htmlAttributes = new { @class = "form-control", id = "validationCustom04", required = "required" } })
                             <div class="invalid-feedback">
                                 Seleccionar Fecha Fin
                             </div>
-                        </div>                        
+                        </div>
                     </div>
                 </div>
-  
-           
                 <div class="row clearfix">
                     <div class="col-md-6">
                         @Html.Label("Total Créditos Extracurriculares")
@@ -73,7 +72,7 @@
                             <div class="invalid-feedback">
                                 Ingresa Cantidad
                             </div>
-                        </div>                        
+                        </div>
                     </div>
                     <div class="col-md-6">
                         @Html.Label("Total Créditos Práticas")
@@ -82,7 +81,7 @@
                             <div class="invalid-feedback">
                                 Ingresa Cantidad
                             </div>
-                        </div>                        
+                        </div>
                     </div>
                 </div>
                 <div class="row clearfix">

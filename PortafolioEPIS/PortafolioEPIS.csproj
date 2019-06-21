@@ -855,7 +855,7 @@
     <Content Include="Views\Error\ErrorPage.cshtml" />
     <Content Include="Views\InformeFinal\AgregarObservaciones.cshtml" />
     <Content Include="Views\Docente\VistaInformeFinal.cshtml" />
-    <Content Include="Views\PruebaEntrada\IndexLista.cshtml" />
+    <Content Include="Views\InformeFinal\AgregarCapacidadCurso.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

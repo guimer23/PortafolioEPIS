@@ -40,8 +40,8 @@
                                 <td>@num</td>
                                 <td><a href="~/DetalleCargaAcademica/Index/@p.Codigo_CargaAcademica">@p.Tbl_Semestre.Nombre_Semestre</a> </td>
                                 <td>@p.Nombre_CargaAcademica</td>
-                                <td>@p.FechaInicio_CargaAcademica</td>
-                                <td>@p.FechaFin_CargaAcademica</td>
+                                <td>@DateTime.Parse((p.FechaInicio_CargaAcademica).ToString()).ToShortDateString()</td>
+                                <td>@DateTime.Parse((p.FechaFin_CargaAcademica).ToString()).ToShortDateString()</td>
                                 @if (p.Estado_CargaAcademica == true)
                                 {
                                     <td><span class="custom-badge status-green">Activo</span></td>

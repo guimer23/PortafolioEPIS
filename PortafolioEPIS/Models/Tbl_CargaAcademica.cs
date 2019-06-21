@@ -25,11 +25,18 @@ namespace PortafolioEPIS.Models
         [StringLength(50)]
         public string Nombre_CargaAcademica { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime FechaInicio_CargaAcademica { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime FechaFin_CargaAcademica { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Fecha Inicio")]
+        public DateTime? FechaInicio_CargaAcademica { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Fecha Fin")]
+        public DateTime? FechaFin_CargaAcademica { get; set; }
+
 
         public bool Estado_CargaAcademica { get; set; }
 
