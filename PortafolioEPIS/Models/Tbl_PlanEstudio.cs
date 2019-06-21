@@ -27,8 +27,11 @@ namespace PortafolioEPIS.Models
         [StringLength(200)]
         public string Nombre_PlanEstudio { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime FechaInicio_PlanEstudio { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}", ApplyFormatInEditMode =true)]
+        [Display(Name = "Fecha Inicio")]
+        //[Column(TypeName = "date")]
+        public System.DateTime FechaInicio_PlanEstudio { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime FechaFin_PlanEstudio { get; set; }
