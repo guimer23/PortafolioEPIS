@@ -116,8 +116,9 @@ namespace PortafolioEPIS.Controllers.Informes
 
         }
 
-        public ActionResult ListarCapacidadCurso(int idInformeFinal = 0)
+        public ActionResult ListarCapacidadCurso(int idInformeFinal = 0, int idPruebaDoc = 0)
         {
+            ViewBag.idPruebaDoc = idPruebaDoc;
             return View(objCapacidadesCurso.Listar(idInformeFinal));
         }
 
