@@ -545,13 +545,13 @@
                                                     {
                                                         name: 'Matriculados',
                                                         color: '#ED7D31',
-                                                        y: @*@Model.Matriculados_DetalleCargaAcademica*@30,
+                                                        y: @estudiantesmatriculados,
 
                                                     },
                                                     {
                                                         name: 'Asisten',
                                                         color: '#009EFB',
-                                                        y: @*@asisten*@25,
+                                                        y: @estudiantesasisten,
 
                                                     },
                                                 ]
@@ -600,20 +600,20 @@
                                                 data: [{
                                                     name: 'Aprobados',
                                                     color: '#00B0F0',
-                                                    y:@*@aprobados*@20,
+                                                    y:@estudiantesaprobados,
                                                 },
                                                 {
                                                     name: 'Desaprobados',
                                                     color: '#FF0000',
-                                                    y:@*@desaprobados*@5,
+                                                    y:@estudiantesdesaprobados,
                                                 }, {
                                                     name: 'Retirados',
                                                     color: '#FFC000',
-                                                    y: @*@retirados*@4,
+                                                    y: @estudiantesretiro,
                                                 }, {
                                                     name: 'Abandono',
                                                     color: '#767171',
-                                                    y: @*@abandonos*@1,
+                                                    y: @estudiantesabandono,
                                                 }],
                                             }]
                                         });
@@ -674,12 +674,12 @@
                                         series: [{
                                             name: 'Aprobados',
                                             color: '#00B0F0',
-                                            data: [@*@aprobados*@20]
+                                            data: [@estudiantesaprobados]
                                         },
                                         {
                                             name: 'Desaprobados',
                                             color: '#FF0000',
-                                            data: [@*@desaprobados*@5]
+                                            data: [@estudiantesdesaprobados]
                                         }]
                                     });
                                 </script>
