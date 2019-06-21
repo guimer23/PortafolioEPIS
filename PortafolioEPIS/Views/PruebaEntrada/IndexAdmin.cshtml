@@ -1,7 +1,14 @@
-﻿<div class="row">
+﻿@model List<PortafolioEPIS.Models.Tbl_DetalleCargaAcademica>
+
+@{
+    ViewBag.Title = "Index";
+    PortafolioEPIS.Models.Tbl_PruebaEntrada objPruebaEntrada = ViewBag.prueba;
+
+}
+<div class="row">
     <div class="col-sm-12 col-12">
         <h4 class="page-title">Lista de Informes de Prueba de entrada</h4>
-    </div>    
+    </div>
 </div>
 
 <div class="profile-tabs">

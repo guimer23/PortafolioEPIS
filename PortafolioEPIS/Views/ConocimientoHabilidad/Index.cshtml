@@ -54,6 +54,7 @@
                         double deficiente = 0;
                         double suficiente = 0;
                         double bueno = 0;
+                        double total = 0;
                     }
                     @foreach (var p in Model)
                     {
@@ -61,9 +62,10 @@
                         if (p.Codigo_PruebaEntrada == Convert.ToInt32(ViewBag.id1))
                         {
                             num = num + 1;
-                            deficiente = ((p.Deficiente_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada);
-                            suficiente = ((p.Suficiente_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada);
-                            bueno = ((p.Bueno_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada);
+                            deficiente = Math.Round(((p.Deficiente_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada),2);
+                            suficiente = Math.Round(((p.Suficiente_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada), 2);
+                            bueno = Math.Round(((p.Bueno_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada), 2);
+                            total=Math.Round(deficiente+suficiente+bueno);
                     <tr>
                         <td>@num</td>
                         <td>@p.Nombre_ConocimientoHabilidad</td>
@@ -73,13 +75,13 @@
                         <td class="text-center">@suficiente</td>
                         <td class="text-center">@p.Bueno_ConocimientoHabilidad</td>
                         <td class="text-center">@bueno</td>
-                        <td class="text-center" bgcolor="#43FF52">@(deficiente + suficiente + bueno)</td>
+                        <td class="text-center" bgcolor="#43FF52">@total</td>
                         <td class="text-right">
                             <div class="dropdown dropdown-action">
                                 <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                    <a class="dropdown-item" href="#" onclick="return confirm('¿Esta seguro que desea de Eliminar?');"><i class="fa fa-trash-o m-r-5"></i>  Eliminar</a>
+                                    @*<a class="dropdown-item" href="#"><i class="fa fa-pencil m-r-5"></i> Editar</a>*@
+                                    <a class="dropdown-item" href="~/ConocimientoHabilidad/Eliminar/?id=@p.Codigo_ConocimientoHabilidad&cid=@p.Codigo_PruebaEntrada" onclick="return confirm('¿Esta seguro que desea de Eliminar?');"><i class="fa fa-trash-o m-r-5"></i>  Eliminar</a>
                                 </div>
                             </div>
                         </td>

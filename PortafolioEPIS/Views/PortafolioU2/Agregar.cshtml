@@ -179,8 +179,17 @@
                                     </div>
                                 </div>
 
+                                <div class="row clearfix">
+                                    <div class="col-md-12">
+                                        <div class="text-center">
+                                            @*<button onclick="form1()" type="button" class="btn btn-raised btn-primary btn-round waves-effect m-l-20" data-type="success">Agregar</button>*@
+                                            <button onclick="form1()" type="button" class="btn btn-primary btn-rounded" style='width:150px; height:35px' data-type="success"><i class="fa fa-refresh"></i> Actualizar</button>
+                                        </div>
+                                    </div>
+                                </div>
+
                             }
-                            else 
+                            else
                             {
                                 <div class="row clearfix">
                                     <div class="col-md-3">
@@ -189,26 +198,49 @@
                                             <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Matriculados_DetalleCargaAcademica">
                                         </div>
                                     </div>
+
                                     <div class="col-md-3">
                                         <div class="form-group form-focus">
                                             <input type="text" name="idprueba" id="idprueba" value="@idpruebas" class="form-control floating" hidden>
                                             <label class="focus-label">Retirados:<span class="text-danger">*</span></label>
-                                            <input type="text" name="retirados" id="retirados" value="@retirados" class="form-control floating">
+                                            @if (retirados == 0)
+                                            {
+                                                <input type="text" name="retirados" id="retirados" value="@retirados" class="form-control floating">
+                                            }
+                                            else
+                                            {
+                                                <input type="text" name="retirados" id="retirados" value="@retirados" style="background:#ffffff" readonly class="form-control floating">
+                                            }
                                         </div>
                                     </div>
 
                                     <div class="col-md-3">
                                         <div class="form-group form-focus">
-                                       
+
                                             <label class="focus-label">Abandonos:<span class="text-danger">*</span></label>
-                                            <input type="text" name="abandonos" id="abandonos" value="@abandonos" class="form-control floating">
+                                            @if (abandonos == 0)
+                                            {
+                                                <input type="text" name="abandonos" id="abandonos" value="@abandonos" class="form-control floating">
+                                            }
+                                            else
+                                            {
+                                                <input type="text" name="abandonos" id="abandonos" value="@abandonos" style="background:#ffffff" readonly class="form-control floating">
+                                            }
+
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group form-focus">
-                                           
+
                                             <label class="focus-label">Aprobados:<span class="text-danger">*</span></label>
-                                            <input type="text" name="aprobados" id="aprobados" value="@aprobados" class="form-control floating">
+                                            @if (aprobados == 0)
+                                            {
+                                                <input type="text" name="aprobados" id="aprobados" value="@aprobados" class="form-control floating">
+                                            }
+                                            else
+                                            {
+                                                <input type="text" name="aprobados" id="aprobados" value="@aprobados" style="background:#ffffff" readonly class="form-control floating">
+                                            }
                                         </div>
                                     </div>
                                 </div>
@@ -218,14 +250,6 @@
                                 }
                             }
 
-                            <div class="row clearfix">
-                                <div class="col-md-12">
-                                    <div class="text-center">
-                                        @*<button onclick="form1()" type="button" class="btn btn-raised btn-primary btn-round waves-effect m-l-20" data-type="success">Agregar</button>*@
-                                        <button onclick="form1()" type="button" class="btn btn-primary btn-rounded" style='width:150px; height:35px' data-type="success"><i class="fa fa-refresh"></i> Actualizar</button>
-                                    </div>
-                                </div>
-                            </div>
                         </form>
 
                         @*Envio de datos aprobados , abandonos ,retirados*@
