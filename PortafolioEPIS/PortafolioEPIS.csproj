@@ -23,6 +23,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,13 +44,40 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.0\lib\net451\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.0\lib\net451\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.0\lib\net451\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.0\lib\net451\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
@@ -61,6 +89,12 @@
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportViewer.WebForms.10.0.40219.1\lib\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
@@ -76,6 +110,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -83,6 +120,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -608,6 +648,7 @@
     <Content Include="assets\js\jquery.dataTables.min.js" />
     <Content Include="assets\js\jquery.fullcalendar.js" />
     <Content Include="assets\js\jquery.slimscroll.js" />
+    <Content Include="assets\js\jquery.validate.js" />
     <Content Include="assets\js\moment.min.js" />
     <Content Include="assets\js\popper.min.js" />
     <Content Include="assets\js\select2.min.js" />
@@ -629,152 +670,6 @@
     <Content Include="assets\plugins\summernote\dist\summernote-bs4.min.js" />
     <Content Include="assets\plugins\sweetalert\sweetalert.css" />
     <Content Include="assets\plugins\sweetalert\sweetalert.min.js" />
-    <Content Include="assets\PortalWeb\css\assets.css" />
-    <Content Include="assets\PortalWeb\css\color\color-1.css" />
-    <Content Include="assets\PortalWeb\css\shortcodes\accordion.css" />
-    <Content Include="assets\PortalWeb\css\shortcodes\alert.css" />
-    <Content Include="assets\PortalWeb\css\shortcodes\breadcrumb.css" />
-    <Content Include="assets\PortalWeb\css\shortcodes\button.css" />
-    <Content Include="assets\PortalWeb\css\shortcodes\divider.css" />
-    <Content Include="assets\PortalWeb\css\shortcodes\form.css" />
-    <Content Include="assets\PortalWeb\css\shortcodes\icon-box.css" />
-    <Content Include="assets\PortalWeb\css\shortcodes\layout.css" />
-    <Content Include="assets\PortalWeb\css\shortcodes\list.css" />
-    <Content Include="assets\PortalWeb\css\shortcodes\overlay.css" />
-    <Content Include="assets\PortalWeb\css\shortcodes\owl.css" />
-    <Content Include="assets\PortalWeb\css\shortcodes\pagination.css" />
-    <Content Include="assets\PortalWeb\css\shortcodes\pricingtable.css" />
-    <Content Include="assets\PortalWeb\css\shortcodes\separator.css" />
-    <Content Include="assets\PortalWeb\css\shortcodes\shortcodes.css" />
-    <Content Include="assets\PortalWeb\css\shortcodes\widget.css" />
-    <Content Include="assets\PortalWeb\css\style.css" />
-    <Content Include="assets\PortalWeb\css\typography.css" />
-    <Content Include="assets\PortalWeb\images\about\pic1.jpg" />
-    <Content Include="assets\PortalWeb\images\adv\adv.jpg" />
-    <Content Include="assets\PortalWeb\images\background\bg1.jpg" />
-    <Content Include="assets\PortalWeb\images\background\bg2.jpg" />
-    <Content Include="assets\PortalWeb\images\banner\banner1.jpg" />
-    <Content Include="assets\PortalWeb\images\banner\banner2.jpg" />
-    <Content Include="assets\PortalWeb\images\banner\banner3.jpg" />
-    <Content Include="assets\PortalWeb\images\blog\default\thum1.jpg" />
-    <Content Include="assets\PortalWeb\images\blog\default\thum2.jpg" />
-    <Content Include="assets\PortalWeb\images\blog\default\thum3.jpg" />
-    <Content Include="assets\PortalWeb\images\blog\default\thum4.jpg" />
-    <Content Include="assets\PortalWeb\images\blog\grid\pic1.jpg" />
-    <Content Include="assets\PortalWeb\images\blog\grid\pic2.jpg" />
-    <Content Include="assets\PortalWeb\images\blog\grid\pic3.jpg" />
-    <Content Include="assets\PortalWeb\images\blog\latest-blog\pic1.jpg" />
-    <Content Include="assets\PortalWeb\images\blog\latest-blog\pic2.jpg" />
-    <Content Include="assets\PortalWeb\images\blog\latest-blog\pic3.jpg" />
-    <Content Include="assets\PortalWeb\images\blog\recent-blog\pic1.jpg" />
-    <Content Include="assets\PortalWeb\images\blog\recent-blog\pic2.jpg" />
-    <Content Include="assets\PortalWeb\images\blog\recent-blog\pic3.jpg" />
-    <Content Include="assets\PortalWeb\images\courses\pic1.jpg" />
-    <Content Include="assets\PortalWeb\images\courses\pic2.jpg" />
-    <Content Include="assets\PortalWeb\images\courses\pic3.jpg" />
-    <Content Include="assets\PortalWeb\images\courses\pic4.jpg" />
-    <Content Include="assets\PortalWeb\images\courses\pic5.jpg" />
-    <Content Include="assets\PortalWeb\images\courses\pic6.jpg" />
-    <Content Include="assets\PortalWeb\images\courses\pic7.jpg" />
-    <Content Include="assets\PortalWeb\images\courses\pic8.jpg" />
-    <Content Include="assets\PortalWeb\images\courses\pic9.jpg" />
-    <Content Include="assets\PortalWeb\images\EPIS.png" />
-    <Content Include="assets\PortalWeb\images\event\pic1.jpg" />
-    <Content Include="assets\PortalWeb\images\event\pic2.jpg" />
-    <Content Include="assets\PortalWeb\images\event\pic3.jpg" />
-    <Content Include="assets\PortalWeb\images\event\pic4.jpg" />
-    <Content Include="assets\PortalWeb\images\favicon.ico" />
-    <Content Include="assets\PortalWeb\images\favicon.png" />
-    <Content Include="assets\PortalWeb\images\flag\united-kingdom.svg" />
-    <Content Include="assets\PortalWeb\images\flag\united-states-of-america.svg" />
-    <Content Include="assets\PortalWeb\images\gallery\pic1.jpg" />
-    <Content Include="assets\PortalWeb\images\gallery\pic2.jpg" />
-    <Content Include="assets\PortalWeb\images\gallery\pic3.jpg" />
-    <Content Include="assets\PortalWeb\images\gallery\pic4.jpg" />
-    <Content Include="assets\PortalWeb\images\gallery\pic5.jpg" />
-    <Content Include="assets\PortalWeb\images\gallery\pic6.jpg" />
-    <Content Include="assets\PortalWeb\images\gallery\pic7.jpg" />
-    <Content Include="assets\PortalWeb\images\gallery\pic8.jpg" />
-    <Content Include="assets\PortalWeb\images\gallery\pic9.jpg" />
-    <Content Include="assets\PortalWeb\images\icon\icon1.png" />
-    <Content Include="assets\PortalWeb\images\icon\icon2.png" />
-    <Content Include="assets\PortalWeb\images\icon\icon3.png" />
-    <Content Include="assets\PortalWeb\images\icon\icon4.png" />
-    <Content Include="assets\PortalWeb\images\loading.gif" />
-    <Content Include="assets\PortalWeb\images\logo-white-2.png" />
-    <Content Include="assets\PortalWeb\images\logo-white.png" />
-    <Content Include="assets\PortalWeb\images\logo.png" />
-    <Content Include="assets\PortalWeb\images\logo_epis.png" />
-    <Content Include="assets\PortalWeb\images\our-services\pic1.jpg" />
-    <Content Include="assets\PortalWeb\images\our-services\pic2.jpg" />
-    <Content Include="assets\PortalWeb\images\our-services\pic3.jpg" />
-    <Content Include="assets\PortalWeb\images\portfolio\image_1.jpg" />
-    <Content Include="assets\PortalWeb\images\portfolio\image_10.jpg" />
-    <Content Include="assets\PortalWeb\images\portfolio\image_11.jpg" />
-    <Content Include="assets\PortalWeb\images\portfolio\image_12.jpg" />
-    <Content Include="assets\PortalWeb\images\portfolio\image_2.jpg" />
-    <Content Include="assets\PortalWeb\images\portfolio\image_3.jpg" />
-    <Content Include="assets\PortalWeb\images\portfolio\image_4.jpg" />
-    <Content Include="assets\PortalWeb\images\portfolio\image_5.jpg" />
-    <Content Include="assets\PortalWeb\images\portfolio\image_6.jpg" />
-    <Content Include="assets\PortalWeb\images\portfolio\image_7.jpg" />
-    <Content Include="assets\PortalWeb\images\portfolio\image_8.jpg" />
-    <Content Include="assets\PortalWeb\images\portfolio\image_9.jpg" />
-    <Content Include="assets\PortalWeb\images\profile\pic1.jpg" />
-    <Content Include="assets\PortalWeb\images\slider\slide1.jpg" />
-    <Content Include="assets\PortalWeb\images\slider\slide2.jpg" />
-    <Content Include="assets\PortalWeb\images\testimonials\pic1.jpg" />
-    <Content Include="assets\PortalWeb\images\testimonials\pic2.jpg" />
-    <Content Include="assets\PortalWeb\images\testimonials\pic3.jpg" />
-    <Content Include="assets\PortalWeb\js\contact.js" />
-    <Content Include="assets\PortalWeb\js\functions.js" />
-    <Content Include="assets\PortalWeb\js\jquery.min.js" />
-    <Content Include="assets\PortalWeb\js\jquery.scroller.js" />
-    <Content Include="assets\PortalWeb\vendors\bootstrap-select\bootstrap-select.min.css" />
-    <Content Include="assets\PortalWeb\vendors\bootstrap-select\bootstrap-select.min.js" />
-    <Content Include="assets\PortalWeb\vendors\bootstrap-touchspin\jquery.bootstrap-touchspin.js" />
-    <Content Include="assets\PortalWeb\vendors\bootstrap\css\bootstrap.min.css" />
-    <Content Include="assets\PortalWeb\vendors\bootstrap\js\bootstrap.min.js" />
-    <Content Include="assets\PortalWeb\vendors\bootstrap\js\popper.min.js" />
-    <Content Include="assets\PortalWeb\vendors\counter\counterup.min.js" />
-    <Content Include="assets\PortalWeb\vendors\counter\waypoints-min.js" />
-    <Content Include="assets\PortalWeb\vendors\fontawesome\css\font-awesome.min.css" />
-    <Content Include="assets\PortalWeb\vendors\fontawesome\fonts\fontawesome-webfont3e6e.svg" />
-    <Content Include="assets\PortalWeb\vendors\imagesloaded\imagesloaded.js" />
-    <Content Include="assets\PortalWeb\vendors\magnific-popup\magnific-popup.css" />
-    <Content Include="assets\PortalWeb\vendors\magnific-popup\magnific-popup.js" />
-    <Content Include="assets\PortalWeb\vendors\masonry\filter.js" />
-    <Content Include="assets\PortalWeb\vendors\masonry\masonry.js" />
-    <Content Include="assets\PortalWeb\vendors\owl-carousel\owl.carousel.css" />
-    <Content Include="assets\PortalWeb\vendors\owl-carousel\owl.carousel.js" />
-    <Content Include="assets\PortalWeb\vendors\revolution\assets\coloredbg.png" />
-    <Content Include="assets\PortalWeb\vendors\revolution\assets\gridtile.png" />
-    <Content Include="assets\PortalWeb\vendors\revolution\assets\gridtile_3x3.png" />
-    <Content Include="assets\PortalWeb\vendors\revolution\assets\gridtile_3x3_white.png" />
-    <Content Include="assets\PortalWeb\vendors\revolution\assets\gridtile_white.png" />
-    <Content Include="assets\PortalWeb\vendors\revolution\assets\loader.gif" />
-    <Content Include="assets\PortalWeb\vendors\revolution\css\closedhand.html" />
-    <Content Include="assets\PortalWeb\vendors\revolution\css\layers.css" />
-    <Content Include="assets\PortalWeb\vendors\revolution\css\navigation.css" />
-    <Content Include="assets\PortalWeb\vendors\revolution\css\openhand.html" />
-    <Content Include="assets\PortalWeb\vendors\revolution\css\settings.css" />
-    <Content Include="assets\PortalWeb\vendors\revolution\fonts\revicons\revicons90c6.svg" />
-    <Content Include="assets\PortalWeb\vendors\revolution\js\extensions\revolution.extension.actions.min.js" />
-    <Content Include="assets\PortalWeb\vendors\revolution\js\extensions\revolution.extension.carousel.min.js" />
-    <Content Include="assets\PortalWeb\vendors\revolution\js\extensions\revolution.extension.kenburn.min.js" />
-    <Content Include="assets\PortalWeb\vendors\revolution\js\extensions\revolution.extension.layeranimation.min.js" />
-    <Content Include="assets\PortalWeb\vendors\revolution\js\extensions\revolution.extension.migration.min.js" />
-    <Content Include="assets\PortalWeb\vendors\revolution\js\extensions\revolution.extension.navigation.min.js" />
-    <Content Include="assets\PortalWeb\vendors\revolution\js\extensions\revolution.extension.parallax.min.js" />
-    <Content Include="assets\PortalWeb\vendors\revolution\js\extensions\revolution.extension.slideanims.min.js" />
-    <Content Include="assets\PortalWeb\vendors\revolution\js\extensions\revolution.extension.video.min.js" />
-    <Content Include="assets\PortalWeb\vendors\revolution\js\jquery.themepunch.revolution.min.js" />
-    <Content Include="assets\PortalWeb\vendors\revolution\js\jquery.themepunch.tools.min.js" />
-    <Content Include="assets\PortalWeb\vendors\scroll\scrollbar.css" />
-    <Content Include="assets\PortalWeb\vendors\switcher\switcher.css" />
-    <Content Include="assets\PortalWeb\vendors\switcher\switcher.js" />
-    <Content Include="assets\PortalWeb\vendors\themify\fonts\themify9f24.svg" />
-    <Content Include="assets\PortalWeb\vendors\themify\themify-icons.css" />
     <Content Include="assets\Validaciones\bootstrap-validate.js" />
     <Content Include="Global.asax" />
     <Content Include="Imagen\Captura.PNG" />
@@ -814,13 +709,18 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\AreaDocente\AreaDocenteAreaRegistration.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CargaAcademicaController.cs" />
     <Compile Include="Controllers\DetalleCargaAcademicaController.cs" />
     <Compile Include="Controllers\DetallePlanEstudioController.cs" />
     <Compile Include="Controllers\DocenteController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Informes\ConocimientoHabilidadController.cs" />
     <Compile Include="Controllers\Informes\InformeFinalController.cs" />
     <Compile Include="Controllers\Informes\MedidasCorrectivasController.cs" />
@@ -830,17 +730,19 @@
     <Compile Include="Controllers\Informes\PortafolioU3Controller.cs" />
     <Compile Include="Controllers\Informes\PruebaEntradaController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
-    <Compile Include="Controllers\LayoutDocente\VistaDocenteController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\Mantenimiento\CargoController.cs" />
     <Compile Include="Controllers\Mantenimiento\ProfesionController.cs" />
     <Compile Include="Controllers\Mantenimiento\SeccionController.cs" />
     <Compile Include="Controllers\Mantenimiento\SemestreController.cs" />
     <Compile Include="Controllers\PlanEstudioController.cs" />
-    <Compile Include="Controllers\PortalWebController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Modelo_Portafolio.cs" />
     <Compile Include="Models\Tbl_CapacidadesCurso.cs" />
     <Compile Include="Models\Tbl_CargaAcademica.cs" />
@@ -852,7 +754,6 @@
     <Compile Include="Models\Tbl_InformeFinal.cs" />
     <Compile Include="Models\Tbl_Material.cs" />
     <Compile Include="Models\Tbl_MedidasCorrectivas.cs" />
-    <Compile Include="Models\Tbl_Motivo.cs" />
     <Compile Include="Models\Tbl_Observaciones.cs" />
     <Compile Include="Models\Tbl_PlanEstudio.cs" />
     <Compile Include="Models\Tbl_Portafolio.cs" />
@@ -862,6 +763,7 @@
     <Compile Include="Models\Tbl_Semestre.cs" />
     <Compile Include="Models\Tbl_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -956,19 +858,6 @@
     <Content Include="App_Browsers\qt.browser" />
     <Content Include="Imagen\Doc2.docx" />
     <Content Include="Imagen\1764_2.pdf" />
-    <Content Include="Areas\AreaDocente\Views\web.config" />
-    <Content Include="assets\PortalWeb\vendors\fontawesome\fonts\fontawesome-webfont3e6e.eot" />
-    <Content Include="assets\PortalWeb\vendors\fontawesome\fonts\fontawesome-webfont3e6e.ttf" />
-    <Content Include="assets\PortalWeb\vendors\fontawesome\fonts\fontawesome-webfont3e6e.woff" />
-    <Content Include="assets\PortalWeb\vendors\fontawesome\fonts\fontawesome-webfont3e6e.woff2" />
-    <Content Include="assets\PortalWeb\vendors\fontawesome\fonts\fontawesome-webfontd41d.eot" />
-    <Content Include="assets\PortalWeb\vendors\revolution\fonts\revicons\revicons90c6.eot" />
-    <Content Include="assets\PortalWeb\vendors\revolution\fonts\revicons\revicons90c6.ttf" />
-    <Content Include="assets\PortalWeb\vendors\revolution\fonts\revicons\revicons90c6.woff" />
-    <Content Include="assets\PortalWeb\vendors\themify\fonts\themify9f24.eot" />
-    <Content Include="assets\PortalWeb\vendors\themify\fonts\themify9f24.ttf" />
-    <Content Include="assets\PortalWeb\vendors\themify\fonts\themify9f24.woff" />
-    <Content Include="assets\PortalWeb\vendors\themify\fonts\themifyd41d.eot" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -1016,14 +905,28 @@
     <Content Include="Views\InformeFinal\Agregar.cshtml" />
     <Content Include="Views\Login\IngresoSistema.cshtml" />
     <Content Include="Views\Error\ErrorPage.cshtml" />
-    <Content Include="Views\InformeFinal\AgregarObservaciones.cshtml" />
-    <Content Include="Views\Docente\VistaInformeFinal.cshtml" />
-    <Content Include="Views\InformeFinal\AgregarCapacidadCurso.cshtml" />
-    <Content Include="Views\InformeFinal\ListarCapacidadCurso.cshtml" />
-    <Content Include="Views\VistaDocente\LayoutDocente.cshtml" />
-    <Content Include="Views\VistaDocente\MiPerfil.cshtml" />
-    <Content Include="Views\VistaDocente\MiCargaAcademica.cshtml" />
-    <Content Include="Views\PortalWeb\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1033,12 +936,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\AreaDocente\Controllers\" />
-    <Folder Include="Areas\AreaDocente\Models\" />
-    <Folder Include="Areas\AreaDocente\Views\Shared\" />
-    <Folder Include="assets\PortalWeb\images\main-slider\" />
     <Folder Include="Reports\" />
-    <Folder Include="Views\Home\" />
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
