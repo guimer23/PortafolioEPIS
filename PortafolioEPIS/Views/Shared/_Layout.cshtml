@@ -1,12 +1,12 @@
-﻿@{ 
+﻿@{
     List<PortafolioEPIS.Models.Tbl_CargaAcademica> carga = new PortafolioEPIS.Models.Tbl_CargaAcademica().Listar();
     List<PortafolioEPIS.Models.Tbl_PlanEstudio> plan = new PortafolioEPIS.Models.Tbl_PlanEstudio().Listar();
     List<PortafolioEPIS.Models.Tbl_Docente> docente = new PortafolioEPIS.Models.Tbl_Docente().Listar();
 }
-   
+
 <!DOCTYPE html>
 <html>
-<head>    
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <link rel="shortcut icon" type="image/x-icon" href="~/assets/img/favicon.ico">
@@ -27,6 +27,8 @@
     <link href="~/assets/HighCharts/css/highcharts.css" rel="stylesheet" />
     <script src="~/assets/HighCharts/highcharts.js"></script>
     <script src="~/assets/HighCharts/modules/exporting.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+
 
 </head>
 <body>
@@ -48,6 +50,7 @@
                         </span>
                         <span>Administrador</span>
                     </a>
+                    @Html.Partial("_LoginPartial")
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="#">Mi Prefil</a>
                         <a class="dropdown-item" href="#">Editar Perfil</a>
@@ -85,6 +88,8 @@
                         <li class="active">
                             <a href="~/Inicio/Index"><i class="fa fa-dashboard"></i> <span>Inicio</span></a>
                         </li>
+                        <li>@Html.ActionLink("Usuarios", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+                        </li>
                         <li>
                             <a href="~/PlanEstudio/Index"><i class="fa fa-book"></i> <span>Plan de Estudio</span> <span class="badge badge-pill bg-primary float-right">@p</span></a>
                         </li>
@@ -107,6 +112,7 @@
                                 <li><a href="~/Profesion/Index">Profesión</a></li>
                                 <li><a href="#">Usuario</a></li>
                             </ul>
+
                         </li>
                         <li class="menu-title">Informes</li>
                         <li>
@@ -142,6 +148,7 @@
 
 
 
+
     @* JS para combobox y campo de fecha nacimiento *@
     <script src="~/assets/js/select2.min.js"></script>
     <script src="~/assets/js/moment.min.js"></script>
@@ -152,11 +159,11 @@
     <script src="~/assets/DataTables/dataTables.bootstrap4.min.js"></script>
 
     <!--Alertas-->
-    <script src="~/assets/plugins/sweetalert/sweetalert.min.js"></script> <!-- SweetAlert Plugin Js -->
+    <script src="~/assets/plugins/sweetalert/sweetalert.min.js"></script>
     <script src="~/assets/js/ui/sweetalert.js"></script>
 
     <!--HighCharts-->
-    <script src="~/assets/HighCharts/highcharts.js"></script>
+    @*<script src="~/assets/HighCharts/highcharts.js"></script>*@
     <script src="~/assets/HighCharts/highcharts-3d.js"></script>
     <script src="~/assets/HighCharts/highcharts-more.js"></script>
     <script src="~/assets/HighCharts/modules/exporting.js"></script>
