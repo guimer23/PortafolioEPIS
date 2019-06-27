@@ -94,7 +94,7 @@
         </div>
     </div>
 </div>
-<input type="button" onclick="DescargarPDF()" value="Decargar Reporte" />
+
 <div class="profile-tabs">
     <ul class="nav nav-tabs nav-tabs-bottom">
         <li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">Carga Academica 2019-I</a></li>
@@ -109,7 +109,7 @@
                     <div class="card-box">
 
 
-
+                        
                         @{Html.RenderAction("VistaCursosTabla", "Docente", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
 
 
@@ -120,17 +120,15 @@
         </div>
 
         <div class="tab-pane" id="bottom-tab2">
-            <div class="row">
+            <div class="row">            
                 <div class="col-md-12">
                     <div class="card-box">
                         <!--Informe Prueba de Entrada-->
+                        <input class="btn btn-primary" type="button" onclick="DescargarPDF()" value="Decargar Reporte" />
                         <div class="table-responsive">
                             @{Html.RenderAction("VistaPruebaEntrada", "Docente", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
-
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </div>
@@ -140,6 +138,7 @@
                 <div class="col-md-12">
                     <div class="card-box">
                         <!--Informe de portafolio por Unidad-->
+                        <input class="btn btn-primary" type="button" onclick="DescargarPDF2()" value="Decargar Reporte" />
                         <div class="table-responsive">
                             @{Html.RenderAction("VistaPortafolioU", "Docente", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
 
@@ -155,6 +154,7 @@
                 <div class="col-md-12">
                     <div class="card-box">
                         <!--Informe de Informe Final-->
+                        <input class="btn btn-primary" type="button" onclick="DescargarPDF3()" value="Decargar Reporte" />
                         <div class="table-responsive">
                             @{Html.RenderAction("VistaInformeFinal", "Docente", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
                         </div>
@@ -167,6 +167,7 @@
 </div>
 
 <script>
+
     //funcion para capturar datos
     function capturar(table) {
         var docente;
@@ -226,6 +227,140 @@
         pdf.rect(30, 70, 500, 200);
         pdf.text(30, 300, 'Fecha:', null);
         pdf.line(230, 400, 400, 400);
+        
+        //html = $('#' + ContenidoID).html();
+        margins = { top: 100, bottom: 20, left: 20, width: 522 };
+        //pdf.fromHTML(html,margins.left, margins.top, { 'width': margins.width }, function (dispose) { pdf.save(nombre + '.pdf'); }, margins);
+        pdf.save(pdf.pdf);
+        }
+
+    //portafolio
+    function DescargarPDF2() {
+        var pdf = new jsPDF('p', 'pt', 'letter');
+        pdf.setFontSize(12);
+        var specialElementhandlers = {
+            '#hidediv': function (element, render) { return true; }
+        };
+
+        var options = {
+            pagesplit: true
+        };
+        
+        //tablas
+        var logo = new Image();
+        var datos = new Image();
+        var conocimentos = new Image();
+        var materiales = new Image();
+        var constancia = new Image();
+        
+        //contenido
+        var contenido = '';
+      
+        var docente=document.getElementById("nombre").innerHTML;
+        var email=document.getElementById("email").innerHTML;
+        var cel=document.getElementById("cel").innerHTML;
+
+        logo.src = 'https://i.ibb.co/0fRPQg9/LOGO.png';
+        datos.src = '/assets/reportes/inf1_tab1.png';
+        conocimentos.src = '/assets/reportes/inf2_tab2.png';
+        materiales.src = '/assets/reportes/inf2_tab3.png';
+        constancia.src = '/assets/reportes/inf2_tab4.png';
+        pdf.addImage(logo, 'PNG', 20, 20, 220, 60);
+        pdf.addImage(datos, 'PNG', 20, 120, 550, 170);
+        pdf.addImage(conocimentos, 'PNG', 20, 390, 550, 290);
+        pdf.text(300, 100, 'DGC PORTAFOLIO', null);
+        //pdf.text(20, 550, 'Medidas correctivas que ha tomado en los casos de grado "Deficiente". marque con una X las acciones realizadas', null);
+            //var splitTitle = pdf.splitTextToSize('Medidas correctivas que ha tomado en los casos de grado "Deficiente". marque con una X las acciones realizadas', 520);
+            //pdf.text(30, 550, splitTitle);
+        pdf.text(20, 350, '1. Material que el docente prepara y entrega a los estudiantes durante la ejecución de los cursos', null);
+        pdf.setFontSize(10);
+        pdf.text(35, 370, 'El material debera ser asociado a los resultados del aprendizaje definidos en la planificación', null);
+
+            //pdf.rect(400, 585, 40, 15);
+            //pdf.text(40, 630, '2. Repaso con horas adicionales en clase', null);
+            //pdf.rect(400, 615, 40, 15);
+            //pdf.text(40, 660, '3. Ejercicios propuestos para resolver en casa', null);
+            //pdf.rect(400, 645, 40, 15);
+            //pdf.text(40, 690, '4. Entrega de Material de respaldo', null);
+            //pdf.rect(400, 675, 40, 15);
+            //pdf.text(40, 720, '5. Recomendacion de bibliografia', null);
+            //pdf.rect(400, 705, 40, 15);
+            //pdf.text(40, 750, '6. Otros (Detalle en la descripción)', null);
+            //pdf.rect(400, 735, 40, 15);
+            pdf.text(150, 255, docente);
+            pdf.text(150, 280, email);
+            pdf.text(500, 280, cel);
+        pdf.addPage();
+        pdf.setFontSize(12);
+        pdf.text(20, 50, '2. Material generado por el estudiante en el transucrso del semestre', null);
+        pdf.setFontSize(10);
+        pdf.text(35, 70, 'El material debera ser asociado a los resultado del aprendizaje definidos en la planificación del curso');
+        pdf.addImage(materiales, 'PNG', 20, 90, 530, 220);
+        pdf.setFontSize(12);
+        pdf.text(20, 340, 'Constancia de Entrega y recepción', null);
+        pdf.addImage(constancia, 'PNG', 20, 360, 530, 110);
+        pdf.text(30, 630, 'Fecha:', null);
+        pdf.line(220, 600, 400, 600);
+        
+        //html = $('#' + ContenidoID).html();
+        margins = { top: 100, bottom: 20, left: 20, width: 522 };
+        //pdf.fromHTML(html,margins.left, margins.top, { 'width': margins.width }, function (dispose) { pdf.save(nombre + '.pdf'); }, margins);
+        pdf.save(pdf.pdf);
+        }
+    //informe final
+    function DescargarPDF3() {
+        var pdf = new jsPDF('p', 'pt', 'letter');
+        pdf.setFontSize(12);
+        var specialElementhandlers = {
+            '#hidediv': function (element, render) { return true; }
+        };
+
+        var options = {
+            pagesplit: true
+        };
+        
+        //tablas
+        var logo = new Image();
+        var datos = new Image();
+        var conocimentos = new Image();
+        
+        //contenido
+        var contenido = '';
+      
+        var docente=document.getElementById("nombre").innerHTML;
+        var email=document.getElementById("email").innerHTML;
+        var cel=document.getElementById("cel").innerHTML;
+
+        logo.src = 'https://i.ibb.co/0fRPQg9/LOGO.png';
+        datos.src = '/assets/reportes/inf1_tab1.png';
+        conocimentos.src = '/assets/reportes/inf1_tab2.png';
+        pdf.addImage(logo, 'PNG', 20, 20, 220, 60);
+        pdf.addImage(datos, 'PNG', 20, 120, 550, 170);
+        pdf.addImage(conocimentos, 'PNG', 20, 300, 550, 220);
+        pdf.text(175, 100, 'INFORME DE PRUEBA DE ENTRADA', null);
+        //pdf.text(20, 550, 'Medidas correctivas que ha tomado en los casos de grado "Deficiente". marque con una X las acciones realizadas', null);
+        var splitTitle = pdf.splitTextToSize('Medidas correctivas que ha tomado en los casos de grado "Deficiente". marque con una X las acciones realizadas', 520);
+        pdf.text(30, 550, splitTitle);
+        pdf.text(40, 600, '1. Repaso en horas de clase', null);
+        pdf.rect(400, 585, 40, 15);
+        pdf.text(40, 630, '2. Repaso con horas adicionales en clase', null);
+        pdf.rect(400, 615, 40, 15);
+        pdf.text(40, 660, '3. Ejercicios propuestos para resolver en casa', null);
+        pdf.rect(400, 645, 40, 15);
+        pdf.text(40, 690, '4. Entrega de Material de respaldo', null);
+        pdf.rect(400, 675, 40, 15);
+        pdf.text(40, 720, '5. Recomendacion de bibliografia', null);
+        pdf.rect(400, 705, 40, 15);
+        pdf.text(40, 750, '6. Otros (Detalle en la descripción)', null);
+        pdf.rect(400, 735, 40, 15);
+        pdf.text(150, 255, docente);
+        pdf.text(150, 280, email);
+        pdf.text(500, 280, cel);
+        pdf.addPage();
+        pdf.text(30, 50, 'Describa otra medidas correctivas y/o recomendaciones', null);
+        pdf.rect(30, 70, 500, 200);
+        pdf.text(30, 300, 'Fecha:', null);
+        pdf.line(100, 300, 400, 400);
         
         //html = $('#' + ContenidoID).html();
         margins = { top: 100, bottom: 20, left: 20, width: 522 };
