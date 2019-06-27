@@ -16,7 +16,7 @@ namespace PortafolioEPIS.Models
         public Tbl_InformeFinal()
         {
             Tbl_CapacidadesCurso = new HashSet<Tbl_CapacidadesCurso>();
-            Tbl_Motivo = new HashSet<Tbl_Motivo>();
+            //Tbl_Motivo = new HashSet<Tbl_Motivo>();
             Tbl_Observaciones = new HashSet<Tbl_Observaciones>();
         }
 
@@ -63,7 +63,7 @@ namespace PortafolioEPIS.Models
         public virtual Tbl_DetalleCargaAcademica Tbl_DetalleCargaAcademica { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tbl_Motivo> Tbl_Motivo { get; set; }
+        //public virtual ICollection<Tbl_Motivo> Tbl_Motivo { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_Observaciones> Tbl_Observaciones { get; set; }

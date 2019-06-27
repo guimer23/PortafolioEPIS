@@ -670,6 +670,11 @@
     <Content Include="assets\plugins\summernote\dist\summernote-bs4.min.js" />
     <Content Include="assets\plugins\sweetalert\sweetalert.css" />
     <Content Include="assets\plugins\sweetalert\sweetalert.min.js" />
+    <Content Include="assets\reportes\inf1_tab1.PNG" />
+    <Content Include="assets\reportes\inf1_tab2.PNG" />
+    <Content Include="assets\reportes\inf2_tab2.PNG" />
+    <Content Include="assets\reportes\inf2_tab3.PNG" />
+    <Content Include="assets\reportes\inf2_tab4.PNG" />
     <Content Include="assets\Validaciones\bootstrap-validate.js" />
     <Content Include="Global.asax" />
     <Content Include="Imagen\Captura.PNG" />

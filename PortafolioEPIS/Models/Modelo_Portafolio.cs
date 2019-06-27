@@ -22,7 +22,7 @@ namespace PortafolioEPIS.Models
         public virtual DbSet<Tbl_InformeFinal> Tbl_InformeFinal { get; set; }
         public virtual DbSet<Tbl_Material> Tbl_Material { get; set; }
         public virtual DbSet<Tbl_MedidasCorrectivas> Tbl_MedidasCorrectivas { get; set; }
-        public virtual DbSet<Tbl_Motivo> Tbl_Motivo { get; set; }
+       // public virtual DbSet<Tbl_Motivo> Tbl_Motivo { get; set; }
         public virtual DbSet<Tbl_Observaciones> Tbl_Observaciones { get; set; }
         public virtual DbSet<Tbl_PlanEstudio> Tbl_PlanEstudio { get; set; }
         public virtual DbSet<Tbl_Portafolio> Tbl_Portafolio { get; set; }
@@ -164,10 +164,10 @@ namespace PortafolioEPIS.Models
                 .WithRequired(e => e.Tbl_InformeFinal)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Tbl_InformeFinal>()
-                .HasMany(e => e.Tbl_Motivo)
-                .WithRequired(e => e.Tbl_InformeFinal)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Tbl_InformeFinal>()
+            //    .HasMany(e => e.Tbl_Motivo)
+            //    .WithRequired(e => e.Tbl_InformeFinal)
+            //    .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Tbl_InformeFinal>()
                 .HasMany(e => e.Tbl_Observaciones)
@@ -210,9 +210,9 @@ namespace PortafolioEPIS.Models
                 .Property(e => e.Medida7_MedidasCorrectivas)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Tbl_Motivo>()
-                .Property(e => e.Descripcion_Motivo)
-                .IsUnicode(false);
+            //modelBuilder.Entity<Tbl_Motivo>()
+            //    .Property(e => e.Descripcion_Motivo)
+            //    .IsUnicode(false);
 
             modelBuilder.Entity<Tbl_Observaciones>()
                 .Property(e => e.Estudiantes_Observaciones)

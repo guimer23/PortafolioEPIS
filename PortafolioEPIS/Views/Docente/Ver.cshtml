@@ -1,8 +1,11 @@
 @model PortafolioEPIS.Models.Tbl_Docente
-    @{
-        ViewBag.Title = "Ver";
-    }
-
+@using PortafolioEPIS.Models
+@{
+    ViewBag.Title = "Ver";
+}
+<script src="~/assets/js/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+<div id="Reporte">
     <div class="row">
         <div class="col-sm-7 col-6">
             <h4 class="page-title">Perfil Docente</h4>
@@ -11,7 +14,7 @@
             <a href="#" class="btn btn-primary btn-rounded"><i class="fa fa-edit"></i> Editar Perfil</a>
         </div>
 
-    </div>    
+    </div>
     <div class="card-box profile-header">
         <div class="row">
             <div class="col-md-12">
@@ -25,31 +28,32 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="profile-info-left">
-                                    <h3 class="user-name m-t-0 mb-0">@Model.Nombres_Docente @Model.Apellidos_Docente</h3>
+                                        <h3 id="nombre" class="user-name m-t-0 mb-0">@Model.Nombres_Docente @Model.Apellidos_Docente</h3>
                                     <small class="text-muted">
-                                        @Model.Tbl_Profesion.Nombre_Profesion 
+                                        @Model.Tbl_Profesion.Nombre_Profesion
                                     </small>
                                     <small class="text-muted">
-                                       ( @Model.Tbl_CargoDocente.Nombre_CargoDocente )
+                                        ( @Model.Tbl_CargoDocente.Nombre_CargoDocente )
                                     </small>
                                     <div class="staff-id">@Model.DNI_Docente</div>
-                                    <div class="staff-id">Correo : <a href="#">@Model.Correo_Docente</a></div>
-                                    <div class="staff-id">Celular : <a href="#">@Model.TelefonoCelular_Docente</a></div>
+                                    <div class="staff-id">Correo : <a href="#"><div id ="email">@Model.Correo_Docente</div></a></div>
+                                    <div class="staff-id">Celular : <a id ="cel" href="#">@Model.TelefonoCelular_Docente</a></div>
                                     <div class="staff-id">Tel. Fijo : <a href="#">@Model.TelefonoFijo_Docente</a></div>
                                     <div class="staff-msg"><a href="#" class="btn btn-primary">Escribir Mensaje</a></div>
                                 </div>
                             </div>
                             <div class="col-md-7">
+
                                 <ul class="personal-info">
                                     <li>
                                         <span class="title">Sexo:</span>
-                                        @if (Model.Sexo_Docente == true )
+                                        @if (Model.Sexo_Docente == true)
                                         {
-                                        <span class="text">Masculino</span>
+                                            <span class="text">Masculino</span>
                                         }
                                         else
                                         {
-                                        <span class="text">Femenino</span>
+                                            <span class="text">Femenino</span>
                                         }
 
                                     </li>
@@ -89,76 +93,158 @@
             </div>
         </div>
     </div>
-    <div class="profile-tabs">
-        <ul class="nav nav-tabs nav-tabs-bottom">
-            <li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">Carga Academica 2019-I</a></li>
-            <li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab">Informe de Prueba de Entrada</a></li>
-            <li class="nav-item"><a class="nav-link" href="#bottom-tab3" data-toggle="tab">Informe Portafolio</a></li>
-            <li class="nav-item"><a class="nav-link" href="#bottom-tab4" data-toggle="tab">Informe Final</a></li>
-        </ul>
-        <div class="tab-content">
-            <div class="tab-pane show active" id="about-cont">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card-box">
-                            
-                           
-                           
-                        @{Html.RenderAction("VistaCursosTabla", "Docente", new ViewDataDictionary(new { id = Model.Codigo_Docente})); }
-                           
+</div>
+<input type="button" onclick="DescargarPDF()" value="Decargar Reporte" />
+<div class="profile-tabs">
+    <ul class="nav nav-tabs nav-tabs-bottom">
+        <li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">Carga Academica 2019-I</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab">Informe de Prueba de Entrada</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab3" data-toggle="tab">Informe Portafolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab4" data-toggle="tab">Informe Final</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane show active" id="about-cont">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+
+
+
+                        @{Html.RenderAction("VistaCursosTabla", "Docente", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane" id="bottom-tab2">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+                        <!--Informe Prueba de Entrada-->
+                        <div class="table-responsive">
+                            @{Html.RenderAction("VistaPruebaEntrada", "Docente", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane" id="bottom-tab3">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+                        <!--Informe de portafolio por Unidad-->
+                        <div class="table-responsive">
+                            @{Html.RenderAction("VistaPortafolioU", "Docente", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
 
                         </div>
 
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="tab-pane" id="bottom-tab2">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card-box">
-                            <!--Informe Prueba de Entrada-->
-                            <div class="table-responsive">
-                                @{Html.RenderAction("VistaPruebaEntrada", "Docente", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
-                                
-                            </div>
-
+        <div class="tab-pane" id="bottom-tab4">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+                        <!--Informe de Informe Final-->
+                        <div class="table-responsive">
+                            @{Html.RenderAction("VistaInformeFinal", "Docente", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
                         </div>
 
                     </div>
-                </div>                
-            </div>
-
-            <div class="tab-pane" id="bottom-tab3">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card-box">
-                            <!--Informe de portafolio por Unidad-->
-                            <div class="table-responsive">
-                                @{Html.RenderAction("VistaPortafolioU", "Docente", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
-                               
-                            </div>
-
-                        </div>
-                    </div>
-                </div>                
-            </div>
-
-            <div class="tab-pane" id="bottom-tab4">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card-box">
-                            <!--Informe de Informe Final-->
-                            <div class="table-responsive">
-                                @{Html.RenderAction("VistaInformeFinal", "Docente", new ViewDataDictionary(new { id = Model.Codigo_Docente })); }
-                            </div>
-
-                        </div>
-                    </div>
-                </div>                
+                </div>
             </div>
         </div>
     </div>
+</div>
+
+<script>
+    //funcion para capturar datos
+    function capturar(table) {
+        var docente;
+        var email;
+        var celular;
+    }
+    function DescargarPDF() {
+        var pdf = new jsPDF('p', 'pt', 'letter');
+        pdf.setFontSize(12);
+        var specialElementhandlers = {
+            '#hidediv': function (element, render) { return true; }
+        };
+
+        var options = {
+            pagesplit: true
+        };
+        
+        //tablas
+        var logo = new Image();
+        var datos = new Image();
+        var conocimentos = new Image();
+        
+        //contenido
+        var contenido = '';
+      
+        var docente=document.getElementById("nombre").innerHTML;
+        var email=document.getElementById("email").innerHTML;
+        var cel=document.getElementById("cel").innerHTML;
+
+        logo.src = 'https://i.ibb.co/0fRPQg9/LOGO.png';
+        datos.src = '/assets/reportes/inf1_tab1.png';
+        conocimentos.src = '/assets/reportes/inf1_tab2.png';
+        pdf.addImage(logo, 'PNG', 20, 20, 220, 60);
+        pdf.addImage(datos, 'PNG', 20, 120, 550, 170);
+        pdf.addImage(conocimentos, 'PNG', 20, 300, 550, 220);
+        pdf.text(175, 100, 'INFORME DE PRUEBA DE ENTRADA', null);
+        //pdf.text(20, 550, 'Medidas correctivas que ha tomado en los casos de grado "Deficiente". marque con una X las acciones realizadas', null);
+        var splitTitle = pdf.splitTextToSize('Medidas correctivas que ha tomado en los casos de grado "Deficiente". marque con una X las acciones realizadas', 520);
+        pdf.text(30, 550, splitTitle);
+        pdf.text(40, 600, '1. Repaso en horas de clase', null);
+        pdf.rect(400, 585, 40, 15);
+        pdf.text(40, 630, '2. Repaso con horas adicionales en clase', null);
+        pdf.rect(400, 615, 40, 15);
+        pdf.text(40, 660, '3. Ejercicios propuestos para resolver en casa', null);
+        pdf.rect(400, 645, 40, 15);
+        pdf.text(40, 690, '4. Entrega de Material de respaldo', null);
+        pdf.rect(400, 675, 40, 15);
+        pdf.text(40, 720, '5. Recomendacion de bibliografia', null);
+        pdf.rect(400, 705, 40, 15);
+        pdf.text(40, 750, '6. Otros (Detalle en la descripción)', null);
+        pdf.rect(400, 735, 40, 15);
+        pdf.text(150, 255, docente);
+        pdf.text(150, 280, email);
+        pdf.text(500, 280, cel);
+        pdf.addPage();
+        pdf.text(30, 50, 'Describa otra medidas correctivas y/o recomendaciones', null);
+        pdf.rect(30, 70, 500, 200);
+        pdf.text(30, 300, 'Fecha:', null);
+        pdf.line(230, 400, 400, 400);
+        
+        //html = $('#' + ContenidoID).html();
+        margins = { top: 100, bottom: 20, left: 20, width: 522 };
+        //pdf.fromHTML(html,margins.left, margins.top, { 'width': margins.width }, function (dispose) { pdf.save(nombre + '.pdf'); }, margins);
+        pdf.save(pdf.pdf);
+    }
+//function genPDF() {
+//    var doc = new jsPDF();
+//    var specialElementhandlers = {
+//        '#hidediv': function (element, render) { return true; }
+//    };
+//    doc.fromHTML($('#test').get(0), 20, 20, {
+//        'width': 500, 'elementHandlers': specialElementhandlers
+//    });
+//    doc.save('reporte.pdf');
+//}
+
+
+</script>
 
 
 
